@@ -1,0 +1,25 @@
+akpmohan@Mohankumars-MacBook-Air address_space % gcc -E address_layout.c -o address_layout.i
+akpmohan@Mohankumars-MacBook-Air address_space % 
+akpmohan@Mohankumars-MacBook-Air address_space % 
+akpmohan@Mohankumars-MacBook-Air address_space % ls -l address_layout.i
+-rw-r--r--  1 akpmohan  staff  71944 17 Oct 20:49 address_layout.i
+akpmohan@Mohankumars-MacBook-Air address_space % ls
+a.out			address_layout.c	address_layout.i	memlayout		memlayout.c		memlayout.dSYM
+akpmohan@Mohankumars-MacBook-Air address_space % gcc -S address_layout.i -o address_layout.s
+
+akpmohan@Mohankumars-MacBook-Air address_space % 
+akpmohan@Mohankumars-MacBook-Air address_space % 
+akpmohan@Mohankumars-MacBook-Air address_space % gcc -c address_layout.s -o address_layout.o
+
+akpmohan@Mohankumars-MacBook-Air address_space % gcc address_layout.o -o address_layout
+
+akpmohan@Mohankumars-MacBook-Air address_space % 
+akpmohan@Mohankumars-MacBook-Air address_space % 
+akpmohan@Mohankumars-MacBook-Air address_space % gcc address_layout.o -o address_layout
+akpmohan@Mohankumars-MacBook-Air address_space % ./address_layout 
+Code (main):    0x100573e44
+Data:           0x100578000
+BSS:            0x100578004
+Heap:           0x600003234030
+Stack:          0x16f88f198
+akpmohan@Mohankumars-MacBook-Air address_space % 
