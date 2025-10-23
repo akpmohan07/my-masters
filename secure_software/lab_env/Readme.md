@@ -1,4 +1,4 @@
-# 🧠 Secure Programming Debian 32-bit Linux Lab (Docker Setup)
+# 🧠 Lightweight Debian 32-bit Linux Lab (Docker Setup)
 
 Note: This is setup is tested for MacOs.
 
