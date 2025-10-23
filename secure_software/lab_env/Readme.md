@@ -82,7 +82,6 @@ gdb  ./stack
 ## 🧩 Notes
 
 * Files in `/work` are saved on your host system.
-* On macOS, you can’t change ASLR with `sysctl` — use `-fno-pie -no-pie` for fixed addresses.
-* Exit the lab with `exit` or `Ctrl+D`.
+* All file changes inside the mounted `work` folder will be saved to the host OS.
 ---
 **A lightweight command-line Linux image for Secure Programming (CSC1135).**
