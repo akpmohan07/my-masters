@@ -84,6 +84,5 @@ gdb  ./stack
 * Files in `/work` are saved on your host system.
 * All file changes inside the mounted `work` folder will be saved to the host OS.
 ---
-**A lightweight command-line Linux image for Secure Programming (CSC1135).**
 
 --Created with the help of AI--
