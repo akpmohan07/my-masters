@@ -1,8 +1,3 @@
-Got it 👍 — here’s a **simple and clean README** written exactly the way you want:
-✅ explains the real problem,
-✅ describes it as a **lightweight command-line Linux image**,
-✅ gives only the essential commands to install and run it.
-
 ---
 
 ```markdown
@@ -43,12 +38,13 @@ This creates a lightweight command-line Linux environment with:
 From your project folder:
 
 ```bash
-docker run --rm -it \
+docker run --rm -it --privileged \
   --platform linux/386 \
   -v "$PWD":/work -w /work \
   debian-x86-32-lab bash
 ```
 
+ --privileged  - Will disable ASLR.
 ✅ You’ll enter a 32-bit Debian shell ready to compile and debug C programs.
 
 ---
@@ -84,6 +80,4 @@ gdb ./stack
 ```
 
 ---
-
-Would you like me to make a one-line **auto-run script** (`run_lab.sh`) so your friends can start this container instantly without typing the full docker command?
 ```

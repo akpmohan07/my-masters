@@ -1,0 +1,16 @@
+
+1. Emulate
+2. Linux
+3. Expert Mode
+4. Architecture : i386 X86
+5. Standard PC (1440FX + PIIX, 1996) (alias of pc-i440fx-10.0) (pc)
+6. Memory 1536
+7. Disble QEMU Tweaks
+
+
+Download fedora.vdi
+Install UTM Software
+qemu-img convert -f vdi -O qcow2 fedora.vdi fedora.qcow2
+
+For 
+sudo systemctl status qemu-guest-agent

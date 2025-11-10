@@ -1,0 +1,53 @@
+(gdb) disass foo
+Dump of assembler code for function foo:
+   0x08048412 <foo+0>:	push   %ebp
+   0x08048413 <foo+1>:	mov    %esp,%ebp
+   0x08048415 <foo+3>:	mov    0x8(%ebp),%edx
+   0x08048418 <foo+6>:	mov    %edx,%eax
+   0x0804841a <foo+8>:	shl    $0x2,%eax
+   0x0804841d <foo+11>:	add    %edx,%eax
+   0x0804841f <foo+13>:	pop    %ebp
+   0x08048420 <foo+14>:	ret    
+End of assembler dump.
+
+int foo(int a) {
+   edx = a;
+   eax = a;
+   a = a << 2 -> a * 4;
+   eax = eax + edx; -> a = 4a + a = 5a;
+   return (5 * a);
+}
+
+(gdb) disass bar
+Dump of assembler code for function bar:
+   0x08048421 <bar+0>:	push   %ebp
+   0x08048422 <bar+1>:	mov    %esp,%ebp
+   0x08048424 <bar+3>:	sub    $0x18,%esp
+   0x08048427 <bar+6>:	cmpl   $0x0,0x8(%ebp)
+   0x0804842b <bar+10>:	jg     0x8048434 <bar+19>
+   0x0804842d <bar+12>:	mov    $0x1,%eax
+   0x08048432 <bar+17>:	jmp    0x8048446 <bar+37>
+   0x08048434 <bar+19>:	mov    0x8(%ebp),%eax
+   0x08048437 <bar+22>:	sub    $0x1,%eax
+   0x0804843a <bar+25>:	mov    %eax,(%esp)
+   0x0804843d <bar+28>:	call   0x8048421 <bar>
+   0x08048442 <bar+33>:	imul   0x8(%ebp),%eax
+   0x08048446 <bar+37>:	leave  
+   0x08048447 <bar+38>:	ret    
+End of assembler dump.
+
+bar (int a) {
+   var 24;
+   while (a > 0){
+      --a;
+      a = bar(a);
+      a = a * 
+
+   
+      eax = a;
+      --eax;
+      eax = bar(eax)
+      return a *a;
+   }
+
+}

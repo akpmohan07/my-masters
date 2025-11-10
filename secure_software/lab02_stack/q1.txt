@@ -1,0 +1,69 @@
+• .text section start and end - 	0x08048450 - 0x08048792 is .text
+
+• heap base address (approximately) - 
+	0x0805a080 - 0x0806a0a0 is .bss
+	0x805b000  0x806b000    0x10000        0x0 [heap]
+
+• ptr (where ptr points to)
+(gdb) print &ptr
+$7 = (char **) 0xbffff51c
+
+
+• &ptr (where ptr lives)
+(gdb) print &ptr
+$18 = (char **) 0xbffff51c
+- Stack // As it is a argument
+
+• argc (where argc lives)
+- stack // As it is a argument
+
+• argv (where argv lives)
+- stack // As it is a argument
+
+• argv[0] (where argv points to)
+- stack // As it is a argument
+
+• program entry point
+- main 
+
+• .rodata section start and end
+-	0x080487a8 - 0x080487e6 is .rodata
+
+• I am a C program (where the string lives)
+- .rodata // As it is a string literal
+
+• big_array (where big_array lives)
+- .bss // As decalred and not initialised
+
+• .data section start and end
+ - 0x0804a040 - 0x0805a064 is .data 
+
+
+• stack start address (approximately)
+- 0xbffdf000 0xc0000000    0x21000        0x0 [stack]
+
+• buffer (where buffer lives)
+- data // As decalred and initialised
+
+• malloc (where malloc is defined)
+- stdlib.h
+
+• strcpy (where strcpy is defined)
+- string.h
+
+• main (where main is defined)
+- .text
+
+1
+
+• sumup (where sumup is defined)
+ - .text
+
+• .bss section start and end
+	0x0805a080 - 0x0806a0a0 is .bss
+
+
+• swap (where swap is defined)
+ - .text
+• local (where local lives)
+- stack

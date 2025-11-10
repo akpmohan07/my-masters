@@ -1,0 +1,54 @@
+student@ca647:~/lab2> gdb program
+GNU gdb 6.6.50.20070726-cvs
+Copyright (C) 2007 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "i586-suse-linux"...
+Using host libthread_db library "/lib/libthread_db.so.1".
+(gdb) break swap
+Breakpoint 1 at 0x804856d: file program.c, line 39.
+(gdb) run
+Starting program: /home/student/lab2/program
+a: 5, b:15
+
+Breakpoint 1, swap (x=0xbfffef24, y=0xbfffef20) at program.c:39
+39        unsigned int *p = (unsigned int*)&t;
+(gdb) info frame
+Stack level 0, frame at 0xbfffef14:
+ eip = 0x804856d in swap (program.c:39); saved eip 0x8048695
+ called by frame at 0xbfffefb0
+ source language c.
+ Arglist at 0xbfffef0c, args: x=0xbfffef24, y=0xbfffef20
+ Locals at 0xbfffef0c, Previous frame's sp is 0xbfffef14
+ Saved registers:
+  ebp at 0xbfffef0c, eip at 0xbfffef10
+(gdb) p &t
+$1 = (int *) 0xbfffef08
+(gdb) p/d 0xbfffef10 - 0xbfffef08
+$2 = 8
+
+* We now know there are 8 bytes between t and the return address *
+* so we update the swap function as shown below                  *
+
+/* The swap function */
+static void
+swap(int *x, int *y)
+{
+  int t;
+  unsigned int *p = (unsigned int*)&t;
+
+  t = *x;
+  *x = *y;
+  *y = t;
+
+  /* Make p point to saved frame pointer */
+  p++;
+
+  /* Make p point to saved return address */
+  p++;
+
+  /* Overwrite return address with address of foo */
+  *p = (unsigned int)foo;
+}

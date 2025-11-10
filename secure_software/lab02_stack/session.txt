@@ -1,0 +1,151 @@
+dobrien@linux:~/ca647/labs/lab01> gcc -g -o program program.c
+dobrien@linux:~/ca647/labs/lab01> gdb program
+GNU gdb 6.1
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "i586-suse-linux"...Using host libthread_db library "/lib/tls/libthread_db.so.1".
+
+(gdb) info file
+Symbols from "/home/dobrien/ca647/labs/lab01/program".
+Local exec file:
+        `/home/dobrien/ca647/labs/lab01/program', file type elf32-i386.
+        Entry point: 0x8048140
+        0x0804810c - 0x08048123 is .init
+        0x08048140 - 0x08092a01 is .text
+        0x08092a10 - 0x08092f6c is __libc_freeres_fn
+        0x08092f6c - 0x08092f86 is .fini
+        0x08092fa0 - 0x080a6380 is .rodata
+        0x080a6380 - 0x080a6384 is __libc_atexit
+        0x080a6384 - 0x080a63b0 is __libc_subfreeres
+        0x080a73c0 - 0x082a7fdc is .data
+        0x082a7fdc - 0x082a8f04 is .eh_frame
+        0x082a8f04 - 0x082a8f0c is .ctors
+        0x082a8f0c - 0x082a8f14 is .dtors
+        0x082a8f14 - 0x082a8f18 is .jcr
+        0x082a8f18 - 0x082a8f28 is .got
+        0x082a8f40 - 0x084a9be0 is .bss
+        0x084a9be0 - 0x084a9bf4 is __libc_freeres_ptrs
+        0x080480d4 - 0x080480f4 is .note.ABI-tag
+        0x080480f4 - 0x0804810c is .note.SuSE
+(gdb) info symbol main
+main in section .text
+(gdb) info addr main
+Symbol "main" is a function at address 0x80482b0.
+(gdb) info symbol &z
+z in section .data
+(gdb) print &z
+$1 = (int *) 0x82a73e0
+(gdb) print z
+$2 = 101
+(gdb) info addr z
+Symbol "z" is static storage at address 0x82a73e0.
+(gdb) break main
+Breakpoint 1 at 0x80482b9: file program.c, line 72.
+(gdb) run
+Starting program: /home/dobrien/ca647/labs/lab01/program
+
+Breakpoint 1, main (argc=1, argv=0xbfffe754) at program.c:72
+72              if (argc != 1) {
+(gdb) info frame
+Stack level 0, frame at 0xbfffe520:
+ eip = 0x80482b9 in main (program.c:72); saved eip 0x8048540
+ source language c.
+ Arglist at 0xbfffe518, args: argc=1, argv=0xbfffe754
+ Locals at 0xbfffe518, Previous frame's sp is 0xbfffe520
+ Saved registers:
+  ebp at 0xbfffe518, eip at 0xbfffe51c
+(gdb) print &local
+$3 = (char (*)[128]) 0xbfffe498
+(gdb) info reg
+eax            0x1      1
+ecx            0xbfffe754       -1073748140
+edx            0x0      0
+ebx            0x0      0
+esp            0xbfffe48c       0xbfffe48c
+ebp            0xbfffe518       0xbfffe518
+esi            0x80486d0        134514384
+edi            0x3      3
+eip            0x80482b9        0x80482b9
+eflags         0x200292 2097810
+cs             0x73     115
+ss             0x7b     123
+ds             0x7b     123
+es             0x7b     123
+fs             0x0      0
+gs             0x0      0
+(gdb) step
+78              (void) strcpy(local, "I am a C program");
+(gdb) step
+strcpy () at ../sysdeps/i386/i586/strcpy.S:41
+41      ../sysdeps/i386/i586/strcpy.S: No such file or directory.
+        in ../sysdeps/i386/i586/strcpy.S
+Current language:  auto; currently asm
+(gdb) finish
+Run till exit from #0  strcpy () at ../sysdeps/i386/i586/strcpy.S:41
+0x080482ec in main (argc=1, argv=0xbfffe754) at program.c:78
+78              (void) strcpy(local, "I am a C program");
+Current language:  auto; currently c
+(gdb) x/s local
+0xbfffe498:      "I am a C program"
+(gdb) disass main
+Dump of assembler code for function main:
+0x080482b0 <main+0>:    push   %ebp
+0x080482b1 <main+1>:    mov    %esp,%ebp
+0x080482b3 <main+3>:    sub    $0x8c,%esp
+0x080482b9 <main+9>:    cmpl   $0x1,0x8(%ebp)
+0x080482bd <main+13>:   je     0x80482de <main+46>
+0x080482bf <main+15>:   mov    0xc(%ebp),%eax
+0x080482c2 <main+18>:   pushl  (%eax)
+0x080482c4 <main+20>:   push   $0x8092fba
+0x080482c9 <main+25>:   pushl  0x82a7894
+0x080482cf <main+31>:   call   0x8048980 <fprintf>
+0x080482d4 <main+36>:   add    $0xc,%esp
+0x080482d7 <main+39>:   push   $0x1
+0x080482d9 <main+41>:   call   0x80487a0 <exit>
+0x080482de <main+46>:   push   $0x8092fc5
+0x080482e3 <main+51>:   lea    0xffffff80(%ebp),%eax
+0x080482e6 <main+54>:   push   %eax
+0x080482e7 <main+55>:   call   0x8052180 <strcpy>
+0x080482ec <main+60>:   add    $0x8,%esp
+0x080482ef <main+63>:   push   $0x200000
+0x080482f4 <main+68>:   call   0x80511e0 <__libc_malloc>
+0x080482f9 <main+73>:   add    $0x4,%esp
+0x080482fc <main+76>:   mov    %eax,0xffffff74(%ebp)
+0x08048302 <main+82>:   cmpl   $0x0,0xffffff74(%ebp)
+0x08048309 <main+89>:   jne    0x804831c <main+108>
+0x0804830b <main+91>:   push   $0x0
+0x0804830d <main+93>:   call   0x8048a90 <perror>
+0x08048312 <main+98>:   add    $0x4,%esp
+0x08048315 <main+101>:  push   $0x1
+0x08048317 <main+103>:  call   0x80487a0 <exit>
+0x0804831c <main+108>:  push   $0x8092fd6
+0x08048321 <main+113>:  pushl  0xffffff74(%ebp)
+0x08048327 <main+119>:  call   0x8052180 <strcpy>
+0x0804832c <main+124>:  add    $0x8,%esp
+0x0804832f <main+127>:  pushl  0xffffff74(%ebp)
+0x08048335 <main+133>:  call   0x804f550 <__libc_free>
+0x0804833a <main+138>:  add    $0x4,%esp
+0x0804833d <main+141>:  movl   $0x5,0xffffff7c(%ebp)
+0x08048347 <main+151>:  pushl  0xffffff7c(%ebp)
+0x0804834d <main+157>:  call   0x8048244 <sumup>
+0x08048352 <main+162>:  add    $0x4,%esp
+0x08048355 <main+165>:  mov    %eax,0xffffff78(%ebp)
+0x0804835b <main+171>:  lea    0xffffff78(%ebp),%eax
+0x08048361 <main+177>:  push   %eax
+0x08048362 <main+178>:  lea    0xffffff7c(%ebp),%eax
+0x08048368 <main+184>:  push   %eax
+0x08048369 <main+185>:  call   0x8048277 <swap>
+0x0804836e <main+190>:  add    $0x8,%esp
+---Type <return> to continue, or q <return> to quit---
+0x08048371 <main+193>:  mov    $0x0,%eax
+0x08048376 <main+198>:  leave
+0x08048377 <main+199>:  ret
+End of assembler dump.
+(gdb) quit
+The program is running.  Exit anyway? (y or n) y
+dobrien@linux:~/ca647/labs/lab01> emacs session.txt &
+[1] 4333
+dobrien@linux:~/ca647/labs/lab01>

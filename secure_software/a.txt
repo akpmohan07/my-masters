@@ -1,0 +1,18 @@
+http://www.chatzy.com/goto.cgi?25597278518248,mohanfwtest@gmail.com,NKTHXdNesWtX
+
+sudo mkdir -p /mnt/host
+sudo mount -t 9p -o trans=virtio,version=9p2000.L,cache=none,msize=262144,access=client,security_model=none,uid=1000,gid=1000,rw,exec hostshare /mnt/host
+
+
+qemu-system-i386 \
+  -m 1536 \
+  -hda "/Users/akpmohan/Workspace/my-masters/secure_software/lab_env/fedora.qcow2" \
+  -boot c \
+  -vga std \
+  -usb -device usb-tablet \
+  -k en-us \
+  -virtfs local,path=$PWD,mount_tag=hostshare,security_model=none,id=hostshare
+
+/usr/sbin/sysctl kernel.randomize_va_space
+
+gcc -g -mpreferred-stack-boundary=2 -march=i386 -o
