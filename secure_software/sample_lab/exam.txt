@@ -1,0 +1,188 @@
+===============================================================================
+
+****************       CSC1135 SAMPLE LAB EXAM (2025-26)       ****************
+
+===============================================================================
+
+UPLOAD SOLUTIONS TO:
+
+https://lockbox.computing.dcu.ie/?key=csc1135-2526-lx-sample
+
+Files to upload:
+
+- exam.txt (this file)
+
+===============================================================================
+
+Enter your name here: *
+Enter your student number here: *
+
+===============================================================================
+
+A. The process address space and the stack [40 marks]
+
+===============================================================================
+
+q1 is a 32-bit debug executable built from q1.c.
+
+Use gdb to produce answers to the questions below.
+
+-------------------------------------------------------------------------------
+
+1a. [8 marks]
+
+When hanoi is called from check what return address is placed on the stack?
+
+* Answer:
+
+At what address on the stack is that return address stored?
+
+* Answer:
+
+-------------------------------------------------------------------------------
+
+1b. [8 marks]
+
+Assuming the program is invoked with the argument "8", how many frames are on
+the stack when Point X is reached? List the frames and their arguments.
+
+* Answer:
+
+-------------------------------------------------------------------------------
+
+1c. [8 marks]
+
+Assuming the program is invoked with the argument "8", how many bytes lie
+between main's frame base pointer and hanoi's frame base pointer when Point
+X is reached?
+
+* Answer:
+
+-------------------------------------------------------------------------------
+
+1d. [8 marks]
+
+Consider the arithmetic on line 17. How is it implemented in assembly?
+
+* Answer:
+
+-------------------------------------------------------------------------------
+
+1e. [8 marks]
+
+Provide a string that encodes the following assembly instructions:
+
+push ebp
+mov ebp,esp
+
+* Answer:
+
+===============================================================================
+
+B. Exploits [60 marks]
+
+In solving the problems below you will need to use Perl to pass arbitrary
+strings to an executable. You can do so as follows:
+
+$ perl -e 'system "./program", "argument1", "argument2"'
+
+-------------------------------------------------------------------------------
+
+2. [15 marks]
+
+q2 is a 32-bit debug executable built from q2.c.
+
+Locate and describe the security vulnerability in the program [3 marks].
+
+* Answer (max 3 lines):
+
+Provide replacement code that fixes the problem [4 marks].
+
+* Answer (max 3 lines):
+
+Write down a call to the program that causes the magic string to be displayed
+[8 marks].
+
+* Answer:
+
+-------------------------------------------------------------------------------
+
+3. [15 marks]
+
+q3 is a 32-bit debug executable built from q3.c.
+
+Locate and describe the security vulnerability in the program [3 marks].
+
+* Answer (max 3 lines):
+
+Provide replacement code that fixes the problem [4 marks].
+
+* Answer (max 3 lines):
+
+Write down a call to the program that causes the foo function to execute
+[8 marks].
+
+* Answer:
+
+-------------------------------------------------------------------------------
+
+4. [15 marks]
+
+q4 is a 32-bit debug executable built from q4.c.
+
+Locate and describe the security vulnerability in this code [3 marks].
+
+* Answer (max 3 lines):
+
+Provide replacement code that fixes the problem [4 marks].
+
+* Answer (max 3 lines):
+
+Write down a call to the program that causes a rating of 999 to be displayed
+[8 marks].
+
+* Answer:
+
+-------------------------------------------------------------------------------
+
+5. [15 marks]
+
+safe is a 32-bit debug executable built from q5.c with stack protection.
+
+unsafe is a 32-bit debug executable built from q5.c without stack protection.
+
+Provide a listing of foo's stack frame layout for each executable [5 marks].
+
+* Answer:
+
+Briefly describe the security benefits of any differences in frame layout
+[5 marks].
+
+* Answer:
+
+What canary value is placed on the stack? Why is this value effective at
+preventing attacks [5 marks]?
+
+* Answer:
+
+===============================================================================
+
+UPLOAD SOLUTIONS TO:
+
+https://lockbox.computing.dcu.ie/?key=csc1135-2526-lx-sample
+
+Files to upload:
+
+- exam.txt (this file)
+
+===============================================================================
+
+
+set arguments
+break 
+info frame
+x/a <address>
+clear
+info stack
+info reg ebp
+p/d <address> - <address>
