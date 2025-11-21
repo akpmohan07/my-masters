@@ -33,12 +33,11 @@ Use gdb to produce answers to the questions below.
 
 When hanoi is called from check what return address is placed on the stack?
 
-* Answer: 
+* Answer:
 
 At what address on the stack is that return address stored?
 
 * Answer:
-
 
 -------------------------------------------------------------------------------
 
@@ -177,13 +176,3 @@ Files to upload:
 - exam.txt (this file)
 
 ===============================================================================
-
-
-set arguments
-break 
-info frame
-x/a <address>
-clear
-info stack
-info reg ebp
-p/d <address> - <address>

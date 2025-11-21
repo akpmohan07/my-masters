@@ -14,7 +14,7 @@ hanoi(int n) {
     return (1);
   }
 
-  return (hanoi(n - 1) *  1000 + 1);
+  return (hanoi(n - 1) * 2 + 1);
 }
 
 int
