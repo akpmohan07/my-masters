@@ -33,12 +33,24 @@ Use gdb to produce answers to the questions below.
 
 When hanoi is called from check what return address is placed on the stack?
 
-* Answer:
+* Answer: saved eip = 0x8048390
 
 At what address on the stack is that return address stored?
 
-* Answer:
+* Answer:  eip at 0xffffd2fc
 
+(gdb) break hanoi
+(gdb) run 8
+(gdb) info frame
+Stack level 0, frame at 0xffffd300:
+ eip = 0x8048359 in hanoi (q1.c:12); saved eip = 0x8048390
+ called by frame at 0xffffd30c
+ source language c.
+ Arglist at 0xffffd2f8, args: n=8
+ Locals at 0xffffd2f8, Previous frame's sp is 0xffffd300
+ Saved registers:
+  ebp at 0xffffd2f8, eip at 0xffffd2fc
+ 
 -------------------------------------------------------------------------------
 
 1b. [8 marks]
@@ -46,8 +58,22 @@ At what address on the stack is that return address stored?
 Assuming the program is invoked with the argument "8", how many frames are on
 the stack when Point X is reached? List the frames and their arguments.
 
-* Answer:
+* Answer: 10
 
+(gdb) break 13
+(gdb) run 8
+(gdb) info stack
+#0  hanoi (n=1) at q1.c:14
+#1  0x08048370 in hanoi (n=2) at q1.c:17
+#2  0x08048370 in hanoi (n=3) at q1.c:17
+#3  0x08048370 in hanoi (n=4) at q1.c:17
+#4  0x08048370 in hanoi (n=5) at q1.c:17
+#5  0x08048370 in hanoi (n=6) at q1.c:17
+#6  0x08048370 in hanoi (n=7) at q1.c:17
+#7  0x08048370 in hanoi (n=8) at q1.c:17
+#8  0x08048390 in check (n=8) at q1.c:26
+#9  0x080483ec in main (argc=2, argv=0xffffd3d4) at q1.c:45
+(gdb)
 -------------------------------------------------------------------------------
 
 1c. [8 marks]
@@ -56,8 +82,20 @@ Assuming the program is invoked with the argument "8", how many bytes lie
 between main's frame base pointer and hanoi's frame base pointer when Point
 X is reached?
 
-* Answer:
+* Answer: 45
 
+(gdb) break main
+(gdb) break 13
+(gdb) run 8
+(gdb) info reg ebp
+ebp            0xffffd318          0xffffd318
+(gdb) c
+(gdb) info reg ebp
+ebp            0xffffd264          0xffffd264
+(gdb) p/d 0xffffd264-0xffffd318
+$1 = -180
+
+180/4 = 45
 -------------------------------------------------------------------------------
 
 1d. [8 marks]
@@ -65,7 +103,33 @@ X is reached?
 Consider the arithmetic on line 17. How is it implemented in assembly?
 
 * Answer:
+   0x08048366 <+16>:	mov    0x8(%ebp),%eax
+   0x08048369 <+19>:	dec    %eax
+   0x0804836a <+20>:	push   %eax
+   0x0804836b <+21>:	call   0x8048356 <hanoi>
+   0x08048370 <+26>:	add    $0x4,%esp
+   0x08048373 <+29>:	add    %eax,%eax
+   0x08048375 <+31>:	inc    %eax
 
+
+(gdb) disass hanoi
+Dump of assembler code for function hanoi:
+   0x08048356 <+0>:	push   %ebp
+   0x08048357 <+1>:	mov    %esp,%ebp
+   0x08048359 <+3>:	cmpl   $0x1,0x8(%ebp)
+   0x0804835d <+7>:	jne    0x8048366 <hanoi+16>
+   0x0804835f <+9>:	mov    $0x1,%eax
+   0x08048364 <+14>:	jmp    0x8048376 <hanoi+32>
+   0x08048366 <+16>:	mov    0x8(%ebp),%eax
+   0x08048369 <+19>:	dec    %eax
+   0x0804836a <+20>:	push   %eax
+   0x0804836b <+21>:	call   0x8048356 <hanoi>
+   0x08048370 <+26>:	add    $0x4,%esp
+   0x08048373 <+29>:	add    %eax,%eax
+   0x08048375 <+31>:	inc    %eax
+   0x08048376 <+32>:	leave
+   0x08048377 <+33>:	ret
+End of assembler dump.
 -------------------------------------------------------------------------------
 
 1e. [8 marks]
@@ -75,8 +139,10 @@ Provide a string that encodes the following assembly instructions:
 push ebp
 mov ebp,esp
 
-* Answer:
+* Answer:  0x55	0x89	0xe5
 
+(gdb) x/3bx hanoi
+0x8048356 <hanoi>:	0x55	0x89	0xe5
 ===============================================================================
 
 B. Exploits [60 marks]
@@ -95,8 +161,22 @@ q2 is a 32-bit debug executable built from q2.c.
 Locate and describe the security vulnerability in the program [3 marks].
 
 * Answer (max 3 lines):
-
+Lin 23:   strcat(buffer, argv[1]);
+Input size is not bounded, it will lead to the bufferflow.
 Provide replacement code that fixes the problem [4 marks].
+
+----
+<The call to strcat(buffer, argv[1]) does not check the size of argv[1], 
+so an input longer than 40 bytes will overflow buffer. This allows overwriting adjacent memory. 
+The program is vulnerable to a classic stack-based buffer overflow.
+>
+----
+
+Fix 1: Use strncat with proper bounds checking, e.g.:
+strncat(buffer, argv[1], sizeof(buffer) - strlen(buffer) - 1);
+
+Fix 2:  Using snprintf
+snprintf(buffer, sizeof (buffer), "%s%s", "Hello ",  argv[1]); 
 
 * Answer (max 3 lines):
 
