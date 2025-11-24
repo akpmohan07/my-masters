@@ -51,7 +51,7 @@ public class FEAL4Cryptanalysis {
             loader.loadPairsFromFile(filePath);
         } catch (IOException e) {
             // Fallback to absolute path if current dir doesn't work
-            filePath = "/Users/akpmohan/Workspace/crypt/feal-4-on-crack-v2/known.txt";
+            filePath = "/Users/akpmohan/Workspace/my-masters/cryptography/assignment_cryptanalysis/FEAL4LinearAttack/known.txt";
             loader.loadPairsFromFile(filePath);
         }
         
