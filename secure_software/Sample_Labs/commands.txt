@@ -1,1 +1,17 @@
-break <function_name>
+break <function_name> <line_no>
+set args <param>
+break 
+clear
+run <Param>
+info frame
+info stack
+info reg ebp
+
+p/d <ebp>-<ebp.
+p/d 0xffffd264-0xffffd318
+
+x/<offset>bx <function_name>
+x/3bx hanoi
+
+
+list
