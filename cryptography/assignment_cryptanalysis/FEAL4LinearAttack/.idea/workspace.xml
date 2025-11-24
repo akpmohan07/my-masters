@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26c38b65-621e-441b-b789-ed63c12d517c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mohanverse/dev/feal4/FEAL4Cryptanalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mohanverse/dev/feal4/FEAL4Cryptanalysis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Gokul Reference/Crypto - Assiginment 1.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Smart Contract- Lab - Instructions_2.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../secure_software/Sample_Labs/commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../secure_software/Sample_Labs/commands.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../secure_software/Sample_Labs/sample_1/exam.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../secure_software/Sample_Labs/sample_1/exam.txt" afterDir="false" />
     </list>

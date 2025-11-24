@@ -34,7 +34,6 @@ public class KeyCandidateGenerator {
     }
     
     // Generates single outer byte candidate (20-bit index, 0-1048575)
-    // Matches old solution's logic but with different structure
     public int generateOuterByteCandidate(int index, int innerByteKey) {
         if (index < 0 || index >= 1048576) {
             throw new IllegalArgumentException("Index must be between 0 and 1048575");
@@ -43,7 +42,7 @@ public class KeyCandidateGenerator {
         int innerByte1 = (innerByteKey >>> 8) & 0xFF;
         int innerByte2 = (innerByteKey >>> 16) & 0xFF;
         
-        // Following the old solution's key generation logic
+        // Key generation logic
         int a0 = (((index & 0xF) >>> 2) << 6) + innerByte2;
         int a1 = ((index & 0x3) << 6) + innerByte1;
         int b0 = (index >>> 12) & 0xFF;

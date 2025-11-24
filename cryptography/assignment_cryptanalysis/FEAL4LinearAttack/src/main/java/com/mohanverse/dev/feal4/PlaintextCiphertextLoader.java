@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Loads plaintext/ciphertext pairs from file
-// Uses a Pair object to store each relationship (different from old solution)
 public class PlaintextCiphertextLoader {
     
     // Represents a single plaintext-ciphertext pair with left/right halves

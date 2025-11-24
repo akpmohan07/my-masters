@@ -179,7 +179,7 @@ public class KeyRecoverySolver {
         int y2 = fealOps.evaluateFFunction(fealOps.xorFour(L0, R0, y1, key2));
         int y3 = fealOps.evaluateFFunction(fealOps.xorFour(L0, y0, y2, key3));
         
-        // Derive Key4 and Key5 (matches old solution)
+        // Derive Key4 and Key5
         int key4 = fealOps.xorFour(L0, R0, y1, y3) ^ L4;
         int key5 = fealOps.xorFour(R0, y1, y3, y0) ^ y2 ^ R4;
         

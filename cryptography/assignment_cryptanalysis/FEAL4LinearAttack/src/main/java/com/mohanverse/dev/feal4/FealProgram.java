@@ -4,9 +4,6 @@ package com.mohanverse.dev.feal4;
  * The FEAL cipher
  */
 
-import java.util.Arrays;
-import java.lang.Byte;
-
 public class FealProgram {
 
     static int rounds = 4;
@@ -102,29 +99,6 @@ public class FealProgram {
             return;
         }
 
-
-        /**
-         * Reads eight hexadecimal command-line arguments and converts them into bytes,
-         * storing the results in the {@code data} array.
-         * * <p><b>Dry Run Example (args[i] = "1A"):</b></p>
-         *  * <pre>
-         *  * 1. Integer.parseInt("1A", 16)
-         *  *      → 1 × 16 + 10 = 26
-         *  *      → returns 26 (int)
-         *  *
-         *  * 2. 26 & 255
-         *  *      → 00011010 & 11111111 = 00011010
-         *  *      → still 26
-         *  *
-         *  * 3. (byte)26
-         *  *      → within byte range (-128 to 127)
-         *  *      → stored as 26
-         *  *
-         *  * 4. data[i] = 26
-         *  *      → data[i] now holds byte value 26 (binary: 00011010)
-         *  * </pre>
-         * @param args command-line arguments representing hexadecimal values
-         */
         for (int i=0;i<8;i++)
             data[i] = (byte)(Integer.parseInt(args[i],16)&255);
 

@@ -5,7 +5,6 @@ package com.mohanverse.dev.feal4;
 public class FealOperations {
     
     // Extracts bit at position (0 = MSB, 31 = LSB)
-    // Different indexing from old solution
     public int extractBitAtPosition(int value, int position) {
         if (position < 0 || position > 31) {
             throw new IllegalArgumentException("Bit position must be between 0 and 31");
