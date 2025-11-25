@@ -1,0 +1,161 @@
+===============================================================================
+
+****************       CSC1135 LAB EXAM (2025-26)       ****************
+
+===============================================================================
+
+UPLOAD SOLUTIONS TO:
+
+[LOCKBOX_URL_WILL_BE_PROVIDED_IN_EXAM]
+
+Files to upload:
+
+- exam.txt (this file)
+
+===============================================================================
+
+Enter your name here: *
+Enter your student number here: *
+
+===============================================================================
+
+A. [Section A Title] [X marks]
+
+===============================================================================
+
+[Section description/instructions]
+
+-------------------------------------------------------------------------------
+
+1a. [X marks]
+
+[Question text]
+
+* Answer: 
+
+[Optional: Include gdb commands/output here if needed]
+
+-------------------------------------------------------------------------------
+
+1b. [X marks]
+
+[Question text]
+
+* Answer: 
+
+-------------------------------------------------------------------------------
+
+1c. [X marks]
+
+[Question text]
+
+* Answer: 
+
+-------------------------------------------------------------------------------
+
+1d. [X marks]
+
+[Question text]
+
+* Answer: 
+
+-------------------------------------------------------------------------------
+
+1e. [X marks]
+
+[Question text]
+
+* Answer: 
+
+===============================================================================
+
+B. [Section B Title] [X marks]
+
+===============================================================================
+
+[Section description/instructions]
+
+-------------------------------------------------------------------------------
+
+2. [X marks]
+
+[Question description]
+
+[Sub-question 1 text] [X marks].
+
+* Answer (max 3 lines):
+
+[Sub-question 2 text] [X marks].
+
+* Answer (max 3 lines):
+
+[Sub-question 3 text] [X marks].
+
+* Answer: 
+
+-------------------------------------------------------------------------------
+
+3. [X marks]
+
+[Question description]
+
+[Sub-question 1 text] [X marks].
+
+* Answer (max 3 lines):
+
+[Sub-question 2 text] [X marks].
+
+* Answer (max 3 lines):
+
+[Sub-question 3 text] [X marks].
+
+* Answer: 
+
+-------------------------------------------------------------------------------
+
+4. [X marks]
+
+[Question description]
+
+[Sub-question 1 text] [X marks].
+
+* Answer (max 3 lines):
+
+[Sub-question 2 text] [X marks].
+
+* Answer (max 3 lines):
+
+[Sub-question 3 text] [X marks].
+
+* Answer: 
+
+-------------------------------------------------------------------------------
+
+5. [X marks]
+
+[Question description]
+
+[Sub-question 1 text] [X marks].
+
+* Answer:
+
+[Sub-question 2 text] [X marks].
+
+* Answer:
+
+[Sub-question 3 text] [X marks].
+
+* Answer:
+
+===============================================================================
+
+UPLOAD SOLUTIONS TO:
+
+[LOCKBOX_URL_WILL_BE_PROVIDED_IN_EXAM]
+
+Files to upload:
+
+- exam.txt (this file)
+
+===============================================================================
+
