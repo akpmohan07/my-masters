@@ -1,0 +1,1 @@
+ssh -i "secure-practice.pem" ubuntu@ec2-3-234-219-235.compute-1.amazonaws.com

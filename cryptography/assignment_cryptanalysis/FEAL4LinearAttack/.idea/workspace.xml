@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="26c38b65-621e-441b-b789-ed63c12d517c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../secure_software/Sample_Labs/commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../secure_software/Sample_Labs/commands.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../secure_software/Sample_Labs/sample_1/exam.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../secure_software/Sample_Labs/sample_1/exam.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="FEAL4LinearAttack" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="35IiZGHeVQJo2nRzCNkRwMt0lFu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.FEAL4LinearAttack [:FEAL.main()].executor": "Run",
+    "Gradle.FEAL4LinearAttack [:com.mohanverse.dev.FEAL.main()].executor": "Run",
+    "Gradle.FEAL4LinearAttack [:com.mohanverse.dev.Main.main()].executor": "Run",
+    "Gradle.FEAL4LinearAttack [:com.mohanverse.dev.feal4.FEAL4Cryptanalysis.main()].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/akpmohan/Workspace/my-masters/cryptography/assignment_cryptanalysis/FEAL4LinearAttack/src/main/java/com/mohanverse/dev/feal4",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/mohanverse/dev/feal4" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="FEAL4Cryptanalysis" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mohanverse.dev.feal4.FEAL4Cryptanalysis" />
+      <module name="FEAL4LinearAttack.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mohanverse.dev.feal4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26c38b65-621e-441b-b789-ed63c12d517c" name="Changes" comment="" />
+      <created>1762804817556</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762804817556</updated>
+    </task>
+    <servers />
+  </component>
+</project>
