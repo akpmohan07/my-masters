@@ -1,0 +1,50 @@
+CSC1135 lab exam rules 2025-26
+• The lab exam will take place on Tuesday 25 November 2025 in LG26.
+• The lab exam will run from 11:10-12:50 (100 minutes).
+• The lab exam is worth 15% of your overall mark.
+• Arrive 10 minutes before the scheduled start time.
+• Sit at your assigned PC. The lab exam can only be taken on a lab PC.
+• Turn off your phone and place it face-up on the computer case.
+• Place your ID card on the desk.
+• Lab machines will boot into exam mode at the lab exam start time and you
+will be automatically logged into an empty Linux exam account.
+• Open a terminal and unzip the lab exam as follows (run this command only
+once during the lab exam to avoid accidentally overwriting your work):
+$ unzip labexam.zip (enter the password supplied by invigilators)
+• Open labexam/exam.txt in an editor and attempt all exercises. Write your
+answers directly into exam.txt. Save this file regularly.
+• Once you have attempted all exercises, upload your exam.txt at the lockbox
+URL provided in exam.txt. To upload your exam.txt you will need to log in
+to lockbox with your DCU credentials.
+• In advance of the lab exam, upload your sample lab exam solution to
+lockbox to verify:
+◦ a) you understand the submission procedure, and,
+◦ b) your lockbox credentials work.
+• Submissions will be automatically collected from lockbox at the lab exam
+end time. Late submissions will be ignored.
+• The lab exam is closed-book.
+• No technical support will be provided during the lab exam. The ability to
+do the following are considered a part of the lab exam:
+◦ Run a text editor,
+◦ use gdb effectively,
+◦ save your work,
+◦ etc.
+• If you require paper, ask and some will be provided.
+• You are solely responsible for the following (which are considered part of
+the lab exam):
+◦ Entering your answers in labexam/exam.txt,
+◦ saving your work regularly,
+◦ following the submission instructions supplied in exam.txt.
+• When taking the lab exam you must adhere to DCU’s Academic Integrity
+Policy which is available here. Any breach of the policy will result in
+penalties and the application of disciplinary procedures. The following
+are examples of policy breaches:
+▪ Accessing any resources or materials other than those installed in 
+the Linux exam account,
+▪ being in possession of a powered-on electronic device (phone,
+smartwatch, etc.),
+▪ communicating with anyone apart from invigilators,
+▪ failure to sit at your assigned PC.
+• During the lab exam, should you require a bathroom break, raise your hand
+and an invigilator will accompany you.
+• A sample lab exam will be supplied in advance of the lab exam.
