@@ -21,16 +21,16 @@ Here is the note you need to see first:
 
 ### **1(a) [5 Marks]**
 
-“**Explain why padding schemes are necessary for block ciphers. Give two examples of appropriate padding schemes.**”
+“Explain why padding schemes are necessary for block ciphers. Give two examples of appropriate padding schemes.”
 
 ### **1(b) [10 Marks]**
 
-“Compare and contrast the Electronic Cook Book (ECB) and Ciphertext Block Chaining (CBC) modes of operation for block ciphers with respect to the following (use diagrams if necessary):
-• Encryption
-• Decryption
-• Error propagation
-• Detection of deleted ciphertext blocks
-• Potential for repeated ciphertext blocks.”
+Compare and contrast the Electronic Cook Book (ECB) and Ciphertext Block Chaining (CBC) modes of operation for block ciphers with respect to the following (use diagrams if necessary):
+- Encryption
+- Decryption
+- Error propagation
+- Detection of deleted ciphertext blocks
+- Potential for repeated ciphertext blocks.
 
 ### **1(c) [5 Marks]**
 
@@ -63,13 +63,13 @@ Here is the note you need to see first:
 
 ### **1(b) [10 Marks]**
 
-“Compare and contrast the Data Encryption Standard (DES) and the Advanced Encryption Standard (AES) with respect to the following (use diagrams if necessary):
-• Encryption algorithm
-• Decryption algorithm
-• Block size
-• Key size
-• Number of rounds
-• Robustness against attacks”
+Compare and contrast the Data Encryption Standard (DES) and the Advanced Encryption Standard (AES) with respect to the following (use diagrams if necessary):
+- Encryption algorithm
+- Decryption algorithm
+- Block size
+- Key size
+- Number of rounds
+- Robustness against attacks
 
 
 ### **1(c) [5 Marks]**
