@@ -25,16 +25,16 @@ Here is the note you need to see first:
 
 ### **1(b) [10 Marks]**
 
-“**Compare and contrast the Electronic Cook Book (ECB) and Ciphertext Block Chaining (CBC) modes of operation for block ciphers with respect to the following (use diagrams if necessary):
+“Compare and contrast the Electronic Cook Book (ECB) and Ciphertext Block Chaining (CBC) modes of operation for block ciphers with respect to the following (use diagrams if necessary):
 • Encryption
 • Decryption
 • Error propagation
 • Detection of deleted ciphertext blocks
-• Potential for repeated ciphertext blocks.**”
+• Potential for repeated ciphertext blocks.”
 
 ### **1(c) [5 Marks]**
 
-“**Describe what is meant by a block replay attack, and explain why using ECB mode makes a block cipher susceptible to this type of attack. Give two countermeasures which can be made against this type of attack.**”
+“Describe what is meant by a block replay attack, and explain why using ECB mode makes a block cipher susceptible to this type of attack. Give two countermeasures which can be made against this type of attack.”
 
 ---
 
@@ -42,15 +42,15 @@ Here is the note you need to see first:
 
 ### **1(a) [5 Marks]**
 
-“**What are the minimum recommended block size and key size which should be used for a block cipher? What attacks could be mounted against the block cipher if either of these sizes is less than recommended? What are the implications of this for DES?**”
+“What are the minimum recommended block size and key size which should be used for a block cipher? What attacks could be mounted against the block cipher if either of these sizes is less than recommended? What are the implications of this for DES?”
 
 ### **1(b) [10 Marks]**
 
-“**Describe the Feistel structure which is used in many block ciphers in conjunction with a round function. Show how the effect of the Feistel structure can be reversed using the same round function. Using these answers, describe how encryption and decryption are performed in DES.**”
+“Describe the Feistel structure which is used in many block ciphers in conjunction with a round function. Show how the effect of the Feistel structure can be reversed using the same round function. Using these answers, describe how encryption and decryption are performed in DES.”
 
 ### **1(c) [5 Marks]**
 
-“**If a decision were taken to increase the security of DES by encrypting using the entire cipher twice, describe an attack which could be mounted against this modified cipher. How much more security would be provided by encrypting three times rather than two?**”
+“If a decision were taken to increase the security of DES by encrypting using the entire cipher twice, describe an attack which could be mounted against this modified cipher. How much more security would be provided by encrypting three times rather than two?”
 
 ---
 
@@ -58,23 +58,23 @@ Here is the note you need to see first:
 
 ### **1(a) [5 Marks]**
 
-“**Block ciphers are usually designed to provide confusion and diffusion. Explain what is meant by each of these properties, and give examples of the features of block ciphers which are used to provide them.**”
+“Block ciphers are usually designed to provide confusion and diffusion. Explain what is meant by each of these properties, and give examples of the features of block ciphers which are used to provide them.”
 
 
 ### **1(b) [10 Marks]**
 
-“**Compare and contrast the Data Encryption Standard (DES) and the Advanced Encryption Standard (AES) with respect to the following (use diagrams if necessary):
+“Compare and contrast the Data Encryption Standard (DES) and the Advanced Encryption Standard (AES) with respect to the following (use diagrams if necessary):
 • Encryption algorithm
 • Decryption algorithm
 • Block size
 • Key size
 • Number of rounds
-• Robustness against attacks**”
+• Robustness against attacks”
 
 
 ### **1(c) [5 Marks]**
 
-“**Describe how DES and AES provide confusion and diffusion.**”
+“Describe how DES and AES provide confusion and diffusion.”
 
 
 ---
