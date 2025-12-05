@@ -1,15 +1,18 @@
 ⭐ Block Cipher Comparison Table (DES → AES → FEAL → IDEA → Blowfish → SAFER → RC5)
 
-| Cipher                               | Structure                               | Block Size         | Key Size(s)          | # Rounds     | Main Operations                           | Security Status                           | Notes / Characteristics                                            |
-| ------------------------------------ | --------------------------------------- | ------------------ | -------------------- | ------------ | ----------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------ |
-| **DES**                              | Feistel Network                         | 64 bits            | 56-bit effective key | 16           | Expansion, XOR, S-boxes, P-box            | ❌ **Broken** (brute force; cryptanalysis) | First major standard; very small key; basis for 3DES               |
-| **AES**                              | Substitution-Permutation Network (SPN)  | 128 bits           | 128 / 192 / 256 bits | 10 / 12 / 14 | S-box, ShiftRows, MixColumns, AddRoundKey | ✔ **Strong**                              | Modern global standard; very fast; excellent security              |
-| **FEAL (e.g., FEAL-4/8/N)**          | Feistel Network                         | 64 bits            | 64 or 128 bits       | 4–32         | XOR, byte rotation, S-functions           | ❌ **Weak**                                | Broken by differential & linear cryptanalysis; academic            |
-| **IDEA**                             | Lai–Massey Structure                    | 64 bits            | 128 bits             | 8            | Modular multiplication, addition, XOR     | ✔ **Strong**                              | Designed to resist known attacks; mix of algebraic groups          |
-| **Blowfish**                         | Feistel Network                         | 64 bits            | 32–448 bits          | 16           | XOR, addition, key-dependent S-boxes      | ✔ **Strong**                              | Free, fast, secure; slow key schedule; good general-purpose cipher |
-| **SAFER (K-64, K-128, SK variants)** | Substitution–Permutation                | 64 bits            | 64–128 bits          | 6–10         | S-box, XOR, byte rotations                | ✔ Mostly strong                           | Designed against differential & linear attacks                     |
-| **RC5**                              | Feistel-like (data-dependent rotations) | 32 / 64 / 128 bits | 0–2040 bits          | 0–255        | Add, XOR, Rotate (AXR)                    | ✔ **Strong with good parameters**         | Extremely flexible; simple; key schedule expensive                 |
+| Cipher       | Structure    | Block Size     | Key Size(s)      | Rounds   | Main Operations                                   | Security Status               | Notes / Characteristics                       |
+| ------------ | ------------ | -------------- | ---------------- | -------- | ------------------------------------------------- | ----------------------------- | --------------------------------------------- |
+| **DES**      | Feistel      | 64 bits        | 56 bits          | 16       | Expansion, XOR, S-boxes, P-box                    | ❌ Broken                      | Small key; basis for 3DES                     |
+| **AES**      | SPN          | 128 bits       | 128/192/256 bits | 10/12/14 | S-box, ShiftRows, MixColumns, AddRoundKey         | ✔ Strong                      | Modern standard                               |
+| **FEAL**     | Feistel      | 64 bits        | 64 or 128 bits   | 4–32     | XOR, byte ops                                     | ❌ Broken                      | Academic example                              |
+| **IDEA**     | Lai–Massey   | 64 bits        | 128 bits         | 8        | XOR, addition mod 2¹⁶, multiplication mod (2¹⁶+1) | ✔ Strong                      | Used in PGP                                   |
+| **Blowfish** | Feistel      | 64 bits        | 32–448 bits      | 16       | Key-dependent S-boxes, XOR, addition              | ✔ Strong                      | Free, fast, flexible                          |
+| **SAFER**    | SPN          | 64 bits        | 64–128 bits      | 6–10     | S-boxes, XOR, byte rotations                      | ✔ Mostly strong               | Resistant to linear & differential            |
+| **RC5**      | Feistel-like | 32/64/128 bits | 0–2040 bits      | 0–255    | Add–XOR–Rotate (AXR)                              | ✔ Strong with good parameters | Very flexible design                          |
+| **TEA**      | Feistel      | 64 bits        | 128 bits         | 64       | Add–XOR–Shift                                     | ⚠ Some weaknesses             | Extremely simple; fast; leads to XTEA & XXTEA |
 
+
+---
 Here is a **super easy, exam-ready, memorization-friendly summary** of all 7 block ciphers in the exact order you requested.
 
 Think of this as your **cheat sheet**.
