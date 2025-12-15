@@ -476,14 +476,247 @@ Steps:
 
 ---
 
+Perfect — here is a **clean, exam-focused summary of *everything discussed from the checkpoint onward***.
+This is **only** the material **after you set the checkpoint**, organised so you can **revise quickly and reconstruct full answers**.
+
+I’ll keep the **same readable learning format** (headings + short explained sections), not long essays, not bullets-only dumps.
+
+---
+
+# ✅ CHECKPOINT REVISION SUMMARY
+
+*(From “Max Schrems” onward – today’s work only)*
+
+---
+
+## 1️⃣ Max Schrems Challenges & Effects on EU Data Protection Law
+
+### Core issue
+
+Max Schrems challenged the **transfer of EU personal data to the US**, arguing that EU citizens’ privacy rights were not protected once data became subject to US surveillance law.
+
+### Schrems I (2015)
+
+* Invalidated **Safe Harbor**
+* Found US surveillance + lack of legal redress incompatible with EU fundamental rights
+* Immediate effect: thousands of companies lost a legal transfer mechanism
+
+### Schrems II (2020)
+
+* Invalidated **Privacy Shield**
+* Confirmed US law undermines EU-equivalent protection
+* **Standard Contractual Clauses (SCCs) remain valid**, but only with safeguards
+
+### Main effects
+
+* No “easy” EU–US data transfers
+* Companies must assess foreign laws (Transfer Risk Assessments)
+* Stronger focus on **fundamental rights over trade convenience**
+* Increased responsibility on organisations (accountability)
+
+---
+
+## 2️⃣ Safe Harbor vs Standard Contractual Clauses (SCCs)
+
+### Safe Harbor
+
+* EU–US political agreement
+* Based on **self-certification**
+* Weak enforcement
+* Failed because promises did not stop US government access
+* **Completely invalidated**
+
+### Standard Contractual Clauses (SCCs)
+
+* Binding legal contracts between data exporter and importer
+* Enforceable by data subjects
+* Survived Schrems II **conditionally**
+* Now require:
+
+  * assessment of foreign surveillance law
+  * supplementary safeguards (e.g. encryption)
+  * suspension if protection cannot be ensured
+
+### Key takeaway
+
+Safe Harbor relied on trust.
+SCCs require **proof and ongoing assessment**.
+
+---
+
+## 3️⃣ US CLOUD Act & Data Stored in Ireland
+
+### What the CLOUD Act does
+
+Allows US authorities to compel **US companies** to provide data **even if stored outside the US**, including Ireland.
+
+### Why this matters for Ireland
+
+* Data can be physically in Ireland but legally accessible from the US
+* Creates **conflict of laws** between GDPR and US disclosure orders
+* Undermines the idea that “EU data centres = EU-only protection”
+
+### Microsoft & Amazon examples
+
+* Microsoft Ireland case showed server location does not settle jurisdiction
+* AWS acknowledges compelled disclosure may apply globally
+
+### Link to Schrems II
+
+Schrems II does **not fight the CLOUD Act directly**, but it blocks its effects by requiring EU-equivalent protection before exposure to US law.
+
+---
+
+## 4️⃣ Harassment, Harmful Communications & Related Offences Act 2020 (Ireland)
+
+### Purpose
+
+Modernises criminal law to address **online harassment and digital harm**.
+
+### IT-relevant features
+
+* Criminalises harmful communications via electronic means
+* Covers repeated online harassment
+* Addresses doxxing and misuse of personal data
+* Anonymity does not protect offenders
+
+### IT & company impact
+
+* Digital systems are now recognised as tools of harm
+* Logs, records, and moderation matter
+* Companies must take misuse of platforms seriously
+* Workplace IT misuse can have criminal consequences
+
+---
+
+## 5️⃣ Online Safety & Media Regulation Act 2022 (Commenced 2023)
+
+### Core purpose
+
+Move from **self-regulation** to **state-backed platform regulation**.
+
+### Main features
+
+* Establishes **Coimisiún na Meán**
+* Online Safety Codes for platforms
+* Designation of regulated online services
+* Enforcement powers and sanctions
+
+### Main effects
+
+* Platforms have **systemic responsibility**
+* Increased compliance, risk assessment, moderation investment
+* Stronger focus on child protection
+
+### What remains to be addressed
+
+* Enforcement at scale
+* Free speech vs over-moderation
+* Algorithmic transparency
+* Cross-border consistency
+* User redress and appeals
+
+---
+
+## 6️⃣ Copyright and Other Intellectual Property Law Provisions Act 2019
+
+### Purpose
+
+Modernise Irish IP law for the **digital and software economy** and align with EU law.
+
+### Key features
+
+* Clarifies digital copyright
+* Reinforces protection for software and databases
+* Introduces **Text and Data Mining (TDM) exceptions**
+* Strengthens enforcement and licensing mechanisms
+
+### Importance for software
+
+* Code (source + object) protected as literary works
+* Databases protected where substantial investment exists
+* TDM exceptions enable AI and data-driven innovation
+
+### Criticisms (especially for software)
+
+* Copyright protects expression, not algorithms or logic
+* Software patents remain unclear
+* TDM may weaken creator control
+* Compliance burdens fall harder on SMEs
+
+---
+
+## 7️⃣ Extending Current Privacy Law to AI
+
+### Why AI is a challenge
+
+AI:
+
+* reuses data
+* makes automated decisions
+* operates opaquely
+* can cause bias and group harm
+
+### How privacy law could be extended
+
+* Stronger **transparency and explainability**
+* Tighter **purpose limitation** for AI training
+* Expanded rights around automated decision-making
+* Mandatory AI-focused DPIAs
+* Linking privacy with fairness and discrimination
+
+### Key idea
+
+AI does not replace privacy law — it **stress-tests it**.
+
+---
+
+## 8️⃣ EU AI Act – Risk-Based Structure & Transparency
+
+### Risk categories
+
+* **Unacceptable risk** → banned (e.g. social scoring)
+* **High risk** → allowed with strict safeguards (e.g. hiring AI)
+* **Limited risk** → transparency required (e.g. chatbots, deepfakes)
+* **Minimal risk** → largely unregulated (e.g. photo filters)
+
+### Transparency across levels
+
+* High risk → documentation, explainability, auditability
+* Limited risk → disclosure that AI is being used
+* Minimal risk → voluntary transparency
+
+### Core principle
+
+**Higher AI risk = higher legal visibility and obligation**
+
+---
+
+## 🧠 ONE-PAGE MEMORY HOOK (All Checkpoint Topics)
+
+* Schrems → **EU rights over US access**
+* SCCs → **contracts + risk assessment**
+* CLOUD Act → **data in Ireland, keys in America**
+* Harassment Act → **online harm = real crime**
+* Online Safety Act → **platform responsibility**
+* Copyright Act → **modernised, but imperfect for software**
+* AI + privacy → **extend principles, don’t abandon them**
+* EU AI Act → **ban the worst, regulate the serious, label the deceptive**
+
+---
+
+If you want next, I can:
+
+* compress this into a **single exam cheat page**, or
+* turn each section into **10–15 mark answer skeletons**, or
+* help you **practice recalling this without notes**
+
+
+
+
 ## 🔑 FINAL EXAM MEMORY LINE
 
 **“Explain the idea, show how it works, apply it to harm, justify your judgement.”**
 
 ---
 
-If you want, next I can:
-
-* expand **any single topic to essay depth**, or
-* convert this into **exam-day recall scripts**, or
-* rehearse **writing full answers from this content**
