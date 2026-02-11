@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.event name="internal_evt1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="internal_element1" org.eventb.core.assignment="accounts ≔ ∅" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="internal_element2" org.eventb.core.assignment="balance ≔ ∅" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="internal_element1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="NewAccount">
+<org.eventb.core.action name="internal_element1" org.eventb.core.assignment="accounts ≔ accounts ∪ {accid}" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="internal_element2" org.eventb.core.assignment="balance(accid) ≔ 0" org.eventb.core.label="act2"/>
+<org.eventb.core.guard name="internal_element2" org.eventb.core.label="grd1" org.eventb.core.predicate="accid ∈ ACCOUNT ∖ accounts"/>
+<org.eventb.core.parameter name="internal_element1" org.eventb.core.identifier="accid"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="internal_element3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Deposit">
+<org.eventb.core.action name="internal_element1" org.eventb.core.assignment="balance(acc) ≔ balance(acc) + amt" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="internal_element1" org.eventb.core.label="grd1" org.eventb.core.predicate="acc ∈ accounts"/>
+<org.eventb.core.guard name="internal_element2" org.eventb.core.label="grd2" org.eventb.core.predicate="amt ∈ amount"/>
+<org.eventb.core.parameter name="internal_element1" org.eventb.core.identifier="acc"/>
+<org.eventb.core.parameter name="internal_element2" org.eventb.core.identifier="amt"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="internal_element2" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="WithDraw">
+<org.eventb.core.action name="internal_element1" org.eventb.core.assignment="balance(acc) ≔ balance(acc) − amt&#10;" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="internal_element1" org.eventb.core.label="grd1" org.eventb.core.predicate="acc ∈ accounts"/>
+<org.eventb.core.guard name="internal_element2" org.eventb.core.label="grd2" org.eventb.core.predicate="amt ∈ amount"/>
+<org.eventb.core.guard name="internal_element3" org.eventb.core.label="grd3" org.eventb.core.predicate="amt ≤ balance(acc)"/>
+<org.eventb.core.parameter name="internal_element1" org.eventb.core.identifier="acc"/>
+<org.eventb.core.parameter name="internal_element2" org.eventb.core.identifier="amt"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="internal_element4" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Transfer">
+<org.eventb.core.action name="internal_element1" org.eventb.core.assignment="balance ≔ balance  {from ↦ balance(from) − amt, to ↦ balance(to) + amt}" org.eventb.core.comment="Note: must be done in a single update" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="internal_element1" org.eventb.core.label="grd1" org.eventb.core.predicate="from ∈ accounts"/>
+<org.eventb.core.guard name="internal_element2" org.eventb.core.label="grd2" org.eventb.core.predicate="to ∈ accounts"/>
+<org.eventb.core.guard name="internal_element3" org.eventb.core.label="grd3" org.eventb.core.predicate="amt ∈ amount "/>
+<org.eventb.core.guard name="internal_element4" org.eventb.core.label="grd4" org.eventb.core.predicate="amt ≤ balance(from)"/>
+<org.eventb.core.guard name="internal_element5" org.eventb.core.comment="if from = to the following update will be inconsistent" org.eventb.core.label="grd5" org.eventb.core.predicate="from ≠ to"/>
+<org.eventb.core.parameter name="internal_element1" org.eventb.core.identifier="from"/>
+<org.eventb.core.parameter name="internal_element2" org.eventb.core.identifier="to"/>
+<org.eventb.core.parameter name="internal_element3" org.eventb.core.identifier="amt"/>
+</org.eventb.core.event>
+<org.eventb.core.invariant name="internal_element1I" org.eventb.core.label="inv1" org.eventb.core.predicate="accounts ⊆ ACCOUNT"/>
+<org.eventb.core.invariant name="internal_element2I" org.eventb.core.label="inv2" org.eventb.core.predicate="finite(accounts)"/>
+<org.eventb.core.invariant name="internal_element3I" org.eventb.core.label="inv3" org.eventb.core.predicate="balance ∈ accounts → amount"/>
+<org.eventb.core.seesContext name="internal_element1" org.eventb.core.target="SimpleBank_ctx"/>
+<org.eventb.core.variable name="internal_element1" org.eventb.core.identifier="accounts"/>
+<org.eventb.core.variable name="internal_element2" org.eventb.core.identifier="balance"/>
+</org.eventb.core.machineFile>

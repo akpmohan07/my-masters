@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="1">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="1">
+        <org.eventb.core.poIdentifier name="ACCOUNT" org.eventb.core.type="ℙ(ACCOUNT)"/>
+        <org.eventb.core.poIdentifier name="c" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poPredicate name="ACCOUNU" org.eventb.core.predicate="c∈ℕ1" org.eventb.core.source="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#)"/>
+        <org.eventb.core.poPredicate name="ACCOUNV" org.eventb.core.predicate="c&gt;0" org.eventb.core.source="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#+"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/SimpleBank/Bank0.bpo|org.eventb.core.poFile#Bank0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="1"/>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPC1" org.eventb.core.parentSet="/SimpleBank/Bank0.bpo|org.eventb.core.poFile#Bank0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/SimpleBank/Bank0.bpo|org.eventb.core.poFile#Bank0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1"/>
+</org.eventb.core.poFile>

@@ -1,3 +1,5 @@
+//org.eclipse.ui.commands/state/fr.systerel.editor.toggleImplicit/org.eclipse.ui.commands.toggleState=true
+//org.eclipse.ui.commands/state/org.eclipse.ui.navigator.resources.nested.changeProjectPresentation/org.eclipse.ui.commands.radioState=false
 ColorsAndFontsPreferencePage.expandedCategories=Torg.rodinp.keyboard.ui.presentation
 ColorsAndFontsPreferencePage.selectedElement=Forg.rodinp.keyboard.ui.textFont
 eclipse.preferences.version=1

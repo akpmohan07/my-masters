@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.axiom name="internal_element1A" org.eventb.core.label="axm1" org.eventb.core.predicate="amount = ℕ"/>
+<org.eventb.core.carrierSet name="internal_element1" org.eventb.core.identifier="ACCOUNT"/>
+<org.eventb.core.constant name="internal_element1" org.eventb.core.identifier="amount"/>
+</org.eventb.core.contextFile>

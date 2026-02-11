@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<index_root>
+    <pim project="/SimpleBank">
+        <rodin_index>
+            <descriptor element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#'" name="INITIALISATION">
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#'" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+            <descriptor element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0" name="C0">
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.seesContext#(" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.target"/>
+                <occurrence element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0" kind="org.eventb.core.declaration"/>
+            </descriptor>
+            <descriptor element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.parameter#'" name="a">
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.parameter#'" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.action#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="3" loc_char_start="2"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.action#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="10" loc_char_start="9"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.guard#-" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.guard#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.parameter#(" name="v">
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.guard#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="2" loc_char_start="1"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.action#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="15" loc_char_start="14"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.action#," kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="9" loc_char_start="8"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.parameter#(" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+            </descriptor>
+            <descriptor element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.carrierSet#*" name="ACCOUNT">
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.invariant#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="11" loc_char_start="4"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.guard#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="11" loc_char_start="4"/>
+                <occurrence element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.carrierSet#*" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+            </descriptor>
+            <descriptor element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0" name="Bank0">
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0" kind="org.eventb.core.declaration"/>
+            </descriptor>
+            <descriptor element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#'" name="c">
+                <occurrence element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#'" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+                <occurrence element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#." name="withdraw">
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#." kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+            <descriptor element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.variable#," name="d">
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.variable#," kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.invariant#-" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#'|org.eventb.core.action#(" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="1" loc_char_start="0"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.action#," kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="5" loc_char_start="4"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.action#," kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="1" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.variable#)" name="b">
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.guard#-" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="9" loc_char_start="8"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.invariant#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#'|org.eventb.core.action#'" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="1" loc_char_start="0"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.variable#)" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.action#+" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="1" loc_char_start="0"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.action#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="1" loc_char_start="0"/>
+                <occurrence element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.action#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="8" loc_char_start="7"/>
+            </descriptor>
+        </rodin_index>
+        <export_table>
+            <export file="/SimpleBank/Bank0.bum">
+                <exported element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.parameter#'" name="a"/>
+                <exported element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.variable#," name="d"/>
+                <exported element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.variable#)" name="b"/>
+                <exported element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.carrierSet#*" name="ACCOUNT"/>
+                <exported element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#'" name="INITIALISATION"/>
+                <exported element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0" name="Bank0"/>
+                <exported element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0" name="C0"/>
+                <exported element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.parameter#(" name="v"/>
+                <exported element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#'" name="c"/>
+                <exported element="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#." name="withdraw"/>
+            </export>
+            <export file="/SimpleBank/C0.buc">
+                <exported element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.carrierSet#*" name="ACCOUNT"/>
+                <exported element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0" name="C0"/>
+                <exported element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#'" name="c"/>
+            </export>
+        </export_table>
+        <graph is_sorted="true">
+            <node label="/SimpleBank/C0.buc" mark="false" order_pos="0"/>
+            <node label="/SimpleBank/Bank0.bum" mark="false" order_pos="1">
+                <predecessor label="/SimpleBank/C0.buc"/>
+            </node>
+        </graph>
+        <unprocessed file="/SimpleBank/Bank0.bcm"/>
+        <unprocessed file="/SimpleBank/Bank0.bpo"/>
+        <unprocessed file="/SimpleBank/Bank0.bpr"/>
+        <unprocessed file="/SimpleBank/Bank0.bps"/>
+        <unprocessed file="/SimpleBank/C0.bcc"/>
+        <unprocessed file="/SimpleBank/C0.bpo"/>
+        <unprocessed file="/SimpleBank/C0.bpr"/>
+        <unprocessed file="/SimpleBank/C0.bps"/>
+    </pim>
+    <delta_list/>
+    <indexer_registry>
+        <registry_entry element_type="org.eventb.core.machineFile">
+            <indexer id="machineIndexer"/>
+        </registry_entry>
+        <registry_entry element_type="org.eventb.core.contextFile">
+            <indexer id="contextIndexer"/>
+        </registry_entry>
+    </indexer_registry>
+</index_root>

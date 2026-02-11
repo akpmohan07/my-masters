@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+    <org.eventb.core.constant name="'" org.eventb.core.comment=" Credit Limit" org.eventb.core.identifier="c"/>
+    <org.eventb.core.axiom name=")" org.eventb.core.comment="not theorem means axiom; theorem means proof is needed " org.eventb.core.label="axm1" org.eventb.core.predicate="c ∈ ℕ1" org.eventb.core.theorem="true"/>
+    <org.eventb.core.carrierSet name="*" org.eventb.core.comment=" abstract without the need to enumerate the content of the set" org.eventb.core.identifier="ACCOUNT"/>
+    <org.eventb.core.axiom name="+" org.eventb.core.label="thm1" org.eventb.core.predicate="c &gt; 0" org.eventb.core.theorem="true"/>
+</org.eventb.core.contextFile>

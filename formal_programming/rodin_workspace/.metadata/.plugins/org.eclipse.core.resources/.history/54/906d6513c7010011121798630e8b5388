@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scMachineFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+    <org.eventb.core.scSeesContext name="'" org.eventb.core.scTarget="/SimpleBank/C0.bcc" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.seesContext#("/>
+    <org.eventb.core.scInternalContext name="C0">
+        <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="c∈ℕ1" org.eventb.core.source="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#)" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scAxiom name="(" org.eventb.core.label="thm1" org.eventb.core.predicate="c&gt;0" org.eventb.core.source="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#+" org.eventb.core.theorem="true"/>
+        <org.eventb.core.scConstant name="c" org.eventb.core.source="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.scCarrierSet name="ACCOUNT" org.eventb.core.source="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.carrierSet#*" org.eventb.core.type="ℙ(ACCOUNT)"/>
+    </org.eventb.core.scInternalContext>
+    <org.eventb.core.scInvariant name="C1" org.eventb.core.label="inv1" org.eventb.core.predicate="b∈ACCOUNT ⇸ ℤ" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.invariant#*" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scInvariant name="C2" org.eventb.core.label="inv2" org.eventb.core.predicate="d∈ℤ" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.invariant#-" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scVariable name="b" org.eventb.core.abstract="false" org.eventb.core.concrete="true" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.variable#)" org.eventb.core.type="ℙ(ACCOUNT×ℤ)"/>
+    <org.eventb.core.scVariable name="d" org.eventb.core.abstract="false" org.eventb.core.concrete="true" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.variable#," org.eventb.core.type="ℤ"/>
+    <org.eventb.core.scEvent name="C3" org.eventb.core.accurate="true" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#'">
+        <org.eventb.core.scAction name="'" org.eventb.core.assignment="b ≔ ∅ ⦂ ℙ(ACCOUNT×ℤ)" org.eventb.core.label="act1" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#'|org.eventb.core.action#'"/>
+        <org.eventb.core.scAction name="(" org.eventb.core.assignment="d ≔ 0" org.eventb.core.label="act2" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#'|org.eventb.core.action#("/>
+    </org.eventb.core.scEvent>
+    <org.eventb.core.scEvent name="C4" org.eventb.core.accurate="true" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="withdraw" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.">
+        <org.eventb.core.scGuard name="'" org.eventb.core.label="type_of_a " org.eventb.core.predicate="a∈ACCOUNT" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.guard#)" org.eventb.core.theorem="true"/>
+        <org.eventb.core.scGuard name="(" org.eventb.core.label="type_of_v" org.eventb.core.predicate="v∈ℕ1" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.guard#*" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scParameter name="a" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.parameter#'" org.eventb.core.type="ACCOUNT"/>
+        <org.eventb.core.scParameter name="v" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.parameter#(" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.scAction name="w" org.eventb.core.assignment="b ≔ b{a ↦ b(a) − v}" org.eventb.core.label="act1" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.action#+"/>
+        <org.eventb.core.scAction name="x" org.eventb.core.assignment="d ≔ d − v" org.eventb.core.label="act2" org.eventb.core.source="/SimpleBank/Bank0.bum|org.eventb.core.machineFile#Bank0|org.eventb.core.event#.|org.eventb.core.action#,"/>
+    </org.eventb.core.scEvent>
+</org.eventb.core.scMachineFile>

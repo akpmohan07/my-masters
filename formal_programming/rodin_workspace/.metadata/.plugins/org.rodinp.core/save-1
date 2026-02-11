@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<index_root>
+    <pim project="/SimpleBank">
+        <rodin_index>
+            <descriptor element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0" name="C0">
+                <occurrence element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0" kind="org.eventb.core.declaration"/>
+            </descriptor>
+            <descriptor element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#'" name="c">
+                <occurrence element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#'" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.axiom#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+            </descriptor>
+        </rodin_index>
+        <export_table>
+            <export file="/SimpleBank/C0.buc">
+                <exported element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0" name="C0"/>
+                <exported element="/SimpleBank/C0.buc|org.eventb.core.contextFile#C0|org.eventb.core.constant#'" name="c"/>
+            </export>
+        </export_table>
+        <graph is_sorted="true">
+            <node label="/SimpleBank/C0.buc" mark="false" order_pos="0"/>
+        </graph>
+        <unprocessed file="/SimpleBank/C0.bcc"/>
+        <unprocessed file="/SimpleBank/C0.bpo"/>
+        <unprocessed file="/SimpleBank/C0.bpr"/>
+        <unprocessed file="/SimpleBank/C0.bps"/>
+    </pim>
+    <delta_list/>
+    <indexer_registry>
+        <registry_entry element_type="org.eventb.core.machineFile">
+            <indexer id="machineIndexer"/>
+        </registry_entry>
+        <registry_entry element_type="org.eventb.core.contextFile">
+            <indexer id="contextIndexer"/>
+        </registry_entry>
+    </indexer_registry>
+</index_root>

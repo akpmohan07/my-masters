@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="amount=ℕ" org.eventb.core.source="/SimpleBank/SimpleBank_ctx.buc|org.eventb.core.contextFile#SimpleBank_ctx|org.eventb.core.axiom#internal_element1A" org.eventb.core.theorem="false"/>
+<org.eventb.core.scCarrierSet name="ACCOUNT" org.eventb.core.source="/SimpleBank/SimpleBank_ctx.buc|org.eventb.core.contextFile#SimpleBank_ctx|org.eventb.core.carrierSet#internal_element1" org.eventb.core.type="ℙ(ACCOUNT)"/>
+<org.eventb.core.scConstant name="amount" org.eventb.core.source="/SimpleBank/SimpleBank_ctx.buc|org.eventb.core.contextFile#SimpleBank_ctx|org.eventb.core.constant#internal_element1" org.eventb.core.type="ℙ(ℤ)"/>
+</org.eventb.core.scContextFile>

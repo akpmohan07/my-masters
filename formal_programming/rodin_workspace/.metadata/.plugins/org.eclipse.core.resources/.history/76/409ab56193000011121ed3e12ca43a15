@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.comment=" // Initial model of the bank system" org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION"/>
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="C0"/>
+    <org.eventb.core.variable name=")" org.eventb.core.comment="// account balance (ENV 2)" org.eventb.core.identifier="b"/>
+    <org.eventb.core.invariant name="*" org.eventb.core.label="inv1" org.eventb.core.predicate="⊤"/>
+</org.eventb.core.machineFile>
