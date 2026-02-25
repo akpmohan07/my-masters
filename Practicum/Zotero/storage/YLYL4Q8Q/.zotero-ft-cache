@@ -1,0 +1,746 @@
+Skip to Main Content
+Donate
+Cart
+Journals & Magazines >IEEE Access >Volume: 13
+Meticulous Thought Defender: Fine-Grained Chain-of-Thought (CoT) for Detecting Prompt Injection Attacks of Large Language Models
+Publisher: IEEE
+Cite This
+Lijuan Shi; Yajing Kang; Jie Hu; Xinchi Li; Mingchuan Yang
+1
+Cites in
+Paper
+984
+Full
+Text Views
+Under a Creative Commons License
+Abstract
+Authors
+Figures
+References
+Citations
+Keywords
+Metrics
+CCBY - IEEE is not the copyright holder of this material. Please follow the instructions via https://creativecommons.org/licenses/by/4.0/ to obtain full-text articles and stipulations in the API documentation.
+SECTION I.
+Introduction
+
+Recently, with breakthroughs in large-scale natural language processing (NLP) model technology, solutions based on large language models have been widely applied to various tasks such as text generation, question answering, and translation. These large-scale pre-trained models demonstrate powerful language understanding and reasoning abilities, successfully driving the intelligent transformation of numerous industries. However, the accompanying security issues cannot be ignored, especially causing prompt injection attacks [1] on LLMs. As an emerging form of attack, it has garnered increasingly attention from both academia and industry.
+
+Prompt injection attacks, an emerging and insidious threat, exploit the dependency of large models on user-provided prompts. By subtly manipulating input prompts, attackers can misguide the model to produce erroneous or inappropriate output, undermining its decision-making quality. Such vulnerabilities are particularly concerning in critical sectors such as healthcare, finance, and law, where compromised model output could have catastrophic consequences [2]. Traditional detection methods [3], often constrained by static rules or shallow analysis, struggle to effectively identify and mitigate these sophisticated attacks. Furthermore, the opaque reasoning processes of large language models exacerbate these challenges, allowing attackers to evade detection through minimal input alterations, potentially causing system failures or data breaches. Addressing these vulnerabilities is therefore a pivotal concern in the security landscape of NLP.
+
+The Chain-of-Thought(CoT) algorithm [4] has recently emerged as a promising paradigm for enhancing reasoning transparency in LLMs. By deconstructing complex reasoning tasks into a sequence of interpretable and incremental steps, CoT not only facilitates clearer reasoning pathways but also enables systematic evaluation of logic and semantics at each step. This structured approach offers a dual advantage: it enhances reasoning accuracy and provides a robust framework for detecting anomalous behaviors indicative of prompt injection attacks. Unlike traditional opaque-system methodologies, the CoT algorithm’s emphasis on step-by-step reasoning delivers critical insights into the underlying logic, paving the way for advanced security measures.
+
+This paper proposes a prompt injection attack detection method based on the meticulous CoT algorithm. By analyzing the outputs of a large language model at each step of the reasoning process, we leverage the stepwise reasoning mechanism of CoT to determine whether the model has been interfered by malicious prompts. Specifically, we focus on detecting anomalies in the reasoning process through reverse reasoning and cross-step consistency analysis, enabling the timely identification and localization of prompt injection attacks. To achieve this, we propose a novel detection framework that analyzes each step in the reasoning chain from multiple perspectives, checking for logical and semantic inconsistencies. Through this fine-grained analysis, the framework not only improves the accuracy of attack detection but also effectively pinpoints the source of the attack, providing strong support for model defenses.
+
+Our contributions can be described as follows:
+
+CoT-based Detection Framework: unlike traditional methods that rely on global input-output monitoring, our approach integrates the CoT algorithm to dissect reasoning processes step by step. This refinement enables the detection of subtle and fine-grained attacks that would otherwise evade conventional mechanisms.
+
+Backward Tracing Mechanism: by verifying the logic of individual reasoning steps, our method identifies anomalies and traces them back to their source, enhancing detection accuracy and reducing false positives. This backward reasoning capability is particularly effective in countering adversarial manipulations within multi-step reasoning chains.
+
+Multidimensional Anomaly Detection: we propose a comprehensive anomaly detection strategy that evaluates reasoning steps across multiple dimensions, including logical coherence, semantic consistency, and contextual alignment. This approach improves the robustness of detection and significantly enhances model reliability in adversarial settings.
+
+Through extensive experiments, we demonstrate that our framework outperforms existing methods, achieving notable improvements in detection accuracy and robustness. This study not only addresses critical security challenges in NLP but also establishes a foundation for future research on adaptive and resilient defenses against evolving attack strategies.
+
+The reminder of this paper is organized as follows. In Section II, we introduce the related work of thought defender. In Section III, we present our algorithm and its mathematical formulations. In Section IV, we conduct experiments to compare our thought defender with current mainstream method and show the effectiveness. In Section V, we conducted an ablation study to further analyze the experimental factors. In Section VI, we discussed our method, point out the deficiencies, and look ahead to our subsequent work. In Section VII, we summarize the paper.
+
+SECTION II.
+Related Work
+A. Large Language Models (LLMs)
+
+Large language models (LLMs) are advanced deep learning architectures trained on extensive corpora, enabling them to perform a broad spectrum of natural language processing (NLP) tasks, including text generation, comprehension, and question answering. Their remarkable linguistic capabilities have facilitated significant advancements in artificial intelligence applications across multiple domains, exemplified by models such as the GPT series [5], Qwen series [6], [7]. At their core, LLMs are built upon sophisticated neural network structures, with the Transformer [8] architecture serving as a fundamental framework for encoding and decoding textual input. Formally, given an input sequence X = (x1, x2,…, xn), the model
+f
+θ
+ processes it to generate an output sequence Y = (y1, y2,…, ym).
+
+Y=
+f
+θ
+(X)
+(1)
+View Source
+
+B. Detection of Prompt Injection Attacks in LLMs
+
+As illustrated in Figure 1, prompt injection attacks represent an emerging security threat to large pre-trained language models. These attacks exploit the inherent dependency of models on input prompts, allowing adversaries to manipulate instructions in a way that disrupts the reasoning process. By deliberately altering the prompt, attackers can induce erroneous output or unintended behaviors, potentially compromising the reliability and trustworthiness of model responses. Addressing this vulnerability requires robust detection mechanisms to mitigate the risks associated with adversarial prompt manipulation.
+
+FIGURE 1.
+
+The illustration of prompt injection.
+
+Reference [2] systematically categorizes various attacks, examining their strategies and patterns in real-world applications. Through empirical analysis of 36 large language model integrations deployed, the study reveals that 31 of these systems exhibit vulnerabilities to prompt injection. Such security flaws pose substantial risks, potentially leading to significant financial and operational losses for both companies and end users.
+
+Large language models rely on input prompts to determine their reasoning pathways and generate outputs. Consequently, by modifying the content of a given prompt, adversaries can strategically manipulate the model to follow an incorrect reasoning trajectory. The core mechanism of this attack lies in the deliberate construction of the input prompt. Attackers may embed malicious instructions, fabricated information, or misleading contexts, leading the model to misinterpret tasks, produce inaccurate responses, or even generate harmful content.
+
+The objective of prompt injection attack detection is to determine whether a given input prompt, denoted as P’, has been maliciously altered—specifically, whether it contains potential adversarial modifications compared to the original prompt P. This can be formally expressed as:
+
+P
+′
+Y
+′
+=P+ΔP
+=
+f
+θ
+(
+P
+′
+)
+(2)
+(3)
+View Source
+where
+ΔP
+ represents the malicious part injected by the attacker,
+f
+θ
+ represents the large language model, and the output of models Y’ is usually inconsistent with the expected output Y.
+
+Current methods for detecting prompt injection attacks primarily rely on rule-based matching, as well as parsing and modeling input text [9]. Common approaches include text preprocessing, perplexity analysis, and the development of classifiers for adversarial text detection [10], [11], [12], [13], [14]. However, these methods often focus on direct semantic-level parsing or modeling, which necessitates high-quality training data and may fail to detect subtle adversarial manipulations embedded within responses.
+
+C. Chain-of-Thought (CoT)
+
+Chain-of-Thought (CoT) [4] is a reasoning strategy that decomposes complex tasks into multiple intermediate steps, thereby enhancing both the reasoning capabilities and interpretability of large language models (LLMs). Unlike traditional single-step reasoning approaches, CoT explicitly structures the reasoning process into a sequence of sub-tasks, each representing an intermediate step. By processing these steps sequentially, the model incrementally constructs the final response or decision.
+
+The classic strawberry problem [15] demonstrates the difference between users asking questions directly and using CoT. As shown in the Figure 2 below, if asked directly, ChatGPT [5] will answer there are two ‘r’s in the word “strawberry”, while the CoT can guide the model to answer correctly.
+
+FIGURE 2.
+
+Presentation and an example of CoT.
+
+The fundamental principle of CoT is to make the reasoning process explicit, enabling each stage to be examined and analyzed systematically. This transparency enhances the model’s interpretability and allows its decision-making process to be traced more effectively. For multi-step reasoning tasks, the reasoning chain C can be formally defined as:
+
+C=
+c
+1
+,
+c
+2
+,…
+c
+i
+,…,
+c
+n
+(4)
+View Source
+where
+c
+i
+ represents the i-th step of the reasoning process.
+
+CoT-based methodologies have been widely adopted to improve the logical coherence and accuracy of LLM reasoning [16]. Notable examples are OpenAI’s O1 model [17] and DeepSeek-R1 [18], which have demonstrated significant advancements in handling complex tasks such as mathematical problem-solving and programming. Additionally, CoT-generated data can be leveraged for supervised fine-tuning, enhancing the domain specific problem solving capabilities of large language models [19], [20], [21].
+
+Beyond improving general reasoning performance, CoT can also facilitate step-wise anomaly detection. By incorporating finer-grained reasoning structures, models can establish higher confidence reasoning paths, thereby improving robustness. Inspired by this concept, step-level and fine-grained anomaly detection techniques can be leveraged to enhance the detection of prompt injection attacks, providing a more structured and systematic approach to identifying adversarial manipulations [22].
+
+SECTION III.
+Methodology
+
+This section presents a detailed overview of the architectural design of a prompt injection attack detection framework for large language models, leveraging the CoT reasoning paradigm. The proposed architecture systematically analyzes each step in the step-by-step reasoning process to identify potential prompt injection attacks. By examining intermediate reasoning stages, the method enhances the model’s ability to detect adversarial manipulations embedded within prompts, thereby improving security and robustness. We present the overall idea in the Figure 3.
+
+FIGURE 3.
+
+Prompt Injection Attack Detection Based on CoT.
+
+A. Prompt Injection Attack Detection Based on CoT
+
+The reasoning process in large language models involves multiple transformations within a deep multi-layer neural network to infer output information from input text. However, for external observers, this process functions as a “opaque-system”, lacking interpretability and transparency. This opacity makes it challenging to detect anomalies or identify potential attacks, particularly in the case of prompt injection. Furthermore, the model’s output is highly sensitive to variations, adversarial perturbations, or direct manipulations of the input, increasing its vulnerability to such attacks.
+
+As shown in the Figure 4, by incorporating the CoT paradigm, the detection granularity is refined to a step-level analysis. This enables the model to perform localized monitoring, improving its ability to accurately identify anomalies within the reasoning process. Given an input prompt P, if an attacker introduces a malicious modification
+ΔP
+ , resulting in a new prompt P’, the corresponding sequence of reasoning steps transforms into:
+
+c
+′
+=
+c
+′
+1
+,
+c
+′
+2
+,…,
+c
+′
+i
+…,
+c
+′
+n
+(5)
+View Source
+
+FIGURE 4.
+
+A classic example of a reasoning tree.
+
+The objective is to detect any anomalies in these reasoning steps compared to the normal reasoning chain C. If a significant deviation is identified, it may indicate a prompt injection attack. The final output Y’ should be evaluated against the expected output Y. The objective function for this detection framework is formulated as follows:
+
+L=
+λ
+1
+L
+c
+(C,
+C
+′
+)+
+λ
+2
+L
+d
+(Y,
+Y
+′
+)+
+λ
+3
+L
+r
+(6)
+View Source
+where
+λ
+1
+ ,
+λ
+2
+ ,
+λ
+3
+ are hyperparameters for controlling the weight of each function.
+
+L
+c
+(C,
+C
+′
+)
+ quantifies the difference between the original and modified reasoning chains.
+
+L
+d
+(Y,
+Y
+′
+)
+ measures the discrepancy between the expected and generated outputs, though this value is often difficult to obtain in real-time reasoning processes.
+
+L
+r
+ introduces a penalty term to discourage excessive model complexity and encourage generalization.
+
+B. Multidimensional Anomaly Measurement
+
+To identify CoT anomalies introduced by prompt injection attacks, we propose a multidimensional anomaly detection mechanism that evaluates CoT’s consistency function from multiple perspectives:
+
+Semantic Analysis:By performing semantic analysis on the input prompt, we detect the semantic consistency within the prompt. If there are abrupt changes in meaning or parts that are inconsistent with the task, it may indicate that the model’s input has been tampered with, thereby signaling a potential attack.
+
+Each reasoning step
+c
+i
+ can be viewed as a form of semantic processing of the input prompt P, representing the semantic content of the reasoning at step i. The output of each step
+c
+i
+ can be generated by a semantic embedding model that produces text representations, formulated as:
+
+c
+e
+(i)=
+f
+e
+(
+c
+i
+)
+(7)
+View Source
+where
+c
+e
+(i)
+ is the embedding of step
+c
+i
+ , and
+f
+e
+ is the vector representation model.
+
+Step-level Consistency: We assess whether each reasoning step maintains logical consistency with the preceding and succeeding steps. If the similarity between consecutive steps significantly declines, it may indicate an attack. This is expressed as:
+
+ consistency(
+c
+i
+)=similarity[
+c
+e
+(i),{
+c
+e
+(i−1),
+c
+e
+(i+1}]
+(8)
+View Source
+using cosine similarity, the similarity between two vectors is calculated as:
+ similarity(
+c
+i
+,
+c
+j
+)=
+c
+i
+⋅
+c
+j
+∥
+c
+i
+∥∥
+c
+j
+∥
+(9)
+View Source
+
+Path-level Consistency: Check the logical consistency between all steps in the entire reasoning chain C. By calculating the overall consistency of the reasoning path, we detect whether there are any significant anomalies in the reasoning chain.
+
+C=
+∑
+i=1
+m
+consistency(
+c
+i
+)
+(10)
+View Source
+where m represents the number of CoT reasoning steps, and to measure the changes introduced by a malicious prompt attack to the CoT chain, we define the function at current reasoning step:
+L
+c
+(C,
+C
+′
+)=C
+(11)
+View Source
+
+Confidence Estimation: since it is not possible to simultaneously obtain the text with and without prompt injection, in order to calculate the difference between Y and
+Y
+′
+ , we measure this value by calculating the average confidence score of LLM’s output, supposing the confidence level of large language model can be higher when there is no prompt injection attacks in input prompts.
+
+P(Y)=
+1
+n
+∑
+i=1
+n
+p(
+t
+i
+)
+(12)
+View Source
+where
+p(
+t
+i
+)
+ is the log probability of the
+i
+th
+ token generated by the LLM, and n represents the total number of output tokens. Thus, we define the deviation loss as:
+L
+d
+(Y,
+Y
+′
+)=P(Y)
+(13)
+View Source
+therefore, the lower the value of the objective function L, the higher the probability that the large language model is affected by a prompt injection attack. Finally, we can define the L-function of an input prompt by:
+L
+=−
+λ
+1
+2
+∑
+i=1
+m
+(
+c
+e
+(i)⋅
+c
+e
+(i−1)
+∥
+c
+e
+(i)∥∥
+c
+e
+(i−1)∥
++
+c
+e
+(i)⋅
+c
+e
+(i+1)
+∥
+c
+e
+(i)∥∥
+c
+e
+(i+1)∥
+)
+−
+λ
+2
+n
+∑
+i=1
+n
+p(
+t
+i
+)
++
+λ
+3
+(14)
+View Source
+here we took an average of the consistency value between previous and next node at the step level and used a constant form of penalty.
+
+C. Anomaly Backtracking
+
+The reasoning process of the large language model can be modeled as a tree structure. Each node in the tree represents a reasoning step, and the child nodes of each node represent the reasoning branches or candidate outputs of that step. The root node represents the input prompt P, and the final leaf node represents the final output of the reasoning process. The structure of the reasoning tree can be represented as:
+
+T={N,E}
+(15)
+View Source
+where N is the set of nodes, representing each step in the reasoning process (such as input, intermediate reasoning steps, and output), and E is the set of edges, representing the dependencies or reasoning paths between the steps. For each node, we can calculate the value of its current consistency L-value as an anomaly measure value.
+
+The backtracking mechanism traces anomalies by systematically retracing the reasoning process from the leaf nodes of the reasoning tree to its root. If the anomaly measure value L of a given node exceeds a predefined threshold
+δ
+ , that node is classified as anomalous, potentially indicating the source of a prompt injection attack. Given the hierarchical nature of the tree structure, backtracking is conducted layer by layer, ensuring that both individual node anomalies and inter-dependencies across layers are evaluated.
+
+Since an anomalous node at a lower layer can propagate inconsistencies to higher-level reasoning steps, the backtracking process should not only identify individual anomalies but also assess their impact on subsequent reasoning steps. By analyzing these dependencies, we can better understand how malicious modifications influence the model’s decision-making process. We illustrate the algorithm in the Figure 5.
+
+FIGURE 5.
+
+Detecting prompt injection attacks based on CoT.
+
+Algorithm 1 The Detection of Prompt Injection Within the Reasoning Tree using DFS
+Inputs:
+
+T = (N, E): reasoning tree, where N is the set of nodes representing reasoning steps, and E is the set of edges representing dependencies between reasoning steps.
+
+δ
+ : threshold for anomaly detection.
+
+root: root node of the reasoning tree (representing the input prompt P).
+
+Outputs:
+
+Injected: True if anomalous node detected, otherwise False.
+
+Procedure:
+
+1.
+
+Initialize:
+
+stack 
+←
+ [root] (start with the root node).
+
+visited nodes 
+←
+ [] (List to store visited nodes).
+
+anomalous nodes 
+←
+ [] (List to store anomalous nodes).
+
+L_path 
+← 0
+ (L_value for the path).
+
+2.
+
+while stack is not empty:
+
+current_node
+←
+ stack.pop().
+
+compute L_value of current node.
+
+if
+L_value>δ
+ :
+
+append current node to anomalous_nodes.
+
+break the traversal.
+
+if current_node has child nodes:
+
+push all child nodes into stack.
+
+mark current_node as visited.
+
+append current_node to visited_nodes.
+
+L_path
+←
+ L_path + L_value of current node.
+
+3.
+
+after traversal:
+
+if
+L_path>δ
+ :
+
+return Injected.
+
+else:
+
+return Safe.
+
+The backtracking path selection can be implemented using well-established search algorithms, including:
+
+Depth-First Search (DFS): Explores paths deeply before backtracking, allowing for efficient traversal of individual branches.
+
+Breadth-First Search (BFS): Examines all nodes at the same depth before progressing to the next layer, providing a more systematic exploration of anomalies across the reasoning structure.
+
+Monte Carlo Tree Search (MCTS): Utilizes probabilistic exploration to prioritize paths with higher anomaly scores, optimizing computational efficiency in large-scale models.
+
+In cases where the tree contains multiple branches, selecting the most anomalous path for backtracking is critical to pinpointing the root cause of the attack. This can be formulated as:
+
+L>δorL(c_i)>δ→AnormalyDetected
+(16)
+View Source
+
+By leveraging this anomaly feedback backtracking mechanism, we can efficiently identify prompt injection attacks and precisely locate their points of origin. This enhances the security of large language models when dealing with complex adversarial manipulations.
+
+SECTION IV.
+Experiment
+A. Datasets
+
+To evaluate the effectiveness of our algorithm, we use the Deepset dataset [23] and Safe-guard-prompt injection dataset [24] as our experiment data. Both of these datasets are composed of input text and labels. And to prevent that our baseline model has already used the training data from the above projects, we only take the test datasets from these projects as our experimental comparison data.
+
+Deepset. The Deepset [23] dataset is a dataset for prompt injection published on Hugging Face by the Deepset company, it has 116 rows of test data, among which 51.7% are prompts injected and the rest are normal data.
+
+Safe-guard-prompt-injection. This dataset [24] has totally 2.06k rows of test data, where 31.6% are injected data and the others are normal data.
+
+So totally we have 2176 rows of test data for our experiment. Among them, the number of positive samples (injected) is 710, and the number of negative samples is 1466. And in the Table 1, we show various prompt injection types in our datasets who can help us evaluate the effectiveness of our experiment.
+
+TABLE 1 The Prompt Injection Types in Our Dataset
+
+B. Baselines
+
+To evaluate the effectiveness of our method, we compare it with other kinds of prompt injection detect methods. Respectively, (a) Detector: the LLM Guard [25] who is a tool designed by ProtectAI company to fortify the security of LLMs, and its detection model is a finetuned deberta [26] model published in Huggingface. (b) LLM-based checking: we can directly evaluate whether the input prompt contains injection attacks based on large language models, this approach also evaluates the defensive capabilities of models. For example, adding a sentence at the end of the input prompt: “Please identify whether the following text contains text with prompt injection attacks? Output in the form of “True” if it does, and “False” if it does not.”
+
+C. Model Setting
+1) Large Language Models
+
+To compare the applicability of our method with LLM’s different parameter sizes, we selected large language models from one provider to conduct ablation experiments. Here, we choose the Qwen2.5 [7] series. Respectively, (a) Qwen2.5-0.5B-Instruct, (b) Qwen2.5-1.5B-Instruct, (c) Qwen2.5-3B-Instruct, (d) Qwen2.5-7B-Instruct, (e) Qwen2.5-14B-Instruct. These models support template with system and user prompt, so we place instructions in the system prompt and the data in the user prompt so that we can detect whether the system is attacked or not intuitively. And as our method depends on also LLM’s reasoning ability to generate, therefore, we should also analysis the reasoning abilities of different models, coding and math problems’ solving abilities can reflect the logical capabilities of large models.
+
+As shown in Table 2, Qwen-series models are based on the Transformer-based decoder architecture [8], several model parameters setting influence the capabilities. Respectively, the dense model’s layer depth, QKV bias [27] in the attention mechanism, and whether sharing the same embedding matrix across different components within a neural network model, which reduces parameters and maintains semantic consistency [28].
+
+TABLE 2 The Configurations and Capabilities of Qwen-2.5 With Different Parameter Sizes
+
+2) Embedding Model
+
+In our experiment, we need an embedding model to calculate the vectors of every CoT steps. we choose the bge-m3 [29] model who is supported by the BAAI company, and it supports vector calculations in multiple languages and input texts with a maximum length of 8192, which is suitable for our task. It is also worth mentioning that texts’ vector calculation technology has developed to a relatively mature stage, we can also use other vector models to conduct vector calculations for the CoT steps.
+
+3) Supervised Finetuning for Llm’s CoT Inferring
+
+The output of traditional large models usually directly gives the answers to the questions, in addition to directly adding prompts that guide the output of CoT to the end of the prompt, for example, “let’s verify step by step”. In order to guide large language models to output the CoT reasoning process that we need, we can also further fine-tune the LLMs. As illustrated in the Figure 4, We need to build a dataset containing “thoughts” to further fine-tune the model. In this way, the model can deliberately think during the reasoning process and output the thinking behind the problem. In our experiment, we select the OpenO1-SFT [30] dataset who contains about 77.7k rows of data. And for models’ training part, we use the LLaMa-Factory [31] framework as our training framework, we trained each model 3 epochs on
+4×
+ A100 GPUs with full SFT training, and during the training process, we set the batch size to 4, learning rate to
+1×
+10
+−5
+ and warmup ratio to 0.1 to accelerate the training process, we use the bfloat16 precision.
+
+D. Parameters Settings
+
+There are four hyperparameters in our paper, namely
+λ
+1
+ ,
+λ
+2
+ ,
+λ
+3
+ , and
+δ
+ . The settings of different parameters affect the performance on the test data set. Among them, the parameters
+λ
+1
+ ,
+λ
+2
+ ,
+λ
+3
+ will affect the weights of different parts during the calculation of the L function, and the setting of the parameter
+δ
+ will directly affect the effect of detecting prompt injection attacks. In our experiment, we considered increasing the influence of the CoT part, and in order to set the hyperparameters effectively, we took 10% of the data from both the positive and negative samples. As a result, we split 217 data samples from the dataset and used them as a validation set. Finally, we set the values of
+λ
+1
+=0.7
+ and
+λ
+2
+=0.3
+ respectively. Since we do not add an additional penalty factor, we set the value of
+λ
+3
+=0
+ . The setting of these values is usually based on experience, and the effect is also related to the distribution of the data. and when
+δ=0.37
+ , the performance on the 200+ samples are the best, we think this is also related to the fact that the number of positive samples is slightly less than that of negative samples.
+
+E. Evaluate Metrics
+
+Since our prompt injection attack detection task can be regarded as a binary classification task, we can use the evaluation metrics for binary classification tasks to evaluate our algorithm: accuracy, precision, recall and F1. Respectively, their calculation formulas are:
+
+Accuracy
+Precision
+Recall
+F1
+=
+TP+TN
+TP+TN+FP+FN
+=
+TP
+TP+FP
+=
+TP
+TP+FN
+=
+2×Precision×Recall
+Precision+Recall
+(17)
+(18)
+(19)
+(20)
+View Source
+where TP refers to the number of samples predicted as positive that are actually positive. TN refers to the number of samples predicted as negative that are actually negative. FP refers to the number of samples predicted as positive but actually negative (false positives). FN refers to the number of samples predicted as negative but actually positive (false negatives). We show the confusion matrix of binary classification problems in Table 3, here, positive samples refer to prompts indicative of injection attacks, while negative samples refer to normal input prompts.
+
+TABLE 3 The Confusion Matrix of Binary Classification Problems
+
+F. Results
+
+As shown in Table 4, the effect of using a specialized detector is better than that of the large language model itself, this indicates that it is meaningful to build a professional detector additionally to detect prompt injection attacks. On the other hand, as the number of model parameters increases, the ability of large language models to recognize prompt injection attacks generally becomes better and better. But interestingly, we found that, although the accuracy of the 7B model is higher than that of the 3B model, the F1 performance of the 3B model is better than that of the 7B model, and moreover, compared with the 3B model, the recall rate of the 7B model has increased while its precision has decreased. we guess that this may be related to the number of layers and the attention parameters of large language model, as large models usually focus on generative tasks, while prompt injection attack detection is a discriminative problem. However, after adopting our method, the recall rate of the 3B model and the precision of the 7B model have been significantly improved (marked in blue in the Table 4), making their performance on the dataset more balanced and robust.
+
+TABLE 4 The Experimental Results of Our Methods and Ablation Study
+
+When the number of parameters reaches 1.4 billion, the overall performance has been improved. Notably, our method outperforms the LLM Guard by 1.16% in terms of accuracy and 3.39% in term of F1 score, furthermore, it exceeds the large language model itself by 6.24% in accuracy and 7.65% in F1 score (marked in red in the Table 4). And through the analysis of the experimental results, a trade-off exists between precision and recall. However, as the reasoning ability of the model improves, the overall performance of our method will also improve. We display a comparison of the accuracy and F1 score of the results in Figure 6 and we present the confusion matrix heatmap of our method in the Figure 7.
+
+FIGURE 6.
+
+The accuracy and F1 score of large language models with different parameter sizes.
+
+FIGURE 7.
+
+The confusion matrix heatmaps of thought defender with models in different parameter sizes.
+
+The confusion matrix demonstrates that as the parameter size and reasoning ability of the model increase, there is a significant improvement in the correct classification of positive examples. This indicates that the Thought Defender has significantly enhanced its sensitivity to prompt injection attacks.
+
+SECTION V.
+Ablation Study
+
+As shown in the Figure 6, first of all, our method is significantly superior to the recognition ability of the large language model itself, especially for models with a small number of parameters having a greater improvement. From the application perspective, models with a small number of parameters are often used in actual industrial scenarios, which demand more stringent security capabilities, so it indicates that the additional prompt injection attack detection is quite necessary. Secondly, our method goes beyond the simple detector-based detection on the model with 1.4 billion parameters, it may perform better on models with stronger reasoning abilities. Due to resource limitations, we have not yet conducted experiments on larger models, and this will be included in one of our future works. In later part, we will analyze some important influencing factors in the experimental process.
+
+A. Instruction Following Ability of Different Parameters’ Large Language Models
+
+It is worth mentioning that when utilizing large models themselves as the method for prompt attack detection, the output of large language models occasionally fails to fully adhere to instructions. This is normal and also is one of the challenges that both the industry and academia are striving to solve. In our experiments, we chose to ignore the data where large models could not fully follow the instructions. We also conducted a statistical analysis of the instruction-following capabilities of large models with different parameter sizes.
+
+In Figure 8, it can be seen that the larger the number of parameters of the model, the stronger the instruction-following ability of the model generally, however, after the number of model parameters reaches a certain order of magnitude, there won’t be much difference.
+
+FIGURE 8.
+
+Comparison of instruction following abilities for large language models with different parameters.
+
+B. Comparison of Detecting Prompt Injection Attacks With and Without CoT by LLMs Themselves
+
+To measure the impact of CoT on the prompt injection attacks of large language models, we additionally compared the performance of large language models when directly recognizing prompts and when recognizing them in the CoT mode. First, we guide the large language model after supervised fine-tuning to output the CoT thinking process based on the input prompt. After that, we input the obtained CoT process together with the input prompt back into the large language model. Then, based on the same prompt as descripted in the above experiment, we ask the LLM to judge whether there is a prompt injection attack in the input prompt.
+
+As shown in the Table 5 and Figure 6, large language models’ prompt injection detection ability can be improved by having in-depth thinking, this point was also discussed in detail in OpenAI’s recent work in this paper [32]. Moreover, they proposed an alignment method for the safety training of large models. By adding an additional CoT thinking process, the precision of the large language model in identifying injection attacks has been significantly improved, Additionally, the overall performance of LLMs with small parameters have greater improvements.
+
+TABLE 5 Comparison of Qwen-2.5 LLMs’ Detecting Prompt Injection Ability With and Witout CoT
+
+SECTION VI.
+Discussion and Future Work
+
+In this study, we propose a CoT based approach to detect prompt injection attacks in large language models. Through experimental evaluations, our method demonstrated significant advantages, particularly compared to the detection capabilities of the large models themselves and traditional rule-based or parsing-based detection methods. However, like all research, our work also has certain limitations and opens up directions for future exploration.
+
+Our method successfully integrates the CoT algorithm into prompt injection attack detection. By performing fine-grained analysis of the reasoning process, it effectively detects attacks and identifies their origins. The proposed multi-dimensional anomaly detection mechanism evaluates anomalies in the CoT from multiple dimensions, including semantic analysis, step-level consistency, path-level consistency, and confidence estimation, thereby further enhancing detection capabilities. This multidimensional analysis approach helps capture various types of prompt injection attacks, improving detection accuracy and robustness.
+
+However, the overall performance of the model still relies on its underlying language understanding and reasoning capabilities. When facing sophisticated semantic attacks or novel attack patterns, the system may fail to fully comprehend the intent behind the attack, thereby affecting detection effectiveness. Future research could explore ways to further enhance the system’s understanding of complex semantics and new attack patterns. Moreover, although the precision of the system has been improved after using the Chain-of-Thought (CoT), the latency and the number of generated tokens has also increased. And as the number of parameters of the large model increases, its resource consumption and latency will also increase. This issue is also an important technical problem that currently troubles the industry. Generally speaking, the industry will select an appropriate trade-off according to the requirements. We deployed the large language models on a single A100 GPU and counted the latency when the model with different parameter magnitudes performs inference on a single sample. The inference of the pure large model originally takes about 1 second, however, as the number of tokens generated by the CoT increases, the latency will approximately increase to several seconds to more than ten seconds. In future work, we will further investigate how to optimize the design of the CoT module to enable closer integration with the attack detection task. And we will continue to focus on how to enable our thought defender to dynamically adapt to emerging attack patterns and reduce the latency while ensuring the accuracy of the system.
+
+SECTION VII.
+Conclusion
+
+This paper proposes a CoT based method for detecting prompt injection attacks in large language models, making a significant contribution to improving model security. By deeply analyzing the security challenges faced by current large language models, particularly the threat of prompt injection attacks, we have highlighted the necessity of this research. Such attacks exploit the model’s reliance on input prompts, maliciously modifying them to disrupt the model’s reasoning process, resulting in incorrect outputs. In critical application domains, this could lead to severe consequences, and traditional detection methods often struggle to respond effectively. We innovatively integrate the CoT algorithm with prompt injection attack detection, leveraging CoT’s step-by-step reasoning mechanism to refine the detection granularity to the reasoning step level. Through a multidimensional anomaly detection mechanism, we evaluate reasoning anomalies from dimensions such as semantics, step-level and path-level consistency, and confidence estimation, effectively enhancing detection accuracy. Experimental results demonstrate that our method significantly outperforms traditional approaches in metrics such as accuracy and F1 score. However, we also acknowledge certain limitations in this research. In the future, we will continue to focus on the exploration of CoT module’s capability for prompt injection attacks in large language models, as well as explore ways to adapt to dynamically evolving attack patterns.
+
+Appendix
+Prompt Injection Attacks’ CoT Examples
+
+In the appendix of this section, we present some examples of CoT based on prompts containing injection attacks who are outputs from our supervised finetuning LLM model in the Table 6 below. From these examples, we can further observe that fine-grained thinking can assist large models in detecting potential attacks.
+
+TABLE 6 Examples of CoT Based on Prompts Containing Injection Attacks
+
+More Like This
+Exploring Large Language Models for Natural Language Processing
+
+2024 Second International Conference Computational and Characterization Techniques in Engineering & Sciences (IC3TES)
+
+Published: 2024
+
+Mapping ESCO Skills Taxonomy to Educational Offers Using Natural Language Processing and Large Language Models
+
+2025 6th International Conference of the Portuguese Society for Engineering Education (CISPEE)
+
+Published: 2025
+
+Show More
+IEEE Personal Account
+CHANGE USERNAME/PASSWORD
+Purchase Details
+PAYMENT OPTIONS
+VIEW PURCHASED DOCUMENTS
+Profile Information
+COMMUNICATIONS PREFERENCES
+PROFESSION AND EDUCATION
+TECHNICAL INTERESTS
+Need Help?
+US & CANADA: +1 800 678 4333
+WORLDWIDE: +1 732 981 0060
+CONTACT & SUPPORT
+Follow
+
+About IEEE Xplore | Contact Us | Help | Accessibility | Terms of Use | Nondiscrimination Policy | IEEE Ethics Reporting | Sitemap | IEEE Privacy Policy
+
+A public charity, IEEE is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity.
+
+© Copyright 2026 IEEE - All rights reserved, including rights for text and data mining and training of artificial intelligence and similar technologies.
+
+PDF
+Help

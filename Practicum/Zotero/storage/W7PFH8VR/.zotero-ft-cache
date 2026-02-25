@@ -1,0 +1,455 @@
+Close sidebar
+New Thread
+⌘+K
+Home
+History
+Adaptive Adversarial LLM Attacks
+My Library
+My favorites
+Mohankumar M
+Upgrade
+
+2
+
+Share
+We propose a project to perform adaptive adversarial attacks on the LLM models by analysing their Chain-of-Thought (CoT), then evaluate it against defined baseline external defence mechanisms and hardened defence. As per the OWASP top 10 LLM vulnerabilities, prompt injection remains at the number one. Hence, we are focusing on the Prompt injection and its sub-categories. Our project aims to build an adaptive multi-turn attacker combining Q-learning (a type of Reinforcement Learning -RL- algorithm) with semantic prompt generation (choosing a strategy based on cosine similarity) and a scoring engine that evaluates the attack result using a judge LLM. The goal is to understand and evaluate the adaptive attack vs adaptive defence. These evaluations will help to understand the weaknesses in model security and pave the way to mitigating them. As per OWSAP, Red teaming is one of the solutions to prevent prompt injection attacks in the earlier stages of the LLM development cycle.
+Pro
+·
+5
+steps
+·
+20
+sources
+Suggested related work and positioning for your project
+
+Your idea—an adaptive, multi‑turn attacker using Q‑learning plus semantic prompt generation and CoT analysis, evaluated against baselines and hardened defenses—fits well into several active research threads, and there are some clear gaps you can explicitly target.
+
+Why prompt injection and adaptive attacks matter
+
+Prompt injection is consistently identified as the top LLM vulnerability by OWASP and appears multiple times in MITRE ATLAS, with studies showing ~56% average success rates across 36 models and even 28% of models vulnerable to all tested prompts 
+4
+5. These attacks include both direct (user-facing) and indirect (data‑embedded) prompt injection and can lead to data exfiltration, keylogger generation, code execution, and misinformation 3
+518.
+
+Systematic evaluations reveal that jailbreak and prompt injection techniques are transferable and evolving, with high success rates across GPT‑4, Claude, Mistral and Vicuna and calls for layered, red‑teaming‑centric mitigation strategies 
+117. Survey work and systematic analyses emphasize the need for adaptive, multi-step, and multilingual defenses rather than static guardrails 
+4
+5620.
+
+Where your project fits vs existing attacks/defenses
+
+Several works are especially relevant to the “adaptive attacker vs adaptive defense” angle:
+
+Aspect	Existing work	How your project can extend	Citations
+Systematic prompt injection frameworks	Formal frameworks and taxonomies of prompt injection threats and sub‑types 8
+1117	Align your Q‑learning action space with these taxonomies; evaluate by sub‑category.	3
+48
+1117
+Automated / universal attacks	Gradient‑based and automated universal prompt injection, showing defenses often overestimate robustness 
+9
+14	Provide a black‑box, RL‑based, multi‑turn alternative that adapts to defenses using feedback from a judge LLM.	
+2
+9
+14
+Indirect & agent attacks	Indirect prompt injection against real apps (Bing, IDEs), and IPI attacks on LLM agents where adaptive attacks break 8 defenses (>50% ASR) 3
+1418	Evaluate your attacker both in single‑LLM and agent/tool‑using environments; explicitly compare against these IPI defenses.	3
+1418
+CoT‑based security	Fine‑grained CoT analysis used as a defense to detect prompt injection via semantic and consistency anomalies 15	You invert this: mine the model’s CoT to guide Q‑learning and strategy selection, and test how well CoT‑based defenses survive adaptive attackers.	15
+Defense evaluation methodology	Critical evaluations argue that prior defenses are not tested against strong adaptive attacks, and propose principled two‑dimensional evaluation (effectiveness vs utility) 
+16	Directly adopt this methodology to report: (a) attack success vs baselines, and (b) degradation of normal task performance under hardened defenses.	
+112
+16
+Red teaming & layered defenses	Large‑scale red‑teaming of jailbreaks/prompt injection and calls for hybrid red‑teaming + sandboxing as core practice 
+1
+46	Position your framework explicitly as automated red teaming aligned with OWASP’s red‑team recommendation.	
+1
+46
+
+FIGURE 1 Comparison of current prompt injection work and your framework.
+
+Design choices supported by literature
+Multi‑turn, adaptive attacker: Empirical work on LLM‑integrated apps and agents shows that static, one‑shot prompts underestimate real risk; adaptive attacks bypass all eight evaluated IPI defenses with >50% success 
+23
+14. This justifies your Q‑learning, multi‑turn design.
+Semantic strategy selection (cosine similarity): Many red‑teaming and detection pipelines rely on embedding‑based similarity (Sentence‑BERT, etc.) to categorize and generate adversarial prompts 
+1
+2. Using cosine similarity to choose attack strategies is consistent with these practices.
+LLM judge as scoring engine: Existing evaluations of prompt injection/jailbreaks often use LLM‑based moderation/judging plus heuristics to rate success, though these can be noisy 
+1
+9
+14. You should acknowledge this limitation and, if possible, combine LLM judges with rule‑based or task‑based success metrics.
+CoT as an attack/defense locus: CoT‑based detection improves accuracy and F1 over intrinsic LLM detection for prompt injection, showing that reasoning traces expose attack artifacts 15. This strongly motivates both: (a) mining CoT to adapt attacks, and (b) including CoT‑aware hardened defenses in your evaluation.
+Gaps you can explicitly claim
+
+Based on this literature, you can position your contribution around:
+
+First or among the first CoT‑driven, RL‑based adaptive prompt injection attacker evaluated systematically across multiple models and defenses.
+A unified experimental setup comparing:
+Baseline, non‑adaptive prompt‑engineering attacks.
+Gradient‑based / universal attacks where available.
+Your adaptive, multi‑turn attacker.
+Against both external guard models/filters and hardened prompts/architectures (e.g., polymorphic prompts, CoT‑based detectors, tagging defenses) 10
+11
+1315.
+An evaluation protocol aligned with OWASP and recent methodological critiques: focus on adaptive attacks, real LLM‑integrated or agent settings, and utility preservation 3
+4
+14
+16.
+
+These points can anchor your project motivation, related‑work section, and claims about novelty.
+
+Filter
+Export
+Results
+Show
+We propose a project to perform adaptive adversarial attacks on the LLM models by analysing their Chain-of-Thought (CoT), then evaluate it against defined baseline external defence mechanisms and hardened defence. As per the OWASP top 10 LLM vulnerabilities, prompt injection remains at the number one. Hence, we are focusing on the Prompt injection and its sub-categories. Our project aims to build an adaptive multi-turn attacker combining Q-learning (a type of Reinforcement Learning -RL- algorithm) with semantic prompt generation (choosing a strategy based on cosine similarity) and a scoring engine that evaluates the attack result using a judge LLM. The goal is to understand and evaluate the adaptive attack vs adaptive defence. These evaluations will help to understand the weaknesses in model security and pave the way to mitigating them. As per OWSAP, Red teaming is one of the solutions to prevent prompt injection attacks in the earlier stages of the LLM development cycle.
+Pro
+·
+3
+steps
+·
+18
+sources
+Project positioning and how to sharpen it
+
+Your proposed project aligns closely with emerging work on CoT‑aware attacks and defenses, but there are clear gaps you can claim.
+
+How your idea connects to existing research
+CoT‑guided adversarial prompting already boosts attack success. In Bi‑Modal Adversarial Prompt Attack (BAP) for vision–language models, an LLM uses chain‑of‑thought to analyse jailbreak failures and iteratively refine textual prompts, achieving ~+29% average increase in attack success rate over baselines 
+1. This validates your idea of using CoT as a signal for adapting attacks.
+CoT‑based prompt‑injection defense is emerging. Meticulous Thought Defender uses a fine‑grained CoT analysis (semantic, step/path consistency, confidence) to detect prompt injections, outperforming static rule‑based and intrinsic LLM detection by 1.16% accuracy and 3.39% F1, and by 6.24%/7.65% over intrinsic detection 5. This is a natural candidate for your “hardened defense.”
+Prompt injection is recognised as a primary LLM risk. Surveys of LLM security and prompt engineering explicitly highlight prompt hacking/injection and jailbreaks as central vulnerabilities, referencing OWASP’s prompt‑hacking project as a key practical resource and stressing the need for systematic adversarial evaluation and red‑teaming style benchmarks 
+3
+6
+11
+18.
+Where your project is novel
+
+Based on these works, you can frame your contribution around:
+
+Adaptive RL attacker vs. mostly heuristic or one‑shot methods
+
+BAP uses CoT‑driven heuristic feedback loops for text adaptation 
+1; there is little work that explicitly models the attacker as a Q‑learning agent with a state (history + CoT) and an action space of attack strategies.
+Security surveys emphasise the rise of automated prompt attacks but primarily cover gradient‑based or search‑based universal triggers, not RL‑based multi‑turn strategies 
+3
+6
+11.
+
+CoT as a state signal for RL, not just a tool
+
+Existing CoT‑based work either:
+Uses CoT to craft/optimize prompts for attacks 
+1, or
+Uses CoT to detect prompt injection 5.
+Your design goes further by feeding the model’s reasoning trace into the Q‑learner to decide the next attack move, and then testing this against CoT‑aware defenses like Meticulous Thought Defender 5.
+
+Explicit OWASP‑aligned red‑teaming framework
+
+OWASP’s prompt hacking project and related initiatives are positioned as practical red‑teaming and evaluation environments rather than adaptive attack engines 
+3
+6.
+You can position your system as an automated red‑team harness for prompt injection and its sub‑categories (direct, indirect, multi‑turn, data‑embedded), aligned with OWASP guidance.
+Suggested experimental structure
+Key Components and Possible Instantiations
+Component	Option grounded in literature	Citations
+Attack space	Include jailbreaks, prompt injections, multi‑modal or system‑prompt attacks as in BAP and prompt‑hacking taxonomies	
+1
+3
+6
+18
+Baseline external defenses	Static prompt‑engineering guardrails, LLM‑as‑moderator filters, ethical prompts, and supervisor‑agent setups (shown partially effective)	
+2
+4
+8
+11
+Hardened defense	CoT‑based detector (Meticulous Thought Defender) and possibly randomized‑smoothing‑style defenses like SmoothLLM	5
+11
+Evaluation metrics	Attack success rate, utility degradation (on benign tasks), false‑positive rate of defenses, broken down by OWASP‑style attack categories	
+35
+6
+11
+
+FIGURE 1 Mapping your design choices to current research.
+
+How to phrase your research aims
+
+You can summarise the core research questions as:
+
+Can a CoT‑aware, Q‑learning multi‑turn attacker systematically outperform non‑adaptive prompt‑engineering and heuristic CoT feedback attacks in bypassing state‑of‑the‑art prompt‑injection defenses?
+How robust are CoT‑based and other hardened defenses when facing an attacker that explicitly learns from their behaviour?
+What trade‑offs arise between security (lower attack success) and usability/utility when deploying hardened defences in realistic multi‑turn settings?
+
+Framing your work this way ties it directly to OWASP’s top vulnerability, current CoT‑based methods, and the broader call for principled LLM red‑teaming.
+
+Filter (4)
+Export
+
+GET A LIT REVIEW
+
+·
+
+We propose a project to perform adaptive adversarial attacks on the LLM models by analysing their Chain-of-Thought (CoT), then evaluate it against defined baseline external defence mechanisms and hardened defence. As per the OWASP top 10 LLM vulnerabilities, prompt injection remains at the number one. Hence, we are focusing on the Prompt injection and its sub-categories. Our project aims to build an adaptive multi-turn attacker combining Q-learning (a type of Reinforcement Learning -RL- algorithm) with semantic prompt generation (choosing a strategy based on cosine similarity) and a scoring engine that evaluates the attack result using a judge LLM. The goal is to understand and evaluate the adaptive attack vs adaptive defence. These evaluations will help to understand the weaknesses in model security and pave the way to mitigating them. As per OWSAP, Red teaming is one of the solutions to prevent prompt injection attacks in the earlier stages of the LLM development cycle.
+
+CONSENSUS METER
+
+·
+
+Can Chain-of-Thought analysis enhance detection of prompt injection attacks?
+
+Adaptive adversarial attacks
+
+How do hardened defense mechanisms compare against baseline methods for LLM prompt injection vulnerabilities?
+
+Results
+Results
+All
+Adaptive prompt injection attacks
+Prompt injection defenses
+1
+Jailbreak Vision Language Models via Bi-Modal Adversarial Prompt
+KEY TAKEAWAY·The Bi-Modal Adversarial Prompt Attack (BAP) effectively jailbreaks vision language models by optimizing both textual and visual prompts, outperforming other methods by 29.03% on average.
+HIGHLY CITED
+2024
+·
+77
+citations
+·
+Zonghao Ying et al.
+PDF
+2
+A Survey of Attacks on Large Vision–Language Models: Resources, Advances, and Future Trends
+KEY TAKEAWAY·This paper reviews various attacks on large vision-language models, highlighting potential security risks and encouraging researchers to explore and mitigate these vulnerabilities in future research.
+LITERATURE REVIEW
+HIGHLY CITED
+2024
+·
+73
+citations
+·
+Daizong Liu et al.
+PDF
+3
+Unleashing the potential of prompt engineering for large language models
+KEY TAKEAWAY·Prompt engineering enhances the utility and accuracy of large language models, and plays a crucial role in AI security by minimizing adversarial attacks and improving model robustness.
+LITERATURE REVIEW
+HIGHLY CITED
+2023
+·
+131
+citations
+·
+Banghao Chen et al.
+PDF
+4
+Prompt injection attacks on vision language models in oncology
+KEY TAKEAWAY·Current vision-language artificial intelligence models in oncology are vulnerable to prompt injection attacks, allowing harmful output without access to their parameters.
+2025
+·
+34
+citations
+·
+J. Clusmann et al.
+PDF
+5
+Meticulous Thought Defender: Fine-Grained Chain-of-Thought (CoT) for Detecting Prompt Injection Attacks of Large Language Models
+KEY TAKEAWAY·Our fine-grained Chain-of-Thought (CoT) detection framework significantly improves prompt injection attack identification in large language models, outperforming traditional methods and their own intrinsic detection capabilities.
+2025
+·
+0
+citations
+·
+Lijuan Shi et al.
+Full text
+6
+Security Concerns for Large Language Models: A Survey
+KEY TAKEAWAY·Large Language Models (LLMs) introduce new security vulnerabilities, highlighting the need for robust, multi-layered security strategies to ensure their safety and beneficial use in natural language processing.
+2025
+·
+18
+citations
+·
+Miles Q. Li et al.
+Full text
+7
+Large Language Models for Cyber Security: A Systematic Literature Review
+KEY TAKEAWAY·Large Language Models (LLMs) are increasingly being used in cybersecurity tasks, with autonomous agents playing a significant role in complex, multi-step security workflows.
+LITERATURE REVIEW
+HIGHLY CITED
+2024
+·
+111
+citations
+·
+Hanxiang Xu et al.
+PDF
+8
+Adversarial prompt and fine-tuning attacks threaten medical large language models
+KEY TAKEAWAY·Large Language Models (LLMs) in medical applications are vulnerable to adversarial attacks, highlighting the need for robust security measures and defensive mechanisms to safeguard their safe and effective deployment in healthcare settings.
+2025
+·
+2
+citations
+·
+Yifan Yang et al.
+PDF
+9
+A survey on multimodal large language models
+KEY TAKEAWAY·Multimodal large language models (MLLMs) show promise for artificial general intelligence, with capabilities like writing stories based on images and recognizing math without OCR.
+HIGHLY CITED
+2023
+·
+999
+citations
+·
+Shukang Yin et al.
+PDF
+10
+Large Language Models for Software Engineering: A Systematic Literature Review
+KEY TAKEAWAY·Large Language Models (LLMs) can optimize Software Engineering processes and outcomes when applied to well-curated datasets and well-defined tasks.
+SYSTEMATIC REVIEW
+HIGHLY CITED
+2023
+·
+756
+citations
+·
+Xinying Hou et al.
+PDF
+11
+Security and Privacy Challenges of Large Language Models: A Survey
+KEY TAKEAWAY·Large language models (LLMs) offer significant advantages in natural language processing, but are vulnerable to security and privacy attacks, posing risks in various domains like transportation, education, and healthcare.
+HIGHLY CITED
+2024
+·
+315
+citations
+·
+B. Das et al.
+PDF
+12
+Explainability for Large Language Models: A Survey
+KEY TAKEAWAY·This paper introduces a taxonomy of explainability techniques for Transformer-based language models, categorizes them based on training paradigms, and explores their potential for debugging and improving performance.
+HIGHLY CITED
+2023
+·
+706
+citations
+·
+Haiyan Zhao et al.
+PDF
+13
+Prompting Techniques for Secure Code Generation: A Systematic Investigation
+KEY TAKEAWAY·Prompting techniques, particularly Recursive Criticism and Improvement (RCI), can reduce security weaknesses in code generated by Large Language Models (LLMs) from Natural Language instructions.
+SYSTEMATIC REVIEW
+2024
+·
+35
+citations
+·
+Catherine Tony et al.
+PDF
+14
+Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing
+KEY TAKEAWAY·Prompt-based learning in natural language processing allows models to adapt to new scenarios with few or no labeled data, offering powerful and attractive results.
+SYSTEMATIC REVIEW
+HIGHLY CITED
+2021
+·
+4855
+citations
+·
+Pengfei Liu et al.
+PDF
+15
+Rethinking machine unlearning for large language models
+KEY TAKEAWAY·Machine unlearning in large language models (LLMs) can create safe, secure, and trustworthy AI without full retraining, preserving essential knowledge and enhancing copyright and privacy safeguards.
+HIGHLY CITED
+2024
+·
+200
+citations
+·
+Sijia Liu et al.
+PDF
+16
+Red Teaming Language Model Detectors with Language Models
+KEY TAKEAWAY·This study reveals that adversarial attacks on language model detectors can compromise their performance, emphasizing the need to improve the robustness of LLM-generated text detection systems.
+2023
+·
+67
+citations
+·
+Zhouxing Shi et al.
+PDF
+17
+A survey on large language models for recommendation
+KEY TAKEAWAY·Large Language Models (LLMs) can enhance recommendation systems by providing high-quality representations of textual features and extensive coverage of external knowledge.
+HIGHLY CITED
+2023
+·
+649
+citations
+·
+Likang Wu et al.
+PDF
+18
+Prompt injection – the problem of linguistic vulnerabilities of large language models at the present stage
+KEY TAKEAWAY·Prompt injection attacks pose a significant challenge for AI developers and researchers, and enhancing language model resilience against negative manipulations can lead to safer and more ethical AI systems.
+LITERATURE REVIEW
+2024
+·
+0
+citations
+·
+I. N. Zyryanova et al.
+PDF
+19
+Tool learning with large language models: a survey
+KEY TAKEAWAY·Tool learning with large language models (LLMs) offers benefits and a systematic approach to implementing it, but challenges and future directions need further exploration.
+LITERATURE REVIEW
+HIGHLY CITED
+2024
+·
+211
+citations
+·
+Changle Qu et al.
+PDF
+20
+A Comprehensive Overview of Large Language Models
+KEY TAKEAWAY·This paper provides a comprehensive overview of Large Language Models (LLMs) and their recent advances, highlighting background concepts and advanced topics for researchers and practitioners.
+SYSTEMATIC REVIEW
+HIGHLY CITED
+2023
+·
+1200
+citations
+·
+Humza Naveed et al.
+PDF
+Pro
+Sources
+Filter
+Paper
+Abstract
+PDF
+Snapshot
+
+Meticulous Thought Defender: Fine-Grained Chain-of-Thought (CoT) for Detecting Prompt Injection Attacks of Large Language Models
+
+2025
+·
+0
+citations
+·
+Lijuan Shi et al.
+IEEE Access
+·
+
+DOI
+
+Large language models (LLMs) have exhibited exceptional capabilities across various natural language processing tasks, however, they remain susceptible to prompt injection attacks, which pose significant security challenges. Traditional detection methods often fail to effectively identify such attacks due to their reliance on static rules or surface-level analysis. In this study, we introduce a novel, fine-grained CoT based detection framework that enhances the interpretability and robustness of attack identification. By dissecting the step-by-step reasoning process of LLMs, our approach leverages multidimensional anomaly detection mechanisms-encompassing semantic analysis, consistency evaluations at both step and path levels, and confidence estimations to uncover subtle disruptions caused by malicious prompt manipulations. Experimental results demonstrate that our method achieves superior performance metrics, with significant improvements in accuracy and F1 score, outperforming traditional method by 1.16% in accuracy and 3.39% in F1 score, and surpassing LLMs’ intrinsic detection capabilities by 6.24% in accuracy and 7.65% in F1 score. This work not only fortifies the security of LLMs’ applications but also provides a foundational framework for future research on adaptive defenses against evolving attack strategies.
+
+Details
+Full text

@@ -1,0 +1,120 @@
+Continual Defense Against Evolving Jailbreaks: A
+Multi-Agent Adversarial Framework with Linear
+Gating MoE
+Qianqiao Xu
+College of Computer Science and Technology National University of Defense Technology Changsha, China xuqianqiao23@nudt.edu.cn
+Feng Liu*
+College of Computer Science and Technology National University of Defense Technology Changsha, China *richardlf@nudt.edu.cn
+Abstract—Large Language Models (LLMs) are vulnerable to deceptive jailbreak attacks inducing harmful outputs. Existing defenses suffer from catastrophic forgetting in continual defense learning against evolving attacks. To address the limited space issue caused by defenders attempting to reduce defense forgetting when learning long sequence tasks, we propose a Mixture-ofExperts (MoE) based continual defense learning method, which only activates the most suitable experts to learn new tasks and freezes the other experts to prevent forgetting the old defense tasks. Our approach employs in-context learning (ICL) to simulate an attack-defense LLM-based multi-agent framework, where an attacker generates sequential novel attacks, a defender continuously learns to counter the attacker, and an evaluator assesses the defense. Crucially, we introduce a linear gating MoE continual learning method for the defender. This method uses a linear gate to assign new attack tasks to specific expert networks (formed by partitioning model neurons), isolating training to prevent forgetting of established defenses. Experiments demonstrate that our framework significantly outperforms baselines in continual defense learning, achieving higher defense success rates across sequentially updated attack tasks.
+Keywords—continual defense learning, Mixture-of-Experts, multi-agent, large language model
+I. INTRODUCTION
+With the impressive capabilities demonstrated by large language models (LLMs) in natural language generation tasks, concerns about their safety have become increasingly prominent, especially when facing deceptive jailbreak attacks[1]. Attackers often attempt to induce LLMs into generating harmful, biased, or even illegal content[2]. In response, researchers have proposed various defense strategies against the attackers.
+Prompt engineering[3] prompts LLMs to generate safe responses against the attack without requiring model parameter updates. Wu et al.[4] prompt LLMs to verify that their generated content is safe to defend against attacks. Wei et al.[5] shows LLMs the safe demonstration of not producing harmful responses. However, these methods typically employ static inference procedures, which cannot accumulate reusable defense knowledge from prior interactions, thereby limiting their effectiveness against sophisticated and frequently evolving attacks[6]. In contrast, instruction finetuning typically enhances the model's robustness against evolving attacks[7]. Mart[8] finetunes LLMs with safe defense samples to strengthen
+their defense capabilities. Wan et al.[9] fintune the model to detect the harmful inputs. However, these approaches cannot be adapted to continuous learning (CL) scenarios that require defending against continuously evolving attackers generating iteratively reinforced sequential attacks. Their poor CL capabilities may cause them to forget previously learned defense methods against consistently updated attack tasks[10].
+There are two CL methods to mitigate defense forgetting: (1) Rehearsal-based CL methods mitigate forgetting by storing data from learned tasks for retraining. Yang et al.[11] continuously detoxify the old attack problem before finetuning the new defense task. Deng et al.[7] reduce forgetting by backtracking to train LLM on old defense tasks that are not defended successfully. (2) Architecture-based CL methods reduce forgetting by incorporating task-relevant training modules into the model structure. SafeMerge[12] reduces forgetting by training different defense models independently and then fusing them. Wistuba et al.[13] set up structures in the model to be responsible for different defense tasks to reduce the coverage of old tasks. However, these traditional approaches require additional structural space to store information about old defense tasks, which is resource-consuming for defending against long sequences of iteratively updated attacks.
+In this paper, we propose a Mixture of Experts (MoE) based CL defense method, which only activates the most suitable defense experts against the new attacks to reduce the additional space required for mitigating the forgetting of old defense tasks. Specifically, we construct an LLM-based multi-agent attack and defense framework to generate iteratively updated sequential defense tasks. We use in-context learning (ICL) to enable LLMs to act as different agents, including an attacker (iteratively generating new attack tasks), a defender (continuously learning to defend against new attacks), and an evaluator (evaluating whether the defense is successful or not). We propose a linear gating MoE CL method for the defender to reduce the storage space for mitigating the forgetting of learning a long sequence of defense tasks. We first use a linear gate mechanism to assign specific experts to new attack tasks for defense training. Then, we design a defense expert network, which partitions the FNN layers of the model into nonoverlapping groups of neurons, each serving as an expert responsible for a different defense training task. This approach ensures that the acquired defense capabilities are not overwritten and forgotten by the learning of new tasks. We conduct experiments on our methods with LLMs and test the
+2025 5th International Conference on Artificial Intelligence, Big Data and Algorithms (CAIBDA)
+979-8-3315-2664-1/25/$31.00 ©2025 IEEE 1409
+2025 5th International Conference on Artificial Intelligence, Big Data and Algorithms (CAIBDA) | 979-8-3315-2664-1/25/$31.00 ©2025 IEEE | DOI: 10.1109/CAIBDA65784.2025.11182780
+Authorized licensed use limited to: DUBLIN CITY UNIVERSITY. Downloaded on October 18,2025 at 00:00:39 UTC from IEEE Xplore. Restrictions apply.
+
+
+defense success rate on defense datasets, which significantly outperforms all the baselines.
+Our contributions are threefold: (1) We propose using MOE in CL defense tasks to reduce the storage space required to avoid forgetting in learning against long sequence attack tasks. (2) We construct a MOE-based multi-agent CL defense framework, which utilizes ICL to enable LLMs to play different roles in generating defense tasks continuously and assigns different defense tasks to MoE's experts to reduce the overlap in CL between learning new tasks and old tasks. (3) Experiments show that our method outperforms other baselines in continuous defense learning tasks.
+II. METHOD
+A. Overview
+As shown in Figure 1, we propose a MoE-based multi-agent continual learning defense framework to mitigate defense forgetting when LLMs continually learn to defend against iteratively enhanced attacks. We first construct an LLM-based multi-agent continual attack and defense system (Sec. B), which comprises an attacker that continually generates attacks, a defender that responds to the attacks with a safe response, and an evaluator that assesses the defense's success and provides feedback to the other two agents to enhance their abilities. We then propose a linear gating MOE continual learning method for the defender (Sec. C) to mitigate the defender's forgetting when it continually learns to defend sequential attack tasks provided by the attacker.
+Figure 1: MoE-based multi-agent continual learning defense framework.
+B. LLM-based multi-agent attack-defense framework
+We utilize ICL to instruct LLMs to engage in different agent roles, simulating a continuous attack-defense scenario and generating iteratively updated sequential defense tasks. This framework contains three agents: (1) Attacker. The attacker continually generates various attacks against the defender. We utilize in-context learning (ICL) to prompt the LLM to generate multiple types of attack prompts and refine those that are unsuccessful. (2) Defender. The defender defends against the attacker's attacks. We use the ICL to guide the LLM in generating a safe response against the attacker. (3) Evaluator. The evaluator assesses whether the defense is successful and provides feedback to both the attacker and the defender. Following Deng. et al.[7], we prompt the LLM to score the safety of the response generated by the defender on a scale of 1 to 10. We consider the defense successful if the score is 5 or less.
+The interaction flows between three agents. The attacker first generates attack prompts to attack the defender. The defender then generates a safe response against the attacker. The evaluator scores the response and evaluates whether the defense is successful. If the defense succeeds, the evaluator gives the attack failure results back to the attacker, and the
+attacker uses the ICL technique to strengthen the attack. If the defense fails, the evaluator feeds the results back to the defender, and the defender uses the defense failure samples to learn to strengthen the defense's ability.
+C. Linear gating MOE continual learning defender
+To reduce storage space for mitigating forgetting in constantly learning defenses against new tasks generated by the attacker, we propose a MoE-based defender that allocates only the relevant defense experts to learn the new task and freezes the others. Since the defender continuously learns long sequences of defense tasks that are updated iteratively, traditional continuous learning methods often lack sufficient space to store data from old tasks for retraining the entire model's parameters[14,15]. In contrast, MOE can assign and activate the parameter space of the most suitable experts to the new task while freezing other internal structures[16,17]. This strategy reduces the likelihood of forgetting previous tasks without necessitating additional storage space for retraining. Therefore, we proposed MOE for the defender to mitigate defense forgetting in learning the long sequence of tasks, where we use a linear gate (Sec.II.C.1) to select the most relevant experts for each task and allocate them to the defense experts
+1410
+Authorized licensed use limited to: DUBLIN CITY UNIVERSITY. Downloaded on October 18,2025 at 00:00:39 UTC from IEEE Xplore. Restrictions apply.
+
+
+network (Sec.II.C.2) which assigns experts non-overlapping sets of neurons so that those assigned to learn the new task are isolated from other experts for old tasks. Then, we design a training strategy (Sec.II.C.3) to train the selected experts on the new tasks and restrict parameter changes before and after the experts learn the new task to mitigate the forgetting of the old defense task.
+Following Li et al.[15], we suppose the defense task sequence datasets . The dataset of each defense task contains the attack questions and defense response labels .
+1) The gating mechanism for selecting defense experts
+We design a linear gating mechanism to select the most suitable defense experts for the attacker's attack when the defender learns a new task . First, the attacker provided the attack questions to the defender. Then, we compute all candidate defense experts set on with the linear outputs and
+denotes the parameters of the gating network for all defense experts. Then, we use the Top-k function to select k experts with the highest linear output as to generate safety
+responses. Additionally, we calculate the softmax gate outputs for the defender to update the gating network parameters for all experts, shown in (1).
+(1)
+2) Defense expert network
+To reduce the coverage of old tasks by new tasks and prevent defenders from forgetting old tasks, we divide each layer of the FNN in the defender model into M non-overlapping groups of neurons, treating each group as an expert. This approach enables each expert to be responsible for a distinct defense training task. When the gating mechanism selects the relevant expert set for the current defense task, it assigns the attack question to each expert to generate safety responses with the expert's parameters and sums the responses by each expert's weight to get the
+final results .
+3) Continual defense training strategy
+We design a CL training strategy to train the selected experts in the network to generate safe responses against the attacks and limit the parameters' update before and after learning new tasks to reduce forgetting of old tasks.
+To enable the trained defender to defend against the attack of the new task , it is necessary to minimize the loss between the generated results and the safety response labels in (2), where is the number of samples of the new task dataset and is the selected expert parameters in the defense experts network.
+(2)
+To reduce the forgetting of the old defense task , we design to limit parameter changes before and after the experts learn the new defense method (3).
+(3)
+Then, we sum and as the entire continual defend training loss and use it to update each expert's parameters in the gating mechanism with the update weight (4).
+(4)
+III. EXPERIMENTS
+A. Experiment settings
+We first construct a CL defense benchmark to evaluate our method. It includes four defense tasks against different types of attacks: (1) Defending against human red-teaming attacks. We select HH-RedTeam[18], which has 9739 manually constructed attack prompts. (2) Defend LLM red-teaming attack. We choose SAP[7] which contains the LLMs' automatically generated harmful questions. (3) Defend templated-based attack. We utilize LatentJailbreak[18] as the defense dataset, which includes various jailbreak templates designed to induce LLMs to generate harmful content. (4) Defend the promptprompt attack. AutoDan[19] utilizes ICL to enable the LLMs to conceal the attacking intent of the attack prompt. Then, we use gpt4o to generate responses for these four datasets as labels for the defense datasets following Wang et al.[20]. We test our method on deepseek-16b using three different dataset orders and calculate the average defend success rate (Avg_DSR) over four defense datasets in each order to evaluate our method.
+We compare our method with three baselines. (1) Instruct finetune (FT)[21]. A multi-task learning method separately trains models for each defense task, serving as the upper bound for CL without forgetting. (2) SeqLoRA[22]. A non-CL method conducts sequential task learning without any mechanism to mitigate forgetting. (3) Replay[23]. A traditional CL method replays the old tasks when learning new ones to reduce forgetting.
+B. Overall performance
+As shown in Table 1, our method outperforms all CL baselines across three task orders. Notably, our approach achieves an average defense success rate improvement of 2.92% compared to Replay (traditional CL method). The performance gains demonstrate that our method is effective in mitigating defense forgetting against the sequence of attack tasks. Our method also demonstrates high defense success rates across various training orders, highlighting its robustness. Furthermore, our method has a smaller gap (- 4.64%) in defense success rate compared to FT (a multi-task training method that does not forget), showing MoE in our method could reduce the overlap of new tasks and old tasks in CL.
+We conduct significance testing to evaluate whether there is a meaningful improvement in the defense success rate between
+1411
+Authorized licensed use limited to: DUBLIN CITY UNIVERSITY. Downloaded on October 18,2025 at 00:00:39 UTC from IEEE Xplore. Restrictions apply.
+
+
+our method and the baseline methods. We performed five repeated experiments in each training order and used the T-test to calculate the statistical significance (p-value) between our method and the baselines. We selected four baselines with the highest success rates for this analysis. The results, as shown in Table 2, indicate that the p-value is less than 0.05 for all baselines, demonstrating that the improvement of our method is significant.
+We compute the overhead of our method on the task of continuous defense against evolving attacks. For each defense sample, we select 6 out of 64 experts in MoE to be responsible for defense. Our Method can be deployed on a single GPU with 40GB of memory without the need for quantization and trained on each defense task in 40 minutes. Therefore, our method is easy to deploy and low-consumption of computing resources.
+Table 1: The results of the average defense success rate of our method compared to other baselines in three orders. The best results are in bold.
+Defense CL Benchmark
+Order 1 Order 2 Order 3 Avg
+FT 44.98 45.82 58.49 49.76
+SeqLoRA 29.33 36.70 51.62 39.22
+Replay 38.46 39.57 48.76 42.26
+ours 41.83 39.60 53.92 45.12
+Table 2: Significance testing of our method with baselines.
+Order 1 Order 2 Order 3
+SeqLoRA 1.6172288e-06 1.8272676e-3 3.0136285e-2
+Replay 2.6451671e-02 2.0535962e-2 7.8845332e-5
+C. Ablation study
+To investigate the contribution of key components of our proposed MoE-based defense method, we remove them in turn and report the defense success rate of the disguiser. The results in Table 3 reveal that the performance of our method outperforms all other variants, demonstrating the contribution of these components. We replace the linear gate with randomly selecting experts to verify the role of the gate mechanism. The decrease in experimental results suggests that the linear gate mechanism can select task-relevant experts for defense learning. Notably, discarding the expert network results in a substantial decrease, showing that experts without overlapping in the network could efficiently mitigate defense forgetting.
+Table 3: Ablation study of our method,w/o indicates removing the corresponding component from the method. The best results are in bold.
+Methods Avg_DSR
+w/o linear gate mechanism 40.38
+w/o defense expert network 38.46
+ours 45.12
+IV. CONCLUSION
+In this paper, we introduce a novel MoE-based multi-agent continual defense framework that splits the network into non
+overlapping groups, each serving as a different defense expert. This framework only activates the most suitable experts for the new task to address storage limitations while mitigating forgetting during continual defending against evolving attackers. We first construct an LLM-based multi-agent attack and defense framework to simulate CL attack-defense scenarios, which includes an attacker, a defender, and an evaluator. To reduce the storage space, we propose a MoE CL defense method that activates specific experts (derived from partitioning the model's neurons) to handle new attack tasks while freezing others. The experiment demonstrates the significant efficacy of our proposed framework. It consistently outperforms baseline methods in continual defense learning scenarios, achieving higher defense success rates across sequences of sequentially updated attack tasks.
+REFERENCES
+[1] Yi S, Liu Y, Sun Z, et al. Jailbreak attacks and defenses against large language models: A survey[J]. arXiv preprint arXiv:2407.04295, 2024.
+[2] Yuan Y, Jiao W, Wang W, et al. GPT-4 Is Too Smart To Be Safe: Stealthy Chat with LLMs via Cipher[C]//ICLR. 2024.
+[3] Jain N, Schwarzschild A, Wen Y, et al. Baseline defenses for adversarial attacks against aligned language models[J]. arXiv preprint arXiv:2309.00614, 2023.
+[4] Xie Y, Yi J, Shao J, et al. Defending chatgpt against jailbreak attack via self-reminders[J]. Nature Machine Intelligence, 2023, 5(12): 1486-1496.
+[5] Wei Z, Wang Y, Li A, et al. Jailbreak and guard aligned language models with only few in-context demonstrations[J]. arXiv preprint arXiv:2310.06387, 2023.
+[6] Zhang Y, Ding L, Zhang L, et al. Intention Analysis Makes LLMs A Good Jailbreak Defender[C]//Proceedings of the 31st International Conference on Computational Linguistics. 2025: 2947-2968.
+[7] Deng B, Wang W, Feng F, et al. Attack Prompt Generation for Red Teaming and Defending Large Language Models[C]//Findings of the Association for Computational Linguistics: EMNLP 2023. 2023: 21762189.
+[8] Ge S, Zhou C, Hou R, et al. MART: Improving LLM Safety with Multiround Automatic Red-Teaming[C]//NAACL-HLT. 2024.
+[9] Wan S, Nikolaidis C, Song D, et al. Cyberseceval 3: Advancing the evaluation of cybersecurity risks and capabilities in large language models[J]. arXiv preprint arXiv:2408.01605, 2024.
+[10] Cao H, Luo W, Wang Y, et al. Guide for Defense (G4D): Dynamic Guidance for Robust and Balanced Defense in Large Language Models[J]. arXiv preprint arXiv:2410.17922, 2024.
+[11] Yang T H, Huang K W, Li Y H, et al. Preserving Safety in Fine-Tuned Large Language Models: A Systematic Evaluation and Mitigation Strategy[C]//Neurips Safe Generative AI Workshop 2024.
+[12] Djuhera A, Kadhe S, Ahmed F, et al. SafeMERGE: Preserving Safety Alignment in Fine-Tuned Large Language Models via Selective LayerWise Model Merging[C]//ICLR 2025 Workshop on Building Trust in Language Models and Applications.
+[13] Wistuba M, Balles L, Zappella G. Continual Learning with Low Rank Adaptation[C]//NeurIPS 2023 Workshop on Distribution Shifts: New Frontiers with Foundation Models.
+[14] Wang X, Chen T, Ge Q, et al. Orthogonal Subspace Learning for Language Model Continual Learning[C]//Findings of the Association for Computational Linguistics: EMNLP 2023. 2023: 10658-10671.
+[15] Li H, Lin S, Duan L, et al. Theory on mixture-of-experts in continual learning[J]. arXiv preprint arXiv:2406.16437, 2024.
+[16] Komatsuzaki A, Puigcerver J, Lee-Thorp J, et al. Sparse Upcycling: Training Mixture-of-Experts from Dense Checkpoints[C]//The Eleventh International Conference on Learning Representations 2022.
+[17] Chen W, Zhou Y, Du N, et al. Lifelong language pretraining with distribution-specialized experts[C]//International Conference on Machine Learning. PMLR, 2023: 5383-5395.
+1412
+Authorized licensed use limited to: DUBLIN CITY UNIVERSITY. Downloaded on October 18,2025 at 00:00:39 UTC from IEEE Xplore. Restrictions apply.
+
+
+[18] Dong Z, Zhou Z, Yang C, et al. Attacks, Defenses and Evaluations for LLM Conversation Safety: A Survey[C]//Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers). 2024: 6734-6747.
+[19] Liu X, Xu N, Chen M, et al. AutoDAN: Generating Stealthy Jailbreak Prompts on Aligned Large Language Models[C]//The Twelfth International Conference on Learning Representations 2023.
+[20] Wang M, Zhang N, Xu Z, et al. Detoxifying Large Language Models via Knowledge Editing[C]//Proceedings of the 62nd Annual Meeting of the
+Association for Computational Linguistics (Volume 1: Long Papers). 2024: 3093-3118.
+[21] Xin C, Lu Y, Lin H, et al. Beyond full finetuning: Harnessing the power of LoRA for multi-task instruction tuning[C]//Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024). 2024: 2307-2317.
+[22] Kim S, Yang H, Kim Y, et al. Hydra: Multi-head low-rank adaptation for parameter efficient fine-tuning[J]. Neural Networks, 2024, 178: 106414.
+[23] Buzzega P, Boschini M, Porrello A, et al. Dark experience for general continual learning: a strong, simple baseline[J]. Advances in neural information processing systems, 2020, 33: 15920-15930.
+1413
+Authorized licensed use limited to: DUBLIN CITY UNIVERSITY. Downloaded on October 18,2025 at 00:00:39 UTC from IEEE Xplore. Restrictions apply.

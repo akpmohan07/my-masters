@@ -1,0 +1,17 @@
+TY  - EJOUR
+AU  - Ben Yaala, Sahar 
+AU  - Bouallegue, Ridha 
+TI  - Vulnerability Detection in Large Language Models: Addressing Security Concerns
+T2  - Journal of Cybersecurity and Privacy
+PY  - 2025
+VL  - 5
+IS  - 3
+SN  - 2624-800X
+AB  - Large language models (LLMs) have become essential in various use cases, such as code generation, reasoning, or translation. Applications vary from language understanding to decision making. Despite this rapid evolution, significant concerns appear regarding the security of these models and the vulnerabilities they present. In this research, we present an overview of the common LLM models, and their design components and architectures. Moreover, we present their domains of applications. Following that, we present the main security concerns associated with LLMs as defined in different security referentials and standards such as OWASP, MITRE, and NIST. Moreover, we present prior research that focuses on the security concerns in LLMs. Finally, we conduct a comparative study of the performance and robustness of several models against various attack scenarios. We highlight the behavior differences of these models, which prove the importance of giving more attention for the security aspect when using or designing LLMs.
+KW  - LLMs
+KW  - security
+KW  - vulnerabilities
+KW  - prompts
+KW  - threats
+DO  - 10.3390/jcp5030071
+ER  -
