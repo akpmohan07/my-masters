@@ -8441,3 +8441,13 @@ java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" becaus
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+!SESSION 2026-02-27 15:35:19.469 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.2.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -keyring /Users/akpmohan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/akpmohan/.eclipse_keyring
+
+!ENTRY org.eclipse.core.resources 2 10035 2026-02-27 15:35:23.255
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
