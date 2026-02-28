@@ -1,0 +1,376 @@
+[16/02/2026, 17:43:07] DIG(1)                                                                                  BIND9                                                                                 DIG(1)
+[                    ]
+[16/02/2026, 17:43:07] NAME
+[16/02/2026, 17:43:07]        dig - DNS lookup utility
+[                    ]
+[16/02/2026, 17:43:07] SYNOPSIS
+[16/02/2026, 17:43:07]        dig [@server] [-b address] [-c class] [-f filename] [-k filename] [-m] [-p port#] [-q name] [-t type] [-v] [-x addr] [-y [hmac:]name:key] [-4] [-6] [name] [type] [class]
+[16/02/2026, 17:43:07]            [queryopt...]
+[16/02/2026, 17:42:10] Last login: Mon Feb 16 07:12:57 on ttys002
+[16/02/2026, 17:42:12]  ~                                                                                                                                                                    ✔  17:42:11
+[16/02/2026, 17:42:12]
+[16/02/2026, 17:42:12]  ~                                                                                                                                                                    ✔  17:42:12
+[16/02/2026, 17:42:12]
+[16/02/2026, 17:42:38]  ~  dig einstein.computing.dcu.ie                                                                                                                                     ✔  17:42:12
+[16/02/2026, 17:43:04]
+[16/02/2026, 17:43:06]  ~  man dig                                                                                                                                                       INT ✘  17:43:04
+[16/02/2026, 17:43:24]
+[16/02/2026, 17:43:24]  ~                                                                                                                                                              ✔  17s  17:43:24
+[16/02/2026, 17:43:24]
+[16/02/2026, 17:43:24]  ~                                                                                                                                                                    ✔  17:43:24
+[16/02/2026, 17:43:25]
+[16/02/2026, 17:43:29]  ~  dig einstein.computing.dcu.ie                                                                                                                                     ✔  17:43:25
+[16/02/2026, 17:43:25]
+[16/02/2026, 17:43:29] ; <<>> DiG 9.10.6 <<>> einstein.computing.dcu.ie
+[16/02/2026, 17:43:29] ;; global options: +cmd
+[16/02/2026, 17:43:29] ;; Got answer:
+[16/02/2026, 17:43:29] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 5897
+[16/02/2026, 17:43:29] ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+[16/02/2026, 17:43:25]
+[16/02/2026, 17:43:29] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:43:29] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:43:29] ;; QUESTION SECTION:
+[16/02/2026, 17:43:29] ;einstein.computing.dcu.ie.	IN	A
+[16/02/2026, 17:43:25]
+[16/02/2026, 17:43:29] ;; ANSWER SECTION:
+[16/02/2026, 17:43:29] einstein.computing.dcu.ie. 3197	IN	A	136.206.218.136
+[16/02/2026, 17:43:25]
+[16/02/2026, 17:43:29] ;; Query time: 22 msec
+[16/02/2026, 17:43:29] ;; SERVER: 193.32.92.32#53(193.32.92.32)
+[16/02/2026, 17:43:29] ;; WHEN: Mon Feb 16 17:43:29 GMT 2026
+[16/02/2026, 17:43:29] ;; MSG SIZE  rcvd: 70
+[16/02/2026, 17:43:25]
+[16/02/2026, 17:43:29]
+[16/02/2026, 17:44:27]  ~  dig einstein.computing.dcu.ie                                                                                                                                     ✔  17:43:29
+[16/02/2026, 17:43:29]
+[16/02/2026, 17:44:27] ; <<>> DiG 9.10.6 <<>> einstein.computing.dcu.ie
+[16/02/2026, 17:44:27] ;; global options: +cmd
+[16/02/2026, 17:44:27] ;; Got answer:
+[16/02/2026, 17:44:27] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 49887
+[16/02/2026, 17:44:27] ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+[16/02/2026, 17:43:29]
+[16/02/2026, 17:44:27] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:44:27] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:44:27] ;; QUESTION SECTION:
+[16/02/2026, 17:44:27] ;einstein.computing.dcu.ie.	IN	A
+[16/02/2026, 17:43:29]
+[16/02/2026, 17:44:27] ;; ANSWER SECTION:
+[16/02/2026, 17:44:27] einstein.computing.dcu.ie. 3139	IN	A	136.206.218.136
+[16/02/2026, 17:43:29]
+[16/02/2026, 17:44:27] ;; Query time: 183 msec
+[16/02/2026, 17:44:27] ;; SERVER: 193.32.92.32#53(193.32.92.32)
+[16/02/2026, 17:44:27] ;; WHEN: Mon Feb 16 17:44:27 GMT 2026
+[16/02/2026, 17:44:27] ;; MSG SIZE  rcvd: 70
+[16/02/2026, 17:44:27]
+[16/02/2026, 17:44:28]
+[16/02/2026, 17:44:28]  ~  dig einstein.computing.dcu.ie                                                                                                                                     ✔  17:44:28
+[16/02/2026, 17:44:28]
+[16/02/2026, 17:44:28] ; <<>> DiG 9.10.6 <<>> einstein.computing.dcu.ie
+[16/02/2026, 17:44:28] ;; global options: +cmd
+[16/02/2026, 17:44:28] ;; Got answer:
+[16/02/2026, 17:44:28] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 18232
+[16/02/2026, 17:44:28] ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+[16/02/2026, 17:44:28]
+[16/02/2026, 17:44:28] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:44:28] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:44:28] ;; QUESTION SECTION:
+[16/02/2026, 17:44:28] ;einstein.computing.dcu.ie.	IN	A
+[16/02/2026, 17:44:28]
+[16/02/2026, 17:44:28] ;; ANSWER SECTION:
+[16/02/2026, 17:44:28] einstein.computing.dcu.ie. 3138	IN	A	136.206.218.136
+[16/02/2026, 17:44:28]
+[16/02/2026, 17:44:28] ;; Query time: 19 msec
+[16/02/2026, 17:44:28] ;; SERVER: 193.32.92.32#53(193.32.92.32)
+[16/02/2026, 17:44:28] ;; WHEN: Mon Feb 16 17:44:28 GMT 2026
+[16/02/2026, 17:44:28] ;; MSG SIZE  rcvd: 70
+[16/02/2026, 17:44:28]
+[16/02/2026, 17:44:28]
+[16/02/2026, 17:44:29]  ~  dig einstein.computing.dcu.ie                                                                                                                                     ✔  17:44:28
+[16/02/2026, 17:44:29]
+[16/02/2026, 17:44:29] ; <<>> DiG 9.10.6 <<>> einstein.computing.dcu.ie
+[16/02/2026, 17:44:29] ;; global options: +cmd
+[16/02/2026, 17:44:29] ;; Got answer:
+[16/02/2026, 17:44:29] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 27322
+[16/02/2026, 17:44:29] ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+[16/02/2026, 17:44:29]
+[16/02/2026, 17:44:29] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:44:29] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:44:29] ;; QUESTION SECTION:
+[16/02/2026, 17:44:29] ;einstein.computing.dcu.ie.	IN	A
+[16/02/2026, 17:44:29]
+[16/02/2026, 17:44:29] ;; ANSWER SECTION:
+[16/02/2026, 17:44:29] einstein.computing.dcu.ie. 3137	IN	A	136.206.218.136
+[16/02/2026, 17:44:29]
+[16/02/2026, 17:44:29] ;; Query time: 19 msec
+[16/02/2026, 17:44:29] ;; SERVER: 193.32.92.32#53(193.32.92.32)
+[16/02/2026, 17:44:29] ;; WHEN: Mon Feb 16 17:44:29 GMT 2026
+[16/02/2026, 17:44:29] ;; MSG SIZE  rcvd: 70
+[16/02/2026, 17:44:29]
+[16/02/2026, 17:44:29]
+[16/02/2026, 17:45:20]  ~  dig NS computing.dcu.ie                                                                                                                                           ✔  17:44:29
+[16/02/2026, 17:45:20]
+[16/02/2026, 17:45:20] ; <<>> DiG 9.10.6 <<>> NS computing.dcu.ie
+[16/02/2026, 17:45:20] ;; global options: +cmd
+[16/02/2026, 17:45:20] ;; Got answer:
+[16/02/2026, 17:45:20] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 45691
+[16/02/2026, 17:45:20] ;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1
+[16/02/2026, 17:45:20]
+[16/02/2026, 17:45:20] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:45:20] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:45:20] ;; QUESTION SECTION:
+[16/02/2026, 17:45:20] ;computing.dcu.ie.		IN	NS
+[16/02/2026, 17:45:20]
+[16/02/2026, 17:45:20] ;; ANSWER SECTION:
+[16/02/2026, 17:45:20] computing.dcu.ie.	86400	IN	NS	ns-738.awsdns-28.net.
+[16/02/2026, 17:45:20] computing.dcu.ie.	86400	IN	NS	ns-1480.awsdns-57.org.
+[16/02/2026, 17:45:20] computing.dcu.ie.	86400	IN	NS	ns-1661.awsdns-15.co.uk.
+[16/02/2026, 17:45:20] computing.dcu.ie.	86400	IN	NS	ns-506.awsdns-63.com.
+[16/02/2026, 17:45:20]
+[16/02/2026, 17:45:20] ;; Query time: 22 msec
+[16/02/2026, 17:45:20] ;; SERVER: 193.32.92.32#53(193.32.92.32)
+[16/02/2026, 17:45:20] ;; WHEN: Mon Feb 16 17:45:20 GMT 2026
+[16/02/2026, 17:45:20] ;; MSG SIZE  rcvd: 185
+[16/02/2026, 17:45:20]
+[16/02/2026, 17:45:20]
+[16/02/2026, 17:46:17]  ~  dig @ns-738.awsdns-28.net. computing.dcu.ie                                                                                                                       ✔  17:45:20
+[16/02/2026, 17:46:17]
+[16/02/2026, 17:46:17] ; <<>> DiG 9.10.6 <<>> @ns-738.awsdns-28.net. computing.dcu.ie
+[16/02/2026, 17:46:17] ; (1 server found)
+[16/02/2026, 17:46:17] ;; global options: +cmd
+[16/02/2026, 17:46:17] ;; Got answer:
+[16/02/2026, 17:46:17] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 22473
+[16/02/2026, 17:46:17] ;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+[16/02/2026, 17:46:17] ;; WARNING: recursion requested but not available
+[16/02/2026, 17:46:17]
+[16/02/2026, 17:46:17] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:46:17] ; EDNS: version: 0, flags:; udp: 4096
+[16/02/2026, 17:46:17] ;; QUESTION SECTION:
+[16/02/2026, 17:46:17] ;computing.dcu.ie.		IN	A
+[16/02/2026, 17:46:17]
+[16/02/2026, 17:46:17] ;; AUTHORITY SECTION:
+[16/02/2026, 17:46:17] computing.dcu.ie.	900	IN	SOA	ns-506.awsdns-63.com. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400
+[16/02/2026, 17:46:17]
+[16/02/2026, 17:46:17] ;; Query time: 10 msec
+[16/02/2026, 17:46:17] ;; SERVER: 205.251.194.226#53(205.251.194.226)
+[16/02/2026, 17:46:17] ;; WHEN: Mon Feb 16 17:46:17 GMT 2026
+[16/02/2026, 17:46:17] ;; MSG SIZE  rcvd: 126
+[16/02/2026, 17:46:17]
+[16/02/2026, 17:46:17]
+[16/02/2026, 17:46:56]  ~  dig MX dcu.ie                                                                                                                                                     ✔  17:46:17
+[16/02/2026, 17:46:56]
+[16/02/2026, 17:46:56] ; <<>> DiG 9.10.6 <<>> MX dcu.ie
+[16/02/2026, 17:46:56] ;; global options: +cmd
+[16/02/2026, 17:46:56] ;; Got answer:
+[16/02/2026, 17:46:56] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 19338
+[16/02/2026, 17:46:56] ;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1
+[16/02/2026, 17:46:56]
+[16/02/2026, 17:46:56] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:46:56] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:46:56] ;; QUESTION SECTION:
+[16/02/2026, 17:46:56] ;dcu.ie.				IN	MX
+[16/02/2026, 17:46:56]
+[16/02/2026, 17:46:56] ;; ANSWER SECTION:
+[16/02/2026, 17:46:56] dcu.ie.			3600	IN	MX	10 alt3.aspmx.l.google.com.
+[16/02/2026, 17:46:56] dcu.ie.			3600	IN	MX	10 alt4.aspmx.l.google.com.
+[16/02/2026, 17:46:56] dcu.ie.			3600	IN	MX	1 aspmx.l.google.com.
+[16/02/2026, 17:46:56] dcu.ie.			3600	IN	MX	5 alt1.aspmx.l.google.com.
+[16/02/2026, 17:46:56] dcu.ie.			3600	IN	MX	5 alt2.aspmx.l.google.com.
+[16/02/2026, 17:46:56]
+[16/02/2026, 17:46:56] ;; Query time: 22 msec
+[16/02/2026, 17:46:56] ;; SERVER: 193.32.92.32#53(193.32.92.32)
+[16/02/2026, 17:46:56] ;; WHEN: Mon Feb 16 17:46:56 GMT 2026
+[16/02/2026, 17:46:56] ;; MSG SIZE  rcvd: 153
+[16/02/2026, 17:46:56]
+[16/02/2026, 17:46:56]
+[16/02/2026, 17:47:11]  ~  dig MX mail.dcu.ie                                                                                                                                                ✔  17:46:56
+[16/02/2026, 17:47:11]
+[16/02/2026, 17:47:11] ; <<>> DiG 9.10.6 <<>> MX mail.dcu.ie
+[16/02/2026, 17:47:11] ;; global options: +cmd
+[16/02/2026, 17:47:11] ;; Got answer:
+[16/02/2026, 17:47:11] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 15710
+[16/02/2026, 17:47:11] ;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1
+[16/02/2026, 17:47:11]
+[16/02/2026, 17:47:11] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:47:11] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:47:11] ;; QUESTION SECTION:
+[16/02/2026, 17:47:11] ;mail.dcu.ie.			IN	MX
+[16/02/2026, 17:47:11]
+[16/02/2026, 17:47:11] ;; ANSWER SECTION:
+[16/02/2026, 17:47:11] mail.dcu.ie.		3600	IN	MX	5 alt1.aspmx.l.google.com.
+[16/02/2026, 17:47:11] mail.dcu.ie.		3600	IN	MX	5 alt2.aspmx.l.google.com.
+[16/02/2026, 17:47:11] mail.dcu.ie.		3600	IN	MX	10 alt3.aspmx.l.google.com.
+[16/02/2026, 17:47:11] mail.dcu.ie.		3600	IN	MX	10 alt4.aspmx.l.google.com.
+[16/02/2026, 17:47:11] mail.dcu.ie.		3600	IN	MX	1 aspmx.l.google.com.
+[16/02/2026, 17:47:11]
+[16/02/2026, 17:47:11] ;; Query time: 31 msec
+[16/02/2026, 17:47:11] ;; SERVER: 193.32.92.32#53(193.32.92.32)
+[16/02/2026, 17:47:11] ;; WHEN: Mon Feb 16 17:47:11 GMT 2026
+[16/02/2026, 17:47:11] ;; MSG SIZE  rcvd: 158
+[16/02/2026, 17:47:11]
+[16/02/2026, 17:47:11]
+[16/02/2026, 17:47:35]  ~  dig NS .                                                                                                                                                          ✔  17:47:11
+[16/02/2026, 17:47:35]
+[16/02/2026, 17:47:35] ; <<>> DiG 9.10.6 <<>> NS .
+[16/02/2026, 17:47:35] ;; global options: +cmd
+[16/02/2026, 17:47:35] ;; Got answer:
+[16/02/2026, 17:47:35] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 9751
+[16/02/2026, 17:47:35] ;; flags: qr rd ra ad; QUERY: 1, ANSWER: 13, AUTHORITY: 0, ADDITIONAL: 1
+[16/02/2026, 17:47:35]
+[16/02/2026, 17:47:35] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:47:35] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:47:35] ;; QUESTION SECTION:
+[16/02/2026, 17:47:35] ;.				IN	NS
+[16/02/2026, 17:47:35]
+[16/02/2026, 17:47:35] ;; ANSWER SECTION:
+[16/02/2026, 17:47:35] .			497910	IN	NS	h.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	i.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	j.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	k.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	l.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	m.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	a.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	b.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	c.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	d.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	e.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	f.root-servers.net.
+[16/02/2026, 17:47:35] .			497910	IN	NS	g.root-servers.net.
+[16/02/2026, 17:47:35]
+[16/02/2026, 17:47:35] ;; Query time: 20 msec
+[16/02/2026, 17:47:35] ;; SERVER: 193.32.92.32#53(193.32.92.32)
+[16/02/2026, 17:47:35] ;; WHEN: Mon Feb 16 17:47:35 GMT 2026
+[16/02/2026, 17:47:35] ;; MSG SIZE  rcvd: 431
+[16/02/2026, 17:47:35]
+[16/02/2026, 17:47:35]
+[16/02/2026, 17:48:19]  ~  dig NS @b.root-servers.net. www.rte.ie                                                                                                                            ✔  17:47:35
+[16/02/2026, 17:48:20]
+[16/02/2026, 17:48:20] ; <<>> DiG 9.10.6 <<>> NS @b.root-servers.net. www.rte.ie
+[16/02/2026, 17:48:20] ; (1 server found)
+[16/02/2026, 17:48:20] ;; global options: +cmd
+[16/02/2026, 17:48:20] ;; Got answer:
+[16/02/2026, 17:48:20] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 40676
+[16/02/2026, 17:48:20] ;; flags: qr rd; QUERY: 1, ANSWER: 0, AUTHORITY: 6, ADDITIONAL: 13
+[16/02/2026, 17:48:20] ;; WARNING: recursion requested but not available
+[16/02/2026, 17:48:20]
+[16/02/2026, 17:48:20] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:48:20] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:48:20] ;; QUESTION SECTION:
+[16/02/2026, 17:48:20] ;www.rte.ie.			IN	NS
+[16/02/2026, 17:48:20]
+[16/02/2026, 17:48:20] ;; AUTHORITY SECTION:
+[16/02/2026, 17:48:20] ie.			172800	IN	NS	a.ns.ie.
+[16/02/2026, 17:48:20] ie.			172800	IN	NS	c.ns.ie.
+[16/02/2026, 17:48:20] ie.			172800	IN	NS	d.ns.ie.
+[16/02/2026, 17:48:20] ie.			172800	IN	NS	e.ns.ie.
+[16/02/2026, 17:48:20] ie.			172800	IN	NS	h.ns.ie.
+[16/02/2026, 17:48:20] ie.			172800	IN	NS	i.ns.ie.
+[16/02/2026, 17:48:20]
+[16/02/2026, 17:48:20] ;; ADDITIONAL SECTION:
+[16/02/2026, 17:48:20] a.ns.ie.		172800	IN	A	77.72.72.40
+[16/02/2026, 17:48:20] a.ns.ie.		172800	IN	AAAA	2a01:4b0::40
+[16/02/2026, 17:48:20] c.ns.ie.		172800	IN	A	194.146.106.98
+[16/02/2026, 17:48:20] c.ns.ie.		172800	IN	AAAA	2001:67c:1010:25::53
+[16/02/2026, 17:48:20] d.ns.ie.		172800	IN	A	77.72.229.245
+[16/02/2026, 17:48:20] d.ns.ie.		172800	IN	AAAA	2a01:3f0:0:309::53
+[16/02/2026, 17:48:20] e.ns.ie.		172800	IN	A	185.159.199.210
+[16/02/2026, 17:48:20] e.ns.ie.		172800	IN	AAAA	2620:10a:80ac::210
+[16/02/2026, 17:48:20] h.ns.ie.		172800	IN	A	192.93.0.4
+[16/02/2026, 17:48:20] h.ns.ie.		172800	IN	AAAA	2001:660:3005:1::1:2
+[16/02/2026, 17:48:20] i.ns.ie.		172800	IN	A	194.0.25.35
+[16/02/2026, 17:48:20] i.ns.ie.		172800	IN	AAAA	2001:678:20::35
+[16/02/2026, 17:48:20]
+[16/02/2026, 17:48:20] ;; Query time: 31 msec
+[16/02/2026, 17:48:20] ;; SERVER: 170.247.170.2#53(170.247.170.2)
+[16/02/2026, 17:48:20] ;; WHEN: Mon Feb 16 17:48:20 GMT 2026
+[16/02/2026, 17:48:20] ;; MSG SIZE  rcvd: 402
+[16/02/2026, 17:48:20]
+[16/02/2026, 17:48:20]
+[16/02/2026, 17:48:56]  ~                                                                                                                                                                    ✔  17:48:20
+[16/02/2026, 17:48:56]
+[16/02/2026, 17:49:07]  ~  dig NS @a.ns.ie. www.rte.ie                                                                                                                                       ✔  17:48:56
+[16/02/2026, 17:49:07]
+[16/02/2026, 17:49:07] ; <<>> DiG 9.10.6 <<>> NS @a.ns.ie. www.rte.ie
+[16/02/2026, 17:49:07] ; (1 server found)
+[16/02/2026, 17:49:07] ;; global options: +cmd
+[16/02/2026, 17:49:07] ;; Got answer:
+[16/02/2026, 17:49:07] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 30229
+[16/02/2026, 17:49:07] ;; flags: qr rd; QUERY: 1, ANSWER: 0, AUTHORITY: 4, ADDITIONAL: 9
+[16/02/2026, 17:49:07] ;; WARNING: recursion requested but not available
+[16/02/2026, 17:49:07]
+[16/02/2026, 17:49:07] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:49:07] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:49:07] ;; QUESTION SECTION:
+[16/02/2026, 17:49:07] ;www.rte.ie.			IN	NS
+[16/02/2026, 17:49:07]
+[16/02/2026, 17:49:07] ;; AUTHORITY SECTION:
+[16/02/2026, 17:49:07] rte.ie.			86400	IN	NS	ns2.rte.ie.
+[16/02/2026, 17:49:07] rte.ie.			86400	IN	NS	ns4.rte.ie.
+[16/02/2026, 17:49:07] rte.ie.			86400	IN	NS	ns1.rte.ie.
+[16/02/2026, 17:49:07] rte.ie.			86400	IN	NS	ns3.rte.ie.
+[16/02/2026, 17:49:07]
+[16/02/2026, 17:49:07] ;; ADDITIONAL SECTION:
+[16/02/2026, 17:49:07] ns4.rte.ie.		86400	IN	A	162.159.3.18
+[16/02/2026, 17:49:07] ns3.rte.ie.		86400	IN	A	162.159.2.27
+[16/02/2026, 17:49:07] ns2.rte.ie.		86400	IN	A	162.159.1.73
+[16/02/2026, 17:49:07] ns1.rte.ie.		86400	IN	A	162.159.0.73
+[16/02/2026, 17:49:07] ns4.rte.ie.		86400	IN	AAAA	2400:cb00:2049:1::a29f:312
+[16/02/2026, 17:49:07] ns3.rte.ie.		86400	IN	AAAA	2400:cb00:2049:1::a29f:21b
+[16/02/2026, 17:49:07] ns2.rte.ie.		86400	IN	AAAA	2400:cb00:2049:1::a29f:149
+[16/02/2026, 17:49:07] ns1.rte.ie.		86400	IN	AAAA	2400:cb00:2049:1::a29f:49
+[16/02/2026, 17:49:07]
+[16/02/2026, 17:49:07] ;; Query time: 10 msec
+[16/02/2026, 17:49:07] ;; SERVER: 77.72.72.40#53(77.72.72.40)
+[16/02/2026, 17:49:07] ;; WHEN: Mon Feb 16 17:49:07 GMT 2026
+[16/02/2026, 17:49:07] ;; MSG SIZE  rcvd: 287
+[16/02/2026, 17:49:07]
+[16/02/2026, 17:49:07]
+[16/02/2026, 17:49:41]  ~  dig NS @ns2.rte.ie. www.rte.ie                                                                                                                                    ✔  17:49:07
+[16/02/2026, 17:49:41]
+[16/02/2026, 17:49:41] ; <<>> DiG 9.10.6 <<>> NS @ns2.rte.ie. www.rte.ie
+[16/02/2026, 17:49:41] ; (1 server found)
+[16/02/2026, 17:49:41] ;; global options: +cmd
+[16/02/2026, 17:49:41] ;; Got answer:
+[16/02/2026, 17:49:41] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 35936
+[16/02/2026, 17:49:41] ;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+[16/02/2026, 17:49:41] ;; WARNING: recursion requested but not available
+[16/02/2026, 17:49:41]
+[16/02/2026, 17:49:41] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:49:41] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:49:41] ;; QUESTION SECTION:
+[16/02/2026, 17:49:41] ;www.rte.ie.			IN	NS
+[16/02/2026, 17:49:41]
+[16/02/2026, 17:49:41] ;; AUTHORITY SECTION:
+[16/02/2026, 17:49:41] rte.ie.			1800	IN	SOA	ns1.rte.ie. hostmaster.rte.ie. 2396743586 10000 2400 604800 1800
+[16/02/2026, 17:49:41]
+[16/02/2026, 17:49:41] ;; Query time: 10 msec
+[16/02/2026, 17:49:41] ;; SERVER: 162.159.1.73#53(162.159.1.73)
+[16/02/2026, 17:49:41] ;; WHEN: Mon Feb 16 17:49:41 GMT 2026
+[16/02/2026, 17:49:41] ;; MSG SIZE  rcvd: 90
+[16/02/2026, 17:49:41]
+[16/02/2026, 17:49:41]
+[16/02/2026, 17:50:26]  ~  dig @ns2.rte.ie. www.rte.ie                                                                                                                                       ✔  17:49:41
+[16/02/2026, 17:50:26]
+[16/02/2026, 17:50:26] ; <<>> DiG 9.10.6 <<>> @ns2.rte.ie. www.rte.ie
+[16/02/2026, 17:50:26] ; (1 server found)
+[16/02/2026, 17:50:26] ;; global options: +cmd
+[16/02/2026, 17:50:26] ;; Got answer:
+[16/02/2026, 17:50:26] ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 59426
+[16/02/2026, 17:50:26] ;; flags: qr aa rd; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+[16/02/2026, 17:50:26] ;; WARNING: recursion requested but not available
+[16/02/2026, 17:50:26]
+[16/02/2026, 17:50:26] ;; OPT PSEUDOSECTION:
+[16/02/2026, 17:50:26] ; EDNS: version: 0, flags:; udp: 1232
+[16/02/2026, 17:50:26] ;; QUESTION SECTION:
+[16/02/2026, 17:50:26] ;www.rte.ie.			IN	A
+[16/02/2026, 17:50:26]
+[16/02/2026, 17:50:26] ;; ANSWER SECTION:
+[16/02/2026, 17:50:26] www.rte.ie.		300	IN	A	104.18.125.28
+[16/02/2026, 17:50:26] www.rte.ie.		300	IN	A	104.18.124.28
+[16/02/2026, 17:50:26]
+[16/02/2026, 17:50:26] ;; Query time: 16 msec
+[16/02/2026, 17:50:26] ;; SERVER: 162.159.1.73#53(162.159.1.73)
+[16/02/2026, 17:50:26] ;; WHEN: Mon Feb 16 17:50:26 GMT 2026
+[16/02/2026, 17:50:26] ;; MSG SIZE  rcvd: 71
+[16/02/2026, 17:50:26]
+[16/02/2026, 17:50:26]
+[16/02/2026, 17:50:26]  ~                                                                                                                                                                    ✔  17:50:26
