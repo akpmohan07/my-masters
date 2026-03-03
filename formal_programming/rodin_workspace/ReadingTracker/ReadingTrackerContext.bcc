@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+    <org.eventb.core.scCarrierSet name="BOOK" org.eventb.core.source="/ReadingTracker/ReadingTrackerContext.buc|org.eventb.core.contextFile#ReadingTrackerContext|org.eventb.core.carrierSet#(" org.eventb.core.type="ℙ(BOOK)"/>
+    <org.eventb.core.scCarrierSet name="CHILD" org.eventb.core.source="/ReadingTracker/ReadingTrackerContext.buc|org.eventb.core.contextFile#ReadingTrackerContext|org.eventb.core.carrierSet#'" org.eventb.core.type="ℙ(CHILD)"/>
+</org.eventb.core.scContextFile>
