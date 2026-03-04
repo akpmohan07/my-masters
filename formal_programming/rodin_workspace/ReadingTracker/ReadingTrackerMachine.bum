@@ -22,7 +22,7 @@
     <org.eventb.core.event name="0" org.eventb.core.comment="// outputs a book that the given child has not already read" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="newbook">
         <org.eventb.core.parameter name="'" org.eventb.core.identifier="c"/>
         <org.eventb.core.guard name="(" org.eventb.core.comment="// c belongs to child" org.eventb.core.label="grd1" org.eventb.core.predicate="c ∈ CHILD"/>
-        <org.eventb.core.guard name=")" org.eventb.core.comment="// The given child should read atleast one book" org.eventb.core.label="grd2" org.eventb.core.predicate="BOOK ∖ hasread[{c}] ≠ ∅"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment="// The given child should not read atleast one book" org.eventb.core.label="grd2" org.eventb.core.predicate="BOOK ∖ hasread[{c}] ≠ ∅"/>
         <org.eventb.core.action name="*" org.eventb.core.assignment="unread_book  :∈ BOOK ∖ hasread[{c}]" org.eventb.core.comment="// Set minusing hasread from all BOOK" org.eventb.core.label="act1"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="1" org.eventb.core.comment="// outputs the number of books the given child has read" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="books_query">
