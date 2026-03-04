@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+    <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="MAX_CLUB_SIZE=500" org.eventb.core.source="/ClubManagement/ClubContext.buc|org.eventb.core.contextFile#ClubContext|org.eventb.core.axiom#)" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="MAX_CLUB_SIZE∈ℕ1" org.eventb.core.source="/ClubManagement/ClubContext.buc|org.eventb.core.contextFile#ClubContext|org.eventb.core.axiom#," org.eventb.core.theorem="false"/>
+    <org.eventb.core.scCarrierSet name="NAMES" org.eventb.core.source="/ClubManagement/ClubContext.buc|org.eventb.core.contextFile#ClubContext|org.eventb.core.carrierSet#*" org.eventb.core.type="ℙ(NAMES)"/>
+    <org.eventb.core.scConstant name="MAX_CLUB_SIZE" org.eventb.core.source="/ClubManagement/ClubContext.buc|org.eventb.core.contextFile#ClubContext|org.eventb.core.constant#+" org.eventb.core.type="ℤ"/>
+</org.eventb.core.scContextFile>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="member ≔ ∅" org.eventb.core.comment="Initially no members" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="waiting ≔ ∅" org.eventb.core.comment="// Initially no waiting" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="total_club_members ≔ 0" org.eventb.core.comment="Initially zero members" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="total_waiting_list ≔ 0 " org.eventb.core.comment="Initially zero members" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="(" org.eventb.core.comment="// Member having membership at the club" org.eventb.core.identifier="member"/>
+    <org.eventb.core.variable name=")" org.eventb.core.comment="// Member in the waiting list" org.eventb.core.identifier="waiting"/>
+    <org.eventb.core.invariant name="*" org.eventb.core.comment="// Member is a subset of Names " org.eventb.core.label="inv1" org.eventb.core.predicate="member ⊆ NAMES"/>
+    <org.eventb.core.seesContext name="+" org.eventb.core.target="ClubContext"/>
+    <org.eventb.core.invariant name="," org.eventb.core.comment="// Waiting is a subset of Names " org.eventb.core.label="inv2" org.eventb.core.predicate="waiting ⊆ NAMES "/>
+    <org.eventb.core.event name="-" org.eventb.core.comment="// the given name, which must be in the waiting list, is made a member and removed from the waiting list" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="join">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="n"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="n ∈ NAMES"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="member ≔ member ∪ {n} " org.eventb.core.comment="// Adding name in the club" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment="name should be in the waiting list" org.eventb.core.label="grd2" org.eventb.core.predicate="n ∈ waiting"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="waiting ≔ waiting ∖ {n}" org.eventb.core.comment="// Removing name from waiting" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="finite(member)"/>
+        <org.eventb.core.guard name="-" org.eventb.core.comment="// Member size should be max of 500" org.eventb.core.label="grd4" org.eventb.core.predicate="card(member) &lt; MAX_CLUB_SIZE"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="." org.eventb.core.comment="// the given name, which must not be in the waiting or membership lists, is added to the waiting list" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="join_queue">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="n"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="n ∈ NAMES"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="waiting ≔ waiting ∪ {n}" org.eventb.core.comment="// Adding name in waiting" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment="name must not be in the membership list" org.eventb.core.label="grd2" org.eventb.core.predicate="n ∉ member"/>
+        <org.eventb.core.guard name="+" org.eventb.core.comment="name must not be in the waiting list" org.eventb.core.label="grd3" org.eventb.core.predicate="n ∉ waiting"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="/" org.eventb.core.comment=" // the given name, which must be in the membership list, is removed from the membership list" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="remove">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="n"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="n ∈ NAMES"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment="name should be in member" org.eventb.core.label="grd2" org.eventb.core.predicate="n ∈ member"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="member ≔ member ∖ {n}" org.eventb.core.comment="// removing the member from the club" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="0" org.eventb.core.comment="// the given name, which must be in the waiting list, is removed from the waiting list" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="remove_queue">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="n"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="n ∈ NAMES"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment="name should be in the waiting" org.eventb.core.label="grd2" org.eventb.core.predicate="n ∈ waiting"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="waiting ≔ waiting ∖ {n}" org.eventb.core.comment="removing the name from the waiting list" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="1" org.eventb.core.comment="// the given name, which must not be in the waiting or membership lists, is made a member" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="jump_queue">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="n"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="n ∈ NAMES"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="member ≔ member ∪ {n} " org.eventb.core.comment="// name added to the club" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment="// name should not be in the member" org.eventb.core.label="grd2" org.eventb.core.predicate="n ∉ member"/>
+        <org.eventb.core.guard name="+" org.eventb.core.comment="// name should not be in the waiting" org.eventb.core.label="grd3" org.eventb.core.predicate="n ∉ waiting"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="finite(member)"/>
+        <org.eventb.core.guard name="-" org.eventb.core.comment="// Member size should be max of 500" org.eventb.core.label="grd5" org.eventb.core.predicate="card(member) &lt; MAX_CLUB_SIZE"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="2" org.eventb.core.comment="// outputs the number of members" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="query_membership">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="total_club_members ≔ card(member)" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="finite(member)"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="3" org.eventb.core.comment="// the number of members" org.eventb.core.identifier="total_club_members"/>
+    <org.eventb.core.invariant name="4" org.eventb.core.label="inv3" org.eventb.core.predicate="total_club_members ∈ ℕ "/>
+    <org.eventb.core.invariant name="5" org.eventb.core.label="inv4" org.eventb.core.predicate="total_waiting_list ∈ ℕ "/>
+    <org.eventb.core.event name="6" org.eventb.core.comment="// outputs the number of people in the waiting list." org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="query_queue">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="finite(waiting)"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="total_waiting_list ≔ card(waiting)" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="7" org.eventb.core.comment="// the number of people in the waiting list." org.eventb.core.identifier="total_waiting_list"/>
+</org.eventb.core.machineFile>

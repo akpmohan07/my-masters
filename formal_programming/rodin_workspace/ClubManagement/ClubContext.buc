@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+    <org.eventb.core.axiom name=")" org.eventb.core.label="axm1" org.eventb.core.predicate="MAX_CLUB_SIZE = 500"/>
+    <org.eventb.core.carrierSet name="*" org.eventb.core.comment="// Name of the person" org.eventb.core.identifier="NAMES"/>
+    <org.eventb.core.constant name="+" org.eventb.core.identifier="MAX_CLUB_SIZE"/>
+    <org.eventb.core.axiom name="," org.eventb.core.label="axm2" org.eventb.core.predicate="MAX_CLUB_SIZE ∈ ℕ1"/>
+</org.eventb.core.contextFile>

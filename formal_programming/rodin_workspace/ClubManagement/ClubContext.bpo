@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="8">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="6">
+        <org.eventb.core.poIdentifier name="NAMES" org.eventb.core.type="ℙ(NAMES)"/>
+        <org.eventb.core.poIdentifier name="MAX_CLUB_SIZE" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/ClubManagement/ClubContext.bpo|org.eventb.core.poFile#ClubContext|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="8">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="MAX_CLUB_SIZE=500" org.eventb.core.source="/ClubManagement/ClubContext.buc|org.eventb.core.contextFile#ClubContext|org.eventb.core.axiom#)"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="MAX_CLUB_SIZE∈ℕ1" org.eventb.core.source="/ClubManagement/ClubContext.buc|org.eventb.core.contextFile#ClubContext|org.eventb.core.axiom#,"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>
