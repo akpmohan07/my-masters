@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        <org.eventb.core.poIdentifier name="TROLLEY" org.eventb.core.type="ℙ(TROLLEY)"/>
+        <org.eventb.core.poIdentifier name="Milk" org.eventb.core.type="PRODUCT"/>
+        <org.eventb.core.poIdentifier name="Cheese" org.eventb.core.type="PRODUCT"/>
+        <org.eventb.core.poIdentifier name="Cereal" org.eventb.core.type="PRODUCT"/>
+        <org.eventb.core.poIdentifier name="BASKET" org.eventb.core.type="ℙ(ℙ(PRODUCT×ℤ))"/>
+        <org.eventb.core.poIdentifier name="SHELF" org.eventb.core.type="ℙ(ℙ(PRODUCT×ℤ))"/>
+        <org.eventb.core.poIdentifier name="PRICE" org.eventb.core.type="ℙ(ℤ)"/>
+        <org.eventb.core.poPredicate name="TROLLEZ" org.eventb.core.predicate="PRICE=ℕ" org.eventb.core.source="/Supermarket/Supermarket_ctx.buc|org.eventb.core.contextFile#Supermarket_ctx|org.eventb.core.axiom#internal_element3A"/>
+        <org.eventb.core.poPredicate name="TROLLE[" org.eventb.core.predicate="SHELF=PRODUCT ⇸ ℕ1" org.eventb.core.source="/Supermarket/Supermarket_ctx.buc|org.eventb.core.contextFile#Supermarket_ctx|org.eventb.core.axiom#internal_element1A"/>
+        <org.eventb.core.poPredicate name="TROLLE\" org.eventb.core.predicate="PRODUCT={Milk,Cheese,Cereal}" org.eventb.core.source="/Supermarket/Supermarket_ctx.buc|org.eventb.core.contextFile#Supermarket_ctx|org.eventb.core.axiom#internal_axm1A"/>
+        <org.eventb.core.poPredicate name="TROLLE]" org.eventb.core.predicate="Milk≠Cheese" org.eventb.core.source="/Supermarket/Supermarket_ctx.buc|org.eventb.core.contextFile#Supermarket_ctx|org.eventb.core.axiom#internal_axm2A"/>
+        <org.eventb.core.poPredicate name="TROLLE^" org.eventb.core.predicate="Milk≠Cereal" org.eventb.core.source="/Supermarket/Supermarket_ctx.buc|org.eventb.core.contextFile#Supermarket_ctx|org.eventb.core.axiom#internal_axm3A"/>
+        <org.eventb.core.poPredicate name="TROLLE_" org.eventb.core.predicate="Cheese≠Cereal" org.eventb.core.source="/Supermarket/Supermarket_ctx.buc|org.eventb.core.contextFile#Supermarket_ctx|org.eventb.core.axiom#internal_axm4A"/>
+        <org.eventb.core.poPredicate name="TROLLE`" org.eventb.core.predicate="BASKET=PRODUCT ⇸ ℕ1" org.eventb.core.source="/Supermarket/Supermarket_ctx.buc|org.eventb.core.contextFile#Supermarket_ctx|org.eventb.core.axiom#internal_element2A"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="shelf" org.eventb.core.type="ℙ(PRODUCT×ℤ)"/>
+        <org.eventb.core.poIdentifier name="stock" org.eventb.core.type="ℙ(PRODUCT×ℤ)"/>
+        <org.eventb.core.poIdentifier name="reorder" org.eventb.core.type="ℙ(PRODUCT)"/>
+        <org.eventb.core.poIdentifier name="topay" org.eventb.core.type="ℙ(TROLLEY×ℤ)"/>
+        <org.eventb.core.poIdentifier name="customers" org.eventb.core.type="ℙ(TROLLEY×ℙ(PRODUCT×ℤ))"/>
+        <org.eventb.core.poIdentifier name="products" org.eventb.core.type="ℙ(PRODUCT)"/>
+        <org.eventb.core.poIdentifier name="trolleys" org.eventb.core.type="ℙ(TROLLEY)"/>
+        <org.eventb.core.poIdentifier name="reorderlevel" org.eventb.core.type="ℙ(PRODUCT×ℤ)"/>
+        <org.eventb.core.poIdentifier name="price" org.eventb.core.type="ℙ(PRODUCT×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="inv8/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#HYPSupermarket_cu'"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀t⦂TROLLEY·t∈dom(customers)⇒customers∈TROLLEY ⇸ ℙ(PRODUCT × ℤ)" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element8I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element8I"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#HYPSupermarket_cu'"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#EVTALLHYPSupermarket_cu-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="shelf'∈SHELF" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element1I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.event#internal_evt1"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element1I"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#HYPSupermarket_cu'|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv4/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#EVTALLHYPSupermarket_cu-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="price'∈products' → PRICE" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element4I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.event#internal_evt1"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element4I"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poSequent#INITIALISATION\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#HYPSupermarket_cu'|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv5/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#EVTALLHYPSupermarket_cu-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="products'=dom(price')" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element5I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.event#internal_evt1"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element5I"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poSequent#INITIALISATION\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#HYPSupermarket_cu'|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv6/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#EVTALLHYPSupermarket_cu-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="dom(shelf')=products'" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element6I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.event#internal_evt1"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element6I"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poSequent#INITIALISATION\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#HYPSupermarket_cu'|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv7/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#EVTALLHYPSupermarket_cu-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="customers'∈trolleys' → BASKET" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element7I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.event#internal_evt1"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element7I"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poSequent#INITIALISATION\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#HYPSupermarket_cu'|org.eventb.core.poPredicate#PRD6"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv8/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#EVTALLHYPSupermarket_cu-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀t⦂TROLLEY·t∈dom(customers')⇒dom(customers'(t))⊆products'" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element8I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.event#internal_evt1"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element8I"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poSequent#INITIALISATION\/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv9/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#EVTALLHYPSupermarket_cu-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="reorderlevel'∈products' ⇸ ℕ1" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element9I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.event#internal_evt1"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element9I"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poSequent#INITIALISATION\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD8"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv10/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#EVTALLHYPSupermarket_cu-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="reorder'⊆products'" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element10I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.event#internal_evt1"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element10I"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poSequent#INITIALISATION\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD9"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv11/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#EVTALLHYPSupermarket_cu-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="topay'∈trolleys' ⇸ ℕ" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element11I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.event#internal_evt1"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element11I"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poSequent#INITIALISATION\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD10"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv12/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#EVTALLHYPSupermarket_cu-"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="stock'∈products' → ℕ" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element12I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.event#internal_evt1"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element12I"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poSequent#INITIALISATION\/inv12\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD11"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTSupermarket_cu-" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="products'" org.eventb.core.type="ℙ(PRODUCT)"/>
+        <org.eventb.core.poIdentifier name="shelf'" org.eventb.core.type="ℙ(PRODUCT×ℤ)"/>
+        <org.eventb.core.poIdentifier name="customers'" org.eventb.core.type="ℙ(TROLLEY×ℙ(PRODUCT×ℤ))"/>
+        <org.eventb.core.poIdentifier name="reorderlevel'" org.eventb.core.type="ℙ(PRODUCT×ℤ)"/>
+        <org.eventb.core.poIdentifier name="trolleys'" org.eventb.core.type="ℙ(TROLLEY)"/>
+        <org.eventb.core.poIdentifier name="price'" org.eventb.core.type="ℙ(PRODUCT×ℤ)"/>
+        <org.eventb.core.poIdentifier name="reorder'" org.eventb.core.type="ℙ(PRODUCT)"/>
+        <org.eventb.core.poIdentifier name="stock'" org.eventb.core.type="ℙ(PRODUCT×ℤ)"/>
+        <org.eventb.core.poIdentifier name="topay'" org.eventb.core.type="ℙ(TROLLEY×ℤ)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPSupermarket_cu-" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#EVTIDENTSupermarket_cu-" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poPredicateSet name="HYPSupermarket_cu'" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="shelf∈SHELF" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element1I"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="trolleys⊆TROLLEY" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element2I"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="products⊆PRODUCT" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element3I"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="price∈products → PRICE" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element4I"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="products=dom(price)" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element5I"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="dom(shelf)=products" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element6I"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="customers∈trolleys → BASKET" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element7I"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Supermarket/Supermarket.bpo|org.eventb.core.poFile#Supermarket|org.eventb.core.poPredicateSet#HYPSupermarket_cu'" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="∀t⦂TROLLEY·t∈dom(customers)⇒dom(customers(t))⊆products" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element8I"/>
+        <org.eventb.core.poPredicate name="PRD8" org.eventb.core.predicate="reorderlevel∈products ⇸ ℕ1" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element9I"/>
+        <org.eventb.core.poPredicate name="PRD9" org.eventb.core.predicate="reorder⊆products" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element10I"/>
+        <org.eventb.core.poPredicate name="PRD10" org.eventb.core.predicate="topay∈trolleys ⇸ ℕ" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element11I"/>
+        <org.eventb.core.poPredicate name="PRD11" org.eventb.core.predicate="stock∈products → ℕ" org.eventb.core.source="/Supermarket/Supermarket.bum|org.eventb.core.machineFile#Supermarket|org.eventb.core.invariant#internal_element12I"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

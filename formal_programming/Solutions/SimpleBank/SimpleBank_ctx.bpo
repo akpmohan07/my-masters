@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="ACCOUNT" org.eventb.core.type="ℙ(ACCOUNT)"/>
+<org.eventb.core.poIdentifier name="amount" org.eventb.core.type="ℙ(ℤ)"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/SimpleBank/SimpleBank_ctx.bpo|org.eventb.core.poFile#SimpleBank_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="amount=ℕ" org.eventb.core.source="/SimpleBank/SimpleBank_ctx.buc|org.eventb.core.contextFile#SimpleBank_ctx|org.eventb.core.axiom#internal_element1A"/>
+</org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

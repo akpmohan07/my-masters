@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="52">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="VEHICLES" org.eventb.core.type="ℙ(VEHICLES)"/>
+        <org.eventb.core.poIdentifier name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+        <org.eventb.core.poIdentifier name="PEOPLE" org.eventb.core.type="ℙ(PEOPLE)"/>
+        <org.eventb.core.poIdentifier name="No" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.poIdentifier name="Yes" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.poPredicate name="BooleanResponsf" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})" org.eventb.core.source="/ParkingSystem/ParkingSystemContext.buc|org.eventb.core.contextFile#ParkingSystemContext|org.eventb.core.axiom#,"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="30">
+        <org.eventb.core.poIdentifier name="permit" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+        <org.eventb.core.poIdentifier name="vehicle_owner" org.eventb.core.type="PEOPLE"/>
+        <org.eventb.core.poIdentifier name="is_person_have_car" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.poIdentifier name="suspected_car" org.eventb.core.type="VEHICLES"/>
+        <org.eventb.core.poIdentifier name="persons_vehicle" org.eventb.core.type="VEHICLES"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="52">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContexz"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∅ ⦂ ℙ(PEOPLE×VEHICLES))∈PEOPLE ⤔ VEHICLES" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/act2/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="52">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContexz"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="BooleanResponse≠(∅ ⦂ ℙ(BooleanResponse))" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#'|org.eventb.core.action#("/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#'|org.eventb.core.action#("/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContexz"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/act3/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="52">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContexz"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="VEHICLES≠(∅ ⦂ ℙ(VEHICLES))" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#'|org.eventb.core.action#)"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#'|org.eventb.core.action#)"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContexz"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/act4/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="52">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContexz"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="PEOPLE≠(∅ ⦂ ℙ(PEOPLE))" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#'|org.eventb.core.action#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#'|org.eventb.core.action#*"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContexz"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/act5/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="52">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContexz"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="VEHICLES≠(∅ ⦂ ℙ(VEHICLES))" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#'|org.eventb.core.action#+"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#'|org.eventb.core.action#+"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContexz"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTParkingSystemContexz" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="30">
+        <org.eventb.core.poIdentifier name="is_person_have_car'" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.poIdentifier name="vehicle_owner'" org.eventb.core.type="PEOPLE"/>
+        <org.eventb.core.poIdentifier name="suspected_car'" org.eventb.core.type="VEHICLES"/>
+        <org.eventb.core.poIdentifier name="permit'" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+        <org.eventb.core.poIdentifier name="persons_vehicle'" org.eventb.core.type="VEHICLES"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPParkingSystemContexz" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTIDENTParkingSystemContexz" org.eventb.core.poStamp="30"/>
+    <org.eventb.core.poSequent name="register/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="30">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContex{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="permit∪{p ↦ v}∈PEOPLE ⤔ VEHICLES" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#+"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poSequent#register\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTParkingSystemContex{" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="30">
+        <org.eventb.core.poIdentifier name="v" org.eventb.core.type="VEHICLES"/>
+        <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PEOPLE"/>
+        <org.eventb.core.poIdentifier name="permit'" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPParkingSystemContex{" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTIDENTParkingSystemContex{" org.eventb.core.poStamp="30">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="v∈VEHICLES" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#+|org.eventb.core.guard#)"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="p∈PEOPLE" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#+|org.eventb.core.guard#*"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="p∉dom(permit)" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#+|org.eventb.core.guard#,"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="v∉ran(permit)" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#+|org.eventb.core.guard#-"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="deregister/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="30">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContex\|"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="permit ∖ {p ↦ v}∈PEOPLE ⤔ VEHICLES" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#,"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poSequent#deregister\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTParkingSystemContex|" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="30">
+        <org.eventb.core.poIdentifier name="v" org.eventb.core.type="VEHICLES"/>
+        <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PEOPLE"/>
+        <org.eventb.core.poIdentifier name="permit'" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPParkingSystemContex|" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTIDENTParkingSystemContex\|" org.eventb.core.poStamp="30">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="p ↦ v∈permit" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#,|org.eventb.core.guard#)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="registered/act1/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="30">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContex}"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{res⦂BooleanResponse·(p∈dom(permit)⇒res=Yes)∧(p∉dom(permit)⇒res=No) ∣ res}≠(∅ ⦂ ℙ(BooleanResponse))" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#-|org.eventb.core.action#)"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#-|org.eventb.core.action#)"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContex}"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTParkingSystemContex}" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="30">
+        <org.eventb.core.poIdentifier name="is_person_have_car'" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PEOPLE"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPParkingSystemContex}" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTIDENTParkingSystemContex}" org.eventb.core.poStamp="30">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="p∈PEOPLE" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#-|org.eventb.core.guard#*"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="vehicle/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="31">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContex~"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="p∈dom(permit)∧permit∈PEOPLE ⇸ VEHICLES" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#2|org.eventb.core.action#)"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#2|org.eventb.core.action#)"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContex~"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTParkingSystemContex~" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="31">
+        <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PEOPLE"/>
+        <org.eventb.core.poIdentifier name="persons_vehicle'" org.eventb.core.type="VEHICLES"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPParkingSystemContex~" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTIDENTParkingSystemContex~" org.eventb.core.poStamp="31">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="p∈PEOPLE" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#2|org.eventb.core.guard#("/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="p∈dom(permit)" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#2|org.eventb.core.guard#*"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="owner/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="33">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContey'"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="v∈dom(permit∼)∧permit∼∈VEHICLES ⇸ PEOPLE" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#5|org.eventb.core.action#)"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#5|org.eventb.core.action#)"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContey'"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTParkingSystemContey'" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="32">
+        <org.eventb.core.poIdentifier name="v" org.eventb.core.type="VEHICLES"/>
+        <org.eventb.core.poIdentifier name="vehicle_owner'" org.eventb.core.type="PEOPLE"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPParkingSystemContey'" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTIDENTParkingSystemContey'" org.eventb.core.poStamp="33">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="v∈VEHICLES" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#5|org.eventb.core.guard#("/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="v∈ran(permit)" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#5|org.eventb.core.guard#*"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="change_register/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="42">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContey("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="permit{p ↦ v}∈PEOPLE ⤔ VEHICLES" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#8"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poSequent#change_register\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTParkingSystemContey(" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="42">
+        <org.eventb.core.poIdentifier name="v" org.eventb.core.type="VEHICLES"/>
+        <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PEOPLE"/>
+        <org.eventb.core.poIdentifier name="permit'" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPParkingSystemContey(" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTIDENTParkingSystemContey(" org.eventb.core.poStamp="42">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="p∈PEOPLE" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#8|org.eventb.core.guard#)"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="v∈VEHICLES" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#8|org.eventb.core.guard#*"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="p∈dom(permit)" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#8|org.eventb.core.guard#,"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="v∉ran(permit)" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#8|org.eventb.core.guard#-"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="drugs_check/act1/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="51">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContey)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="ran(permit)≠(∅ ⦂ ℙ(VEHICLES))" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#9|org.eventb.core.action#("/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#9|org.eventb.core.action#("/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTALLHYPParkingSystemContey)"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTParkingSystemContey)" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="suspected_car'" org.eventb.core.type="VEHICLES"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPParkingSystemContey)" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#EVTIDENTParkingSystemContey)" org.eventb.core.poStamp="51">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="ran(permit)∉(∅ ⦂ ℙ(ℙ(VEHICLES)))" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#9|org.eventb.core.guard#)"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="permit≠(∅ ⦂ ℙ(PEOPLE×VEHICLES))" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.event#9|org.eventb.core.guard#*"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/ParkingSystem/ParkingSystemMachine.bpo|org.eventb.core.poFile#ParkingSystemMachine|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="30">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="permit∈PEOPLE ⤔ VEHICLES" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#*"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="is_person_have_car∈BooleanResponse" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#\/"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="persons_vehicle∈VEHICLES" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#1"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="suspected_car∈VEHICLES" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#3"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="vehicle_owner∈PEOPLE" org.eventb.core.source="/ParkingSystem/ParkingSystemMachine.bum|org.eventb.core.machineFile#ParkingSystemMachine|org.eventb.core.invariant#7"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

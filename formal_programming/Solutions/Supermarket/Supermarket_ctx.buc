@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+    <org.eventb.core.axiom name="internal_element3A" org.eventb.core.label="axm7" org.eventb.core.predicate="PRICE = ℕ "/>
+    <org.eventb.core.axiom name="internal_element1A" org.eventb.core.label="axm1" org.eventb.core.predicate="SHELF = PRODUCT ⇸ ℕ1"/>
+    <org.eventb.core.axiom name="internal_axm1A" org.eventb.core.label="axm2" org.eventb.core.predicate="PRODUCT = {Milk, Cheese, Cereal}"/>
+    <org.eventb.core.axiom name="internal_axm2A" org.eventb.core.label="axm3" org.eventb.core.predicate="Milk ≠ Cheese"/>
+    <org.eventb.core.axiom name="internal_axm3A" org.eventb.core.label="axm4" org.eventb.core.predicate="Milk ≠ Cereal"/>
+    <org.eventb.core.axiom name="internal_axm4A" org.eventb.core.label="axm5" org.eventb.core.predicate="Cheese ≠ Cereal"/>
+    <org.eventb.core.axiom name="internal_element2A" org.eventb.core.label="axm6" org.eventb.core.predicate="BASKET = PRODUCT ⇸ ℕ1 "/>
+    <org.eventb.core.carrierSet name="internal_element1" org.eventb.core.identifier="TROLLEY"/>
+    <org.eventb.core.carrierSet name="internal_set1" org.eventb.core.identifier="PRODUCT"/>
+    <org.eventb.core.constant name="internal_element1" org.eventb.core.identifier="SHELF"/>
+    <org.eventb.core.constant name="internal_element3" org.eventb.core.identifier="PRICE"/>
+    <org.eventb.core.constant name="internal_cst1" org.eventb.core.identifier="Milk"/>
+    <org.eventb.core.constant name="internal_cst2" org.eventb.core.identifier="Cheese"/>
+    <org.eventb.core.constant name="internal_cst3" org.eventb.core.identifier="Cereal"/>
+    <org.eventb.core.constant name="internal_element2" org.eventb.core.identifier="BASKET"/>
+</org.eventb.core.contextFile>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><org.eventb.core.machineFile version="5" org.eventb.core.configuration="org.eventb.core.fwd">
+    <org.eventb.core.event name="internal_evt1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION"/>
+    <org.eventb.core.invariant name="internal_element1I" org.eventb.core.label="inv1" org.eventb.core.predicate="shelf ∈ SHELF"/>
+    <org.eventb.core.invariant name="internal_element2I" org.eventb.core.label="inv2" org.eventb.core.predicate="trolleys ⊆ TROLLEY"/>
+    <org.eventb.core.invariant name="internal_element3I" org.eventb.core.label="inv3" org.eventb.core.predicate="products ⊆ PRODUCT"/>
+    <org.eventb.core.invariant name="internal_element4I" org.eventb.core.label="inv4" org.eventb.core.predicate="price ∈ products → PRICE"/>
+    <org.eventb.core.invariant name="internal_element5I" org.eventb.core.label="inv5" org.eventb.core.predicate="products = dom(price)"/>
+    <org.eventb.core.invariant name="internal_element6I" org.eventb.core.comment="" org.eventb.core.label="inv6" org.eventb.core.predicate="dom(shelf) = products"/>
+    <org.eventb.core.invariant name="internal_element7I" org.eventb.core.label="inv7" org.eventb.core.predicate="customers ∈ trolleys → BASKET"/>
+    <org.eventb.core.invariant name="internal_element8I" org.eventb.core.label="inv8" org.eventb.core.predicate="∀t · t ∈ dom(customers) ⇒ dom(customers(t)) ⊆ products"/>
+    <org.eventb.core.invariant name="internal_element9I" org.eventb.core.label="inv9" org.eventb.core.predicate="reorderlevel ∈ products ⇸ ℕ1"/>
+    <org.eventb.core.invariant name="internal_element10I" org.eventb.core.label="inv10" org.eventb.core.predicate="reorder ⊆ products"/>
+    <org.eventb.core.invariant name="internal_element11I" org.eventb.core.label="inv11" org.eventb.core.predicate="topay ∈ trolleys ⇸ ℕ "/>
+    <org.eventb.core.invariant name="internal_element12I" org.eventb.core.label="inv12" org.eventb.core.predicate="stock ∈ products → ℕ"/>
+    <org.eventb.core.seesContext name="internal_element1" org.eventb.core.target="Supermarket_ctx"/>
+    <org.eventb.core.variable name="internal_element1" org.eventb.core.identifier="shelf"/>
+    <org.eventb.core.variable name="internal_element2" org.eventb.core.identifier="trolleys"/>
+    <org.eventb.core.variable name="internal_element5" org.eventb.core.identifier="products"/>
+    <org.eventb.core.variable name="internal_element3" org.eventb.core.identifier="price"/>
+    <org.eventb.core.variable name="internal_element4" org.eventb.core.identifier="customers"/>
+    <org.eventb.core.variable name="internal_element6" org.eventb.core.identifier="reorderlevel"/>
+    <org.eventb.core.variable name="internal_element7" org.eventb.core.identifier="reorder"/>
+    <org.eventb.core.variable name="internal_element8" org.eventb.core.identifier="topay"/>
+    <org.eventb.core.variable name="internal_element9" org.eventb.core.identifier="stock"/>
+</org.eventb.core.machineFile>

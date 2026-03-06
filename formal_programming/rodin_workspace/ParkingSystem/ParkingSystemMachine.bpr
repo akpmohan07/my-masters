@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="BooleanResponse,PEOPLE,VEHICLES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p3">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R500"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Yes=No"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(PEOPLE×VEHICLES))∈PEOPLE ⤔ VEHICLES"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="BooleanResponse={Yes,No}"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="register/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4" org.eventb.core.prSets="BooleanResponse,PEOPLE,VEHICLES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5,p6"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p5,p6"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p8"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p9"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p10"/>
+                                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p11"/>
+                                <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p12"/>
+                                <org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p13"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p5,p6,p7,p8">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PEOPLE"/>
+        <org.eventb.core.prIdent name="permit" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+        <org.eventb.core.prIdent name="v" org.eventb.core.type="VEHICLES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="is_person_have_car∈BooleanResponse">
+            <org.eventb.core.prIdent name="is_person_have_car" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permit∪{p ↦ v}∈PEOPLE ⤔ VEHICLES"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬p∈dom(permit)"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="permit∈PEOPLE ⤔ VEHICLES"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="suspected_car∈VEHICLES">
+            <org.eventb.core.prIdent name="suspected_car" org.eventb.core.type="VEHICLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="persons_car∈VEHICLES">
+            <org.eventb.core.prIdent name="persons_car" org.eventb.core.type="VEHICLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬Yes=No"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="p∈PEOPLE"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="v∈VEHICLES"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="v∉ran(permit)"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬v∈ran(permit)"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="BooleanResponse={Yes,No}"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="p∉dom(permit)"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="deregister/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="BooleanResponse,PEOPLE,VEHICLES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p5"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p6"/>
+                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p7"/>
+                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p8"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p3,p4">
+                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PEOPLE"/>
+        <org.eventb.core.prIdent name="permit" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+        <org.eventb.core.prIdent name="v" org.eventb.core.type="VEHICLES"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="persons_car∈VEHICLES">
+            <org.eventb.core.prIdent name="persons_car" org.eventb.core.type="VEHICLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="is_person_have_car∈BooleanResponse">
+            <org.eventb.core.prIdent name="is_person_have_car" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬Yes=No"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="p∈PEOPLE"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="v∈VEHICLES"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permit∈PEOPLE ⤔ VEHICLES"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="BooleanResponse={Yes,No}"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permit ∖ {p ↦ v}∈PEOPLE ⤔ VEHICLES"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="registered/act1/FIS" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="BooleanResponse,PEOPLE,VEHICLES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in goal" org.eventb.core.prGoal="p4" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in goal" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'">
+                                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p7"/>
+                                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p8"/>
+                                                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p9"/>
+                                                <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p10"/>
+                                                <org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p11"/>
+                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="p2,p3">
+                                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R500"/>
+                                                </org.eventb.core.prRule>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PEOPLE"/>
+        <org.eventb.core.prIdent name="permit" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="is_person_have_car∈BooleanResponse">
+            <org.eventb.core.prIdent name="is_person_have_car" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Yes=No"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="p∈PEOPLE"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{res⦂BooleanResponse·(p∈dom(permit)⇒res=Yes)∧(p∉dom(permit)⇒res=No) ∣ res}≠(∅ ⦂ ℙ(BooleanResponse))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="∃res⦂BooleanResponse·¬¬((p∈dom(permit)⇒res=Yes)∧(¬p∈dom(permit)⇒res=No))"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬(∀res⦂BooleanResponse·¬((p∈dom(permit)⇒res=Yes)∧(¬p∈dom(permit)⇒res=No)))"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="persons_vehicle∈VEHICLES">
+            <org.eventb.core.prIdent name="persons_vehicle" org.eventb.core.type="VEHICLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="BooleanResponse={Yes,No}"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="∃res⦂BooleanResponse·(p∈dom(permit)⇒res=Yes)∧(¬p∈dom(permit)⇒res=No)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="vehicle_owner∈PEOPLE">
+            <org.eventb.core.prIdent name="vehicle_owner" org.eventb.core.type="PEOPLE"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="suspected_car∈VEHICLES">
+            <org.eventb.core.prIdent name="suspected_car" org.eventb.core.type="VEHICLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/act2/FIS" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="BooleanResponse">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p4" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps=""/>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬⊥"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="BooleanResponse≠(∅ ⦂ ℙ(BooleanResponse))"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬BooleanResponse=(∅ ⦂ ℙ(BooleanResponse))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Yes=No">
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="BooleanResponse={Yes,No}">
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})">
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/act3/FIS" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="VEHICLES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p4" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps=""/>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬⊥"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Yes=No">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="VEHICLES≠(∅ ⦂ ℙ(VEHICLES))"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬VEHICLES=(∅ ⦂ ℙ(VEHICLES))"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="BooleanResponse={Yes,No}">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="vehicle/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="PEOPLE,VEHICLES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="p1"/>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PEOPLE"/>
+        <org.eventb.core.prIdent name="permit" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Yes=No">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="permit∈PEOPLE ⇸ VEHICLES"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permit∈PEOPLE ⤔ VEHICLES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="p∈dom(permit)∧permit∈PEOPLE ⇸ VEHICLES"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="BooleanResponse={Yes,No}">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="⊤∧permit∈PEOPLE ⇸ VEHICLES"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="p∈dom(permit)"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL4"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/act4/FIS" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="PEOPLE">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p4" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps=""/>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬⊥"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Yes=No">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬PEOPLE=(∅ ⦂ ℙ(PEOPLE))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="PEOPLE≠(∅ ⦂ ℙ(PEOPLE))"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="BooleanResponse={Yes,No}">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="owner/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="BooleanResponse,PEOPLE,VEHICLES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="p1">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8">
+                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'">
+                                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p9"/>
+                                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p10"/>
+                                                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p11"/>
+                                                <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p12"/>
+                                                <org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p13"/>
+                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="p2,p1,p4,p5">
+                                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                                </org.eventb.core.prRule>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prIdent name="permit" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+        <org.eventb.core.prIdent name="v" org.eventb.core.type="VEHICLES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="is_person_have_car∈BooleanResponse">
+            <org.eventb.core.prIdent name="is_person_have_car" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="persons_vehicle∈VEHICLES">
+            <org.eventb.core.prIdent name="persons_vehicle" org.eventb.core.type="VEHICLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="permit∈PEOPLE ⤔ VEHICLES"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="permit∼∈VEHICLES ⇸ PEOPLE"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="v∈ran(permit)∧permit∼∈VEHICLES ⇸ PEOPLE"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="vehicle_owner∈PEOPLE">
+            <org.eventb.core.prIdent name="vehicle_owner" org.eventb.core.type="PEOPLE"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="suspected_car∈VEHICLES">
+            <org.eventb.core.prIdent name="suspected_car" org.eventb.core.type="VEHICLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="v∈ran(permit)"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Yes=No"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="v∈VEHICLES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="v∈dom(permit∼)∧permit∼∈VEHICLES ⇸ PEOPLE"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="⊤∧permit∼∈VEHICLES ⇸ PEOPLE"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="BooleanResponse={Yes,No}"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL4"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="change_register/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4" org.eventb.core.prSets="BooleanResponse,PEOPLE,VEHICLES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5,p6"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p5,p6"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p8"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p9"/>
+                                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p10"/>
+                                <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p11"/>
+                                <org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p12"/>
+                                <org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p13"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p4,p5,p6,p7">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PEOPLE"/>
+        <org.eventb.core.prIdent name="permit" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+        <org.eventb.core.prIdent name="v" org.eventb.core.type="VEHICLES"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="is_person_have_car∈BooleanResponse">
+            <org.eventb.core.prIdent name="is_person_have_car" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="permit{p ↦ v}∈PEOPLE ⤔ VEHICLES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="persons_vehicle∈VEHICLES">
+            <org.eventb.core.prIdent name="persons_vehicle" org.eventb.core.type="VEHICLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="permit∈PEOPLE ⤔ VEHICLES"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="vehicle_owner∈PEOPLE">
+            <org.eventb.core.prIdent name="vehicle_owner" org.eventb.core.type="PEOPLE"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="suspected_car∈VEHICLES">
+            <org.eventb.core.prIdent name="suspected_car" org.eventb.core.type="VEHICLES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬Yes=No"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="p∈PEOPLE"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="v∈VEHICLES"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="v∉ran(permit)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬v∈ran(permit)"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="BooleanResponse={Yes,No}"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="p∈dom(permit)"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="drugs_check/act1/FIS" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="PEOPLE,VEHICLES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p5"/>
+                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="p6"/>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="permit" org.eventb.core.type="ℙ(PEOPLE×VEHICLES)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="permit≠(∅ ⦂ ℙ(PEOPLE×VEHICLES))"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬Yes=No">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬permit=(∅ ⦂ ℙ(PEOPLE×VEHICLES))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ran(permit)∉(∅ ⦂ ℙ(ℙ(VEHICLES)))"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="BooleanResponse={Yes,No}">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="ran(permit)≠(∅ ⦂ ℙ(VEHICLES))"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/act5/FIS" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="VEHICLES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(BooleanResponse,{Yes},{No}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p4" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps=""/>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬⊥"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Yes=No">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="VEHICLES≠(∅ ⦂ ℙ(VEHICLES))"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬VEHICLES=(∅ ⦂ ℙ(VEHICLES))"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="BooleanResponse={Yes,No}">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})">
+            <org.eventb.core.prIdent name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
+            <org.eventb.core.prIdent name="No" org.eventb.core.type="BooleanResponse"/>
+            <org.eventb.core.prIdent name="Yes" org.eventb.core.type="BooleanResponse"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+</org.eventb.core.prFile>

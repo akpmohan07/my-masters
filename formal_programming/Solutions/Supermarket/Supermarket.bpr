@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="inv8/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="t" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="PRODUCT,TROLLEY">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p8"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p9"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees t)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+                                <org.eventb.core.prIdent name="t" org.eventb.core.type="TROLLEY"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p11">
+                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p1"/>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="BASKET" org.eventb.core.type="ℙ(ℙ(PRODUCT×ℤ))"/>
+        <org.eventb.core.prIdent name="customers" org.eventb.core.type="ℙ(TROLLEY×ℙ(PRODUCT×ℤ))"/>
+        <org.eventb.core.prIdent name="trolleys" org.eventb.core.type="ℙ(TROLLEY)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="Milk≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="Milk≠Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="trolleys⊆TROLLEY"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="customers∈TROLLEY ⇸ ℙ(PRODUCT × ℤ)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Milk=Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="t∈dom(customers)">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="TROLLEY"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="t∈dom(customers)⇒customers∈TROLLEY ⇸ ℙ(PRODUCT × ℤ)">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="TROLLEY"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="customers∈trolleys → BASKET"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬Cheese=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀t⦂TROLLEY·t∈dom(customers)⇒customers∈TROLLEY ⇸ ℙ(PRODUCT × ℤ)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="Cheese≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Milk=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="products⊆PRODUCT">
+            <org.eventb.core.prIdent name="products" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv1/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬Milk=Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="Milk≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="Milk≠Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Cheese=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="Cheese≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Milk=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv4/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬Milk=Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="Milk≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="Milk≠Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Cheese=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="Cheese≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Milk=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv5/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬Milk=Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="Milk≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="Milk≠Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Cheese=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="Cheese≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Milk=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv7/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬Milk=Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="Milk≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="Milk≠Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Cheese=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="Cheese≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Milk=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv8/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="t" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="PRODUCT,TROLLEY">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees t)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
+                        <org.eventb.core.prIdent name="t" org.eventb.core.type="TROLLEY"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="p8"/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="customers'" org.eventb.core.type="ℙ(TROLLEY×ℙ(PRODUCT×ℤ))"/>
+        <org.eventb.core.prIdent name="products'" org.eventb.core.type="ℙ(PRODUCT)"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬Milk=Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="Milk≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="t∈dom(customers')⇒dom(customers'(t))⊆products'">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="TROLLEY"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="Milk≠Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="t∈dom(customers')">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="TROLLEY"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬Cheese=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="Cheese≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬Milk=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="dom(customers'(t))⊆products'">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="TROLLEY"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀t⦂TROLLEY·t∈dom(customers')⇒dom(customers'(t))⊆products'"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv9/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬Milk=Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="Milk≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="Milk≠Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Cheese=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="Cheese≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Milk=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv10/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬Milk=Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="Milk≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="Milk≠Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Cheese=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="Cheese≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Milk=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv11/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬Milk=Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="Milk≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="Milk≠Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Cheese=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="Cheese≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Milk=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv12/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬Milk=Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="Milk≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="Milk≠Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Cheese=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="Cheese≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Milk=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv6/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬Milk=Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="Milk≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="Milk≠Cheese">
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬Cheese=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="Cheese≠Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Cheese" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬Milk=Cereal">
+            <org.eventb.core.prIdent name="Cereal" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="Milk" org.eventb.core.type="PRODUCT"/>
+            <org.eventb.core.prIdent name="PRODUCT" org.eventb.core.type="ℙ(PRODUCT)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+</org.eventb.core.prFile>

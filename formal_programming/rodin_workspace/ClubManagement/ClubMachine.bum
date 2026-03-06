@@ -19,6 +19,7 @@
         <org.eventb.core.action name="+" org.eventb.core.assignment="waiting ≔ waiting ∖ {n}" org.eventb.core.comment="// Removing name from waiting" org.eventb.core.label="act2"/>
         <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="finite(member)"/>
         <org.eventb.core.guard name="-" org.eventb.core.comment="// Member size should be max of 500" org.eventb.core.label="grd4" org.eventb.core.predicate="card(member) &lt; MAX_CLUB_SIZE"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd5" org.eventb.core.predicate="n ∉ member"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="." org.eventb.core.comment="// the given name, which must not be in the waiting or membership lists, is added to the waiting list" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="join_queue">
         <org.eventb.core.parameter name="'" org.eventb.core.identifier="n"/>
@@ -60,4 +61,5 @@
         <org.eventb.core.action name="(" org.eventb.core.assignment="total_waiting_list ≔ card(waiting)" org.eventb.core.label="act1"/>
     </org.eventb.core.event>
     <org.eventb.core.variable name="7" org.eventb.core.comment="// the number of people in the waiting list." org.eventb.core.identifier="total_waiting_list"/>
+    <org.eventb.core.invariant name="8" org.eventb.core.label="inv5" org.eventb.core.predicate="member ∩ waiting = ∅ "/>
 </org.eventb.core.machineFile>

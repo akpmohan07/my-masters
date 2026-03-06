@@ -9,8 +9,8 @@
         </org.eventb.core.prRule>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈ℕ"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="⊤"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="query_membership/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="NAMES">
         <org.eventb.core.lang name="L"/>
@@ -22,8 +22,8 @@
         <org.eventb.core.prIdent name="member" org.eventb.core.type="ℙ(NAMES)"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="⊤"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="card(member)∈ℕ"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="query_membership/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="NAMES">
         <org.eventb.core.lang name="L"/>
@@ -114,8 +114,8 @@
         </org.eventb.core.prRule>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈ℕ"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="⊤"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="query_queue/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="NAMES">
         <org.eventb.core.lang name="L"/>
@@ -127,8 +127,8 @@
         <org.eventb.core.prIdent name="waiting" org.eventb.core.type="ℙ(NAMES)"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="card(waiting)∈ℕ"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="⊤"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="query_queue/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="NAMES">
         <org.eventb.core.lang name="L"/>
@@ -150,5 +150,217 @@
         <org.eventb.core.prIdent name="member" org.eventb.core.type="ℙ(NAMES)"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="finite(member)"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="NAMES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p1" org.eventb.core.prHyps=""/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(NAMES))∩(∅ ⦂ ℙ(NAMES))=(∅ ⦂ ℙ(NAMES))"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="join/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9" org.eventb.core.prSets="NAMES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p12"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p13"/>
+                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p14"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p6,p5,p4,p8,p2,p3,p7,p9,p10">
+                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="MAX_CLUB_SIZE" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="member" org.eventb.core.type="ℙ(NAMES)"/>
+        <org.eventb.core.prIdent name="n" org.eventb.core.type="NAMES"/>
+        <org.eventb.core.prIdent name="total_club_members" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="total_waiting_list" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="waiting" org.eventb.core.type="ℙ(NAMES)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="n∉member"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬n∈member"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="(member∪{n})∩waiting⊆{n}"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="member∩waiting=(∅ ⦂ ℙ(NAMES))"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="n∈waiting"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="waiting⊆NAMES"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="MAX_CLUB_SIZE=500"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="finite(member)"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="member⊆NAMES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(member∪{n})∩(waiting ∖ {n})=(∅ ⦂ ℙ(NAMES))"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="total_waiting_list∈ℕ"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="card(member)&lt;MAX_CLUB_SIZE"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="total_club_members∈ℕ"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="MAX_CLUB_SIZE∈ℕ1"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="n∈NAMES"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="join_queue/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7" org.eventb.core.prSets="NAMES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p8"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p10"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p11"/>
+                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p12"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p6,p5,p3,p7,p2,p8,p9">
+                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="MAX_CLUB_SIZE" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="member" org.eventb.core.type="ℙ(NAMES)"/>
+        <org.eventb.core.prIdent name="n" org.eventb.core.type="NAMES"/>
+        <org.eventb.core.prIdent name="total_club_members" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="total_waiting_list" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="waiting" org.eventb.core.type="ℙ(NAMES)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="n∉member"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬n∈member"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="member∩waiting=(∅ ⦂ ℙ(NAMES))"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="n∉waiting"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="waiting⊆NAMES"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="MAX_CLUB_SIZE=500"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="member⊆NAMES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="member∩(waiting∪{n})=(∅ ⦂ ℙ(NAMES))"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="total_waiting_list∈ℕ"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="total_club_members∈ℕ"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="MAX_CLUB_SIZE∈ℕ1"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬n∈waiting"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="n∈NAMES"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="remove/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6" org.eventb.core.prSets="NAMES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p8"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p9"/>
+                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p10"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="p5,p4,p2,p6,p1,p3">
+                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="MAX_CLUB_SIZE" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="member" org.eventb.core.type="ℙ(NAMES)"/>
+        <org.eventb.core.prIdent name="n" org.eventb.core.type="NAMES"/>
+        <org.eventb.core.prIdent name="total_club_members" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="total_waiting_list" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="waiting" org.eventb.core.type="ℙ(NAMES)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="member∩waiting⊆{n}"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="member∩waiting=(∅ ⦂ ℙ(NAMES))"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="total_club_members∈ℕ"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="n∈member"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="waiting⊆NAMES"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="MAX_CLUB_SIZE∈ℕ1"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="MAX_CLUB_SIZE=500"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="member⊆NAMES"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="total_waiting_list∈ℕ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="n∈NAMES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(member ∖ {n})∩waiting=(∅ ⦂ ℙ(NAMES))"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="remove_queue/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6" org.eventb.core.prSets="NAMES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p8"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p9"/>
+                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p10"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="p5,p4,p3,p6,p1,p2">
+                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="MAX_CLUB_SIZE" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="member" org.eventb.core.type="ℙ(NAMES)"/>
+        <org.eventb.core.prIdent name="n" org.eventb.core.type="NAMES"/>
+        <org.eventb.core.prIdent name="total_club_members" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="total_waiting_list" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="waiting" org.eventb.core.type="ℙ(NAMES)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="member∩waiting⊆{n}"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="member∩waiting=(∅ ⦂ ℙ(NAMES))"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="n∈waiting"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="total_club_members∈ℕ"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="waiting⊆NAMES"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="MAX_CLUB_SIZE∈ℕ1"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="MAX_CLUB_SIZE=500"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="member∩(waiting ∖ {n})=(∅ ⦂ ℙ(NAMES))"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="member⊆NAMES"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="total_waiting_list∈ℕ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="n∈NAMES"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="jump_queue/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9" org.eventb.core.prSets="NAMES">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p12"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p13"/>
+                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p14"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p6,p5,p3,p8,p2,p7,p9,p10,p11">
+                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="MAX_CLUB_SIZE" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="member" org.eventb.core.type="ℙ(NAMES)"/>
+        <org.eventb.core.prIdent name="n" org.eventb.core.type="NAMES"/>
+        <org.eventb.core.prIdent name="total_club_members" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="total_waiting_list" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="waiting" org.eventb.core.type="ℙ(NAMES)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="n∉member"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬n∈member"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="member∩waiting=(∅ ⦂ ℙ(NAMES))"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="n∉waiting"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="waiting⊆NAMES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(member∪{n})∩waiting=(∅ ⦂ ℙ(NAMES))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="MAX_CLUB_SIZE=500"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="finite(member)"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="member⊆NAMES"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="total_waiting_list∈ℕ"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="card(member)&lt;MAX_CLUB_SIZE"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="total_club_members∈ℕ"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="MAX_CLUB_SIZE∈ℕ1"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬n∈waiting"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="n∈NAMES"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="permit ≔ ∅" org.eventb.core.comment="// Initially no permits are registered" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="is_person_have_car :∈ BooleanResponse " org.eventb.core.label="act2"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="persons_vehicle :∈ VEHICLES " org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="vehicle_owner :∈ PEOPLE" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="suspected_car :∈ VEHICLES" org.eventb.core.label="act5"/>
+    </org.eventb.core.event>
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="ParkingSystemContext"/>
+    <org.eventb.core.variable name=")" org.eventb.core.comment="// Registration of people and the vehicles" org.eventb.core.identifier="permit"/>
+    <org.eventb.core.invariant name="*" org.eventb.core.comment="// Data type defining the registartion , a one to one relation between the People and vechicle" org.eventb.core.label="inv1" org.eventb.core.predicate="permit ∈ PEOPLE ⤔ VEHICLES"/>
+    <org.eventb.core.event name="+" org.eventb.core.comment="registers the given vehicle for the given person, provided they do not already have a vehicle registered" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="register">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="v"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="p"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment="V is an vehicle" org.eventb.core.label="grd1" org.eventb.core.predicate="v ∈ VEHICLES"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment="// P is an people" org.eventb.core.label="grd2" org.eventb.core.predicate="p ∈ PEOPLE"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="permit ≔ permit ∪ {p ↦ v}" org.eventb.core.comment="Registering an new permit" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="," org.eventb.core.comment="// Person should not have already registered to any other car" org.eventb.core.label="grd3" org.eventb.core.predicate="p ∉ dom(permit)"/>
+        <org.eventb.core.guard name="-" org.eventb.core.comment="// Car should not be registerd by anyother person" org.eventb.core.label="grd4" org.eventb.core.predicate="v ∉ ran(permit)"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="," org.eventb.core.comment="deregisters the vehicle for the given person" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="deregister">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="p"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="v"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment="// Permit should exist to deregister" org.eventb.core.label="grd1" org.eventb.core.predicate="p ↦ v ∈ permit"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="permit ≔ permit ∖ {p ↦ v}" org.eventb.core.comment="// Deregistering the permit of give person and vehicle" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="-" org.eventb.core.comment="outputs yes if the given person has a car registered and no otherwise" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="registered">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="p"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="is_person_have_car :∈ {res ∣ (p ∈ dom(permit) ⇒ res = Yes) ∧ (p ∉ dom(permit) ⇒ res = No)}" org.eventb.core.comment="// Either the person will have car or not have" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="p ∈ PEOPLE"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="." org.eventb.core.identifier="is_person_have_car"/>
+    <org.eventb.core.invariant name="/" org.eventb.core.comment="is_person_have_car is a type of  BooleanResponse" org.eventb.core.label="inv2" org.eventb.core.predicate="is_person_have_car ∈ BooleanResponse"/>
+    <org.eventb.core.variable name="0" org.eventb.core.identifier="persons_vehicle"/>
+    <org.eventb.core.invariant name="1" org.eventb.core.comment="persons_car is a type of VEHICLES" org.eventb.core.label="inv3" org.eventb.core.predicate="persons_vehicle ∈ VEHICLES"/>
+    <org.eventb.core.event name="2" org.eventb.core.comment="outputs the vehicle that the given person has registered" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="p"/>
+        <org.eventb.core.guard name="(" org.eventb.core.comment="// p is an type people" org.eventb.core.label="grd1" org.eventb.core.predicate="p ∈ PEOPLE"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="persons_vehicle ≔ permit(p)" org.eventb.core.comment="// The vehicle registerd to the person" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment="// Person should have register car" org.eventb.core.label="grd2" org.eventb.core.predicate="p ∈ dom(permit)"/>
+    </org.eventb.core.event>
+    <org.eventb.core.invariant name="3" org.eventb.core.comment="Suspected car for drug checking" org.eventb.core.label="inv4" org.eventb.core.predicate="suspected_car ∈ VEHICLES"/>
+    <org.eventb.core.variable name="4" org.eventb.core.identifier="suspected_car"/>
+    <org.eventb.core.event name="5" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="owner">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="v"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="v ∈ VEHICLES"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="vehicle_owner ≔ permit∼(v)" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment="Vehicle should be registered by someone" org.eventb.core.label="grd2" org.eventb.core.predicate="v ∈ ran(permit)"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="6" org.eventb.core.identifier="vehicle_owner"/>
+    <org.eventb.core.invariant name="7" org.eventb.core.label="inv5" org.eventb.core.predicate="vehicle_owner ∈ PEOPLE"/>
+    <org.eventb.core.event name="8" org.eventb.core.comment="// changes the vehicle that the given person has registered to the given vehicle" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="change_register">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="p"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="p ∈ PEOPLE"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="v ∈ VEHICLES"/>
+        <org.eventb.core.parameter name="+" org.eventb.core.identifier="v"/>
+        <org.eventb.core.guard name="," org.eventb.core.comment="// Person must have some car need to be registered" org.eventb.core.label="grd3" org.eventb.core.predicate="p ∈ dom(permit)"/>
+        <org.eventb.core.guard name="-" org.eventb.core.comment="// New vehcile should not be registered to any otehr person" org.eventb.core.label="grd4" org.eventb.core.predicate="v ∉ ran(permit)"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="permit ≔ permit  {p ↦ v}" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="9" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="drugs_check">
+        <org.eventb.core.action name="(" org.eventb.core.assignment="suspected_car :∈ ran(permit)" org.eventb.core.comment="// Suspected car to check for drugs" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="ran(permit) ∉ ∅"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="permit ≠ ∅"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>
