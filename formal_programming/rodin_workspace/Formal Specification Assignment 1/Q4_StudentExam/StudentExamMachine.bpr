@@ -1244,7 +1244,18 @@
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
     </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="INITIALISATION/inv12/INV"/>
+    <org.eventb.core.prProof name="INITIALISATION/inv12/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p1" org.eventb.core.prHyps=""/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈ℕ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
+    </org.eventb.core.prProof>
     <org.eventb.core.prProof name="studentquery/inv12/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17" org.eventb.core.prSets="STUDENT">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">

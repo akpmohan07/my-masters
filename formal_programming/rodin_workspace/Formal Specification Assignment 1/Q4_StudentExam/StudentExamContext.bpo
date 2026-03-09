@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="3">
-    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="3">
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poIdentifier name="STUDENT" org.eventb.core.type="ℙ(STUDENT)"/>
         <org.eventb.core.poIdentifier name="pass_mark" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="mark" org.eventb.core.type="ℙ(ℤ)"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Q4_StudentExam/StudentExamContext.bpo|org.eventb.core.poFile#StudentExamContext|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Q4_StudentExam/StudentExamContext.bpo|org.eventb.core.poFile#StudentExamContext|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="mark=0 ‥ 100" org.eventb.core.source="/Q4_StudentExam/StudentExamContext.buc|org.eventb.core.contextFile#StudentExamContext|org.eventb.core.axiom#*"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="pass_mark∈mark" org.eventb.core.source="/Q4_StudentExam/StudentExamContext.buc|org.eventb.core.contextFile#StudentExamContext|org.eventb.core.axiom#+"/>
     </org.eventb.core.poPredicateSet>

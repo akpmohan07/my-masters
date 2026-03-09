@@ -7,6 +7,7 @@
         <org.eventb.core.action name="*" org.eventb.core.assignment="resit2_result ≔ ∅" org.eventb.core.label="act4"/>
         <org.eventb.core.action name="+" org.eventb.core.assignment="exam_mark ≔ 0" org.eventb.core.label="act5"/>
         <org.eventb.core.action name="-" org.eventb.core.assignment="best_mark ≔ 0" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="student_attempt_count ≔ 0" org.eventb.core.label="act8"/>
     </org.eventb.core.event>
     <org.eventb.core.seesContext name="(" org.eventb.core.target="StudentExamContext"/>
     <org.eventb.core.variable name=")" org.eventb.core.identifier="exam_result"/>

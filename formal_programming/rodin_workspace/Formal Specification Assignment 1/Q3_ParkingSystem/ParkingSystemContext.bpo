@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="1">
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
     <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poIdentifier name="VEHICLES" org.eventb.core.type="ℙ(VEHICLES)"/>
         <org.eventb.core.poIdentifier name="BooleanResponse" org.eventb.core.type="ℙ(BooleanResponse)"/>
@@ -7,7 +7,7 @@
         <org.eventb.core.poIdentifier name="No" org.eventb.core.type="BooleanResponse"/>
         <org.eventb.core.poIdentifier name="Yes" org.eventb.core.type="BooleanResponse"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Q3_ParkingSystem/ParkingSystemContext.bpo|org.eventb.core.poFile#ParkingSystemContext|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1">
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Q3_ParkingSystem/ParkingSystemContext.bpo|org.eventb.core.poFile#ParkingSystemContext|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="partition(BooleanResponse,{Yes},{No})" org.eventb.core.source="/Q3_ParkingSystem/ParkingSystemContext.buc|org.eventb.core.contextFile#ParkingSystemContext|org.eventb.core.axiom#,"/>
     </org.eventb.core.poPredicateSet>
 </org.eventb.core.poFile>
