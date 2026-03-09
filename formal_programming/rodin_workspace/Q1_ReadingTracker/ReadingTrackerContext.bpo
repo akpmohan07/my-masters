@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poFile org.eventb.core.poStamp="1">
     <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poIdentifier name="BOOK" org.eventb.core.type="ℙ(BOOK)"/>
         <org.eventb.core.poIdentifier name="CHILD" org.eventb.core.type="ℙ(CHILD)"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/ReadingTracker/ReadingTrackerContext.bpo|org.eventb.core.poFile#ReadingTrackerContext|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Q1_ReadingTracker/ReadingTrackerContext.bpo|org.eventb.core.poFile#ReadingTrackerContext|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1"/>
 </org.eventb.core.poFile>

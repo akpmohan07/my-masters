@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="registered ≔ ∅&#9; " org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="exam_result ≔ ∅" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="resit1_result ≔ ∅" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="resit2_result ≔ ∅" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="exam_mark ≔ 0" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="best_mark ≔ 0" org.eventb.core.label="act7"/>
+    </org.eventb.core.event>
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="StudentExamContext"/>
+    <org.eventb.core.variable name=")" org.eventb.core.identifier="exam_result"/>
+    <org.eventb.core.variable name="*" org.eventb.core.comment="// Students registerd for the exam" org.eventb.core.identifier="registered"/>
+    <org.eventb.core.variable name="+" org.eventb.core.identifier="resit1_result"/>
+    <org.eventb.core.invariant name="," org.eventb.core.label="inv1" org.eventb.core.predicate="registered ⊆ STUDENT"/>
+    <org.eventb.core.variable name="-" org.eventb.core.identifier="resit2_result"/>
+    <org.eventb.core.variable name="." org.eventb.core.identifier="exam_mark"/>
+    <org.eventb.core.invariant name="0" org.eventb.core.label="inv3" org.eventb.core.predicate="exam_result ∈ registered ⇸ mark"/>
+    <org.eventb.core.invariant name="1" org.eventb.core.label="inv4" org.eventb.core.predicate="resit1_result ∈ registered ⇸ mark"/>
+    <org.eventb.core.invariant name="2" org.eventb.core.label="inv5" org.eventb.core.predicate="resit2_result ∈ registered ⇸ mark"/>
+    <org.eventb.core.invariant name="3" org.eventb.core.comment="// All resit1 result must have exam result" org.eventb.core.label="inv6" org.eventb.core.predicate="dom(resit1_result) ⊆ dom(exam_result)"/>
+    <org.eventb.core.invariant name="4" org.eventb.core.comment="// All resit2 result must have resit1 result" org.eventb.core.label="inv7" org.eventb.core.predicate="dom(resit2_result) ⊆ dom(resit1_result)"/>
+    <org.eventb.core.invariant name="5" org.eventb.core.comment="// All resit1 students should have exam result marks should less than pass" org.eventb.core.label="inv8" org.eventb.core.predicate="∀s·s ∈ dom(resit1_result) ⇒ exam_result(s) &lt; pass_mark"/>
+    <org.eventb.core.invariant name="6" org.eventb.core.comment="// All resit2 students should have resit2 result marks should less than pass" org.eventb.core.label="inv9" org.eventb.core.predicate="∀s·s ∈ dom(resit2_result) ⇒ resit1_result(s) &lt; pass_mark"/>
+    <org.eventb.core.invariant name="7" org.eventb.core.label="inv10" org.eventb.core.predicate="exam_mark ∈ mark"/>
+    <org.eventb.core.event name="8" org.eventb.core.comment="// registers the given unregistered student for the course" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="register">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="s"/>
+        <org.eventb.core.guard name="(" org.eventb.core.comment="Student should not already registered" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∉ registered"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment="s is atype of student set" org.eventb.core.label="grd2" org.eventb.core.predicate="s ∈ STUDENT"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="registered ≔ registered ∪ {s}" org.eventb.core.comment="// Registering the student" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="9" org.eventb.core.comment="enters the given exam mark for the given student" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="exam_marks">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="s"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="m"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ registered"/>
+        <org.eventb.core.guard name="," org.eventb.core.comment="// Student should not have alraed an exam result" org.eventb.core.label="grd2" org.eventb.core.predicate="s ∉ dom(exam_result)"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="m ∈ 0‥100"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="exam_result ≔ exam_result ∪ {s ↦ m}" org.eventb.core.comment="// Record the exam mark for for a student" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name=":" org.eventb.core.comment="enters the given first resit mark for the given student" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="resit1_mark">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="s"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="m"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ registered"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment="the student must have alreadyexam result" org.eventb.core.label="grd2" org.eventb.core.predicate="s ∈ dom(exam_result)"/>
+        <org.eventb.core.guard name="+" org.eventb.core.comment=" student should failed in the exam" org.eventb.core.label="grd3" org.eventb.core.predicate="exam_result(s) &lt; pass_mark"/>
+        <org.eventb.core.guard name="," org.eventb.core.comment=" Student should not have resilt1 mark already" org.eventb.core.label="grd4" org.eventb.core.predicate="s ∉ dom(resit1_result)"/>
+        <org.eventb.core.guard name="-" org.eventb.core.comment="// If it is resilt mark is capped to pass mark" org.eventb.core.label="grd5" org.eventb.core.predicate="m ∈ 0‥pass_mark"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="resit1_result ≔ resit1_result ∪ {s ↦ m}" org.eventb.core.comment="// Record the resit1 mark for for a student" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name=";" org.eventb.core.comment="enters the given second resit mark for the given student" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="resit2_mark">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="s"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="m"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ registered"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment="the student must have already resit result" org.eventb.core.label="grd2" org.eventb.core.predicate="s ∈ dom(resit1_result)"/>
+        <org.eventb.core.guard name="," org.eventb.core.comment=" student should failed in the resit1" org.eventb.core.label="grd3" org.eventb.core.predicate="resit1_result(s) &lt; pass_mark"/>
+        <org.eventb.core.guard name="-" org.eventb.core.comment=" Student should not have resilt2 mark already" org.eventb.core.label="grd4" org.eventb.core.predicate="s ∉ dom(resit2_result)"/>
+        <org.eventb.core.guard name="." org.eventb.core.comment="// If it is resilt mark is capped to pass mark" org.eventb.core.label="grd5" org.eventb.core.predicate="m ∈ 0‥pass_mark"/>
+        <org.eventb.core.action name="/" org.eventb.core.assignment="resit2_result ≔ resit2_result ∪ {s ↦ m}" org.eventb.core.comment="// Record the resit2 mark for for a student" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="=" org.eventb.core.comment="outputs how many times the given student has sat the exam" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="studentquery">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="s"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="s ∈ registered"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment="Student must atlast attneded first exam" org.eventb.core.label="grd2" org.eventb.core.predicate="s ∈ dom(exam_result)"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="student_attempt_count ≔ card(exam_result[{s}]) + card(resit1_result[{s}]) + card(resit2_result[{s}])" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="&gt;" org.eventb.core.comment="outputs the top mark that the given student has achieved in any of the sittings of the exam" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="markquery">
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="s"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd4" org.eventb.core.predicate="exam_result[{s}] ∪ resit1_result[{s}] ∪ resit2_result[{s}] ≠ ∅"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd5" org.eventb.core.predicate="s ∈ registered"/>
+        <org.eventb.core.action name="/" org.eventb.core.assignment="best_mark ≔ max(exam_result[{s}] ∪ resit1_result[{s}] ∪ resit2_result[{s}])" org.eventb.core.comment="/// getting meximum result" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.invariant name="?" org.eventb.core.comment="all studnets having result must be registetred" org.eventb.core.label="inv11" org.eventb.core.predicate="dom(exam_result) ⊆ registered"/>
+    <org.eventb.core.variable name="@" org.eventb.core.identifier="student_attempt_count"/>
+    <org.eventb.core.invariant name="A" org.eventb.core.label="inv12" org.eventb.core.predicate="student_attempt_count ∈ ℕ"/>
+    <org.eventb.core.variable name="D" org.eventb.core.identifier="best_mark"/>
+    <org.eventb.core.invariant name="E" org.eventb.core.label="inv13" org.eventb.core.predicate="best_mark ∈ ℕ"/>
+</org.eventb.core.machineFile>

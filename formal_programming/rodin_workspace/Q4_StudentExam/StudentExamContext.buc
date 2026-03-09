@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.carrierSet name="'" org.eventb.core.comment="// Students set" org.eventb.core.identifier="STUDENT"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="(" org.eventb.core.identifier="mark"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=")" org.eventb.core.identifier="pass_mark"/>
+    <org.eventb.core.axiom name="*" org.eventb.core.comment="mark rangs is 0 to 100" org.eventb.core.label="axm1" org.eventb.core.predicate="mark = 0‥100"/>
+    <org.eventb.core.axiom name="+" org.eventb.core.comment="// pass_mark belongs to mark" org.eventb.core.label="axm2" org.eventb.core.predicate="pass_mark ∈ mark  "/>
+</org.eventb.core.contextFile>
