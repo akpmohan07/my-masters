@@ -1,11 +1,21 @@
 package dev.mohanverse.prime.metrics;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.concurrent.atomic.AtomicLong;
+
+@Getter
 public class PrimeFinderMetrics {
-    Integer totalNumbersChecked;
-    Integer totalPrimesFound;
-    Long executionTimeInMillis;
-    Long startTimeInMillis;
-    Long endTimeInMillis;
+    @Setter
+    private long totalNumbersChecked;
+    @Setter
+    private long  totalPrimesFound;
+    private long  executionTimeInMillis;
+    private long  startTimeInMillis;
+    private long  endTimeInMillis;
+    private AtomicLong totalDivisibilityChecks;
+    private int threadCount;
 
     public void startTimer() {
         this.startTimeInMillis = System.currentTimeMillis();
