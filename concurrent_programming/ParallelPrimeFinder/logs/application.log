@@ -302,3 +302,1283 @@
 2026-03-16 00:42:24 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 6       | 75%    | 7153      | 5,761,455
 2026-03-16 00:42:33 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 8       | 100%   | 9108      | 5,761,455
 2026-03-16 00:42:33 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time(ms)  | Primes
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 9         | 9,592
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 3         | 9,592
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 13        | 9,592
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 6         | 9,592
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 3         | 9,592
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 3         | 9,592
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 52        | 78,498
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 8         | 78,498
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 25        | 78,498
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 13        | 78,498
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 13        | 78,498
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 11        | 78,498
+2026-03-16 02:02:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:02:34 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Sequential   | 1       | 13%    | 26079     | 5,761,455
+2026-03-16 02:02:35 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 977       | 5,761,455
+2026-03-16 02:02:51 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 2       | 25%    | 15635     | 5,761,455
+2026-03-16 02:03:02 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 4       | 50%    | 11410     | 5,761,455
+2026-03-16 02:03:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 6       | 75%    | 8695      | 5,761,455
+2026-03-16 02:03:20 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 8       | 100%   | 8700      | 5,761,455
+2026-03-16 02:03:20 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:16:06 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000,000   | Linear Trial Division     | Sequential   | 1       | 13%    | 766115    | 50,847,534
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 9 ms         | 99,998          | 9,592
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 4 ms         | 0               | 9,592
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 10 ms        | 49,999          | 9,592
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 3 ms         | 25,000          | 9,592
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 3 ms         | 16,666          | 9,592
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 2 ms         | 12,500          | 9,592
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 46 ms        | 999,998         | 78,498
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 18 ms        | 0               | 78,498
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 29 ms        | 499,999         | 78,498
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 30 ms        | 250,000         | 78,498
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 18 ms        | 166,666         | 78,498
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 23 ms        | 125,000         | 78,498
+
+2026-03-16 02:17:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N            | Algorithm              | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Sequential   | 1       | 13%    | 9 ms         | 99,998          | 9,592
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Sieve of Eratosthenes  | Sequential   | 1       | 13%    | 7 ms         | 0               | 9,592
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 2       | 25%    | 10 ms        | 49,999          | 9,592
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 4       | 50%    | 3 ms         | 25,000          | 9,592
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 6       | 75%    | 3 ms         | 16,666          | 9,592
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 8       | 100%   | 2 ms         | 12,500          | 9,592
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Sequential   | 1       | 13%    | 43 ms        | 999,998         | 78,498
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Sieve of Eratosthenes  | Sequential   | 1       | 13%    | 11 ms        | 0               | 78,498
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 2       | 25%    | 25 ms        | 499,999         | 78,498
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 4       | 50%    | 13 ms        | 250,000         | 78,498
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 6       | 75%    | 12 ms        | 166,666         | 78,498
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 8       | 100%   | 12 ms        | 125,000         | 78,498
+
+2026-03-16 02:18:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N         | Algorithm              | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Sequential   | 1       | 13%    | 7 ms         | 99,998          | 9,592
+
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Sieve of Eratosthenes  | Sequential   | 1       | 13%    | 3 ms         | 0               | 9,592
+
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 2       | 25%    | 7 ms         | 49,999          | 9,592
+
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 4       | 50%    | 3 ms         | 25,000          | 9,592
+
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 6       | 75%    | 4 ms         | 16,666          | 9,592
+
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 8       | 100%   | 4 ms         | 12,500          | 9,592
+
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Sequential   | 1       | 13%    | 44 ms        | 999,998         | 78,498
+
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Sieve of Eratosthenes  | Sequential   | 1       | 13%    | 6 ms         | 0               | 78,498
+
+2026-03-16 02:18:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 2       | 25%    | 25 ms        | 499,999         | 78,498
+
+2026-03-16 02:18:48 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 4       | 50%    | 21 ms        | 250,000         | 78,498
+
+2026-03-16 02:18:48 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 6       | 75%    | 17 ms        | 166,666         | 78,498
+
+2026-03-16 02:18:48 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 8       | 100%   | 15 ms        | 125,000         | 78,498
+
+2026-03-16 02:18:48 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N         | Algorithm              | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Sequential   | 1       | 13%    | 10 ms        | 99,998          | 9,592
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Sieve of Eratosthenes  | Sequential   | 1       | 13%    | 4 ms         | 0               | 9,592
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 2       | 25%    | 14 ms        | 49,999          | 9,592
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 4       | 50%    | 3 ms         | 25,000          | 9,592
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 6       | 75%    | 3 ms         | 16,666          | 9,592
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 8       | 100%   | 3 ms         | 12,500          | 9,592
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Sequential   | 1       | 13%    | 42 ms        | 999,998         | 78,498
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Sieve of Eratosthenes  | Sequential   | 1       | 13%    | 7 ms         | 0               | 78,498
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 2       | 25%    | 32 ms        | 499,999         | 78,498
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 4       | 50%    | 15 ms        | 250,000         | 78,498
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 6       | 75%    | 17 ms        | 166,666         | 78,498
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 8       | 100%   | 16 ms        | 125,000         | 78,498
+
+2026-03-16 02:18:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:19:19 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000 | Linear Trial Division  | Sequential   | 1       | 13%    | 25.02 sec    | 99,999,998      | 5,761,455
+
+2026-03-16 02:19:20 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000 | Sieve of Eratosthenes  | Sequential   | 1       | 13%    | 983 ms       | 0               | 5,761,455
+
+2026-03-16 02:19:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000 | Linear Trial Division  | Parallel     | 2       | 25%    | 15.81 sec    | 50,000,000      | 5,761,455
+
+2026-03-16 02:19:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000 | Linear Trial Division  | Parallel     | 4       | 50%    | 8.67 sec     | 25,000,000      | 5,761,455
+
+2026-03-16 02:19:51 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000 | Linear Trial Division  | Parallel     | 6       | 75%    | 6.73 sec     | 16,666,667      | 5,761,455
+
+2026-03-16 02:19:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000 | Linear Trial Division  | Parallel     | 8       | 100%   | 7.66 sec     | 12,500,000      | 5,761,455
+
+2026-03-16 02:19:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N         | Algorithm              | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Sequential   | 1       | 13%    | 6 ms         | 99,998          | 9,592
+
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Sieve of Eratosthenes  | Sequential   | 1       | 13%    | 4 ms         | 99,998          | 9,592
+
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 2       | 25%    | 17 ms        | 49,999          | 9,592
+
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 4       | 50%    | 4 ms         | 25,000          | 9,592
+
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 6       | 75%    | 4 ms         | 16,666          | 9,592
+
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000   | Linear Trial Division  | Parallel     | 8       | 100%   | 3 ms         | 12,500          | 9,592
+
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Sequential   | 1       | 13%    | 45 ms        | 999,998         | 78,498
+
+2026-03-16 02:20:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Sieve of Eratosthenes  | Sequential   | 1       | 13%    | 8 ms         | 999,998         | 78,498
+
+2026-03-16 02:21:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 2       | 25%    | 32 ms        | 499,999         | 78,498
+
+2026-03-16 02:21:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 4       | 50%    | 27 ms        | 250,000         | 78,498
+
+2026-03-16 02:21:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 6       | 75%    | 20 ms        | 166,666         | 78,498
+
+2026-03-16 02:21:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000 | Linear Trial Division  | Parallel     | 8       | 100%   | 29 ms        | 125,000         | 78,498
+
+2026-03-16 02:21:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:21:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000 | Linear Trial Division  | Sequential   | 1       | 13%    | 25.56 sec    | 99,999,998      | 5,761,455
+
+2026-03-16 02:21:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000 | Sieve of Eratosthenes  | Sequential   | 1       | 13%    | 989 ms       | 99,999,998      | 5,761,455
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N            | Algorithm              | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Sequential   | 1    | 13%    | 6 ms         | 99,998          | 9,592
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Sieve of Eratosthenes  | Sequential   | 1    | 13%    | 3 ms         | 99,998          | 9,592
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 2    | 25%    | 8 ms         | 49,999          | 9,592
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 4    | 50%    | 2 ms         | 25,000          | 9,592
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 6    | 75%    | 2 ms         | 16,666          | 9,592
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 8    | 100%   | 3 ms         | 12,500          | 9,592
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Sequential   | 1    | 13%    | 41 ms        | 999,998         | 78,498
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Sieve of Eratosthenes  | Sequential   | 1    | 13%    | 6 ms         | 999,998         | 78,498
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 2    | 25%    | 25 ms        | 499,999         | 78,498
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 4    | 50%    | 14 ms        | 250,000         | 78,498
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 6    | 75%    | 13 ms        | 166,666         | 78,498
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 8    | 100%   | 16 ms        | 125,000         | 78,498
+
+2026-03-16 02:21:45 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:22:12 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Linear Trial Division  | Sequential   | 1    | 13%    | 26.34 sec    | 99,999,998      | 5,761,455
+
+2026-03-16 02:22:12 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Sieve of Eratosthenes  | Sequential   | 1    | 13%    | 887 ms       | 99,999,998      | 5,761,455
+
+2026-03-16 02:22:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Linear Trial Division  | Parallel     | 2    | 25%    | 15.79 sec    | 50,000,000      | 5,761,455
+
+2026-03-16 02:22:46 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Linear Trial Division  | Parallel     | 4    | 50%    | 18.22 sec    | 25,000,000      | 5,761,455
+
+2026-03-16 02:23:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Linear Trial Division  | Parallel     | 6    | 75%    | 21.93 sec    | 16,666,667      | 5,761,455
+
+2026-03-16 02:23:19 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Linear Trial Division  | Parallel     | 8    | 100%   | 10.45 sec    | 12,500,000      | 5,761,455
+
+2026-03-16 02:23:19 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N            | Algorithm              | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Sequential   | 1    | 13%    | 6 ms         | 99,998          | 9,592
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Sieve of Eratosthenes  | Sequential   | 1    | 13%    | 3 ms         | 99,998          | 9,592
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 2    | 25%    | 8 ms         | 49,999          | 9,592
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 4    | 50%    | 2 ms         | 25,000          | 9,592
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 6    | 75%    | 2 ms         | 16,666          | 9,592
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Linear Trial Division  | Parallel     | 8    | 100%   | 3 ms         | 12,500          | 9,592
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Sieve of Eratosthenes  | Parallel     | 2    | 25%    | 7 ms         | 49,999          | 9,592
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Sieve of Eratosthenes  | Parallel     | 4    | 50%    | 4 ms         | 24,999          | 9,592
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Sieve of Eratosthenes  | Parallel     | 6    | 75%    | 6 ms         | 16,666          | 9,592
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000      | Sieve of Eratosthenes  | Parallel     | 8    | 100%   | 3 ms         | 12,499          | 9,592
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Sequential   | 1    | 13%    | 46 ms        | 999,998         | 78,498
+
+2026-03-16 02:32:25 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Sieve of Eratosthenes  | Sequential   | 1    | 13%    | 4 ms         | 999,998         | 78,498
+
+2026-03-16 02:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 2    | 25%    | 26 ms        | 499,999         | 78,498
+
+2026-03-16 02:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 4    | 50%    | 15 ms        | 250,000         | 78,498
+
+2026-03-16 02:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 6    | 75%    | 13 ms        | 166,666         | 78,498
+
+2026-03-16 02:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Linear Trial Division  | Parallel     | 8    | 100%   | 14 ms        | 125,000         | 78,498
+
+2026-03-16 02:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Sieve of Eratosthenes  | Parallel     | 2    | 25%    | 9 ms         | 499,999         | 78,498
+
+2026-03-16 02:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Sieve of Eratosthenes  | Parallel     | 4    | 50%    | 8 ms         | 249,999         | 78,498
+
+2026-03-16 02:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Sieve of Eratosthenes  | Parallel     | 6    | 75%    | 12 ms        | 166,666         | 78,498
+
+2026-03-16 02:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000    | Sieve of Eratosthenes  | Parallel     | 8    | 100%   | 8 ms         | 124,999         | 78,498
+
+2026-03-16 02:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:32:51 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Linear Trial Division  | Sequential   | 1    | 13%    | 25.67 sec    | 99,999,998      | 5,761,455
+
+2026-03-16 02:32:52 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Sieve of Eratosthenes  | Sequential   | 1    | 13%    | 888 ms       | 99,999,998      | 5,761,455
+
+2026-03-16 02:33:09 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Linear Trial Division  | Parallel     | 2    | 25%    | 16.57 sec    | 50,000,000      | 5,761,455
+
+2026-03-16 02:33:18 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Linear Trial Division  | Parallel     | 4    | 50%    | 9.57 sec     | 25,000,000      | 5,761,455
+
+2026-03-16 02:33:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Linear Trial Division  | Parallel     | 6    | 75%    | 8.22 sec     | 16,666,667      | 5,761,455
+
+2026-03-16 02:33:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Linear Trial Division  | Parallel     | 8    | 100%   | 9.55 sec     | 12,500,000      | 5,761,455
+
+2026-03-16 02:33:38 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Sieve of Eratosthenes  | Parallel     | 2    | 25%    | 1.56 sec     | 49,999,999      | 5,761,455
+
+2026-03-16 02:33:39 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Sieve of Eratosthenes  | Parallel     | 4    | 50%    | 1.34 sec     | 24,999,999      | 5,761,455
+
+2026-03-16 02:33:41 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Sieve of Eratosthenes  | Parallel     | 6    | 75%    | 1.67 sec     | 16,666,666      | 5,761,455
+
+2026-03-16 02:33:42 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000  | Sieve of Eratosthenes  | Parallel     | 8    | 100%   | 1.58 sec     | 12,499,999      | 5,761,455
+
+2026-03-16 02:33:42 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 02:46:13 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000,000 | Linear Trial Division  | Sequential   | 1    | 13%    | 12.52 min    | 999,999,998     | 50,847,534
+
+2026-03-16 03:45:32 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 6 ms         | 99,998          | 9,592
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 4 ms         | 99,998          | 9,592
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 8 ms         | 49,999          | 9,592
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 2 ms         | 25,000          | 9,592
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 2 ms         | 16,666          | 9,592
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 2 ms         | 12,500          | 9,592
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 7 ms         | 49,999          | 9,592
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 4 ms         | 24,999          | 9,592
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 5 ms         | 16,666          | 9,592
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 3 ms         | 12,499          | 9,592
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 44 ms        | 999,998         | 78,498
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 4 ms         | 999,998         | 78,498
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 25 ms        | 499,999         | 78,498
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 14 ms        | 250,000         | 78,498
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 15 ms        | 166,666         | 78,498
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 13 ms        | 125,000         | 78,498
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 8 ms         | 499,999         | 78,498
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 7 ms         | 249,999         | 78,498
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 7 ms         | 166,666         | 78,498
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 7 ms         | 124,999         | 78,498
+2026-03-16 03:45:32 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:00 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 7 ms         | 99,998          | 9,592
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 6 ms         | 99,998          | 9,592
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 7 ms         | 49,999          | 9,592
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 3 ms         | 25,000          | 9,592
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 4 ms         | 16,666          | 9,592
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 3 ms         | 12,500          | 9,592
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 16 ms        | 49,999          | 9,592
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 8 ms         | 24,999          | 9,592
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 17 ms        | 16,666          | 9,592
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 8 ms         | 12,499          | 9,592
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 58 ms        | 999,998         | 78,498
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 9 ms         | 999,998         | 78,498
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 26 ms        | 499,999         | 78,498
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 16 ms        | 250,000         | 78,498
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 16 ms        | 166,666         | 78,498
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 16 ms        | 125,000         | 78,498
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 8 ms         | 499,999         | 78,498
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 8 ms         | 249,999         | 78,498
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 6 ms         | 166,666         | 78,498
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 9 ms         | 124,999         | 78,498
+2026-03-16 03:46:00 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:11 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 7 ms         | 99,998          | 9,592
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 5 ms         | 99,998          | 9,592
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 9 ms         | 49,999          | 9,592
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 3 ms         | 25,000          | 9,592
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 3 ms         | 16,666          | 9,592
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 2 ms         | 12,500          | 9,592
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 8 ms         | 49,999          | 9,592
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 5 ms         | 24,999          | 9,592
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 8 ms         | 16,666          | 9,592
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 6 ms         | 12,499          | 9,592
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 69 ms        | 999,998         | 78,498
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 15 ms        | 999,998         | 78,498
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 51 ms        | 499,999         | 78,498
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 23 ms        | 250,000         | 78,498
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 19 ms        | 166,666         | 78,498
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 17 ms        | 125,000         | 78,498
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 11 ms        | 499,999         | 78,498
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 11 ms        | 249,999         | 78,498
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 8 ms         | 166,666         | 78,498
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 9 ms         | 124,999         | 78,498
+2026-03-16 03:46:11 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:27 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 5 ms         | 99,998          | 9,592
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 5 ms         | 99,998          | 9,592
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 12 ms        | 49,999          | 9,592
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 2 ms         | 25,000          | 9,592
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 1 ms         | 16,666          | 9,592
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 1 ms         | 12,500          | 9,592
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 7 ms         | 49,999          | 9,592
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 5 ms         | 24,999          | 9,592
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 5 ms         | 16,666          | 9,592
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 5 ms         | 12,499          | 9,592
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 47 ms        | 999,998         | 78,498
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 10 ms        | 999,998         | 78,498
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 25 ms        | 499,999         | 78,498
+2026-03-16 03:46:27 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 21 ms        | 250,000         | 78,498
+2026-03-16 03:46:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 19 ms        | 166,666         | 78,498
+2026-03-16 03:46:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 19 ms        | 125,000         | 78,498
+2026-03-16 03:46:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 7 ms         | 499,999         | 78,498
+2026-03-16 03:46:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 7 ms         | 249,999         | 78,498
+2026-03-16 03:46:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 9 ms         | 166,666         | 78,498
+2026-03-16 03:46:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 8 ms         | 124,999         | 78,498
+2026-03-16 03:46:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:46:53 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Sequential   | 1       | 13%    | 25.68 sec    | 99,999,998      | 5,761,455
+2026-03-16 03:46:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 921 ms       | 99,999,998      | 5,761,455
+2026-03-16 03:47:10 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 2       | 25%    | 15.95 sec    | 50,000,000      | 5,761,455
+2026-03-16 03:47:20 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 4       | 50%    | 9.75 sec     | 25,000,000      | 5,761,455
+2026-03-16 03:47:35 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 6       | 75%    | 15.27 sec    | 16,666,667      | 5,761,455
+2026-03-16 03:47:49 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 8       | 100%   | 13.69 sec    | 12,500,000      | 5,761,455
+2026-03-16 03:47:50 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 1.54 sec     | 49,999,999      | 5,761,455
+2026-03-16 03:47:52 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 1.34 sec     | 24,999,999      | 5,761,455
+2026-03-16 03:47:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 1.94 sec     | 16,666,666      | 5,761,455
+2026-03-16 03:47:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 2.16 sec     | 12,499,999      | 5,761,455
+2026-03-16 03:47:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:48:26 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 6 ms         | 99,998          | 9,592
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 4 ms         | 99,998          | 9,592
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 9 ms         | 49,999          | 9,592
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 2 ms         | 25,000          | 9,592
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 2 ms         | 16,666          | 9,592
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 2 ms         | 12,500          | 9,592
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 7 ms         | 49,999          | 9,592
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 5 ms         | 24,999          | 9,592
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 4 ms         | 16,666          | 9,592
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 3 ms         | 12,499          | 9,592
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 46 ms        | 999,998         | 78,498
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 11 ms        | 999,998         | 78,498
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 29 ms        | 499,999         | 78,498
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 18 ms        | 250,000         | 78,498
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 13 ms        | 166,666         | 78,498
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 14 ms        | 125,000         | 78,498
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 8 ms         | 499,999         | 78,498
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 8 ms         | 249,999         | 78,498
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 10 ms        | 166,666         | 78,498
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 7 ms         | 124,999         | 78,498
+2026-03-16 03:48:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:48:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Sequential   | 1       | 13%    | 32.37 sec    | 99,999,998      | 5,761,455
+2026-03-16 03:48:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 1.22 sec     | 99,999,998      | 5,761,455
+2026-03-16 03:49:04 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 6 ms         | 99,998          | 9,592
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 9 ms         | 99,998          | 9,592
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-21 working on [50001, 100000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-20 working on [2, 50000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 15 ms        | 49,999          | 9,592
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-22 working on [2, 25001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-23 working on [25002, 50001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-25 working on [75002, 100000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-24 working on [50002, 75001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 3 ms         | 25,000          | 9,592
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-26 working on [2, 16667]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-27 working on [16668, 33333]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-28 working on [33334, 49999]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-29 working on [50000, 66665]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-30 working on [66666, 83331]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-31 working on [83332, 100000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 3 ms         | 16,666          | 9,592
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-32 working on [2, 12501]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-33 working on [12502, 25001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-34 working on [25002, 37501]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-36 working on [50002, 62501]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-35 working on [37502, 50001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-37 working on [62502, 75001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-38 working on [75002, 87501]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-39 working on [87502, 100000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 3 ms         | 12,500          | 9,592
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-41 working on [50001, 100000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-40 working on [2, 50000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 12 ms        | 49,999          | 9,592
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-42 working on [2, 25000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-43 working on [25001, 49999]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-44 working on [50000, 74998]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-45 working on [74999, 100000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 5 ms         | 24,999          | 9,592
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-46 working on [2, 16667]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-49 working on [50000, 66665]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-47 working on [16668, 33333]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-48 working on [33334, 49999]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-50 working on [66666, 83331]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-58 working on [83332, 100000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 8 ms         | 16,666          | 9,592
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-59 working on [2, 12500]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-63 working on [49998, 62496]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-61 working on [25000, 37498]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-64 working on [62497, 74995]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-65 working on [74996, 87494]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-60 working on [12501, 24999]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-62 working on [37499, 49997]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-66 working on [87495, 100000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 4 ms         | 12,499          | 9,592
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 56 ms        | 999,998         | 78,498
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 14 ms        | 999,998         | 78,498
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-67 working on [2, 500000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-68 working on [500001, 1000000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 35 ms        | 499,999         | 78,498
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-69 working on [2, 250001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-70 working on [250002, 500001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-71 working on [500002, 750001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-72 working on [750002, 1000000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 20 ms        | 250,000         | 78,498
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-73 working on [2, 166667]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-74 working on [166668, 333333]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-75 working on [333334, 499999]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-77 working on [666666, 833331]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-76 working on [500000, 666665]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-78 working on [833332, 1000000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 30 ms        | 166,666         | 78,498
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-79 working on [2, 125001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-80 working on [125002, 250001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-81 working on [250002, 375001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-82 working on [375002, 500001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-83 working on [500002, 625001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-84 working on [625002, 750001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-85 working on [750002, 875001]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-86 working on [875002, 1000000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 25 ms        | 125,000         | 78,498
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-88 working on [500001, 1000000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-87 working on [2, 500000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 13 ms        | 499,999         | 78,498
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-89 working on [2, 250000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-91 working on [500000, 749998]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-90 working on [250001, 499999]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-92 working on [749999, 1000000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 12 ms        | 249,999         | 78,498
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-93 working on [2, 166667]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-95 working on [333334, 499999]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-94 working on [166668, 333333]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-96 working on [500000, 666665]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-97 working on [666666, 833331]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-98 working on [833332, 1000000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 12 ms        | 166,666         | 78,498
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-99 working on [2, 125000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-100 working on [125001, 249999]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-101 working on [250000, 374998]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-103 working on [499998, 624996]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-102 working on [374999, 499997]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-105 working on [749996, 874994]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-104 working on [624997, 749995]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-106 working on [874995, 1000000]
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 12 ms        | 124,999         | 78,498
+2026-03-16 03:49:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:49:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Sequential   | 1       | 13%    | 25.59 sec    | 99,999,998      | 5,761,455
+2026-03-16 03:49:31 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 1.02 sec     | 99,999,998      | 5,761,455
+2026-03-16 03:49:31 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-109 working on [50000002, 100000000]
+2026-03-16 03:49:31 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-108 working on [2, 50000001]
+2026-03-16 03:49:54 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 2       | 25%    | 23.45 sec    | 50,000,000      | 5,761,455
+2026-03-16 03:49:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-110 working on [2, 25000001]
+2026-03-16 03:49:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-111 working on [25000002, 50000001]
+2026-03-16 03:49:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-112 working on [50000002, 75000001]
+2026-03-16 03:49:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-113 working on [75000002, 100000000]
+2026-03-16 03:50:14 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 4       | 50%    | 19.97 sec    | 25,000,000      | 5,761,455
+2026-03-16 03:50:14 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-115 working on [16666669, 33333335]
+2026-03-16 03:50:14 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-114 working on [2, 16666668]
+2026-03-16 03:50:14 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-116 working on [33333336, 50000002]
+2026-03-16 03:50:14 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-119 working on [83333337, 100000000]
+2026-03-16 03:50:14 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-118 working on [66666670, 83333336]
+2026-03-16 03:50:14 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-117 working on [50000003, 66666669]
+2026-03-16 03:50:24 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 6       | 75%    | 9.52 sec     | 16,666,667      | 5,761,455
+2026-03-16 03:50:24 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-120 working on [2, 12500001]
+2026-03-16 03:50:24 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-121 working on [12500002, 25000001]
+2026-03-16 03:50:24 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-122 working on [25000002, 37500001]
+2026-03-16 03:50:24 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-124 working on [50000002, 62500001]
+2026-03-16 03:50:24 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-123 working on [37500002, 50000001]
+2026-03-16 03:50:24 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-125 working on [62500002, 75000001]
+2026-03-16 03:50:24 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-126 working on [75000002, 87500001]
+2026-03-16 03:50:24 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-127 working on [87500002, 100000000]
+2026-03-16 03:50:34 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 8       | 100%   | 10.58 sec    | 12,500,000      | 5,761,455
+2026-03-16 03:50:35 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-129 working on [50000001, 100000000]
+2026-03-16 03:50:35 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-128 working on [2, 50000000]
+2026-03-16 03:50:37 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 2.51 sec     | 49,999,999      | 5,761,455
+2026-03-16 03:50:37 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-131 working on [25000001, 49999999]
+2026-03-16 03:50:37 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-130 working on [2, 25000000]
+2026-03-16 03:50:37 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-133 working on [74999999, 100000000]
+2026-03-16 03:50:37 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-132 working on [50000000, 74999998]
+2026-03-16 03:50:40 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 3.00 sec     | 24,999,999      | 5,761,455
+2026-03-16 03:50:42 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-134 working on [2, 16666667]
+2026-03-16 03:50:42 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-139 working on [83333332, 100000000]
+2026-03-16 03:50:42 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-135 working on [16666668, 33333333]
+2026-03-16 03:50:42 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-136 working on [33333334, 49999999]
+2026-03-16 03:50:42 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-138 working on [66666666, 83333331]
+2026-03-16 03:50:42 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-137 working on [50000000, 66666665]
+2026-03-16 03:50:47 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 6.81 sec     | 16,666,666      | 5,761,455
+2026-03-16 03:50:48 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-142 working on [25000000, 37499998]
+2026-03-16 03:50:48 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-141 working on [12500001, 24999999]
+2026-03-16 03:50:48 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-143 working on [37499999, 49999997]
+2026-03-16 03:50:48 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-140 working on [2, 12500000]
+2026-03-16 03:50:48 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-144 working on [49999998, 62499996]
+2026-03-16 03:50:48 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-145 working on [62499997, 74999995]
+2026-03-16 03:50:48 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-146 working on [74999996, 87499994]
+2026-03-16 03:50:48 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-147 working on [87499995, 100000000]
+2026-03-16 03:50:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 8.93 sec     | 12,499,999      | 5,761,455
+2026-03-16 03:50:56 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 03:53:21 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-20 working on [2, 50000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-21 working on [50001, 100000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-22 working on [2, 25001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-23 working on [25002, 50001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-24 working on [50002, 75001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-25 working on [75002, 100000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-26 working on [2, 16667]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-28 working on [33334, 49999]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-29 working on [50000, 66665]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-27 working on [16668, 33333]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-30 working on [66666, 83331]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-31 working on [83332, 100000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-32 working on [2, 12501]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-33 working on [12502, 25001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-35 working on [37502, 50001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-34 working on [25002, 37501]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-36 working on [50002, 62501]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-37 working on [62502, 75001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-38 working on [75002, 87501]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-39 working on [87502, 100000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-40 working on [2, 50000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-41 working on [50001, 100000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-42 working on [2, 25000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-44 working on [50000, 74998]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-43 working on [25001, 49999]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-45 working on [74999, 100000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-46 working on [2, 16667]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-47 working on [16668, 33333]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-48 working on [33334, 49999]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-56 working on [50000, 66665]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-57 working on [66666, 83331]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-58 working on [83332, 100000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-60 working on [12501, 24999]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-61 working on [25000, 37498]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-62 working on [37499, 49997]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-59 working on [2, 12500]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-63 working on [49998, 62496]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-64 working on [62497, 74995]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-65 working on [74996, 87494]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-66 working on [87495, 100000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-68 working on [500001, 1000000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-67 working on [2, 500000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-70 working on [250002, 500001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-69 working on [2, 250001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-71 working on [500002, 750001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-72 working on [750002, 1000000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-73 working on [2, 166667]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-74 working on [166668, 333333]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-75 working on [333334, 499999]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-76 working on [500000, 666665]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-77 working on [666666, 833331]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-78 working on [833332, 1000000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-79 working on [2, 125001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-80 working on [125002, 250001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-81 working on [250002, 375001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-82 working on [375002, 500001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-83 working on [500002, 625001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-84 working on [625002, 750001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-85 working on [750002, 875001]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-86 working on [875002, 1000000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-87 working on [2, 500000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-88 working on [500001, 1000000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-89 working on [2, 250000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-91 working on [500000, 749998]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-90 working on [250001, 499999]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-92 working on [749999, 1000000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-93 working on [2, 166667]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-94 working on [166668, 333333]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-95 working on [333334, 499999]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-96 working on [500000, 666665]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-97 working on [666666, 833331]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-98 working on [833332, 1000000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-99 working on [2, 125000]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-100 working on [125001, 249999]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-102 working on [374999, 499997]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-103 working on [499998, 624996]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-101 working on [250000, 374998]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-104 working on [624997, 749995]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-105 working on [749996, 874994]
+2026-03-16 03:53:21 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-106 working on [874995, 1000000]
+2026-03-16 03:53:48 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-108 working on [2, 50000001]
+2026-03-16 03:53:48 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-109 working on [50000002, 100000000]
+2026-03-16 03:54:03 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-110 working on [2, 25000001]
+2026-03-16 03:54:03 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-111 working on [25000002, 50000001]
+2026-03-16 03:54:03 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-112 working on [50000002, 75000001]
+2026-03-16 03:54:03 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-113 working on [75000002, 100000000]
+2026-03-16 03:54:12 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-114 working on [2, 16666668]
+2026-03-16 03:54:12 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-116 working on [33333336, 50000002]
+2026-03-16 03:54:12 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-117 working on [50000003, 66666669]
+2026-03-16 03:54:12 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-118 working on [66666670, 83333336]
+2026-03-16 03:54:12 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-115 working on [16666669, 33333335]
+2026-03-16 03:54:12 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-119 working on [83333337, 100000000]
+2026-03-16 03:54:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-122 working on [25000002, 37500001]
+2026-03-16 03:54:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-124 working on [50000002, 62500001]
+2026-03-16 03:54:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-121 working on [12500002, 25000001]
+2026-03-16 03:54:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-120 working on [2, 12500001]
+2026-03-16 03:54:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-125 working on [62500002, 75000001]
+2026-03-16 03:54:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-126 working on [75000002, 87500001]
+2026-03-16 03:54:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-127 working on [87500002, 100000000]
+2026-03-16 03:54:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-123 working on [37500002, 50000001]
+2026-03-16 03:54:29 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-128 working on [2, 50000000]
+2026-03-16 03:54:29 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-129 working on [50000001, 100000000]
+2026-03-16 03:54:31 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-130 working on [2, 25000000]
+2026-03-16 03:54:31 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-131 working on [25000001, 49999999]
+2026-03-16 03:54:31 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-133 working on [74999999, 100000000]
+2026-03-16 03:54:31 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-132 working on [50000000, 74999998]
+2026-03-16 03:54:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-135 working on [16666668, 33333333]
+2026-03-16 03:54:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-134 working on [2, 16666667]
+2026-03-16 03:54:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-136 working on [33333334, 49999999]
+2026-03-16 03:54:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-137 working on [50000000, 66666665]
+2026-03-16 03:54:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-138 working on [66666666, 83333331]
+2026-03-16 03:54:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-139 working on [83333332, 100000000]
+2026-03-16 03:54:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-140 working on [2, 12500000]
+2026-03-16 03:54:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-143 working on [37499999, 49999997]
+2026-03-16 03:54:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-144 working on [49999998, 62499996]
+2026-03-16 03:54:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-141 working on [12500001, 24999999]
+2026-03-16 03:54:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-142 working on [25000000, 37499998]
+2026-03-16 03:54:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-145 working on [62499997, 74999995]
+2026-03-16 03:54:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-146 working on [74999996, 87499994]
+2026-03-16 03:54:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-147 working on [87499995, 100000000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-20 working on [2, 50000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-21 working on [50001, 100000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-22 working on [2, 25001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-23 working on [25002, 50001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-24 working on [50002, 75001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-25 working on [75002, 100000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-26 working on [2, 16667]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-27 working on [16668, 33333]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-28 working on [33334, 49999]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-29 working on [50000, 66665]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-30 working on [66666, 83331]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-31 working on [83332, 100000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-32 working on [2, 12501]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-33 working on [12502, 25001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-34 working on [25002, 37501]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-35 working on [37502, 50001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-36 working on [50002, 62501]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-37 working on [62502, 75001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-38 working on [75002, 87501]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-39 working on [87502, 100000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-40 working on [2, 50000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-41 working on [50001, 100000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-42 working on [2, 25000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-43 working on [25001, 49999]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-45 working on [74999, 100000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-44 working on [50000, 74998]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-46 working on [2, 16667]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-47 working on [16668, 33333]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-48 working on [33334, 49999]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-49 working on [50000, 66665]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-57 working on [66666, 83331]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-58 working on [83332, 100000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-59 working on [2, 12500]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-60 working on [12501, 24999]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-61 working on [25000, 37498]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-62 working on [37499, 49997]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-63 working on [49998, 62496]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-64 working on [62497, 74995]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-66 working on [87495, 100000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-65 working on [74996, 87494]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-68 working on [500001, 1000000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-67 working on [2, 500000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-69 working on [2, 250001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-70 working on [250002, 500001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-71 working on [500002, 750001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-72 working on [750002, 1000000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-73 working on [2, 166667]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-74 working on [166668, 333333]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-76 working on [500000, 666665]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-75 working on [333334, 499999]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-77 working on [666666, 833331]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-78 working on [833332, 1000000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-79 working on [2, 125001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-80 working on [125002, 250001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-81 working on [250002, 375001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-82 working on [375002, 500001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-83 working on [500002, 625001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-84 working on [625002, 750001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-85 working on [750002, 875001]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-86 working on [875002, 1000000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-87 working on [2, 500000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-88 working on [500001, 1000000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-89 working on [2, 250000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-90 working on [250001, 499999]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-91 working on [500000, 749998]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-92 working on [749999, 1000000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-93 working on [2, 166667]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-94 working on [166668, 333333]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-95 working on [333334, 499999]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-96 working on [500000, 666665]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-97 working on [666666, 833331]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-98 working on [833332, 1000000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-99 working on [2, 125000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-100 working on [125001, 249999]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-101 working on [250000, 374998]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-102 working on [374999, 499997]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-103 working on [499998, 624996]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-104 working on [624997, 749995]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-106 working on [874995, 1000000]
+2026-03-16 03:56:20 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-105 working on [749996, 874994]
+2026-03-16 03:56:48 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-119 working on [50000002, 100000000]
+2026-03-16 03:56:48 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-118 working on [2, 50000001]
+2026-03-16 03:57:05 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-122 working on [50000002, 75000001]
+2026-03-16 03:57:05 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-121 working on [25000002, 50000001]
+2026-03-16 03:57:05 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-123 working on [75000002, 100000000]
+2026-03-16 03:57:05 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-120 working on [2, 25000001]
+2026-03-16 03:57:13 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-125 working on [16666669, 33333335]
+2026-03-16 03:57:13 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-129 working on [83333337, 100000000]
+2026-03-16 03:57:13 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-128 working on [66666670, 83333336]
+2026-03-16 03:57:13 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-126 working on [33333336, 50000002]
+2026-03-16 03:57:13 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-124 working on [2, 16666668]
+2026-03-16 03:57:13 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-127 working on [50000003, 66666669]
+2026-03-16 03:57:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-132 working on [25000002, 37500001]
+2026-03-16 03:57:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-134 working on [50000002, 62500001]
+2026-03-16 03:57:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-133 working on [37500002, 50000001]
+2026-03-16 03:57:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-131 working on [12500002, 25000001]
+2026-03-16 03:57:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-130 working on [2, 12500001]
+2026-03-16 03:57:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-136 working on [75000002, 87500001]
+2026-03-16 03:57:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-135 working on [62500002, 75000001]
+2026-03-16 03:57:21 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-137 working on [87500002, 100000000]
+2026-03-16 03:57:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-139 working on [50000001, 100000000]
+2026-03-16 03:57:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-138 working on [2, 50000000]
+2026-03-16 03:57:32 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-141 working on [25000001, 49999999]
+2026-03-16 03:57:32 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-140 working on [2, 25000000]
+2026-03-16 03:57:32 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-142 working on [50000000, 74999998]
+2026-03-16 03:57:32 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-143 working on [74999999, 100000000]
+2026-03-16 03:57:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-145 working on [16666668, 33333333]
+2026-03-16 03:57:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-144 working on [2, 16666667]
+2026-03-16 03:57:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-146 working on [33333334, 49999999]
+2026-03-16 03:57:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-147 working on [50000000, 66666665]
+2026-03-16 03:57:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-148 working on [66666666, 83333331]
+2026-03-16 03:57:33 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-149 working on [83333332, 100000000]
+2026-03-16 03:57:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-152 working on [25000000, 37499998]
+2026-03-16 03:57:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-150 working on [2, 12500000]
+2026-03-16 03:57:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-151 working on [12500001, 24999999]
+2026-03-16 03:57:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-153 working on [37499999, 49999997]
+2026-03-16 03:57:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-154 working on [49999998, 62499996]
+2026-03-16 03:57:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-155 working on [62499997, 74999995]
+2026-03-16 03:57:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-156 working on [74999996, 87499994]
+2026-03-16 03:57:36 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-157 working on [87499995, 100000000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-20 working on [2, 50000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-21 working on [50001, 100000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-22 working on [2, 25001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-24 working on [50002, 75001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-23 working on [25002, 50001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-25 working on [75002, 100000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-27 working on [16668, 33333]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-26 working on [2, 16667]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-28 working on [33334, 49999]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-29 working on [50000, 66665]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-30 working on [66666, 83331]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-31 working on [83332, 100000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-32 working on [2, 12501]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-33 working on [12502, 25001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-34 working on [25002, 37501]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-35 working on [37502, 50001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-36 working on [50002, 62501]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-37 working on [62502, 75001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-38 working on [75002, 87501]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-39 working on [87502, 100000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-40 working on [2, 50000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-41 working on [50001, 100000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-43 working on [25001, 49999]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-44 working on [50000, 74998]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-42 working on [2, 25000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-45 working on [74999, 100000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-46 working on [2, 16667]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-47 working on [16668, 33333]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-48 working on [33334, 49999]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-49 working on [50000, 66665]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-57 working on [66666, 83331]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-58 working on [83332, 100000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-59 working on [2, 12500]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-60 working on [12501, 24999]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-61 working on [25000, 37498]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-62 working on [37499, 49997]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-63 working on [49998, 62496]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-64 working on [62497, 74995]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-65 working on [74996, 87494]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-66 working on [87495, 100000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-67 working on [2, 500000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-68 working on [500001, 1000000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-69 working on [2, 250001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-71 working on [500002, 750001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-70 working on [250002, 500001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-72 working on [750002, 1000000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-74 working on [166668, 333333]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-73 working on [2, 166667]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-75 working on [333334, 499999]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-76 working on [500000, 666665]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-77 working on [666666, 833331]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-78 working on [833332, 1000000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-79 working on [2, 125001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-80 working on [125002, 250001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-81 working on [250002, 375001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-82 working on [375002, 500001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-83 working on [500002, 625001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-84 working on [625002, 750001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-85 working on [750002, 875001]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-86 working on [875002, 1000000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-87 working on [2, 500000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-88 working on [500001, 1000000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-89 working on [2, 250000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-90 working on [250001, 499999]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-91 working on [500000, 749998]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-92 working on [749999, 1000000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-93 working on [2, 166667]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-94 working on [166668, 333333]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-95 working on [333334, 499999]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-96 working on [500000, 666665]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-97 working on [666666, 833331]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-98 working on [833332, 1000000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-99 working on [2, 125000]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-100 working on [125001, 249999]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-101 working on [250000, 374998]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-102 working on [374999, 499997]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-103 working on [499998, 624996]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-104 working on [624997, 749995]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-105 working on [749996, 874994]
+2026-03-16 03:57:50 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-106 working on [874995, 1000000]
+2026-03-16 03:58:17 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-119 working on [50000002, 100000000]
+2026-03-16 03:58:17 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-118 working on [2, 50000001]
+2026-03-16 03:58:33 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-123 working on [75000002, 100000000]
+2026-03-16 03:58:33 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-121 working on [25000002, 50000001]
+2026-03-16 03:58:32 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-120 working on [2, 25000001]
+2026-03-16 03:58:33 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-122 working on [50000002, 75000001]
+2026-03-16 03:58:43 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-125 working on [16666669, 33333335]
+2026-03-16 03:58:43 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-126 working on [33333336, 50000002]
+2026-03-16 03:58:43 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-124 working on [2, 16666668]
+2026-03-16 03:58:43 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-127 working on [50000003, 66666669]
+2026-03-16 03:58:43 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-128 working on [66666670, 83333336]
+2026-03-16 03:58:43 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-129 working on [83333337, 100000000]
+2026-03-16 03:58:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-131 working on [12500002, 25000001]
+2026-03-16 03:58:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-133 working on [37500002, 50000001]
+2026-03-16 03:58:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-135 working on [62500002, 75000001]
+2026-03-16 03:58:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-136 working on [75000002, 87500001]
+2026-03-16 03:58:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-130 working on [2, 12500001]
+2026-03-16 03:58:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-137 working on [87500002, 100000000]
+2026-03-16 03:58:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-132 working on [25000002, 37500001]
+2026-03-16 03:58:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-134 working on [50000002, 62500001]
+2026-03-16 03:59:03 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-138 working on [2, 50000000]
+2026-03-16 03:59:03 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-139 working on [50000001, 100000000]
+2026-03-16 03:59:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-141 working on [25000001, 49999999]
+2026-03-16 03:59:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-142 working on [50000000, 74999998]
+2026-03-16 03:59:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-140 working on [2, 25000000]
+2026-03-16 03:59:04 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-143 working on [74999999, 100000000]
+2026-03-16 03:59:06 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-147 working on [50000000, 66666665]
+2026-03-16 03:59:06 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-148 working on [66666666, 83333331]
+2026-03-16 03:59:06 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-146 working on [33333334, 49999999]
+2026-03-16 03:59:06 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-149 working on [83333332, 100000000]
+2026-03-16 03:59:06 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-144 working on [2, 16666667]
+2026-03-16 03:59:06 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-145 working on [16666668, 33333333]
+2026-03-16 03:59:07 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-150 working on [2, 12500000]
+2026-03-16 03:59:07 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-151 working on [12500001, 24999999]
+2026-03-16 03:59:07 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-152 working on [25000000, 37499998]
+2026-03-16 03:59:07 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-154 working on [49999998, 62499996]
+2026-03-16 03:59:07 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-153 working on [37499999, 49999997]
+2026-03-16 03:59:07 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-156 working on [74999996, 87499994]
+2026-03-16 03:59:07 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-155 working on [62499997, 74999995]
+2026-03-16 03:59:07 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-157 working on [87499995, 100000000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-25 working on [2, 50000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-26 working on [50001, 100000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-27 working on [2, 25001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-28 working on [25002, 50001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-29 working on [50002, 75001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-30 working on [75002, 100000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-31 working on [2, 16667]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-32 working on [16668, 33333]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-33 working on [33334, 49999]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-34 working on [50000, 66665]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-35 working on [66666, 83331]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-36 working on [83332, 100000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-37 working on [2, 12501]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-38 working on [12502, 25001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-39 working on [25002, 37501]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-40 working on [37502, 50001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-41 working on [50002, 62501]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-42 working on [62502, 75001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-43 working on [75002, 87501]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-44 working on [87502, 100000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-45 working on [2, 50000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-46 working on [50001, 100000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-47 working on [2, 25000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-48 working on [25001, 49999]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-49 working on [50000, 74998]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-50 working on [74999, 100000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-51 working on [2, 16667]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-52 working on [16668, 33333]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-54 working on [50000, 66665]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-53 working on [33334, 49999]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-55 working on [66666, 83331]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-56 working on [83332, 100000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-57 working on [2, 12500]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-59 working on [25000, 37498]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-58 working on [12501, 24999]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-60 working on [37499, 49997]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-61 working on [49998, 62496]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-62 working on [62497, 74995]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-63 working on [74996, 87494]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-64 working on [87495, 100000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-65 working on [2, 500000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-66 working on [500001, 1000000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-67 working on [2, 250001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-68 working on [250002, 500001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-69 working on [500002, 750001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-70 working on [750002, 1000000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-78 working on [2, 166667]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-79 working on [166668, 333333]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-81 working on [500000, 666665]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-80 working on [333334, 499999]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-82 working on [666666, 833331]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-83 working on [833332, 1000000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-84 working on [2, 125001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-85 working on [125002, 250001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-86 working on [250002, 375001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-87 working on [375002, 500001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-89 working on [625002, 750001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-88 working on [500002, 625001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-90 working on [750002, 875001]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-91 working on [875002, 1000000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-92 working on [2, 500000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-93 working on [500001, 1000000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-94 working on [2, 250000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-95 working on [250001, 499999]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-97 working on [749999, 1000000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-96 working on [500000, 749998]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-98 working on [2, 166667]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-99 working on [166668, 333333]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-100 working on [333334, 499999]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-101 working on [500000, 666665]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-102 working on [666666, 833331]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-103 working on [833332, 1000000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-104 working on [2, 125000]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-105 working on [125001, 249999]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-106 working on [250000, 374998]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-107 working on [374999, 499997]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-108 working on [499998, 624996]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-109 working on [624997, 749995]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-110 working on [749996, 874994]
+2026-03-16 05:16:54 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-111 working on [874995, 1000000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-26 working on [50001, 100000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-25 working on [2, 50000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-27 working on [2, 25001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-28 working on [25002, 50001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-29 working on [50002, 75001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-30 working on [75002, 100000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-31 working on [2, 16667]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-33 working on [33334, 49999]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-32 working on [16668, 33333]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-34 working on [50000, 66665]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-35 working on [66666, 83331]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-36 working on [83332, 100000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-37 working on [2, 12501]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-38 working on [12502, 25001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-39 working on [25002, 37501]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-41 working on [50002, 62501]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-40 working on [37502, 50001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-42 working on [62502, 75001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-43 working on [75002, 87501]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-44 working on [87502, 100000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-46 working on [50001, 100000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-45 working on [2, 50000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-47 working on [2, 25000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-49 working on [50000, 74998]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-50 working on [74999, 100000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-48 working on [25001, 49999]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-51 working on [2, 16667]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-52 working on [16668, 33333]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-53 working on [33334, 49999]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-54 working on [50000, 66665]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-55 working on [66666, 83331]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-56 working on [83332, 100000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-58 working on [12501, 24999]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-57 working on [2, 12500]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-59 working on [25000, 37498]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-60 working on [37499, 49997]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-61 working on [49998, 62496]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-62 working on [62497, 74995]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-63 working on [74996, 87494]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-64 working on [87495, 100000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-65 working on [2, 500000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-66 working on [500001, 1000000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-67 working on [2, 250001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-68 working on [250002, 500001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-69 working on [500002, 750001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-70 working on [750002, 1000000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-78 working on [2, 166667]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-79 working on [166668, 333333]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-80 working on [333334, 499999]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-81 working on [500000, 666665]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-82 working on [666666, 833331]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-83 working on [833332, 1000000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-84 working on [2, 125001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-85 working on [125002, 250001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-86 working on [250002, 375001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-87 working on [375002, 500001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-88 working on [500002, 625001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-90 working on [750002, 875001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-89 working on [625002, 750001]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-91 working on [875002, 1000000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-92 working on [2, 500000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-93 working on [500001, 1000000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-94 working on [2, 250000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-95 working on [250001, 499999]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-96 working on [500000, 749998]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-97 working on [749999, 1000000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-98 working on [2, 166667]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-99 working on [166668, 333333]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-101 working on [500000, 666665]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-100 working on [333334, 499999]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-102 working on [666666, 833331]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-103 working on [833332, 1000000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-104 working on [2, 125000]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-105 working on [125001, 249999]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-106 working on [250000, 374998]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-107 working on [374999, 499997]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-108 working on [499998, 624996]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-109 working on [624997, 749995]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-110 working on [749996, 874994]
+2026-03-16 05:17:18 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-111 working on [874995, 1000000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.Main - Loading configuration...
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 6 ms         | 99,998          | 9,592
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 5 ms         | 99,998          | 9,592
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-25 working on [2, 50000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-26 working on [50001, 100000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 8 ms         | 49,999          | 9,592
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-27 working on [2, 25001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-28 working on [25002, 50001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-29 working on [50002, 75001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-30 working on [75002, 100000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 2 ms         | 25,000          | 9,592
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-31 working on [2, 16667]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-32 working on [16668, 33333]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-33 working on [33334, 49999]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-34 working on [50000, 66665]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-35 working on [66666, 83331]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-36 working on [83332, 100000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 1 ms         | 16,666          | 9,592
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-37 working on [2, 12501]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-38 working on [12502, 25001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-39 working on [25002, 37501]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-40 working on [37502, 50001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-41 working on [50002, 62501]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-42 working on [62502, 75001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-43 working on [75002, 87501]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-44 working on [87502, 100000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 2 ms         | 12,500          | 9,592
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-45 working on [2, 50000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-46 working on [50001, 100000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 7 ms         | 49,999          | 9,592
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-47 working on [2, 25000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-48 working on [25001, 49999]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-49 working on [50000, 74998]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-50 working on [74999, 100000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 3 ms         | 24,999          | 9,592
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-51 working on [2, 16667]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-52 working on [16668, 33333]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-53 working on [33334, 49999]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-54 working on [50000, 66665]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-55 working on [66666, 83331]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-56 working on [83332, 100000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 5 ms         | 16,666          | 9,592
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-57 working on [2, 12500]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-59 working on [25000, 37498]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-58 working on [12501, 24999]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-60 working on [37499, 49997]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-61 working on [49998, 62496]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-63 working on [74996, 87494]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-64 working on [87495, 100000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-62 working on [62497, 74995]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 5 ms         | 12,499          | 9,592
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 47 ms        | 999,998         | 78,498
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 10 ms        | 999,998         | 78,498
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-65 working on [2, 500000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-66 working on [500001, 1000000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 29 ms        | 499,999         | 78,498
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-67 working on [2, 250001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-68 working on [250002, 500001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-69 working on [500002, 750001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-70 working on [750002, 1000000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 23 ms        | 250,000         | 78,498
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-78 working on [2, 166667]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-80 working on [333334, 499999]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-79 working on [166668, 333333]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-81 working on [500000, 666665]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-82 working on [666666, 833331]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-83 working on [833332, 1000000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 16 ms        | 166,666         | 78,498
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-84 working on [2, 125001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-85 working on [125002, 250001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-86 working on [250002, 375001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-87 working on [375002, 500001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-88 working on [500002, 625001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-89 working on [625002, 750001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-90 working on [750002, 875001]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-91 working on [875002, 1000000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 14 ms        | 125,000         | 78,498
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-92 working on [2, 500000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-93 working on [500001, 1000000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 8 ms         | 499,999         | 78,498
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-94 working on [2, 250000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-95 working on [250001, 499999]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-96 working on [500000, 749998]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-97 working on [749999, 1000000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 8 ms         | 249,999         | 78,498
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-98 working on [2, 166667]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-100 working on [333334, 499999]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-99 working on [166668, 333333]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-102 working on [666666, 833331]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-101 working on [500000, 666665]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-103 working on [833332, 1000000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 7 ms         | 166,666         | 78,498
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-104 working on [2, 125000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-105 working on [125001, 249999]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-106 working on [250000, 374998]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-107 working on [374999, 499997]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-108 working on [499998, 624996]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-109 working on [624997, 749995]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-110 working on [749996, 874994]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.finder.sieve.ParallelSieveFinder - Thread ParallelSieveFinder-Thread-111 working on [874995, 1000000]
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 8 ms         | 124,999         | 78,498
+2026-03-16 05:19:30 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ------------------------------------------------------------------------------------------------------------------------
+2026-03-16 05:20:03 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Sequential   | 1       | 13%    | 31.95 sec    | 99,999,998      | 5,761,455
+2026-03-16 05:20:04 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 1.56 sec     | 99,999,998      | 5,761,455
+2026-03-16 05:20:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-113 working on [2, 50000001]
+2026-03-16 05:20:04 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-114 working on [50000002, 100000000]
+2026-03-16 05:20:23 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 2       | 25%    | 18.72 sec    | 50,000,000      | 5,761,455
+2026-03-16 05:20:23 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-115 working on [2, 25000001]
+2026-03-16 05:20:23 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-116 working on [25000002, 50000001]
+2026-03-16 05:20:23 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-117 working on [50000002, 75000001]
+2026-03-16 05:20:23 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-118 working on [75000002, 100000000]
+2026-03-16 05:20:42 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 4       | 50%    | 19.50 sec    | 25,000,000      | 5,761,455
+2026-03-16 05:20:42 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-120 working on [16666669, 33333335]
+2026-03-16 05:20:42 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-119 working on [2, 16666668]
+2026-03-16 05:20:42 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-121 working on [33333336, 50000002]
+2026-03-16 05:20:42 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-122 working on [50000003, 66666669]
+2026-03-16 05:20:42 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-123 working on [66666670, 83333336]
+2026-03-16 05:20:42 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-124 working on [83333337, 100000000]
+2026-03-16 05:20:53 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 6       | 75%    | 10.57 sec    | 16,666,667      | 5,761,455
+2026-03-16 05:20:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-125 working on [2, 12500001]
+2026-03-16 05:20:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-126 working on [12500002, 25000001]
+2026-03-16 05:20:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-127 working on [25000002, 37500001]
+2026-03-16 05:20:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-128 working on [37500002, 50000001]
+2026-03-16 05:20:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-130 working on [62500002, 75000001]
+2026-03-16 05:20:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-129 working on [50000002, 62500001]
+2026-03-16 05:20:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-131 working on [75000002, 87500001]
+2026-03-16 05:20:53 INFO  dev.mohanverse.prime.finder.trial_division.ParallelTrialDivisionFinder - Thread ParallelTrialDivisionFinder-Thread-132 working on [87500002, 100000000]

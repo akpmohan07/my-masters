@@ -1,0 +1,37 @@
+------------------------------------------------------------------------------------------------------------------------
+N               | Algorithm                 | Type         | Threads | Core%  | Time         | Chunk Size      | Primes
+------------------------------------------------------------------------------------------------------------------------
+100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 8 ms         | 99,998          | 9,592
+100,000         | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 4 ms         | 99,998          | 9,592
+100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 11 ms        | 49,999          | 9,592
+100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 3 ms         | 25,000          | 9,592
+100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 2 ms         | 16,666          | 9,592
+100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 2 ms         | 12,500          | 9,592
+100,000         | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 8 ms         | 49,999          | 9,592
+100,000         | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 5 ms         | 24,999          | 9,592
+100,000         | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 7 ms         | 16,666          | 9,592
+100,000         | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 4 ms         | 12,499          | 9,592
+------------------------------------------------------------------------------------------------------------------------
+1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 48 ms        | 999,998         | 78,498
+1,000,000       | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 5 ms         | 999,998         | 78,498
+1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 25 ms        | 499,999         | 78,498
+1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 16 ms        | 250,000         | 78,498
+1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 15 ms        | 166,666         | 78,498
+1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 19 ms        | 125,000         | 78,498
+1,000,000       | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 8 ms         | 499,999         | 78,498
+1,000,000       | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 7 ms         | 249,999         | 78,498
+1,000,000       | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 7 ms         | 166,666         | 78,498
+1,000,000       | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 7 ms         | 124,999         | 78,498
+------------------------------------------------------------------------------------------------------------------------
+100,000,000     | Linear Trial Division     | Sequential   | 1       | 13%    | 25.93 sec    | 99,999,998      | 5,761,455
+100,000,000     | Sieve of Eratosthenes     | Sequential   | 1       | 13%    | 874 ms       | 99,999,998      | 5,761,455
+100,000,000     | Linear Trial Division     | Parallel     | 2       | 25%    | 15.64 sec    | 50,000,000      | 5,761,455
+100,000,000     | Linear Trial Division     | Parallel     | 4       | 50%    | 11.09 sec    | 25,000,000      | 5,761,455
+100,000,000     | Linear Trial Division     | Parallel     | 6       | 75%    | 9.77 sec     | 16,666,667      | 5,761,455
+100,000,000     | Linear Trial Division     | Parallel     | 8       | 100%   | 8.82 sec     | 12,500,000      | 5,761,455
+100,000,000     | Sieve of Eratosthenes     | Parallel     | 2       | 25%    | 1.49 sec     | 49,999,999      | 5,761,455
+100,000,000     | Sieve of Eratosthenes     | Parallel     | 4       | 50%    | 1.51 sec     | 24,999,999      | 5,761,455
+100,000,000     | Sieve of Eratosthenes     | Parallel     | 6       | 75%    | 1.71 sec     | 16,666,666      | 5,761,455
+100,000,000     | Sieve of Eratosthenes     | Parallel     | 8       | 100%   | 1.70 sec     | 12,499,999      | 5,761,455
+------------------------------------------------------------------------------------------------------------------------
+1,000,000,000   | Linear Trial Division     | Sequential   | 1       | 13%    | 13.12 min    | 999,999,998     | 50,847,534

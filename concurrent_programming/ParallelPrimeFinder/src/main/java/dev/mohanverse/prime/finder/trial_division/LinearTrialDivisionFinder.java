@@ -17,6 +17,7 @@ public class LinearTrialDivisionFinder extends PrimeFinderAbstract {
     @Override
     protected List<Long> computePrimesForRange(long start, long end) {
         List<Long> primeNumbers = new java.util.ArrayList<>();
+        primeFinderMetrics.setChunkSize(end - start);
         for (long i = start; i <= end; i++) {
             if (PrimeUtils.isPrime(i)) {
                 primeNumbers.add(i);

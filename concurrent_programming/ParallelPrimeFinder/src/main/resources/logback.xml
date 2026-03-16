@@ -1,6 +1,6 @@
 <configuration>
 
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <appender name="CONSOLE" class="ch.qos.logback.core.FileAppender">
         <file>logs/application.log</file>
 
         <encoder>
@@ -8,8 +8,25 @@
         </encoder>
     </appender>
 
+    <appender name="REPORT" class="ch.qos.logback.core.FileAppender">
+        <file>logs/report.txt</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ResultsPrinter → file only -->
+    <logger name="dev.mohanverse.prime.utility.ResultsPrinter"
+            level="INFO"
+            additivity="false">
+        <appender-ref ref="REPORT"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
     <root level="INFO">
-        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
     </root>
+
 
 </configuration>

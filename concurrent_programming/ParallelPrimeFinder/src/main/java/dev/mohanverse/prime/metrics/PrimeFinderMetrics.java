@@ -14,6 +14,8 @@ public class PrimeFinderMetrics {
     private long  executionTimeInMillis;
     private long  startTimeInMillis;
     private long  endTimeInMillis;
+    @Setter
+    private long chunkSize;
     private AtomicLong totalDivisibilityChecks;
 
     public void startTimer() {
