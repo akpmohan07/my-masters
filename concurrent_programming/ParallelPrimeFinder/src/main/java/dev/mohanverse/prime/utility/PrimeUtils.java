@@ -1,4 +1,4 @@
-package dev.mohanverse.prime;
+package dev.mohanverse.prime.utility;
 
 public class PrimeUtils {
     private PrimeUtils() {}; // Prevent instantiation

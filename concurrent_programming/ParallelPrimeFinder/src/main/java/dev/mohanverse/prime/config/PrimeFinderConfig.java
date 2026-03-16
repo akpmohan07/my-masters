@@ -12,15 +12,15 @@ import static java.lang.Integer.parseInt;
 public class PrimeFinderConfig {
 
     private static long[] testValues;
-    ProcessorConfig processorConfig = new ProcessorConfig(Runtime.getRuntime().availableProcessors());
-
-
-    private static final int availableCores =;
+    @Getter
+    private static  ProcessorConfig processorConfig;
+    ;
 
     // prevent instantiation
     private PrimeFinderConfig() {}
 
     public static void load() throws IOException {
+        processorConfig = new ProcessorConfig();
         Properties props = new Properties();
 
         InputStream input =
@@ -35,15 +35,14 @@ public class PrimeFinderConfig {
                 .mapToLong(Long::parseLong)
                 .toArray();
 
-        processorConfig
 
-        threadConfigs = Arrays.stream(
-                props.getProperty("prime.thread.percentages").split(","))
-                .map(String::trim)
-                .mapToInt(p -> Math.max(1, (int) Math.round(availableCores * Integer.parseInt(p) / 100.0)))
-                .toArray();
+        processorConfig.setThreadConfigs(
+                Arrays.stream(props.getProperty("prime.thread.percentages").split(","))
+                        .map(String::trim)
+                        .map(p -> processorConfig.new ThreadConfig(Integer.parseInt(p)))
+                        .toList()
+        );
     }
 
     public static long[] getTestValues() { return testValues; }
-    public static int[] getThreadCounts() { return threadCounts; }
 }

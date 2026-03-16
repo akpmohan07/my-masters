@@ -1,13 +1,18 @@
-package dev.mohanverse.prime.finder;
+package dev.mohanverse.prime.finder.trial_division;
 
-import dev.mohanverse.prime.PrimeUtils;
+import dev.mohanverse.prime.utility.PrimeUtils;
+import dev.mohanverse.prime.config.ProcessorConfig;
 import dev.mohanverse.prime.enums.Algorithm;
 import dev.mohanverse.prime.enums.ExecutionType;
-import dev.mohanverse.prime.metrics.PrimeFinderMetrics;
+import dev.mohanverse.prime.finder.PrimeFinderAbstract;
 
 import java.util.List;
 
-public class LinearTrialDivisionFinder extends  PrimeFinderAbstract{
+public class LinearTrialDivisionFinder extends PrimeFinderAbstract {
+
+    public LinearTrialDivisionFinder(ProcessorConfig.ThreadConfig threadConfig) {
+        super(threadConfig);
+    }
 
     @Override
     protected List<Long> computePrimesForRange(long start, long end) {

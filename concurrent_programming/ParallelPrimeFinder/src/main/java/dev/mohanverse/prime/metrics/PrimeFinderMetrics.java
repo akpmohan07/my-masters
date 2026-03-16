@@ -15,7 +15,6 @@ public class PrimeFinderMetrics {
     private long  startTimeInMillis;
     private long  endTimeInMillis;
     private AtomicLong totalDivisibilityChecks;
-    private int threadCount;
 
     public void startTimer() {
         this.startTimeInMillis = System.currentTimeMillis();

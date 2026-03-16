@@ -47,3 +47,258 @@
 2026-03-15 20:54:47 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Total primes found: 78498
 2026-03-15 20:54:47 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time taken (ms): 45
 2026-03-15 20:54:47 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor -  Finding prime numbers in the range of 1 to 100000
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Sequential
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Total numbers checked: 99998
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Total primes found: 9592
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time taken (ms): 6
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor -  Finding prime numbers in the range of 1 to 1000000
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Sequential
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Total numbers checked: 999998
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Total primes found: 78498
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time taken (ms): 49
+2026-03-15 22:19:59 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 100000
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Sequential
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 13
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 13
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 9592
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 16
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 1000000
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Sequential
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 13
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 13
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 78498
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 115
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 100000
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 25
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 25
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 9592
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 11
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 1000000
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 25
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 25
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 78498
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 62
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 100000
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 50
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 50
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 9592
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 3
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 1000000
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 50
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 50
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 78498
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 50
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 100000
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 75
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 75
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 9592
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 3
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 1000000
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 75
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 75
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 78498
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 31
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 100000
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 100
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 100
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 9592
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 2
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 1000000
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 100
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 100
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 78498
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 51
+2026-03-16 00:12:46 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Starting the execution of PrimerFinderExecutor
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 100000
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Sequential
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 1
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 13
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 9592
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 13
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 1000000
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Sequential
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 1
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 13
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 78498
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 55
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 100000
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 2
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 25
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 9592
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 14
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 1000000
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 2
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 25
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 78498
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 40
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 100000
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 4
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 50
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 9592
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 3
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 1000000
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 4
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 50
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 78498
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 24
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 100000
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 6
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 75
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 9592
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 1
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 1000000
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 6
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 75
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 78498
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 25
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 100000
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 8
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 100
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 9592
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 2
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Finding primes up to 1000000
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Algorithm: Linear Trial Division
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Execution Type: Parallel
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Thread Count: 8
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Core %: 100
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Primes found: 78498
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - Time (ms): 20
+2026-03-16 00:14:12 INFO  dev.mohanverse.prime.executor.PrimerFinderExecutor - --------------------------------------------------
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time(ms)  | Primes
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 6         | 9,592
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 7         | 9,592
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 2         | 9,592
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 3         | 9,592
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 3         | 9,592
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 52        | 78,498
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 33        | 78,498
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 19        | 78,498
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 13        | 78,498
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 15        | 78,498
+2026-03-16 00:28:36 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:29:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:29:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time(ms)  | Primes
+2026-03-16 00:29:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:29:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 6         | 9,592
+2026-03-16 00:29:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 10        | 9,592
+2026-03-16 00:29:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 3         | 9,592
+2026-03-16 00:29:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 6         | 9,592
+2026-03-16 00:29:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 4         | 9,592
+2026-03-16 00:29:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:29:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 56        | 78,498
+2026-03-16 00:29:58 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 38        | 78,498
+2026-03-16 00:29:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 24        | 78,498
+2026-03-16 00:29:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 20        | 78,498
+2026-03-16 00:29:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 19        | 78,498
+2026-03-16 00:29:59 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:30:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Sequential   | 1       | 13%    | 27901     | 5,761,455
+2026-03-16 00:30:42 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 2       | 25%    | 15595     | 5,761,455
+2026-03-16 00:30:51 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 4       | 50%    | 8667      | 5,761,455
+2026-03-16 00:31:05 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 6       | 75%    | 14272     | 5,761,455
+2026-03-16 00:31:15 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 8       | 100%   | 9627      | 5,761,455
+2026-03-16 00:31:15 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time(ms)  | Primes
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 6         | 9,592
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 6         | 9,592
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 2         | 9,592
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 1         | 9,592
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 2         | 9,592
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 42        | 78,498
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 29        | 78,498
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 13        | 78,498
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 15        | 78,498
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 14        | 78,498
+2026-03-16 00:32:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:32:52 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Sequential   | 1       | 13%    | 25938     | 5,761,455
+2026-03-16 00:33:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 2       | 25%    | 16143     | 5,761,455
+2026-03-16 00:33:18 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 4       | 50%    | 9577      | 5,761,455
+2026-03-16 00:33:28 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 6       | 75%    | 10473     | 5,761,455
+2026-03-16 00:33:39 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 8       | 100%   | 10978     | 5,761,455
+2026-03-16 00:33:39 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - N               | Algorithm                 | Type         | Threads | Core%  | Time(ms)  | Primes
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Sequential   | 1       | 13%    | 9         | 9,592
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 2       | 25%    | 7         | 9,592
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 4       | 50%    | 2         | 9,592
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 6       | 75%    | 2         | 9,592
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000         | Linear Trial Division     | Parallel     | 8       | 100%   | 1         | 9,592
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Sequential   | 1       | 13%    | 42        | 78,498
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 2       | 25%    | 27        | 78,498
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 4       | 50%    | 14        | 78,498
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 6       | 75%    | 12        | 78,498
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 1,000,000       | Linear Trial Division     | Parallel     | 8       | 100%   | 11        | 78,498
+2026-03-16 00:41:26 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
+2026-03-16 00:41:52 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Sequential   | 1       | 13%    | 25973     | 5,761,455
+2026-03-16 00:42:08 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 2       | 25%    | 15932     | 5,761,455
+2026-03-16 00:42:17 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 4       | 50%    | 8758      | 5,761,455
+2026-03-16 00:42:24 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 6       | 75%    | 7153      | 5,761,455
+2026-03-16 00:42:33 INFO  dev.mohanverse.prime.utility.ResultsPrinter - 100,000,000     | Linear Trial Division     | Parallel     | 8       | 100%   | 9108      | 5,761,455
+2026-03-16 00:42:33 INFO  dev.mohanverse.prime.utility.ResultsPrinter - ----------------------------------------------------------------------------------------------------
