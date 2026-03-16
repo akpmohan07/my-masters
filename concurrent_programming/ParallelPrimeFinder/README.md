@@ -2,6 +2,8 @@
 
 A thread-based Java program that finds all prime numbers up to N
 using multiple algorithms and execution strategies on multiple cores.
+Report: https://github.com/akpmohan07/my-masters/blob/main/concurrent_programming/ParallelPrimeFinder/docs/ParallelPrimeFinder.pdf
+
 
 ## Algorithms Implemented
 - Sequential Trial Division
