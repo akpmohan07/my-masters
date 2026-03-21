@@ -49,7 +49,7 @@ concurrent_programming/
 
 ## Key Project: ParallelPrimeFinder
 
-→ *See [ParallelPrimeFinder README](./README_ParallelPrimeFinder.md) for full details*
+→ *See [ParallelPrimeFinder README](./ParallelPrimeFinder/CLAUDE.md) for full details*
 
 Finds all primes up to N using four algorithm/execution combinations, benchmarked at 25%, 50%, 75%, 100% CPU allocation:
 
@@ -80,4 +80,4 @@ Finds all primes up to N using four algorithm/execution combinations, benchmarke
 
 ---
 
-*Related: [MASTER.md](./MASTER.md) | [ParallelPrimeFinder README](./README_ParallelPrimeFinder.md)*
+*Related: [Root CLAUDE.md](../CLAUDE.md) | [ParallelPrimeFinder README](./ParallelPrimeFinder/CLAUDE.md)*

@@ -99,4 +99,4 @@ Exam registration with multiple attempts (exam, resit1, resit2).
 
 ---
 
-*Related: [MASTER.md](./MASTER.md)*
+*Related: [Root CLAUDE.md](../CLAUDE.md)*

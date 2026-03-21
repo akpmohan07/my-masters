@@ -102,4 +102,4 @@ Output: All 6 recovered round keys + validation confirmation
 
 ---
 
-*Related: [Cryptography](./CRYPTOGRAPHY.md) | [MASTER.md](./MASTER.md)*
+*Related: [Cryptography](../../CLAUDE.md) | [Root CLAUDE.md](../../../CLAUDE.md)*

@@ -43,7 +43,7 @@ cryptography/
 
 ## Key Project: FEAL-4 Linear Cryptanalysis
 
-→ *See [FEAL4 README](./README_FEAL4LinearAttack.md) for full details*
+→ *See [FEAL4 README](./assignment_cryptanalysis/FEAL4LinearAttack/CLAUDE.md) for full details*
 
 A known-plaintext attack on the FEAL-4 block cipher using linear cryptanalysis:
 
@@ -80,4 +80,4 @@ Differential cryptanalysis (attack paths through block ciphers). Linear cryptana
 
 ---
 
-*Related: [MASTER.md](./MASTER.md) | [FEAL4 README](./README_FEAL4LinearAttack.md)*
+*Related: [Root CLAUDE.md](../CLAUDE.md) | [FEAL4 README](./assignment_cryptanalysis/FEAL4LinearAttack/CLAUDE.md)*
