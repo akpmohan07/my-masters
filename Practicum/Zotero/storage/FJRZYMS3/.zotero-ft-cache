@@ -1,0 +1,387 @@
+Sidebar menu
+Get unlimited access to the best of Medium for less than $1/week.
+Optimize Workforce Planning using Linear Programming with Python.
+What is the minimum number of workers you need to absorb your workload while ensuring employee retention?
+Samir Saci
+Follow
+7 min read
+·
+Feb 16, 2026
+🤖
+AI
+Press enter or click to view image in full size
+Workforce Planning Problem using Linear Programming — (Image by Author)
+
+In today’s dynamic business environment, optimising workforce planning is crucial to meet logistic operations’ fluctuating demands.
+
+Managers must minimize the number of temporary workers hired while ensuring employee retention and adhering to local regulations.
+
+As data scientists, how can we support operations managing workforce planning?
+
+A solution to this problem is Linear Programming with Python, which can help minimize costs while meeting all the constraints.
+
+This article will explore the optimization of workforce planning using linear programming with Python and analyze the results.
+
+Summary
+I. Introduction
+II. Defining the Workforce Planning Problem Statement
+  1. Planning of Workforce resources for Inbound Operations
+  2. How to Size the Workforce using volumes and productivity
+  3. Linear Programming Problem to find the optimal solution
+III. Linear Programming with PuLP
+  1. Prepare the parameters of your linear programming model
+  2. Initialize the model, define the objective and add constraints
+  3. Solve your model and analyze the results
+  4. Go Beyond by Increase Operators' Productivity
+IV. Conclusion
+  1. Generative AI: GPT for Supply Chain Optimization
+  2. Statistical Approach: What is the impact of other parameters?
+  3. Next Steps
+Introduction
+
+A significant challenge that Distribution Center (DC) managers face is the workload fluctuation during the week.
+
+Press enter or click to view image in full size
+Daily figures representing a large E-Commerce DC workload — (Image by Author)
+
+The example above shows the daily variation of critical indicators that drive a warehouse’s workload (#Orders, #Lines, #SKU, …).
+
+You can see a high variation from day to day that your teams need to absorb.
+
+Can you size your workforce efficiently using analytics?
+
+Considering that the average productivity of workers is stable, the only solution is to adapt your resources to meet the demands of each day.
+
+💡 Find a YouTube version of this article with animations in the link below,
+
+Defining the Workforce Planning Problem Statement
+Planning of Workforce resources for Inbound Operations
+
+You are working with the Inbound Manager of a Distribution Center operated by a Third Party Logistics Company (3PL) for a large retailer.
+
+His team responsibilities include
+
+Unload Pallets from the Trucks
+Scan each pallet and record the received quantity in your Warehouse Management System (WMS)
+Put away these pallets in the Stock Area
+
+The team’s global productivity is measured weekly (Pallets/Hour).
+
+At the beginning of each month, transportation teams share a forecast of the number of pallets to be received daily for the next four weeks.
+
+How can you use these forecasts to help the inbound manager estimate his future needs?
+
+How to Size the Workforce using volumes and productivity
+
+Based on these forecasts and your global productivity, you can estimate what resources would be needed each day
+
+Press enter or click to view image in full size
+Inbound Ressources needs forecasts by day — (Image by Author)
+
+You will use 100% of temporary workers to build your team for more flexibility.
+
+Constraint 1: The Supply must meet the demand
+
+If you need 31 workers on Monday, you must secure at least 31 workers.
+
+Constraint 2: Minimum working time by worker
+
+To ensure employee retention, you must guarantee a minimum of 5 consecutive working days per week.
+
+Workforce sourcing can be challenging, especially if e-commerce fulfilment centres surround your DC.
+
+Therefore, you need to ensure minimum working time for your temporary workers to be an attractive employer.
+
+Constraint 3: Maximum working time by week
+
+Following the local regulations, each worker must rest for 2 days after 5 consecutive working days.
+
+Planning by shift based on constraints listed above — (Image by Author)
+
+A worker from Shift 1 will start his week on Monday and get two days off on Friday.
+
+Her colleague from Shift 6 will start the week on Saturday and get two days off on Thursday.
+
+Objective: Minimize the number of workers hired
+
+Following the productivity targets fixed by your manager, you must minimize the number of workers hired.
+
+If you do not reach this target, your P&L can be impacted because this productivity has been used to calculate the price invoiced to your customer (retailer).
+
+How can we reach this target with all these constraints?
+
+Linear Programming Problem to find the optimal solution
+
+We define a Linear Programming Problem by
+
+finding the optimal value of a linear function (objective function) of several variables (x[i])
+subject to the conditions that the variables are non-negative and satisfy a set of linear inequalities (called linear constraints).
+
+Our problem fits perfectly!
+
+Variables
+x[i]: number of temporary workers hired for shift i
+Constraints
+- For each day the total number of workers on-duty must be higher than the demand
+- Each worker needs to work a minimum of 5 consecutive days per week
+- Each worker needs to have 2 days off after 5 consecutive days of work
+Objective functions
+The total number of temporary workers hired for all shifts i = 1 … 7 should be minimal
+Linear Programming with PuLP
+
+PuLP is a Python modelling framework for linear (LP) and Integer Programming (IP) problems maintained by the COIN-OR Foundation.
+
+Prepare the parameters of your linear programming model
+Create a circular list for the days (if you need to add five days to Friday, you will reach Wednesday)
+List of Working Days: if day = 0 (Monday), then working days are Monday, Tuesday, Wednesday, Thursday and Friday
+Workers off by shift for each day: if day = 0 (Monday), then workers of shift 2 (Starting Tuesday) and shift 3 (Starting Wednesday) are off
+Initialize the model, define the objective and add constraints.
+Initialize the Model “Minimize Staffing” to minimize the objective
+Create variables x[i]: number of workers hired for shift i
+Define objective: sum of workers hired x[i]
+Add constraints: The sum of workers on duty (not on a day off) is higher than the minimum staff demand.
+Solve your model and analyze the results
+
+Results: Number of workers hired?
+
+Total number of Staff = 53
+
+Insights
+
+0 workers hired for Thursday and Saturday shifts
+
+Supply vs. Demand: what is the gap?
+
+Do we have more workers than needed?
+
+Press enter or click to view image in full size
+Supply vs. Demand of workers per day — (Image by Author)
+
+Insights
+
+Friday: 1 extra worker
+Saturday: 5 extra workers
+
+In addition to optimizing your workforce allocation, you can also improve the productivity per worker following a process improvement methodology like the one presented in this article for picking.
+
+You can find the full code in this Github repository👇 Link
+
+GitHub — samirsaci/workforce-planning: Optimize Workforce Planning using Linear Programming with…
+Optimize Workforce Planning using Linear Programming with Python — samirsaci/workforce-planning
+
+github.com
+
+Conclusion
+
+Our results respect the constraints, i.e. the demand is met.
+
+However, this sizing could be more satisfying as we have six extra man days to add to our P&L because of Friday and Saturday.
+
+How can we improve the solution?
+
+You can try to influence multiple parameters
+
+What if we have the constraint of two days off per week?
+Is the constraint of having consecutive days of work mandatory?
+Is the constraint of having at least five days worked per week mandatory?
+
+Feel free to simulate these scenarios and share your results (or questions) in the comment section.
+
+What about the productivity? Can we use data analytics to improve it?
+
+Improve the productivity of operators with Python.
+
+In this article, we took for granted that the operators’ maximum productivity cannot be increased.
+
+However, in another series of articles, we proved that Python cannot be used to help operators become more efficient.
+
+Press enter or click to view image in full size
+Picking routes with one order picked per wave — (Image by Author)
+
+Reducing the walking distance of operators during picking is the most effective way to increase your DC overall productivity.
+
+It can be achieved by grouping multiple orders in a single route that maximizes the number of items picked per meter walked.
+
+Which analytics tools are useful for this problem?
+
+In this series of articles, we use Python to implement spatial clustering and create a pathfinding algorithm to maximise operator outputs.
+
+For more details, start with this article
+
+Improve Warehouse Productivity using Order Batching with Python | Samir Saci
+Design a simulation model to estimate the impact of several Single Picker Routing Problem strategies in your Picking…
+
+www.samirsaci.com
+
+This is not the only approach.
+
+Indeed, external factors influencing the process may impact operators’ productivity.
+
+About Me
+
+Let’s connect on LinkedIn and Twitter, I am a Supply Chain Engineer using data analytics to improve logistics operations and reduce costs.
+
+For consulting or advice on analytics and sustainable supply chain transformation, feel free to contact me via Logigreen Consulting.
+
+If interested in Data Analytics and Supply Chain, look at my website.
+
+Samir Saci | Data Science & Productivity
+A technical blog focusing on Data Science, Personal Productivity, Automation, Operations Research and Sustainable…
+
+samirsaci.com
+
+📘 Your complete guide for Supply Chain Analytics: Analytics Cheat Sheet
+💌 New articles straight to your inbox for free: Newsletter
+
+Supply Chain
+Logistics
+Python
+Data Science
+Optimization
+
+1
+
+Written by Samir Saci
+4.3K followers
+·
+32 following
+
+Top Supply Chain Analytics Writer — Case studies using Data Science for Supply Chain Sustainability 🌳 and Productivity: https://bit.ly/supply-chain-cheat
+
+Responses (1)
+Mohankumar M
+
+What are your thoughts?
+﻿
+
+
+Cancel
+Respond
+
+Fabio Schoen
+
+Feb 27
+
+Nice! I use linear optimization as much as I can both for research and for consultancy. However you should consider that minimum staff 2-days off scheduling can be trivially solved to optimality without any necessity for optimization...
+
+Reply
+
+More from Samir Saci
+
+In
+
+Data Science Collective
+
+by
+
+Samir Saci
+
+Machine Learning for Retail Demand Forecasting
+Comparative Study of Demand Forecasting Methods for a Retail Store (XGBoost Model vs. Rolling Mean)
+Jan 26
+97
+1
+
+Samir Saci
+
+Monitor Transportation Networks with Python Visualizations
+Create visualisations to monitor logistics network performance with KPIs including deliveries/routes, cost per ton, and truck size.
+Feb 23
+6
+
+Samir Saci
+
+How Container Loading Optimization with Python Can Save Logistics?
+A simple heuristic algorithm helps freight forwarders load the maximum number of pallets into their customers' sea containers.
+Mar 9
+21
+1
+
+In
+
+Data Science Collective
+
+by
+
+Samir Saci
+
+How AI Can Become Your Personal Language Tutor
+How I used n8n to build AI study partners for learning Mandarin: vocabulary, listening, and pronunciation correction.
+Jan 16
+335
+8
+See all from Samir Saci
+Recommended from Medium
+
+Andy McDonald
+
+3 Python Charts You’re Probably Not Using (But Should Be)
+Three underused chart types and when to reach for them when working with well log data
+Feb 21
+405
+6
+
+In
+
+Level Up Coding
+
+by
+
+Christian Bernecker
+
+Building an AI Agent from Scratch with pure Python
+From Theory to Implementation: Building a Robust, Self-Correcting AI Agent from Scratch with Python
+Feb 16
+913
+8
+
+In
+
+Data Science Collective
+
+by
+
+Marc Matterson
+
+How I use LLMs as a Data Scientist
+Optimise your productivity by implementing LLMs.
+Jan 5
+339
+5
+
+In
+
+AI Software Engineer
+
+by
+
+Joe Njenga
+
+Anthropic Just Released Claude Code Course (And I Earned My Certificate)
+Anthropic just launched their Claude Code in Action course, and I’ve just passed — how about you?
+Jan 21
+3.8K
+57
+
+In
+
+Python in Plain English
+
+by
+
+Abdur Rahman
+
+9 Python Libraries That Make Automation Ridiculously Easy
+I automate first, ask questions later.
+Feb 4
+966
+13
+
+Nitin Sharma
+
+Forget ChatGPT & Gemini — Here Are New AI Tools That Will Blow Your Mind
+Here, I’m going to talk about the new AI tools that are actually worth your time.
+Nov 18, 2025
+7.8K
+269
+See more recommendations

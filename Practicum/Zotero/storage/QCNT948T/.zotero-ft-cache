@@ -1,0 +1,589 @@
+Sidebar menu
+Get unlimited access to the best of Medium for less than $1/week.
+Operations Research Bit
+Volunteer scheduling through optimization
+Fabio Schoen
+Follow
+12 min read
+·
+Feb 14, 2026
+🤖
+AI
+Press enter or click to view image in full size
+Workforce scheduling for volunteers in a Food Bank (image credits: ChatGPT)
+
+This is my new story on the possibility of applying Optimization tools in humanitarian logistics. I love modeling (you might take a look to my free e-book Optimization Models, devoted to this topic — by the way: in a few weeks I will release a new version with pySCIPopt implementation, completely open source). After having published my book, I started considering the many possibilities available to apply those models to “Operations Research for good”, in particular to humanitarian logistics and to the support of NGO’s.
+
+Workforce scheduling is a classical topic in Operations Research. The problem has been very widely studied and efficient software has been produced. The main field of application is of course logistics, ranging from workforce scheduling in manufacturing, to shift planning in call centers or in health care, to the extremely complex and strategic case of on board personnel scheduling for flight companies.
+
+These application form one of the main fields of research in Combinatorial Optimization since decades. Although very hard and different one from another, these use cases usually share a common objective: saving money. A perfectly reasonable objective, indeed, which significantly contributed, as an example, to the birth of low cost air companies.
+
+But much much less attention has been devoted to the problem of scheduling volunteers, in particular for non profit organizations or for disaster response teams. There are important differences between this problem and the classical one, mainly related to the objectives, quite less to the constraints.
+
+Exactly as in generic scheduling, we have a set of resources (volunteers in my case, workers in general), a set of duties to be “covered” (typically, shifts, in both cases); a suitable match between available resources and shifts to be covered with enough personnel is looked for. In a classical context, assigning a worker to a set of shifts has a cost, which includes the salary, the extra pay for uncomfortable shifts, like nights, weekends, or public holiday shifts. And the optimization expert is required to match workers to shifts in the least costly way. There are other important requirements, too, which correspond to rules to be applied in shift planning, due to labor law constraints or to internal ones; as an example, we might avoid two consecutive night shifts.
+
+The difference when scheduling volunteers
+
+Volunteers, are, of course, volunteers… they offer themselves for free (although, sometimes, a relatively low cost might be incurred like, e.g., providing free transportation to volunteers to reach the location they are needed).
+
+Usually, organizations like food banks, or other NGO’s base their operations on a limited set of skilled, regular paid workers; but, beyond those, they strongly rely on voluntary help. There is no cost to optimize, in general, when dealing with volunteers! But this does not mean there is nothing to optimize: the exact contrary!
+
+Volunteers are wonderful resources we cannot waste. They must be kept on board, gratified, assigned to something useful, in order to keep their motivation as high as possible. So one of the big changes with respect to classical workforce scheduling is that we do not wish to minimize workforce, but almost the opposite… Not exactly, but it is strongly desirable that most of the volunteers who offered their availability are indeed scheduled. So we need to introduce, in a scheduling model, an incentive in the optimization objective function to use as many resources as possible, within the constraints of the model.
+
+Another very important difference w.r.t. classical schedule is that we cannot impose shifts to volunteers and that they are not expected to work regularly. Instead, usually, each volunteer communicates a list of availabilities, possibly with preferences and with constraints on the overall total number of shifts which can be assigned to them.
+
+I prepared an elementary sample dataset just to illustrate this idea.
+
+  "meta": {
+    "horizon_days": 30,
+    "specializations": ["Warehouse", "Receiving", "Packaging"]
+  },
+  "demand": {
+    "Day01_AM_Warehouse": 5,
+    "Day01_AM_Receiving": 6,
+    "Day01_AM_Packaging": 4,
+    "Day01_PM_Warehouse": 5,
+    "Day01_PM_Receiving": 7,
+    "Day01_PM_Packaging": 5,
+    "Day02_AM_Warehouse": 5,
+    "Day02_AM_Receiving": 5,
+    "Day02_AM_Packaging": 5,
+    "Day02_PM_Warehouse": 5,
+    "Day02_PM_Receiving": 5,
+    "Day02_PM_Packaging": 6,
+    "Day03_AM_Warehouse": 6,
+    "Day03_AM_Receiving": 6,
+    "Day03_AM_Packaging": 7,
+    "Day03_PM_Warehouse": 4,
+    "Day03_PM_Receiving": 6,
+    "Day03_PM_Packaging": 5,
+  ...
+
+The above code fragment displays the first lines of a dataset. First, as in every scheduling problem, we define the time horizon (in this case: the next 30 days) and the skills required (I call them “specializations”).
+
+Then a list of requested demands follows; each line corresponds to a time slot and to a skill and an integer number representing the required number of volunteers is given. This part is absolutely similar to that of any scheduling problem: it is not the data which makes the difference, it is the objective!
+
+ "volunteers": [
+    {
+      "id": "Vol_01",
+      "skills": [
+        "Packaging"
+      ],
+      "availability": [
+        "Day01_PM",
+        "Day04_AM",
+        "Day04_PM",
+        "Day05_AM",
+        "Day05_PM",
+        "Day06_AM",
+        "Day09_AM",
+        "Day11_AM",
+        "Day12_AM",
+        "Day13_AM",
+        "Day17_PM",
+        "Day18_PM",
+        "Day19_PM",
+        "Day22_PM",
+        "Day23_AM",
+        "Day24_AM",
+        "Day24_PM"
+      ]
+    },
+    {
+      "id": "Vol_02",
+      "skills": [
+        "Receiving"
+      ],
+      "availability": [
+        "Day01_PM",
+        "Day04_AM",
+        "Day10_AM",
+        "Day15_AM",
+        "Day18_AM",
+        "Day25_AM",
+        "Day27_AM"
+      ]
+    },
+    {
+      "id": "Vol_03",
+      "skills": [
+        "Packaging",
+        "Receiving",
+        "Warehouse"
+      ],
+      "availability": [
+        "Day01_AM",
+        "Day01_PM",
+        "Day02_PM",
+        "Day03_PM",
+        "Day04_PM",
+        "Day10_AM",
+        "Day11_AM",
+        "Day12_AM",
+        "Day13_AM",
+        "Day15_AM",
+        "Day15_PM",
+        "Day16_AM",
+        ....
+
+
+The listing above reports a part of the data associated to volunteers. Each volunteer has an ID, a set of skills, and a set of shifts during which she/he is available. This is still relatively close to what happens in general scheduling, although, usually, regular workers are just required to specify days in which they are not available (e.g., for vacation) and not the opposite.
+
+The real differences happen in the model, not in the data. Here is a SCIP python model which implements a simple version of the volunteer scheduling problem
+
+from pyscipopt import Model, quicksum
+from collections import defaultdict
+
+def create_shift_scheduling_model(requests, assignments, volunteers, all_slots, working_sequences, max_consecutive=3):
+    """
+    Creates the NGO volunteer scheduling model with:
+    - Break-aware consecutive shift constraints
+    - Progressive overwork penalty to encourage balanced workload distribution
+    
+    Parameters:
+    -----------
+    requests: dict of demand keys like 'Day01_AM_Warehouse' -> count
+    assignments: list of dicts {vol_id, slot, skill}
+    volunteers: list of volunteer IDs
+    all_slots: sorted list of all time slots
+    working_sequences: list of lists, each containing consecutive working slots
+    max_consecutive: maximum consecutive shifts within a sequence (default: 3)
+    
+    Overwork Penalty:
+    - Uses auxiliary variables to approximate quadratic penalty
+    - Volunteers with more shifts get progressively higher penalty
+    - This encourages spreading work across more volunteers
+    - Targets: 8-12 shifts per active volunteer (balanced)
+    """
+    model = Model("NGO_Volunteer_Scheduling_Balanced")
+    
+    # 1. Variables: Binary assignment for each valid Volunteer-Slot-Skill combo
+    x = {}
+    vol_slot_indices = defaultdict(list)
+    
+    # Create variables and map them for quick constraint building
+    for i, a in enumerate(assignments):
+        x[i] = model.addVar(vtype="BINARY", name=f"x_{a['vol_id']}_{a['slot']}_{a['skill']}")
+        vol_slot_indices[(a['vol_id'], a['slot'])].append(i)
+
+    # 2. Variables: Volunteer usage (to maximize volunteers used)
+    u = {v_id: model.addVar(vtype="BINARY", name=f"use_{v_id}") for v_id in volunteers}
+    
+    # 3. NEW: Overwork indicator variables for progressive penalty
+    # w[v_id, tier] = 1 if volunteer v_id works more than tier threshold
+    # Tiers: 10, 12, 14, 16, 18 shifts
+    overwork_tiers = [10, 12, 14, 16, 18]
+    w = {}
+    for v_id in volunteers:
+        for tier in overwork_tiers:
+            w[(v_id, tier)] = model.addVar(vtype="BINARY", name=f"overwork_{v_id}_{tier}")
+
+    # 4. Objective: Multi-objective optimization
+    # Priority order:
+    #   1. Maximize number of volunteers used (weight: 100)
+    #   2. Maximize total coverage (weight: 1)
+    #   3. Minimize overwork - progressive penalty (weights: 1, 2, 4, 8, 16)
+    
+    # Build volunteer shift counts
+    vol_shifts = {}
+    for v_id in volunteers:
+        assigned_to_v = [x[i] for i, a in enumerate(assignments) if a['vol_id'] == v_id]
+        if assigned_to_v:
+            vol_shifts[v_id] = quicksum(assigned_to_v)
+        else:
+            vol_shifts[v_id] = 0
+    
+    # Progressive penalty: each tier has increasing weight
+    tier_weights = [1, 2, 4, 8, 16]  #  increasing penalty
+    overwork_penalty = quicksum(
+        tier_weights[i] * w[(v_id, tier)] 
+        for v_id in volunteers 
+        for i, tier in enumerate(overwork_tiers)
+        if (v_id, tier) in w
+    )
+    
+    # Combined objective
+    model.setObjective(
+        -quicksum(x[i] for i in x)          # Maximize total assignments (weight: 1)
+        - 100 * quicksum(u[v] for v in u)   # Maximize volunteers used (weight: 100)
+        + overwork_penalty,                  # Minimize overwork (progressive weights)
+        "minimize"
+    )
+
+    # 5. Constraint: Coverage Requirements (HARD)
+    for req_key, req_val in requests.items():
+        covering = [i for i, a in enumerate(assignments) if f"{a['slot']}_{a['skill']}" == req_key]
+        if covering:
+            model.addCons(quicksum(x[i] for i in covering) >= req_val, 
+                         name=f"demand_{req_key}")
+
+    # 6. Constraint: One assignment per volunteer per slot
+    for v_id in volunteers:
+        for slot in all_slots:
+            indices = vol_slot_indices[(v_id, slot)]
+            if indices:
+                model.addCons(quicksum(x[i] for i in indices) <= 1,
+                            name=f"one_per_slot_{v_id}_{slot}")
+
+    # 7. Link Usage Variables
+    for v_id in volunteers:
+        if v_id not in vol_shifts:
+            continue
+            
+        # If volunteer works any shift, u[v] = 1
+        model.addCons(vol_shifts[v_id] <= 20 * u[v_id],
+                     name=f"max_shifts_{v_id}")
+        model.addCons(vol_shifts[v_id] >= u[v_id],
+                     name=f"link_usage_{v_id}")
+
+    # 8. NEW: Link Overwork Indicator Variables
+    # If volunteer works > tier shifts, then w[(v_id, tier)] = 1
+    for v_id in volunteers:
+        if v_id not in vol_shifts:
+            continue
+            
+        for tier in overwork_tiers:
+            # If shifts > tier, then w must be 1
+            # w[(v_id, tier)] = 1  <==>  vol_shifts[v_id] > tier
+            # Implemented as: vol_shifts[v_id] <= tier + M * (1 - w[(v_id, tier)])
+            # Or equivalently: vol_shifts[v_id] - tier <= M * (1 - w[(v_id, tier)])
+            
+            # Since max shifts is 20, we can use M = 20
+            M = 20
+            model.addCons(
+                vol_shifts[v_id] <= tier + M * (1 - w[(v_id, tier)]),
+                name=f"overwork_link_{v_id}_{tier}"
+            )
+
+    # 9. Consecutive Shift Constraint with Break Handling
+    k = max_consecutive + 1  # Window size
+    
+    for v_id in volunteers:
+        for seq_idx, sequence in enumerate(working_sequences):
+            if len(sequence) < k:
+                continue
+            
+            for i in range(len(sequence) - k + 1):
+                window = sequence[i : i + k]
+                window_vars = []
+                
+                for slot in window:
+                    window_vars.extend([x[idx] for idx in vol_slot_indices[(v_id, slot)]])
+                
+                if len(window_vars) > max_consecutive:
+                    model.addCons(quicksum(window_vars) <= max_consecutive, 
+                                name=f"MaxConsec_{v_id}_seq{seq_idx}_pos{i}")
+
+    return model, x
+
+In the above code fragment, let me analyze the decisions I took. First: the objective function is a mixture of quite a few components:
+
+1. Maximize total assignments
+2. Maximize number of volunteers used
+3. Minimize overwork
+
+Objective number one gives a premium to the total number of shifts assigned, the more the better.
+
+Objective number two corresponds to a premium to each single scheduled volunteer, independently of the number of assigned shifts. We try to use as many volunteers as possible. This might suggest, in some cases, too much personnel during some shifts. If this were the case, a simple upper bound on the number of assigned volunteers to each shift might easily be added.
+
+Objective three: overwork. In contrast with objective number one, we prefer not to exaggerate in assigning shifts to volunteers. So in this case a penalty is added depending on the number of shifts assigned to each volunteer. This penalty increases exponentially with the number of assigned shifts.
+
+Many other versions of this objective function might be easily implemented: this is just an example in which we try to reward the employment of all volunteers, yet we would like to avoid overload. It’s easy to think to more personalized situation in which each volunteer has both a list of availabilities as well as a maximum number of assignable shifts.
+
+The main variables in the model are:
+
+x[v, k, s], a binary variable with value 1 if and only if volunteer v is is assigned to shift k with required skill s.
+u[v], another binary variable, with value 1 if and only if volunteer v is assigned to at lest one shift during the considered time period
+w, another binary variable, more technical than the two above (it is an auxiliary variable used to model the exponentially increasing weight assigned to overwork). We skip its detailed description here, but for those interested and somewhat expert, reading the code will make its definition clear enough.
+
+There are, of course, a number of constraints meant to force the optimizer to choose solutions meeting our expectations.
+
+a first constraint forces the model (the x variables, in particular) to be chosen so that for every shift and every skill, enough volunteers are assigned. Currently, this is a hard constraint (i.e., it must be satisfied). It would be easy to transform it in a soft constraint, in which case small violations of the minimum staff level required are allowed, although discouraged.
+a second constraint forbids the same volunteer to be assigned more than one shift in a specific time slot but, possibly, to cover different skills.
+another group of constraints is used to define the u variable. It is called “logical constraint” and is used to force, for a volunteer v, u[v] to be 1 when at least one of the x[v,k,s] variables is 1.
+another constraint limits the number of consecutive shifts assigned to the same volunteer. As an example, we do not wish to assign the same volunteer, say, more than 3 consecutive days of work. In other words, there must be a break which splits long sequences of assigned shifts.
+other constraint are more technical, like the one used to define the linking constraint used to penalize too heavy assignments
+
+With our randomly generated sample dataset, with 100 volunteers and 30 days of planning, we ran our pySCIPopt code and got, in a negligible amount of time, a pretty good schedule:
+
+=============================================================================================================
+1. OVERVIEW & WORKLOAD BALANCE
+==============================================================================================================
+
+📊 COVERAGE:
+  Total Demand (staff-shifts needed): 827
+  Total Assigned (staff-shifts filled): 1283
+  Overall Fill Rate: 155.1%
+  Volunteers Used: 100 out of 100
+
+⚖️  WORKLOAD BALANCE (Active Volunteers):
+  Average shifts per volunteer: 12.8
+  Standard deviation: 4.18
+  Range: 5 to 20 shifts (spread: 15)
+  Coefficient of Variation: 32.6% (lower = more balanced)
+  Balance Quality: Fair - some imbalance
+
+==============================================================================================================
+2. SCHEDULE BY SHIFT (All Shifts with Assignments)
+==============================================================================================================
+
+Day01_AM
+--------------------------------------------------------------------------------------------------------------
+     Packaging: [ 9/ 4]               ✓ | Vol_04, Vol_13, Vol_27, Vol_34, Vol_50, Vol_63, Vol_73, Vol_87, Vol_91
+     Receiving: [ 9/ 6]               ✓ | Vol_14, Vol_20, Vol_25, Vol_35, Vol_58, Vol_72, Vol_85, Vol_86, Vol_89
+     Warehouse: [ 6/ 5]               ✓ | Vol_05, Vol_32, Vol_75, Vol_80, Vol_94, Vol_95
+
+...
+Day30_PM
+--------------------------------------------------------------------------------------------------------------
+     Packaging: [13/ 6]               ✓ | Vol_04, Vol_06, Vol_16, Vol_26, Vol_27, Vol_39, Vol_44, Vol_53, Vol_62, Vol_65, Vol_84, Vol_87, Vol_
+92
+     Receiving: [ 5/ 5]               ✓ | Vol_25, Vol_29, Vol_35, Vol_52, Vol_71
+     Warehouse: [ 7/ 7]               ✓ | Vol_05, Vol_11, Vol_37, Vol_68, Vol_75, Vol_82, Vol_98
+
+...
+
+==============================================================================================================
+3. SCHEDULE BY VOLUNTEER (Individual Assignments)
+==============================================================================================================
+
+Vol_01 - Skills: [Packaging] - Assigned: 16/17 shifts
+--------------------------------------------------------------------------------------------------------------
+  Day01_PM (Packaging)                 Day04_AM (Packaging)                 Day04_PM (Packaging)               
+  Day05_AM (Packaging)                 Day06_AM (Packaging)                 Day09_AM (Packaging)               
+  Day11_AM (Packaging)                 Day12_AM (Packaging)                 Day13_AM (Packaging)               
+  Day17_PM (Packaging)                 Day18_PM (Packaging)                 Day19_PM (Packaging)               
+  Day22_PM (Packaging)                 Day23_AM (Packaging)                 Day24_AM (Packaging)               
+  Day24_PM (Packaging)               
+...
+==============================================================================================================
+4. VOLUNTEER WORKLOAD SUMMARY & DISTRIBUTION
+==============================================================================================================
+
+📊 DISTRIBUTION:
+Category                  Count Sample Volunteers
+--------------------------------------------------------------------------------------------------------------
+Unused (0 shifts)             0 []
+Underutilized (<5)            0 []
+Light (5-9)                  27 ['Vol_02', 'Vol_08', 'Vol_10', 'Vol_12', 'Vol_13']
+Medium (10-14)               33 ['Vol_06', 'Vol_07', 'Vol_17', 'Vol_19', 'Vol_20']
+Heavy (15-20)                40 ['Vol_01', 'Vol_03', 'Vol_04', 'Vol_05', 'Vol_09']
+
+📈 HISTOGRAM (Shifts per Volunteer):
+   4- 5 shifts: ███████ (3)
+   6- 7 shifts: ██████████████████████ (9)
+   8- 9 shifts: █████████████████████████████████████ (15)
+  10-11 shifts: ███████████████████████████████████ (14)
+  12-13 shifts: ██████████████████████ (9)
+  14-15 shifts: ██████████████████████████████████████████████████ (20)
+  16-17 shifts: ███████████████████████████████████ (14)
+  18-19 shifts: ██████████████████████████████ (12)
+  20-21 shifts: ██████████ (4)
+
+
+--------------------------------------------------------------------------------------------------------------
+Volunteer ID    | Assigned   | Available  | Utilization  | Status         
+--------------------------------------------------------------------------------------------------------------
+Vol_01          |         16 |         17 |       94.1% | Heavy Load     
+Vol_02          |          7 |          7 |      100.0% | Fully Booked   
+Vol_03          |         15 |         15 |      100.0% | Heavy Load     
+Vol_04          |         19 |         20 |       95.0% | Heavy Load     
+Vol_05          |         15 |         16 |       93.8% | Heavy Load     
+Vol_06          |         10 |         10 |      100.0% | Fully Booked   
+Vol_07          |         13 |         13 |      100.0% | Fully Booked   
+Vol_08          |          6 |          6 |      100.0% | Fully Booked   
+Vol_09          |         18 |         19 |       94.7% | Heavy Load     
+Vol_10          |          7 |          7 |      100.0% | Fully Booked
+...
+==============================================================================================================
+5. COVERAGE ANALYSIS BY ROLE
+==============================================================================================================
+
+Role            |   Required |     Filled |   Shortage |    Fill Rate
+--------------------------------------------------------------------------------------------------------------
+Packaging       |        274 |        559 |          0 |      204.0%
+Receiving       |        280 |        365 |          0 |      130.4%
+Warehouse       |        273 |        359 |          0 |      131.5%
+
+As it can be seen, shifts are in general over-covered. We already described a way to avoid this by imposing either limits on the number of assigned volunteers for each slot and/or by adding an upper limit on the number of slots which can be assigned to each single volunteer. Another possibility would be that of penalizing over staffing. By working on these other objectives, it is easily possible to obtain a perfect coverage, with no excess:
+
+📊 DISTRIBUTION:
+Category                  Count Sample Volunteers
+--------------------------------------------------------------------------------------------------------------
+Unused (0 shifts)             0 []
+Underutilized (<5)           24 ['Vol_58', 'Vol_61', 'Vol_67', 'Vol_74', 'Vol_75']
+Light (5-9)                  36 ['Vol_02', 'Vol_08', 'Vol_10', 'Vol_12', 'Vol_13']
+Medium (10-14)               25 ['Vol_03', 'Vol_06', 'Vol_07', 'Vol_17', 'Vol_19']
+Heavy (15-20)                15 ['Vol_01', 'Vol_04', 'Vol_05', 'Vol_09', 'Vol_11']
+
+📈 HISTOGRAM (Shifts per Volunteer):
+   0- 1 shifts: ██████████████ (5)
+   2- 3 shifts: ██████████████████████████████████████████████████ (17)
+   4- 5 shifts: ██████████████████████████████████████ (13)
+   6- 7 shifts: ██████████████████████████████████████████████████ (17)
+   8- 9 shifts: ███████████████████████ (8)
+  10-11 shifts: ███████████████████████████████████████████████ (16)
+  12-13 shifts: ███████████ (4)
+  14-15 shifts: ██████████████████████████ (9)
+  16-17 shifts: ██████████████ (5)
+  18-19 shifts: ███████████ (4)
+  20-21 shifts: █████ (2)
+
+==============================================================================================================
+5. COVERAGE ANALYSIS BY ROLE
+==============================================================================================================
+
+Role            |   Required |     Filled |   Shortage |    Fill Rate
+--------------------------------------------------------------------------------------------------------------
+Packaging       |        274 |        274 |          0 |      100.0%
+Receiving       |        280 |        280 |          0 |      100.0%
+Warehouse       |        273 |        273 |          0 |      100.0%
+
+
+
+And, of course, different intermediate schedules can be obtained by slightly varying the relative importance of the objective function components.
+But, as this was just a pedagogical example, we do not wish nor need to show here these easy modifications. The main aim of this story was to draw the attention of readers to the significantly different situation of volunteer scheduling, a problem which, in the scientific literature and in the applications of optimization modeling, received much lower attention than deserved.
+
+My opinion is that offering support to NGO’s and volunteer-based organizations is both rewarding (in terms of personal satisfaction) as well as scientifically challenging. Shifting our attention from profit-based to optimization for good is worthwhile, believe me. And it’s never too late! Indeed, I am a retired professor, and when, a few years ago, I wrote my Optimization Modeling book, I did not think to these wonderful possibilities! By the way: I am quite close to adding python (SCIP) codes for all the models in my book. When ready, I will add this and other optimization for good examples, with all generated datasets, to the book’s github repository. Stay tuned!
+
+Optimization
+Operations Research
+Scheduling
+Humanitarian
+Logistics
+Published in Operations Research Bit
+430 followers
+·
+Last published 5 days ago
+
+Insights and applications of OR for the everyday reader. We publish articles on how to solve problems, improve decision-making, case studies, interviews, and tutorials. Accepting writers. ORB is a commercial subsidiary of Global Institute for Optimization TM 24'
+
+Written by Fabio Schoen
+11 followers
+·
+6 following
+
+Emeritus Professor of Operations Research (Univ of Florence) Adjunct professor of Linear Algebra (NYU) Co-founder of intuendi.com a demand planning company.
+
+No responses yet
+Mohankumar M
+
+What are your thoughts?
+﻿
+
+
+Cancel
+Respond
+More from Fabio Schoen and Operations Research Bit
+
+Fabio Schoen
+
+How We Reduced Shipping Containers by 33% Using Smart Mathematical Optimization
+Why your packing strategy might be costing you thousands in unnecessary shipping fees
+Nov 13, 2025
+1
+
+In
+
+Operations Research Bit
+
+by
+
+Stephanie Kirmer
+
+The New Experience of Coding with AI
+The seduction of AI code assistants
+5d ago
+166
+6
+
+In
+
+Operations Research Bit
+
+by
+
+HIYA CHATTERJEE
+
+Mathematical Modeling in Hedge Funds: The Hidden Engine Behind Alpha
+When people think of hedge funds, they often imagine fast trades, proprietary information, or aggressive risk-taking. In reality, the most…
+Jan 21
+103
+4
+
+Fabio Schoen
+
+How to pair workers and shifts in a win-win combination.
+Jan 17
+1
+See all from Fabio Schoen
+See all from Operations Research Bit
+Recommended from Medium
+
+In
+
+Towards AI
+
+by
+
+Dr. Carmen Adriana Martínez Barbosa
+
+TimeCopilot: Automatic time series analysis & pipeline.
+How to analyse and make forecasts of your time series data with just one prompt.
+5d ago
+103
+2
+
+In
+
+Level Up Coding
+
+by
+
+Thomas Reid
+
+A beginner's guide to Tmux: a multitasking superpower for your terminal
+How to install it and create sessions, windows and panes
+4d ago
+234
+
+In
+
+AI Advances
+
+by
+
+Mandar Karhade, MD. PhD.
+
+Autoresearch: A Code-Level Deep Dive into Karpathy’s Autonomous ML Research Agent
+What happens when you let an AI agent run unsupervised ML experiments while you sleep?
+6d ago
+296
+2
+
+Anshu Singhal
+
+The 10x Performance Breakthrough: Unpacking Microsoft’s Decision to Port TypeScript to Go ✨
+Ever had that moment when your code editor felt like it was dragging its feet, just chilling while you waited for TypeScript to finally…
+Mar 12
+
+In
+
+Data Science Collective
+
+by
+
+Saurav Singh
+
+The Three Systems Every Data Engineer Is Actually Building
+And why is confusing them costing you more than pipeline downtime?
+Mar 8
+67
+
+Dinah W
+
+This article caused markets to sell-off. And that should worry you
+but at least there are a few hiding spots
+Mar 6
+22
+See more recommendations
