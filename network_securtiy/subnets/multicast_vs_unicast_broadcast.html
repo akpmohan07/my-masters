@@ -1,0 +1,250 @@
+
+<style>
+* { box-sizing: border-box; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+.btn { padding: 7px 16px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-secondary); color: var(--color-text-secondary); cursor: pointer; font-size: 13px; font-weight: 500; transition: all .15s; }
+.btn:hover { background: var(--color-background-tertiary); }
+.btn.active { border-color: var(--color-border-info); background: var(--color-background-info); color: var(--color-text-info); }
+.desc-box { font-size: 13px; color: var(--color-text-secondary); padding: 10px 14px; background: var(--color-background-secondary); border-radius: 8px; margin-bottom: 1rem; line-height: 1.6; min-height: 52px; }
+.desc-box strong { color: var(--color-text-primary); }
+canvas { width: 100%; display: block; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--color-text-secondary); margin-top: 8px; }
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+</style>
+
+<div class="btn-row">
+  <button class="btn active" id="btn-unicast" onclick="setMode('unicast')">Unicast</button>
+  <button class="btn" id="btn-broadcast" onclick="setMode('broadcast')">Broadcast</button>
+  <button class="btn" id="btn-multicast" onclick="setMode('multicast')">Multicast</button>
+  <button class="btn" id="btn-ospf" onclick="setMode('ospf')">OSPF multicast (224.0.0.5)</button>
+</div>
+
+<div class="desc-box" id="desc"></div>
+
+<canvas id="c" height="320"></canvas>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#378ADD"></div>Unicast host</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#1D9E75"></div>Multicast subscriber</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#888780"></div>Non-subscriber</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#D85A30"></div>Router / sender</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#BA7517"></div>OSPF-enabled router</div>
+</div>
+
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const W = 640, H = 300;
+canvas.width = W; canvas.height = H;
+
+const descriptions = {
+  unicast: '<strong>Unicast:</strong> One sender, one receiver. The source sends a <em>separate copy</em> of the packet to each destination. If 5 hosts need the same data, 5 packets go out — inefficient at scale.',
+  broadcast: '<strong>Broadcast (255.255.255.255):</strong> One sender, <em>all</em> hosts receive it — whether they want it or not. Every host must process the packet. Routers block it at subnet boundaries.',
+  multicast: '<strong>Multicast (224.0.0.0–239.255.255.255):</strong> One sender, <em>subscribed hosts only</em> receive it. A single packet is sent; only group members process it. Others silently ignore it.',
+  ospf: '<strong>OSPF multicast (224.0.0.5):</strong> Routers running OSPF subscribe to 224.0.0.5. Only OSPF-enabled devices process these packets. Regular hosts and non-OSPF routers ignore them completely.',
+};
+
+let mode = 'unicast';
+let packets = [];
+let animId = null;
+let tick = 0;
+
+const SENDER = { x: 60, y: 150, label: 'Sender', color: '#D85A30' };
+
+const HOSTS = [
+  { x: 480, y: 60,  label: 'Host A', sub: true,  ospf: false },
+  { x: 560, y: 120, label: 'Host B', sub: false, ospf: false },
+  { x: 560, y: 180, label: 'Host C', sub: true,  ospf: false },
+  { x: 480, y: 240, label: 'Host D', sub: false, ospf: false },
+  { x: 390, y: 80,  label: 'Router 1', sub: false, ospf: true  },
+  { x: 390, y: 220, label: 'Router 2', sub: false, ospf: true  },
+];
+
+function hostColor(h) {
+  if (mode === 'ospf') return h.ospf ? '#BA7517' : '#888780';
+  if (mode === 'multicast') return h.sub ? '#1D9E75' : '#888780';
+  if (mode === 'broadcast') return '#378ADD';
+  return '#378ADD';
+}
+
+function isTarget(h) {
+  if (mode === 'unicast') return h === HOSTS[0];
+  if (mode === 'broadcast') return true;
+  if (mode === 'multicast') return h.sub;
+  if (mode === 'ospf') return h.ospf;
+  return false;
+}
+
+function packetColor() {
+  if (mode === 'unicast') return '#378ADD';
+  if (mode === 'broadcast') return '#E24B4A';
+  if (mode === 'multicast') return '#1D9E75';
+  if (mode === 'ospf') return '#BA7517';
+}
+
+function spawnPackets() {
+  packets = [];
+  const targets = mode === 'unicast' ? [HOSTS[0]] : HOSTS.filter(h => isTarget(h));
+  if (mode === 'unicast') {
+    targets.forEach(h => {
+      packets.push({ x: SENDER.x + 20, y: SENDER.y, tx: h.x - 18, ty: h.y, t: 0, hit: false, target: h });
+    });
+  } else {
+    const midX = 250;
+    const midY = SENDER.y;
+    packets.push({ x: SENDER.x + 20, y: SENDER.y, tx: midX, ty: midY, t: 0, phase: 'toMid', branches: targets });
+  }
+}
+
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + m).classList.add('active');
+  document.getElementById('desc').innerHTML = descriptions[m];
+  packets = [];
+  tick = 0;
+  if (animId) cancelAnimationFrame(animId);
+  loop();
+}
+
+function drawNode(x, y, label, color, highlight) {
+  ctx.beginPath();
+  ctx.arc(x, y, 18, 0, Math.PI * 2);
+  ctx.fillStyle = color + '33';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(x, y, 18, 0, Math.PI * 2);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = highlight ? 2.5 : 1.5;
+  ctx.stroke();
+  if (highlight) {
+    ctx.beginPath();
+    ctx.arc(x, y, 22, 0, Math.PI * 2);
+    ctx.strokeStyle = color + '55';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+  }
+  ctx.fillStyle = color;
+  ctx.font = '500 11px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(label, x, y + 32);
+  ctx.font = '10px sans-serif';
+}
+
+function drawPacket(x, y, color) {
+  ctx.beginPath();
+  ctx.arc(x, y, 7, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(x, y, 7, 0, Math.PI * 2);
+  ctx.strokeStyle = '#fff';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+}
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+let hitHighlights = {};
+
+function loop() {
+  ctx.clearRect(0, 0, W, H);
+
+  const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+  const textCol = isDark ? '#c2c0b6' : '#3d3d3a';
+  const lineCol = isDark ? '#444441' : '#D3D1C7';
+
+  // Draw lines sender -> hosts (faint)
+  HOSTS.forEach(h => {
+    ctx.beginPath();
+    ctx.moveTo(SENDER.x + 20, SENDER.y);
+    ctx.lineTo(h.x - 18, h.y);
+    ctx.strokeStyle = lineCol;
+    ctx.lineWidth = 0.5;
+    ctx.setLineDash([4, 4]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  });
+
+  // Multicast label on packet
+  let destLabel = '';
+  if (mode === 'unicast') destLabel = 'Dst: 192.168.1.10';
+  if (mode === 'broadcast') destLabel = 'Dst: 255.255.255.255';
+  if (mode === 'multicast') destLabel = 'Dst: 239.1.1.1';
+  if (mode === 'ospf') destLabel = 'Dst: 224.0.0.5';
+
+  ctx.fillStyle = textCol;
+  ctx.font = '11px monospace';
+  ctx.textAlign = 'left';
+  ctx.fillText(destLabel, SENDER.x + 30, SENDER.y - 28);
+
+  // Sender
+  drawNode(SENDER.x, SENDER.y, SENDER.label, '#D85A30', false);
+
+  // Hosts
+  HOSTS.forEach(h => {
+    const hl = hitHighlights[h.label] || 0;
+    drawNode(h.x, h.y, h.label, hostColor(h), hl > 0);
+    if (hl > 0) hitHighlights[h.label] = hl - 1;
+  });
+
+  // Subscription badges
+  if (mode === 'multicast' || mode === 'ospf') {
+    HOSTS.forEach(h => {
+      const target = mode === 'ospf' ? h.ospf : h.sub;
+      ctx.font = '10px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = target ? (mode === 'ospf' ? '#BA7517' : '#1D9E75') : '#888780';
+      ctx.fillText(target ? (mode === 'ospf' ? 'OSPF' : 'subscribed') : 'not subscribed', h.x, h.y + 44);
+    });
+  }
+
+  // Animate packets
+  tick++;
+  if (tick % 90 === 0) spawnPackets();
+
+  const speed = 0.025;
+  packets.forEach((p, i) => {
+    if (mode === 'unicast') {
+      p.t = Math.min(p.t + speed, 1);
+      const px = lerp(p.x, p.tx, p.t);
+      const py = lerp(p.y, p.ty, p.t);
+      drawPacket(px, py, packetColor());
+      if (p.t >= 1 && !p.hit) {
+        p.hit = true;
+        hitHighlights[p.target.label] = 30;
+      }
+    } else {
+      if (p.phase === 'toMid') {
+        p.t = Math.min(p.t + speed, 1);
+        const px = lerp(SENDER.x + 20, 250, p.t);
+        const py = lerp(SENDER.y, SENDER.y, p.t);
+        drawPacket(px, py, packetColor());
+        if (p.t >= 1) {
+          p.phase = 'branch';
+          p.branches.forEach(h => {
+            packets.push({ x: 250, y: SENDER.y, tx: h.x - 18, ty: h.y, t: 0, phase: 'leaf', hit: false, target: h });
+          });
+          packets.splice(i, 1);
+        }
+      } else if (p.phase === 'leaf') {
+        p.t = Math.min(p.t + speed * 1.3, 1);
+        const px = lerp(p.x, p.tx, p.t);
+        const py = lerp(p.y, p.ty, p.t);
+        drawPacket(px, py, packetColor());
+        if (p.t >= 1 && !p.hit) {
+          p.hit = true;
+          if (isTarget(p.target)) hitHighlights[p.target.label] = 30;
+        }
+      }
+    }
+  });
+  packets = packets.filter(p => p.t < 1 || !p.hit || (p.phase === 'leaf' && !p.hit));
+
+  animId = requestAnimationFrame(loop);
+}
+
+document.getElementById('desc').innerHTML = descriptions['unicast'];
+loop();
+</script>

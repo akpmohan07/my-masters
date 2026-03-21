@@ -1,0 +1,330 @@
+
+<style>
+* { box-sizing: border-box; }
+.stepper { font-family: var(--font-sans); }
+.steps-nav { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1rem; align-items: center; }
+.step-dot { width: 28px; height: 28px; border-radius: 50%; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-secondary); color: var(--color-text-tertiary); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; cursor: pointer; transition: all .2s; flex-shrink: 0; }
+.step-dot.active { background: var(--color-background-info); color: var(--color-text-info); border-color: var(--color-border-info); }
+.step-dot.done { background: var(--color-background-success); color: var(--color-text-success); border-color: var(--color-border-success); }
+.step-line { flex: 1; height: 1px; background: var(--color-border-tertiary); min-width: 10px; }
+.panel { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+.panel-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.panel-sub { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 1rem; }
+.nav-btns { display: flex; gap: 8px; margin-top: 0.5rem; }
+.nav-btn { padding: 7px 20px; border-radius: 8px; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-secondary); color: var(--color-text-primary); cursor: pointer; font-size: 13px; font-weight: 500; }
+.nav-btn:hover { background: var(--color-background-tertiary); }
+.nav-btn.primary { background: var(--color-background-info); color: var(--color-text-info); border-color: var(--color-border-info); }
+.msg-box { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 8px; margin: 6px 0; font-size: 13px; }
+.msg-box.send { background: #E6F1FB; border: 0.5px solid #B5D4F4; }
+.msg-box.recv { background: #EAF3DE; border: 0.5px solid #C0DD97; }
+.msg-box.info { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); }
+.msg-box.warn { background: #FAEEDA; border: 0.5px solid #FAC775; }
+.msg-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 3px; }
+.msg-label.blue { color: #185FA5; }
+.msg-label.green { color: #3B6D11; }
+.msg-label.amber { color: #854F0B; }
+.msg-label.gray { color: #5F5E5A; }
+.packet { display: inline-flex; align-items: center; gap: 6px; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: 6px; padding: 4px 10px; font-family: var(--font-mono); font-size: 12px; color: var(--color-text-primary); margin: 4px 2px; }
+.packet.blue { background: #E6F1FB; border-color: #B5D4F4; color: #185FA5; }
+.packet.green { background: #EAF3DE; border-color: #C0DD97; color: #3B6D11; }
+.packet.amber { background: #FAEEDA; border-color: #FAC775; color: #854F0B; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.entity { text-align: center; padding: 10px; border-radius: 8px; font-size: 13px; }
+.entity-name { font-weight: 500; font-size: 14px; margin-bottom: 2px; }
+.table-sm { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+.table-sm th { font-weight: 500; color: var(--color-text-secondary); padding: 5px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); text-align: left; }
+.table-sm td { padding: 5px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); font-family: var(--font-mono); }
+.table-sm tr:last-child td { border-bottom: none; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
+.badge-blue { background: #E6F1FB; color: #185FA5; }
+.badge-green { background: #EAF3DE; color: #3B6D11; }
+.badge-red { background: #FCEBEB; color: #A32D2D; }
+.badge-amber { background: #FAEEDA; color: #854F0B; }
+canvas { width: 100%; display: block; border-radius: 8px; background: var(--color-background-secondary); }
+</style>
+
+<div class="stepper">
+  <div class="steps-nav" id="stepsNav"></div>
+
+  <div class="panel" id="stepPanel"></div>
+
+  <canvas id="anim" height="160"></canvas>
+
+  <div class="nav-btns" style="margin-top:0.75rem">
+    <button class="nav-btn" onclick="prevStep()">Back</button>
+    <button class="nav-btn primary" onclick="nextStep()">Next</button>
+    <button class="nav-btn" onclick="sendPrompt('Explain IGMP versions — what is the difference between IGMPv1, v2 and v3?')">IGMP versions ↗</button>
+  </div>
+</div>
+
+<script>
+const steps = [
+  {
+    title: "What is IGMP?",
+    sub: "IGMP (Internet Group Management Protocol) is the protocol hosts use to tell their local router which multicast groups they want to join. It operates at Layer 3 (Network layer), just like IP.",
+    msgs: [
+      { type: 'info', label: 'gray', text: 'IGMP runs between a <strong>host</strong> and its <strong>directly connected router</strong> — not end-to-end across the internet.' },
+      { type: 'info', label: 'gray', text: 'The router keeps a <strong>membership table</strong> — a list of which multicast groups have active subscribers on each interface.' },
+      { type: 'info', label: 'amber', label2: 'Key', text: 'Without IGMP, a router would have to flood multicast traffic out every port — wasteful. IGMP lets it be selective.' },
+    ],
+    anim: 'overview'
+  },
+  {
+    title: "Step 1 — Host sends IGMP Join (Membership Report)",
+    sub: "When an application on a host wants to receive multicast traffic (e.g. a video stream on 239.1.1.1), the host sends an IGMP Membership Report to the multicast group address.",
+    msgs: [
+      { type: 'send', label: 'blue', label2: 'Host → Router', text: 'IGMP Membership Report', packet: { text: 'Src: 192.168.1.5   Dst: 239.1.1.1   IGMP Type: 0x16 (Membership Report)', color: 'blue' } },
+      { type: 'info', label: 'gray', text: 'The destination of this IGMP packet is <strong>the multicast group address itself</strong> (239.1.1.1) — not the router\'s IP.' },
+      { type: 'info', label: 'gray', text: 'TTL is set to 1 — so the packet never leaves the local subnet. Only the directly connected router sees it.' },
+    ],
+    anim: 'join'
+  },
+  {
+    title: "Step 2 — Router records the membership",
+    sub: "The router receives the IGMP Membership Report and adds the host's interface to its multicast group membership table for group 239.1.1.1.",
+    msgs: [
+      { type: 'recv', label: 'green', label2: 'Router records', text: 'Interface eth0 → Group 239.1.1.1 → Active' },
+      { type: 'info', label: 'gray', text: 'The router now knows: "there is at least one host on interface eth0 that wants traffic for 239.1.1.1"' },
+      { type: 'info', label: 'gray', text: 'The router will now <strong>forward</strong> multicast packets for 239.1.1.1 out of that interface.' },
+    ],
+    anim: 'record',
+    table: [
+      ['Interface', 'Multicast Group', 'Status'],
+      ['eth0', '239.1.1.1', 'active'],
+      ['eth0', '224.0.0.5', 'active'],
+    ]
+  },
+  {
+    title: "Step 3 — Router sends periodic Membership Queries",
+    sub: "The router doesn't trust that hosts stay subscribed forever. Every ~60–125 seconds it sends an IGMP General Query to 224.0.0.1 (all-hosts group) asking: 'Is anyone still in this group?'",
+    msgs: [
+      { type: 'send', label: 'blue', label2: 'Router → All hosts', text: 'IGMP General Query', packet: { text: 'Src: router-IP   Dst: 224.0.0.1   IGMP Type: 0x11 (Query)', color: 'amber' } },
+      { type: 'info', label: 'gray', text: '<code>224.0.0.1</code> is the "all hosts" multicast address — every host on the LAN receives this.' },
+      { type: 'info', label: 'gray', text: 'Hosts that are still subscribed must reply with a Membership Report within a random delay (to avoid a reply storm).' },
+    ],
+    anim: 'query'
+  },
+  {
+    title: "Step 4 — Host renews or leaves",
+    sub: "If a host is still interested, it replies with another Membership Report. If not, it can send an IGMP Leave Group message (IGMPv2+).",
+    msgs: [
+      { type: 'send', label: 'blue', label2: 'Still subscribed', text: 'IGMP Membership Report (renewal)', packet: { text: 'Src: 192.168.1.5   Dst: 239.1.1.1   IGMP Type: 0x16', color: 'green' } },
+      { type: 'warn', label: 'amber', label2: 'Leaving the group', text: 'IGMP Leave Group', packet: { text: 'Src: 192.168.1.5   Dst: 224.0.0.2   IGMP Type: 0x17 (Leave)', color: 'amber' } },
+      { type: 'info', label: 'gray', text: 'If no host replies to a query, the router removes the group from its table and stops forwarding traffic for it on that interface.' },
+    ],
+    anim: 'leave'
+  },
+  {
+    title: "Full picture — IGMP lifecycle",
+    sub: "Here's the complete subscribe → receive → renew → leave cycle. This is how a host controls exactly which multicast streams it receives.",
+    msgs: [
+      { type: 'info', label: 'green', label2: 'Join', text: 'Host sends Membership Report → Router adds to table → Traffic flows' },
+      { type: 'info', label: 'amber', label2: 'Maintain', text: 'Router queries periodically → Host renews → Table stays active' },
+      { type: 'info', label: 'gray', label2: 'Leave', text: 'Host sends Leave → Router sends specific query → If no reply, removes group' },
+      { type: 'info', label: 'blue', label2: 'OSPF example', text: 'Router boots with OSPF → auto-joins 224.0.0.5 → exchanges LSAs with other OSPF routers' },
+    ],
+    anim: 'full'
+  }
+];
+
+let current = 0;
+
+function renderNav() {
+  const nav = document.getElementById('stepsNav');
+  nav.innerHTML = '';
+  steps.forEach((s, i) => {
+    if (i > 0) { const l = document.createElement('div'); l.className = 'step-line'; nav.appendChild(l); }
+    const d = document.createElement('div');
+    d.className = 'step-dot' + (i === current ? ' active' : i < current ? ' done' : '');
+    d.textContent = i + 1;
+    d.onclick = () => { current = i; render(); };
+    nav.appendChild(d);
+  });
+}
+
+function renderPanel() {
+  const s = steps[current];
+  let html = `<div class="panel-title">${s.title}</div><div class="panel-sub">${s.sub}</div>`;
+  s.msgs.forEach(m => {
+    html += `<div class="msg-box ${m.type}">`;
+    html += `<div style="flex:1"><div class="msg-label ${m.label || 'gray'}">${m.label2 || ''}</div><div style="color:var(--color-text-primary);font-size:13px;line-height:1.6">${m.text}</div>`;
+    if (m.packet) html += `<div class="packet ${m.packet.color}" style="margin-top:6px;font-size:11px">${m.packet.text}</div>`;
+    html += `</div></div>`;
+  });
+  if (s.table) {
+    html += `<table class="table-sm"><tr>${s.table[0].map(h=>`<th>${h}</th>`).join('')}</tr>`;
+    for (let i = 1; i < s.table.length; i++) {
+      html += `<tr>${s.table[i].map((c,ci) => `<td>${ci===2?`<span class="badge badge-green">${c}</span>`:c}</td>`).join('')}</tr>`;
+    }
+    html += `</table>`;
+  }
+  document.getElementById('stepPanel').innerHTML = html;
+}
+
+// Canvas animation
+const cv = document.getElementById('anim');
+const cx = cv.getContext('2d');
+const CW = 640, CH = 160;
+cv.width = CW; cv.height = CH;
+let animTick = 0;
+let animFrame = null;
+
+const HOST_X = 100, HOST_Y = 80;
+const ROUTER_X = 380, ROUTER_Y = 80;
+const SERVER_X = 540, SERVER_Y = 80;
+
+function drawEntity(x, y, label, sublabel, color) {
+  const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+  cx.beginPath();
+  cx.arc(x, y, 22, 0, Math.PI*2);
+  cx.fillStyle = color + '33';
+  cx.fill();
+  cx.beginPath();
+  cx.arc(x, y, 22, 0, Math.PI*2);
+  cx.strokeStyle = color;
+  cx.lineWidth = 1.5;
+  cx.stroke();
+  cx.fillStyle = color;
+  cx.font = '500 12px sans-serif';
+  cx.textAlign = 'center';
+  cx.fillText(label, x, y + 4);
+  cx.font = '10px sans-serif';
+  const isDarkMode = matchMedia('(prefers-color-scheme: dark)').matches;
+  cx.fillStyle = isDarkMode ? '#9c9a92' : '#73726c';
+  cx.fillText(sublabel, x, y + 38);
+}
+
+function drawArrow(x1, y1, x2, y2, color, label, dashed) {
+  cx.beginPath();
+  if (dashed) cx.setLineDash([5,4]); else cx.setLineDash([]);
+  cx.moveTo(x1, y1);
+  cx.lineTo(x2, y2);
+  cx.strokeStyle = color;
+  cx.lineWidth = 1.5;
+  cx.stroke();
+  cx.setLineDash([]);
+  const angle = Math.atan2(y2-y1, x2-x1);
+  cx.beginPath();
+  cx.moveTo(x2, y2);
+  cx.lineTo(x2 - 10*Math.cos(angle-0.4), y2 - 10*Math.sin(angle-0.4));
+  cx.lineTo(x2 - 10*Math.cos(angle+0.4), y2 - 10*Math.sin(angle+0.4));
+  cx.closePath();
+  cx.fillStyle = color;
+  cx.fill();
+  if (label) {
+    const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+    cx.fillStyle = isDark ? '#c2c0b6' : '#3d3d3a';
+    cx.font = '10px monospace';
+    cx.textAlign = 'center';
+    const mx = (x1+x2)/2, my = (y1+y2)/2 - 10;
+    cx.fillText(label, mx, my);
+  }
+}
+
+function movingDot(t, x1, y1, x2, y2, color) {
+  const px = x1 + (x2-x1)*t, py = y1 + (y2-y1)*t;
+  cx.beginPath();
+  cx.arc(px, py, 7, 0, Math.PI*2);
+  cx.fillStyle = color;
+  cx.fill();
+  cx.beginPath();
+  cx.arc(px, py, 7, 0, Math.PI*2);
+  cx.strokeStyle = '#fff';
+  cx.lineWidth = 1.5;
+  cx.stroke();
+}
+
+const BLUE = '#378ADD', GREEN = '#1D9E75', AMBER = '#BA7517', RED = '#E24B4A', GRAY = '#888780';
+
+function animFrame_fn() {
+  cx.clearRect(0, 0, CW, CH);
+  const t = (animTick % 120) / 120;
+  const t2 = (animTick % 180) / 180;
+  const anim = steps[current].anim;
+
+  if (anim === 'overview') {
+    drawEntity(HOST_X, HOST_Y, 'Host', '192.168.1.5', BLUE);
+    drawEntity(ROUTER_X, ROUTER_Y, 'Router', '192.168.1.1', RED);
+    drawEntity(SERVER_X, SERVER_Y, 'Server', 'multicast src', GREEN);
+    drawArrow(HOST_X+22, HOST_Y, ROUTER_X-22, ROUTER_Y, BLUE, 'IGMP', false);
+    drawArrow(SERVER_X-22, SERVER_Y, ROUTER_X+22, ROUTER_Y, GREEN, 'multicast', false);
+    movingDot(t, HOST_X+22, HOST_Y-5, ROUTER_X-22, ROUTER_Y-5, BLUE);
+    movingDot(t2, SERVER_X-22, SERVER_Y+5, ROUTER_X+22, SERVER_Y+5, GREEN);
+
+  } else if (anim === 'join') {
+    drawEntity(HOST_X, HOST_Y, 'Host', '192.168.1.5', BLUE);
+    drawEntity(ROUTER_X, ROUTER_Y, 'Router', '', RED);
+    drawArrow(HOST_X+22, HOST_Y, ROUTER_X-22, ROUTER_Y, BLUE, 'Membership Report → 239.1.1.1', false);
+    movingDot(t, HOST_X+22, HOST_Y, ROUTER_X-22, ROUTER_Y, BLUE);
+    const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+    cx.fillStyle = isDark ? '#c2c0b6' : '#3d3d3a';
+    cx.font = '11px monospace';
+    cx.textAlign = 'left';
+    cx.fillText('TTL = 1  (stays on local subnet)', HOST_X+30, CH-20);
+
+  } else if (anim === 'record') {
+    drawEntity(HOST_X, HOST_Y, 'Host', 'subscribed', GREEN);
+    drawEntity(ROUTER_X, ROUTER_Y, 'Router', 'table updated', RED);
+    drawEntity(SERVER_X, SERVER_Y, 'Server', 'sending 239.1.1.1', AMBER);
+    drawArrow(SERVER_X-22, SERVER_Y, ROUTER_X+22, ROUTER_Y, AMBER, '239.1.1.1', false);
+    drawArrow(ROUTER_X-22, ROUTER_Y, HOST_X+22, HOST_Y, GREEN, 'forwarded', false);
+    movingDot(t, SERVER_X-22, SERVER_Y, ROUTER_X+22, ROUTER_Y, AMBER);
+    if (t > 0.5) movingDot((t-0.5)*2, ROUTER_X-22, ROUTER_Y, HOST_X+22, HOST_Y, GREEN);
+
+  } else if (anim === 'query') {
+    drawEntity(HOST_X, HOST_Y, 'Host', '192.168.1.5', BLUE);
+    drawEntity(260, HOST_Y, 'Host B', '192.168.1.6', GRAY);
+    drawEntity(ROUTER_X, ROUTER_Y, 'Router', 'querying', RED);
+    drawArrow(ROUTER_X-22, ROUTER_Y, HOST_X+22, HOST_Y, AMBER, 'Query → 224.0.0.1', false);
+    drawArrow(ROUTER_X-22, ROUTER_Y+5, 282, HOST_Y+5, AMBER, '', true);
+    movingDot(t, ROUTER_X-22, ROUTER_Y, HOST_X+22, HOST_Y, AMBER);
+    movingDot(t, ROUTER_X-22, ROUTER_Y+8, 282, HOST_Y+8, AMBER);
+    if (t > 0.6) movingDot((t-0.6)*2.5, HOST_X+22, HOST_Y-5, ROUTER_X-22, ROUTER_Y-5, GREEN);
+
+  } else if (anim === 'leave') {
+    drawEntity(HOST_X, HOST_Y, 'Host', 'leaving', GRAY);
+    drawEntity(ROUTER_X, ROUTER_Y, 'Router', 'removing entry', RED);
+    drawArrow(HOST_X+22, HOST_Y, ROUTER_X-22, ROUTER_Y, AMBER, 'Leave → 224.0.0.2', false);
+    movingDot(t, HOST_X+22, HOST_Y, ROUTER_X-22, ROUTER_Y, AMBER);
+    const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+    cx.fillStyle = isDark ? '#9c9a92' : '#73726c';
+    cx.font = '11px sans-serif';
+    cx.textAlign = 'center';
+    cx.fillText('Router removes 239.1.1.1 from table — stops forwarding', CW/2, CH-15);
+
+  } else if (anim === 'full') {
+    const phase = Math.floor(animTick / 80) % 3;
+    const pt = (animTick % 80) / 80;
+    drawEntity(HOST_X, HOST_Y, 'Host', ['joining','active','leaving'][phase], [BLUE,GREEN,GRAY][phase]);
+    drawEntity(ROUTER_X, ROUTER_Y, 'Router', '', RED);
+    drawEntity(SERVER_X, SERVER_Y, 'Server', '239.1.1.1', AMBER);
+    if (phase === 0) {
+      drawArrow(HOST_X+22, HOST_Y, ROUTER_X-22, ROUTER_Y, BLUE, 'Join', false);
+      movingDot(pt, HOST_X+22, HOST_Y, ROUTER_X-22, ROUTER_Y, BLUE);
+    } else if (phase === 1) {
+      drawArrow(SERVER_X-22, SERVER_Y, ROUTER_X+22, ROUTER_Y, AMBER, 'multicast', false);
+      drawArrow(ROUTER_X-22, ROUTER_Y, HOST_X+22, HOST_Y, GREEN, 'forwarded', false);
+      movingDot(pt, SERVER_X-22, SERVER_Y, ROUTER_X+22, ROUTER_Y, AMBER);
+      if (pt > 0.5) movingDot((pt-0.5)*2, ROUTER_X-22, ROUTER_Y, HOST_X+22, HOST_Y, GREEN);
+    } else {
+      drawArrow(HOST_X+22, HOST_Y, ROUTER_X-22, ROUTER_Y, GRAY, 'Leave', false);
+      movingDot(pt, HOST_X+22, HOST_Y, ROUTER_X-22, ROUTER_Y, GRAY);
+    }
+  }
+
+  animTick++;
+  animFrame = requestAnimationFrame(animFrame_fn);
+}
+
+function render() {
+  renderNav();
+  renderPanel();
+  animTick = 0;
+}
+
+function nextStep() { if (current < steps.length-1) { current++; render(); } }
+function prevStep() { if (current > 0) { current--; render(); } }
+
+render();
+animFrame_fn();
+</script>
