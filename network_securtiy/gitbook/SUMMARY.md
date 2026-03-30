@@ -11,3 +11,5 @@
 * [Subnetting](subnetting/README.md)
   * [What I learbed ?](subnetting/what-i-learbed.md)
 * [VLAN](vlan.md)
+* [Week 10 — Securing Network Devices](week-10-securing-network-devices.md)
+* [Week 11 — Access Control Lists (ACLs)](week-11-access-control-lists-acls.md)
