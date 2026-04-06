@@ -1,8 +1,9 @@
-package dev.mohanverse.multiplier;
+package dev.mohanverse.multiplier.sequential;
 
 import dev.mohanverse.config.RunContext;
 import dev.mohanverse.config.enums.AlgorithmType;
 import dev.mohanverse.config.enums.ExecutionType;
+import dev.mohanverse.multiplier.MatrixMultiplier;
 
 public class SequentialMultiplier extends MatrixMultiplier {
 

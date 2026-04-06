@@ -1,11 +1,16 @@
-package dev.mohanverse;
+package dev.mohanverse.core;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
 public class MatrixMetrics {
     private  long executionTimeMillis;
     private  long startTimeMillis;
     private  long endTimeMillis;
+    @Setter
     private boolean verified;
+    @Setter
     private double speedup;
 
     public void startTimer() {

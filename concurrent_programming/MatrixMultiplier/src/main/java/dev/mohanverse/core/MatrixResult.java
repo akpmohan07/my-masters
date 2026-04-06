@@ -1,4 +1,4 @@
-package dev.mohanverse;
+package dev.mohanverse.core;
 
 import dev.mohanverse.config.RunContext;
 import lombok.Getter;
