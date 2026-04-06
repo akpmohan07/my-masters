@@ -52,6 +52,8 @@ public class MatrixBenchmark {
         RunContext runContext = new RunContext(matrixSize, coreConfig, new MatrixMetrics(), sequentialMultiplier.getAlgorithmType(), sequentialMultiplier.getExecutionType());
         log.info("Running benchmark with multiplier: {}", sequentialMultiplier.getClass().getSimpleName());
         MatrixResult matrixResult = sequentialMultiplier.multiply(A, B, runContext);
+        matrixResult.getRunContext().metrics().setVerified(true);
+        matrixResult.getRunContext().metrics().setSpeedup(1.0);
         results.add(matrixResult);
         return matrixResult;
     }
@@ -62,6 +64,7 @@ public class MatrixBenchmark {
             log.info("Running benchmark with multiplier: {}", multiplier.getClass().getSimpleName());
             MatrixResult matrixResult = multiplier.multiply(A, B, runContext);
             matrixResult.getRunContext().metrics().setVerified(MatrixUtils.verifyResult(matrixResult.getResultMatrix(), expectedResult));
+            matrixResult.getRunContext().metrics().setSpeedup(MatrixUtils.deriveSpeedUp(results, matrixResult));
             results.add(matrixResult);
         }
     }

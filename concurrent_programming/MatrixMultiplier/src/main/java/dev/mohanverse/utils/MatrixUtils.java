@@ -1,7 +1,11 @@
 package dev.mohanverse.utils;
 
 
+import dev.mohanverse.config.enums.ExecutionType;
+import dev.mohanverse.core.MatrixResult;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.List;
 
 @Slf4j
 public class MatrixUtils {
@@ -46,5 +50,19 @@ public class MatrixUtils {
             }
         }
         return true;
+    }
+
+    public static double calculateSpeedUp(double sequentialTime, double parallelTime) {
+        return sequentialTime / parallelTime;
+    }
+
+    public static double deriveSpeedUp(List<MatrixResult> results, MatrixResult matrixResult) {
+        MatrixResult sequentialResult = results.stream()
+                .filter(r -> r.getRunContext().executionType() == ExecutionType.SEQUENTIAL)
+                .filter(r -> r.getRunContext().matrixSize() == matrixResult.getRunContext().matrixSize())
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("No sequential result found for speedup calculation"));
+
+        return calculateSpeedUp(sequentialResult.getRunContext().metrics().getExecutionTimeMillis(), matrixResult.getRunContext().metrics().getExecutionTimeMillis());
     }
 }
