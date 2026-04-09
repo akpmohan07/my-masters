@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="ELEMENT" org.eventb.core.type="ℙ(ELEMENT)"/>
+        <org.eventb.core.poIdentifier name="maxsize" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poPredicate name="maxsizf" org.eventb.core.predicate="maxsize∈ℕ1" org.eventb.core.source="/Q4_Buffer/Buffer_ctx.buc|org.eventb.core.contextFile#Buffer_ctx|org.eventb.core.axiom#internal_axm1A"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="a" org.eventb.core.type="ℙ(ℤ×ELEMENT)"/>
+        <org.eventb.core.poIdentifier name="b" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="f" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="n" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="removed" org.eventb.core.type="ELEMENT"/>
+        <org.eventb.core.poIdentifier name="buffer" org.eventb.core.type="ℙ(ℤ×ELEMENT)"/>
+        <org.eventb.core.poIdentifier name="element" org.eventb.core.type="ELEMENT"/>
+        <org.eventb.core.poIdentifier name="front" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="back" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="buffer_empty" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="buffer_full" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="query" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poPredicate name="buffer_emptz" org.eventb.core.predicate="buffer⊆ℕ × ELEMENT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.invariant#internal_inv1I"/>
+        <org.eventb.core.poPredicate name="buffer_empt{" org.eventb.core.predicate="front∈ℕ" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.invariant#internal_inv2I"/>
+        <org.eventb.core.poPredicate name="buffer_empt|" org.eventb.core.predicate="back∈ℕ" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.invariant#internal_inv3I"/>
+        <org.eventb.core.poPredicate name="buffer_empt}" org.eventb.core.predicate="element∈ELEMENT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.invariant#internal_inv4I"/>
+        <org.eventb.core.poPredicate name="buffer_empt~" org.eventb.core.predicate="query∈BOOL" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.invariant#internal_inv5I"/>
+        <org.eventb.core.poPredicate name="buffer_empu'" org.eventb.core.predicate="dom(buffer)=front ‥ back − 1" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.invariant#internal_inv6I"/>
+        <org.eventb.core.poPredicate name="buffer_empu(" org.eventb.core.predicate="back≥front" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.invariant#internal_inv7I"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="inv10/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu."/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀i⦂ℤ·i∈dom(buffer)⇒buffer∈ℤ ⇸ ELEMENT∧0≤i∧0&lt;maxsize∧i mod maxsize+1∈dom(a)∧a∈ℤ ⇸ ELEMENT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#&gt;"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#&gt;"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu."/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_emptz">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="a'∈1 ‥ maxsize ⇸ ELEMENT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'|org.eventb.core.action#'"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a'∈1 ‥ maxsize ⇸ ELEMENT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#,"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt11"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#,"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu.|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_emptz"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0=0" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt11"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#INITIALISATION\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu.|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_emptz"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0=0" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#0"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt11"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#0"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#INITIALISATION\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu.|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_emptz"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈0 ‥ maxsize" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#="/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt11"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#="/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#INITIALISATION\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu.|org.eventb.core.poPredicate#PRD6"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_emptz">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="a'∈1 ‥ maxsize ⇸ ELEMENT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'|org.eventb.core.action#'"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀i⦂ℤ·i∈dom(∅ ⦂ ℙ(ℤ×ELEMENT))⇒(∅ ⦂ ℙ(ℤ×ELEMENT))(i)=a'(i mod maxsize+1)" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#&gt;"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt11"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#&gt;"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#INITIALISATION\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_emptz"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0=0 − 0" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#@"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt11"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#@"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#INITIALISATION\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD8"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/act1/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_emptz">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="element'∈ELEMENT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt11|org.eventb.core.action#internal_act4"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="1 ‥ maxsize ⇸ ELEMENT≠(∅ ⦂ ℙ(ℙ(ℤ×ELEMENT)))" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'|org.eventb.core.action#'"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'|org.eventb.core.action#'"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_emptz"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/act4/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_emptz">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="element'∈ELEMENT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt11|org.eventb.core.action#internal_act4"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="ELEMENT≠(∅ ⦂ ℙ(ELEMENT))" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'|org.eventb.core.action#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#'|org.eventb.core.action#*"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_emptz"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTbuffer_emptz" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="a'" org.eventb.core.type="ℙ(ℤ×ELEMENT)"/>
+        <org.eventb.core.poIdentifier name="n'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="element'" org.eventb.core.type="ELEMENT"/>
+        <org.eventb.core.poIdentifier name="buffer_full'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="f'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="b'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="buffer_empty'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="back'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="buffer'" org.eventb.core.type="ℙ(ℤ×ELEMENT)"/>
+        <org.eventb.core.poIdentifier name="query'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="removed'" org.eventb.core.type="ELEMENT"/>
+        <org.eventb.core.poIdentifier name="front'" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPbuffer_emptz" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTIDENTbuffer_emptz" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poSequent name="add/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="a{b mod maxsize+1 ↦ e}∈1 ‥ maxsize ⇸ ELEMENT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#,"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt12"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#1"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#,"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#add\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu.|org.eventb.core.poPredicate#PRD0"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="add/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="b+1=back+1" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#0"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt12"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#1"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#0"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#add\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu.|org.eventb.core.poPredicate#PRD2"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="add/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="n+1∈0 ‥ maxsize" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#="/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt12"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#1"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#="/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#add\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu.|org.eventb.core.poPredicate#PRD6"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="add/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀i⦂ℤ·i∈dom(buffer∪{back ↦ e})⇒(buffer∪{back ↦ e})(i)=(a{b mod maxsize+1 ↦ e})(i mod maxsize+1)" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#&gt;"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt12"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#1"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#&gt;"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#add\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="add/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="n+1=b+1 − f" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#@"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt12"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#1"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#@"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#add\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD8"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="add/grd2/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="back − front&lt;maxsize" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt12|org.eventb.core.guard#internal_grd2"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt12"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt12|org.eventb.core.guard#internal_grd2"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#1"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#add\/grd2\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="add/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt{"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≤b∧0&lt;maxsize" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#1|org.eventb.core.action#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#1|org.eventb.core.action#*"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt{"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTbuffer_empt{" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="a'" org.eventb.core.type="ℙ(ℤ×ELEMENT)"/>
+        <org.eventb.core.poIdentifier name="n'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="b'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="back'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="buffer'" org.eventb.core.type="ℙ(ℤ×ELEMENT)"/>
+        <org.eventb.core.poIdentifier name="e" org.eventb.core.type="ELEMENT"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPbuffer_empt{" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTIDENTbuffer_empt{" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="e∈ELEMENT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#1|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="b − f&lt;maxsize" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#1|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="remove/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt\|"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="f+1=front+1" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt13"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#3"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#remove\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu.|org.eventb.core.poPredicate#PRD1"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="remove/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt\|"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="n − 1∈0 ‥ maxsize" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#="/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt13"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#3"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#="/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#remove\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu.|org.eventb.core.poPredicate#PRD6"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="remove/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt\|"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀i⦂ℤ·i∈dom({front} ⩤ buffer)⇒({front} ⩤ buffer)(i)=a(i mod maxsize+1)" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#&gt;"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt13"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#3"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#&gt;"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#remove\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="remove/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt\|"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="n − 1=b − (f+1)" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#@"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt13"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#3"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#@"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#remove\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD8"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="remove/grd1/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt\|"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="back − front&gt;0" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt13|org.eventb.core.guard#internal_grd1"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt13"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt13|org.eventb.core.guard#internal_grd1"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#3"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#remove\/grd1\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="remove/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt\|">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="element'∈ran({front} ◁ buffer)" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt13|org.eventb.core.action#internal_act1"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≤f∧0&lt;maxsize∧f mod maxsize∈dom(a)∧a∈ℤ ⇸ ELEMENT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#3|org.eventb.core.action#+"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#3|org.eventb.core.action#+"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt\|"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="remove/act1/SIM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Action simulation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt\|"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="removed∈ran({front} ◁ buffer)" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt13|org.eventb.core.action#internal_act1"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt13"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt13|org.eventb.core.action#internal_act1"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#3"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#remove\/act1\/SIM|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTbuffer_empt|" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="n'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="element'" org.eventb.core.type="ELEMENT"/>
+        <org.eventb.core.poIdentifier name="f'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="buffer'" org.eventb.core.type="ℙ(ℤ×ELEMENT)"/>
+        <org.eventb.core.poIdentifier name="removed'" org.eventb.core.type="ELEMENT"/>
+        <org.eventb.core.poIdentifier name="front'" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPbuffer_empt|" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTIDENTbuffer_empt\|" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="b − f&gt;0" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#3|org.eventb.core.guard#("/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="f∈f ‥ b − 1" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#3|org.eventb.core.guard#)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="empty/act1/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt}">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="(front=back⇒query'=TRUE)∧(front≠back⇒query'=FALSE)" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt14|org.eventb.core.action#internal_act1"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∃buffer_empty'⦂BOOL·(f=b⇒buffer_empty'=TRUE)∧(f≠b⇒buffer_empty'=FALSE)" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#5|org.eventb.core.action#)"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#5|org.eventb.core.action#)"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt}"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="empty/act1/SIM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Action simulation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt}">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="(f=b⇒buffer_empty'=TRUE)∧(f≠b⇒buffer_empty'=FALSE)" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#5|org.eventb.core.action#)"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(front=back⇒buffer_empty'=TRUE)∧(front≠back⇒buffer_empty'=FALSE)" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt14|org.eventb.core.action#internal_act1"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt14"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt14|org.eventb.core.action#internal_act1"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#5"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#empty\/act1\/SIM|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTbuffer_empt}" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="buffer_empty'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="query'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPbuffer_empt}" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTIDENTbuffer_empt}" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poSequent name="full/act1/FIS" org.eventb.core.accurate="true" org.eventb.core.poDesc="Feasibility of action" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt~">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="(back − front=maxsize⇒query'=TRUE)∧(back − front≠maxsize⇒query'=FALSE)" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act1"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∃buffer_full'⦂BOOL·(b − f=maxsize⇒buffer_full'=TRUE)∧(b − f≠maxsize⇒buffer_full'=FALSE)" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#8|org.eventb.core.action#)"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#8|org.eventb.core.action#)"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt~"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="full/act1/SIM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Action simulation" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTALLHYPbuffer_empt~">
+            <org.eventb.core.poPredicate name="'" org.eventb.core.predicate="(b − f=maxsize⇒buffer_full'=TRUE)∧(b − f≠maxsize⇒buffer_full'=FALSE)" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#8|org.eventb.core.action#)"/>
+        </org.eventb.core.poPredicateSet>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(back − front=maxsize⇒buffer_full'=TRUE)∧(back − front≠maxsize⇒buffer_full'=FALSE)" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act1"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt15"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Q4_Buffer/Buffer.bum|org.eventb.core.machineFile#Buffer|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act1"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.event#8"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poSequent#full\/act1\/SIM|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTbuffer_empt~" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="buffer_full'" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.poIdentifier name="query'" org.eventb.core.type="BOOL"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPbuffer_empt~" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#EVTIDENTbuffer_empt~" org.eventb.core.poStamp="0"/>
+    <org.eventb.core.poPredicateSet name="HYPBuffer_cu." org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="a∈1 ‥ maxsize ⇸ ELEMENT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#,"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="f=front" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#-"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="b=back" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#0"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="removed∈ELEMENT" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#2"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="buffer_empty∈BOOL" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#7"/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="buffer_full∈BOOL" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#:"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="n∈0 ‥ maxsize" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#="/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Q4_Buffer/BufferR.bpo|org.eventb.core.poFile#BufferR|org.eventb.core.poPredicateSet#HYPBuffer_cu." org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="∀i⦂ℤ·i∈dom(buffer)⇒buffer(i)=a(i mod maxsize+1)" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#&gt;"/>
+        <org.eventb.core.poPredicate name="PRD8" org.eventb.core.predicate="n=b − f" org.eventb.core.source="/Q4_Buffer/BufferR.bum|org.eventb.core.machineFile#BufferR|org.eventb.core.invariant#@"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

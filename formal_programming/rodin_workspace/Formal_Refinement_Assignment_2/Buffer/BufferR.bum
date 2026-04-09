@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="a :∈ 1‥maxsize ⇸ ELEMENT" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="f ≔ 0" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="b ≔ 0" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="removed :∈ ELEMENT" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="buffer_empty ≔ TRUE" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="buffer_full ≔ FALSE" org.eventb.core.label="act6"/>
+        <org.eventb.core.witness name="-" org.eventb.core.label="element'" org.eventb.core.predicate="element' = removed'"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="n ≔ 0" org.eventb.core.label="act7"/>
+    </org.eventb.core.event>
+    <org.eventb.core.refinesMachine name="(" org.eventb.core.target="Buffer"/>
+    <org.eventb.core.seesContext name=")" org.eventb.core.target="Buffer_ctx"/>
+    <org.eventb.core.variable name="*" org.eventb.core.comment="// Circular array storing buffer elements" org.eventb.core.identifier="a"/>
+    <org.eventb.core.invariant name="," org.eventb.core.comment="// Array covers all positions 0 to maxsize-1" org.eventb.core.label="inv1" org.eventb.core.predicate="a  ∈ 1‥maxsize ⇸ ELEMENT"/>
+    <org.eventb.core.invariant name="-" org.eventb.core.comment="// f links to abstract front pointer" org.eventb.core.label="inv2" org.eventb.core.predicate="f = front"/>
+    <org.eventb.core.variable name="." org.eventb.core.comment="//Front pointer — index of next element to remove" org.eventb.core.identifier="f"/>
+    <org.eventb.core.variable name="/" org.eventb.core.comment="// Back pointer — index where next element will be added" org.eventb.core.identifier="b"/>
+    <org.eventb.core.invariant name="0" org.eventb.core.comment="// b links to abstract back pointer" org.eventb.core.label="inv3" org.eventb.core.predicate="b = back"/>
+    <org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="add">
+        <org.eventb.core.guard name="'" org.eventb.core.comment="// e is an element" org.eventb.core.label="grd1" org.eventb.core.predicate="e ∈ ELEMENT"/>
+        <org.eventb.core.guard name="(" org.eventb.core.comment="// Buffer should not be full" org.eventb.core.label="grd2" org.eventb.core.predicate="b−f&lt;maxsize"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.comment="// Given element" org.eventb.core.identifier="e"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="a(b mod maxsize + 1) ≔ e" org.eventb.core.comment="// Adding element to the buffer" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="b ≔ b+1" org.eventb.core.comment="// Incremnting the back" org.eventb.core.label="act2"/>
+        <org.eventb.core.refinesEvent name="," org.eventb.core.target="add"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="n ≔ n + 1" org.eventb.core.comment="// After element added in buffer , size is incremeneted" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.invariant name="2" org.eventb.core.comment="// Type of last removed element" org.eventb.core.label="inv4" org.eventb.core.predicate="removed ∈ ELEMENT"/>
+    <org.eventb.core.event name="3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="remove">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="remove"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="b − f &gt; 0"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="f ∈ f ‥ b−1"/>
+        <org.eventb.core.witness name="*" org.eventb.core.label="element'" org.eventb.core.predicate="element' = removed"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="removed ≔ a(f mod maxsize)" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="f ≔ f+1" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="n ≔ n − 1" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="4" org.eventb.core.comment="// Last removed element" org.eventb.core.identifier="removed"/>
+    <org.eventb.core.event name="5" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="empty">
+        <org.eventb.core.witness name="'" org.eventb.core.label="query'" org.eventb.core.predicate="query' = buffer_empty'"/>
+        <org.eventb.core.refinesEvent name="(" org.eventb.core.target="empty"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="buffer_empty :∣ (f=b ⇒buffer_empty'=TRUE) ∧ (f≠b ⇒buffer_empty'=FALSE)" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="6" org.eventb.core.comment="To Store the result of buffer empty check" org.eventb.core.identifier="buffer_empty"/>
+    <org.eventb.core.invariant name="7" org.eventb.core.comment="Type of empty query result" org.eventb.core.label="inv5" org.eventb.core.predicate="buffer_empty ∈ BOOL"/>
+    <org.eventb.core.event name="8" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="full">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="full"/>
+        <org.eventb.core.witness name="(" org.eventb.core.label="query'" org.eventb.core.predicate="query' = buffer_full'"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="buffer_full :∣ (b−f = maxsize ⇒buffer_full'=TRUE) ∧ (b−f ≠ maxsize ⇒buffer_full'=FALSE)" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="9" org.eventb.core.comment="To Store the result of buffer full check" org.eventb.core.identifier="buffer_full"/>
+    <org.eventb.core.invariant name=":" org.eventb.core.comment="Type of full query result" org.eventb.core.label="inv6" org.eventb.core.predicate="buffer_full ∈ BOOL"/>
+    <org.eventb.core.invariant name="=" org.eventb.core.comment="// Modular index stays in valid range" org.eventb.core.label="inv9" org.eventb.core.predicate="n ∈ 0‥maxsize"/>
+    <org.eventb.core.invariant name="&gt;" org.eventb.core.label="inv10" org.eventb.core.predicate="∀i·i∈dom(buffer) ⇒ buffer(i) = a((i mod maxsize)+1)"/>
+    <org.eventb.core.variable name="?" org.eventb.core.comment="// Number of elements currently stored in buffer" org.eventb.core.identifier="n"/>
+    <org.eventb.core.invariant name="@" org.eventb.core.label="inv11" org.eventb.core.predicate="n = b − f"/>
+</org.eventb.core.machineFile>

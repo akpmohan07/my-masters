@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><org.eventb.core.machineFile version="5" org.eventb.core.configuration="org.eventb.core.fwd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
     <org.eventb.core.event name="internal_evt11" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
         <org.eventb.core.action name="internal_act1" org.eventb.core.assignment="level ≔ ∅" org.eventb.core.label="act1"/>
     </org.eventb.core.event>
@@ -10,4 +11,30 @@
     <org.eventb.core.refinesMachine name="internal_1" org.eventb.core.target="Progress"/>
     <org.eventb.core.seesContext name="internal_1" org.eventb.core.target="ProgressR_ctx"/>
     <org.eventb.core.variable name="internal_var1" org.eventb.core.identifier="level"/>
+    <org.eventb.core.event name="internal_inv5J" org.eventb.core.comment=" // Employee joining the company" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="join">
+        <org.eventb.core.parameter name="(" org.eventb.core.comment=" // Given employee to be joined" org.eventb.core.identifier="e"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment=" // They should not be an existing employee" org.eventb.core.label="grd2" org.eventb.core.predicate=" e ∉ dom(level)"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="level ≔ level ∪ {e ↦ training}" org.eventb.core.comment="// Employee joined the company as a trainee." org.eventb.core.label="act1"/>
+        <org.eventb.core.refinesEvent name="," org.eventb.core.target="join"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="internal_inv5K" org.eventb.core.comment="// Promote the trainee to an sales role" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="promotetrainee">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="promotetrainee"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="level(e) ≔ selling" org.eventb.core.comment=" // Employee got prmototion from trainee to sales" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment="// Given employee should be an existing employee" org.eventb.core.label="grd1" org.eventb.core.predicate="e ∈ dom(level)"/>
+        <org.eventb.core.parameter name="*" org.eventb.core.comment=" // Given employee to be promoted" org.eventb.core.identifier="e"/>
+        <org.eventb.core.guard name="," org.eventb.core.comment="// Given employee should be in training level" org.eventb.core.label="grd2" org.eventb.core.predicate="level(e) = training"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="internal_inv5L" org.eventb.core.comment="// Promote the sales to an managing role" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="promotesales">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="promotesales"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment=" // Given employee should be an existing employee" org.eventb.core.label="grd1" org.eventb.core.predicate=" e ∈ dom(level)"/>
+        <org.eventb.core.parameter name="*" org.eventb.core.comment=" // Given employee to be promoted" org.eventb.core.identifier="e"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment=" level(e) ≔ managing" org.eventb.core.comment=" // Employee got prmototion from sales to manging" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="," org.eventb.core.comment=" // Given employee should be in selling level" org.eventb.core.label="grd2" org.eventb.core.predicate=" level(e) = selling"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="internal_inv5M" org.eventb.core.comment="// Firing the employee" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="fire">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="fire"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.comment=" // Given employee to be fired" org.eventb.core.identifier="e"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment="// To fire the employee , they must be an empoyee already" org.eventb.core.label="grd1" org.eventb.core.predicate=" e ∈ dom(level)"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="level ≔ {e} ⩤ level" org.eventb.core.comment="// The given employee fired from the company" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
 </org.eventb.core.machineFile>
