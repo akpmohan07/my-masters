@@ -23,6 +23,8 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.32")
 
     implementation("org.reflections:reflections:0.10.2")
+
+    implementation("com.github.oshi:oshi-core:6.4.13")
 }
 
 java {

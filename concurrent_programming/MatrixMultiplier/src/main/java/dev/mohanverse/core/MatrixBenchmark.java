@@ -49,7 +49,7 @@ public class MatrixBenchmark {
 
     private MatrixResult runBaseSequentialMultiplier(double[][] A, double[][] B, int matrixSize, ProcessorConfig.CoreConfig coreConfig) {
         SequentialMultiplier sequentialMultiplier = new SequentialMultiplier();
-        RunContext runContext = new RunContext(matrixSize, coreConfig, new MatrixMetrics(), sequentialMultiplier.getAlgorithmType(), sequentialMultiplier.getExecutionType());
+        RunContext runContext = new RunContext(matrixSize, coreConfig, new MatrixMetrics(), sequentialMultiplier.getAlgorithmType(), sequentialMultiplier.getExecutionType(), matrixConfig.getBlockSize());
         log.info("Running benchmark with multiplier: {}", sequentialMultiplier.getClass().getSimpleName());
         MatrixResult matrixResult = sequentialMultiplier.multiply(A, B, runContext);
         matrixResult.getRunContext().metrics().setVerified(true);
@@ -60,7 +60,7 @@ public class MatrixBenchmark {
 
     private void runParallelMultipliers(double[][] A, double[][] B, int matrixSize,  ProcessorConfig.CoreConfig coreConfig, double[][] expectedResult) {
         for (MatrixMultiplier multiplier : matrixConfig.getMultipliers()) {
-            RunContext runContext = new RunContext(matrixSize, coreConfig, new MatrixMetrics(), multiplier.getAlgorithmType(), multiplier.getExecutionType());
+            RunContext runContext = new RunContext(matrixSize, coreConfig, new MatrixMetrics(), multiplier.getAlgorithmType(), multiplier.getExecutionType(), matrixConfig.getBlockSize());
             log.info("Running benchmark with multiplier: {}", multiplier.getClass().getSimpleName());
             MatrixResult matrixResult = multiplier.multiply(A, B, runContext);
             matrixResult.getRunContext().metrics().setVerified(MatrixUtils.verifyResult(matrixResult.getResultMatrix(), expectedResult));

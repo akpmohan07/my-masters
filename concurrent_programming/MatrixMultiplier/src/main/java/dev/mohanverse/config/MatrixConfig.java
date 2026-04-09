@@ -4,6 +4,9 @@ import dev.mohanverse.multiplier.MatrixMultiplier;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.reflections.Reflections;
+import oshi.SystemInfo;
+import oshi.hardware.CentralProcessor;
+import oshi.hardware.HardwareAbstractionLayer;
 
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -20,6 +23,11 @@ public class MatrixConfig {
     private ProcessorConfig processorConfig;
     @Getter
     private List<? extends MatrixMultiplier> multipliers;
+
+    private long L1CacheSize;
+
+    @Getter
+    private int blockSize;
 
     public MatrixConfig(){
         log.info("Loading MatrixConfig...");
@@ -62,10 +70,32 @@ public class MatrixConfig {
                     })
                     .toList();
 
+            // Load L1 cache size from properties
+            log.info("Loading L1 cache size from system ...");
+            String configuredCacheSize = properties.getProperty("matrix.multiplier.system.cache.size");
+            if (configuredCacheSize != null && !configuredCacheSize.isBlank()) {
+                L1CacheSize = Long.parseLong(configuredCacheSize);
+            } else {
+                L1CacheSize = detectL1CacheSize();
+            }
+            log.info("Detected L1 Cache Size: {} KB", L1CacheSize / 1024);
+
+            // Calculate the optimal block size based on L1 cache size (assuming double precision, 8 bytes per element)
+            blockSize = Integer.highestOneBit((int) Math.sqrt(L1CacheSize / 2.0 / Double.BYTES));
+            log.info("Calculated block size based on L1 cache: {}", blockSize);
 
         } catch (Exception e) {
             log.error("Error loading MatrixConfig: ", e);
         }
+    }
 
+    private long detectL1CacheSize() {
+        SystemInfo si = new SystemInfo();
+        return si.getHardware().getProcessor().getProcessorCaches().stream()
+                .filter(c -> c.getLevel() == 1)
+                .filter(c -> c.getType() == CentralProcessor.ProcessorCache.Type.DATA)
+                .mapToLong(CentralProcessor.ProcessorCache::getCacheSize)
+                .min()
+                .orElse(65536L);
     }
 }
