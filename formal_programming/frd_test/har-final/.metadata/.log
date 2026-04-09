@@ -1,0 +1,73 @@
+!SESSION 2026-04-09 07:41:48.618 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.2.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -keyring /Users/akpmohan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -data /Users/akpmohan/Workspace/my-masters/formal_programming/har-final -keyring /Users/akpmohan/.eclipse_keyring
+
+!ENTRY de.prob.core 1 0 2026-04-09 07:42:06.768
+!MESSAGE Starting ProB CLI for macosx ... Path is /Applications/rodin.app/Contents/Eclipse/plugins/de.prob.core_9.6.1.202508121324/prob/macos/probcli.sh
+
+!ENTRY de.prob.core 1 0 2026-04-09 07:42:07.560
+!MESSAGE probcli startup output: Starting Socket Server
+
+!ENTRY de.prob.core 1 0 2026-04-09 07:42:07.562
+!MESSAGE probcli startup output: Application Path: /Applications/rodin.app/Contents/Eclipse/plugins/de.prob.core_9.6.1.202508121324/prob/macos
+
+!ENTRY de.prob.core 1 0 2026-04-09 07:42:07.564
+!MESSAGE probcli startup output: Port: 54536
+
+!ENTRY de.prob.core 1 0 2026-04-09 07:42:07.565
+!MESSAGE probcli startup output: probcli revision: e10c98eafba5a91367f8b51c96f659e2d3727226
+
+!ENTRY de.prob.core 1 0 2026-04-09 07:42:07.565
+!MESSAGE probcli startup output: user interrupt reference id: 25060
+
+!ENTRY de.prob.core 1 0 2026-04-09 07:42:07.750
+!MESSAGE Disprover: Result: No Counter-Example exists: Proof.
+
+!ENTRY org.eventb.core.seqprover 4 0 2026-04-09 07:42:08.055
+!MESSAGE Some tactic failed to prove.
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:42:08.055
+!MESSAGE NewPP unrestricted (Discharge): OK
+!SUBENTRY 1 org.eventb.core.seqprover 4 0 2026-04-09 07:42:08.055
+!MESSAGE Atelier B ML (Discharge): Timeout
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:42:08.055
+!MESSAGE Atelier B P1 (Discharge): OK
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:42:08.055
+!MESSAGE Atelier B P0 (Discharge): OK
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:42:08.055
+!MESSAGE ProB (Dis)Prover: OK
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:42:08.055
+!MESSAGE NewPP restricted (Discharge): OK
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:42:08.055
+!MESSAGE NewPP after lasoo (Discharge): OK
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:42:08.055
+!MESSAGE Atelier B PP (Discharge): OK
+!SESSION 2026-04-09 07:44:15.041 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.2.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -keyring /Users/akpmohan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/akpmohan/.eclipse_keyring
+
+!ENTRY org.eventb.core.seqprover 4 0 2026-04-09 07:44:32.738
+!MESSAGE Some tactic failed to prove.
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:44:32.738
+!MESSAGE NewPP unrestricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 4 0 2026-04-09 07:44:32.738
+!MESSAGE Atelier B ML (Discharge): Timeout
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:44:32.738
+!MESSAGE Atelier B P1 (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:44:32.738
+!MESSAGE Atelier B P0 (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:44:32.738
+!MESSAGE ProB (Dis)Prover: OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:44:32.738
+!MESSAGE NewPP restricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:44:32.738
+!MESSAGE NewPP after lasoo (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-09 07:44:32.739
+!MESSAGE Atelier B PP (Discharge): OK (cached)

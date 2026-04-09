@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<index_root>
+    <pim project="/Progress">
+        <rodin_index>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13" name="promotetrainee">
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.refinesEvent#'" kind="org.eventb.core.redeclaration" loc_attribute="org.eventb.core.target"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress" name="Progress">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.refinesMachine#internal_1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.target"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress" kind="org.eventb.core.declaration"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.variable#internal_var2" name="sales">
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.variable#internal_var2" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act2" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="13" loc_char_start="8"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13|org.eventb.core.action#internal_act2" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="13" loc_char_start="8"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14|org.eventb.core.action#internal_act1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="13" loc_char_start="8"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv4I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.guard#internal_grd2" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="19" loc_char_start="14"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act2" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.invariant#internal_inv2I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13|org.eventb.core.action#internal_act2" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14|org.eventb.core.action#internal_act1" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.guard#internal_grd1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="19" loc_char_start="14"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv2I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="28" loc_char_start="23"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14|org.eventb.core.guard#internal_grd1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="9" loc_char_start="4"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt11|org.eventb.core.action#internal_act2" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="5" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx" name="ProgressR_ctx">
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx" kind="org.eventb.core.declaration"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.seesContext#internal_1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.target"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst2" name="selling">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv4I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="23" loc_char_start="16"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst2" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.axiom#internal_axm1A" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="27" loc_char_start="20"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.guard#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="21" loc_char_start="14"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.action#," kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="31" loc_char_start="24"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.axiom#internal_axm2A" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="20" loc_char_start="13"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.axiom#internal_axm4A" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="9" loc_char_start="2"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.parameter#(" name="name">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.parameter#(" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.guard#'" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="4" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.action#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="21" loc_char_start="17"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.witness#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="4" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.guard#," kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="4" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.parameter#internal_prm1" name="e">
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.parameter#internal_prm1" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.witness#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.label"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="22" loc_char_start="21"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act3" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="22" loc_char_start="21"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act2" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="18" loc_char_start="17"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.witness#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="6" loc_char_start="5"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.guard#internal_grd1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_evt11" name="INITIALISATION">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_evt11" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.parameter#)" name="name">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.action#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="13" loc_char_start="9"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.parameter#)" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.guard#(" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="4" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.witness#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="4" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M" name="fire">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.variable#internal_var3" name="manager">
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.invariant#internal_inv3I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="7" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.guard#internal_grd1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="29" loc_char_start="22"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.guard#internal_grd2" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="29" loc_char_start="22"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv2I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="38" loc_char_start="31"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14|org.eventb.core.action#internal_act2" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="7" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt11|org.eventb.core.action#internal_act3" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="7" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act3" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="7" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14|org.eventb.core.action#internal_act2" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="17" loc_char_start="10"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act3" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="17" loc_char_start="10"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.variable#internal_var3" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv5I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="7" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12" name="join">
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.refinesEvent#*" kind="org.eventb.core.redeclaration" loc_attribute="org.eventb.core.target"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst3" name="managing">
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.axiom#internal_axm1A" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="37" loc_char_start="29"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst3" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.axiom#internal_axm3A" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="21" loc_char_start="13"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.action#," kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="32" loc_char_start="24"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.axiom#internal_axm4A" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="20" loc_char_start="12"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv5I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="26" loc_char_start="18"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.parameter#(" name="name">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.parameter#(" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.action#," kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="21" loc_char_start="17"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.guard#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="4" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.guard#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="10" loc_char_start="6"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.witness#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="6" loc_char_start="2"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.parameter#internal_prm1" name="e">
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.parameter#internal_prm1" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.action#internal_act1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="22" loc_char_start="21"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.witness#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.label"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.guard#internal_grd1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.witness#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="6" loc_char_start="5"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.guard#internal_grd2" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J" name="join">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt11" name="INITIALISATION">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_evt11" kind="org.eventb.core.redeclaration" loc_attribute="org.eventb.core.label"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt11" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.parameter#(" name="name">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.parameter#(" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.action#," kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="21" loc_char_start="17"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.guard#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="10" loc_char_start="6"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.guard#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="4" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.witness#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="6" loc_char_start="2"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15" name="fire">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.refinesEvent#'" kind="org.eventb.core.redeclaration" loc_attribute="org.eventb.core.target"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx" name="Progress_ctx">
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.seesContext#internal_1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.target"/>
+                <occurrence element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx" kind="org.eventb.core.declaration"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.extendsContext#internal_1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.target"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR" name="ProgressR">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR" kind="org.eventb.core.declaration"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.variable#internal_var1" name="level">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv5I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="15" loc_char_start="10"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.guard#," kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="16" loc_char_start="11"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.guard#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.guard#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.variable#internal_var1" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.guard#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="16" loc_char_start="11"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.guard#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="16" loc_char_start="11"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.guard#(" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="16" loc_char_start="11"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv2I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="9" loc_char_start="4"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.action#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="13" loc_char_start="8"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.action#," kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="13" loc_char_start="8"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.action#," kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.action#+" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.action#)" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.action#," kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.action#," kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="13" loc_char_start="8"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.action#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="22" loc_char_start="17"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv1I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="5" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv4I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="13" loc_char_start="8"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv3I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="15" loc_char_start="10"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_evt11|org.eventb.core.action#internal_act1" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="5" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13|org.eventb.core.parameter#internal_prm1" name="e">
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13|org.eventb.core.parameter#internal_prm1" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.witness#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.label"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13|org.eventb.core.action#internal_act1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="22" loc_char_start="21"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13|org.eventb.core.action#internal_act2" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="18" loc_char_start="17"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.witness#*" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13|org.eventb.core.guard#internal_grd1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K" name="promotetrainee">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.variable#internal_var1" name="trainee">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv3I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="7" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act1" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="7" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.action#internal_act1" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="7" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt11|org.eventb.core.action#internal_act1" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="7" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.action#internal_act1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="17" loc_char_start="10"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.action#internal_act1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="17" loc_char_start="10"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13|org.eventb.core.action#internal_act1" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="7" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13|org.eventb.core.action#internal_act1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="17" loc_char_start="10"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.guard#internal_grd2" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="11" loc_char_start="4"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13|org.eventb.core.guard#internal_grd1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="11" loc_char_start="4"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv2I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="20" loc_char_start="13"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.guard#internal_grd1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="11" loc_char_start="4"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.variable#internal_var1" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.invariant#internal_inv1I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="7" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst1" name="training">
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.axiom#internal_axm2A" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="10" loc_char_start="2"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.axiom#internal_axm1A" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="18" loc_char_start="10"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.guard#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="20" loc_char_start="12"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv3I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="26" loc_char_start="18"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.action#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="32" loc_char_start="24"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst1" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.axiom#internal_axm3A" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="10" loc_char_start="2"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14" name="promotesales">
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.refinesEvent#'" kind="org.eventb.core.redeclaration" loc_attribute="org.eventb.core.target"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14|org.eventb.core.parameter#internal_prm1" name="e">
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14|org.eventb.core.parameter#internal_prm1" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14|org.eventb.core.action#internal_act1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="18" loc_char_start="17"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.witness#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.label"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.witness#+" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14|org.eventb.core.action#internal_act2" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="22" loc_char_start="21"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14|org.eventb.core.guard#internal_grd1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="1" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.carrierSet#internal_set1" name="STATUS">
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.carrierSet#internal_set1" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.axiom#internal_axm1A" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="6" loc_char_start="0"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv1I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="22" loc_char_start="16"/>
+            </descriptor>
+            <descriptor element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L" name="promotesales">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+            <descriptor element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx|org.eventb.core.carrierSet#internal_set1" name="NAMES">
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.guard#'" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="12" loc_char_start="7"/>
+                <occurrence element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx|org.eventb.core.carrierSet#internal_set1" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.invariant#internal_inv2I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="13" loc_char_start="8"/>
+                <occurrence element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.invariant#internal_inv1I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="13" loc_char_start="8"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.invariant#internal_inv1I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="15" loc_char_start="10"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.invariant#internal_inv3I" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="15" loc_char_start="10"/>
+                <occurrence element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.guard#internal_grd1" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="9" loc_char_start="4"/>
+            </descriptor>
+        </rodin_index>
+        <export_table>
+            <export file="/Progress/ProgressR.bum">
+                <exported element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.carrierSet#internal_set1" name="STATUS"/>
+                <exported element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_evt11" name="INITIALISATION"/>
+                <exported element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst3" name="managing"/>
+                <exported element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst1" name="training"/>
+                <exported element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K|org.eventb.core.parameter#(" name="name"/>
+                <exported element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L" name="promotesales"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress" name="Progress"/>
+                <exported element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx" name="ProgressR_ctx"/>
+                <exported element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst2" name="selling"/>
+                <exported element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR" name="ProgressR"/>
+                <exported element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J" name="join"/>
+                <exported element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M" name="fire"/>
+                <exported element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx|org.eventb.core.carrierSet#internal_set1" name="NAMES"/>
+                <exported element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5K" name="promotetrainee"/>
+                <exported element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5J|org.eventb.core.parameter#(" name="name"/>
+                <exported element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5L|org.eventb.core.parameter#(" name="name"/>
+                <exported element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx" name="Progress_ctx"/>
+                <exported element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.event#internal_inv5M|org.eventb.core.parameter#)" name="name"/>
+                <exported element="/Progress/ProgressR.bum|org.eventb.core.machineFile#ProgressR|org.eventb.core.variable#internal_var1" name="level"/>
+            </export>
+            <export file="/Progress/Progress.bum">
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15|org.eventb.core.parameter#internal_prm1" name="e"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13|org.eventb.core.parameter#internal_prm1" name="e"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14" name="promotesales"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.variable#internal_var3" name="manager"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress" name="Progress"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt13" name="promotetrainee"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.variable#internal_var1" name="trainee"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt15" name="fire"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt14|org.eventb.core.parameter#internal_prm1" name="e"/>
+                <exported element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx|org.eventb.core.carrierSet#internal_set1" name="NAMES"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12|org.eventb.core.parameter#internal_prm1" name="e"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt12" name="join"/>
+                <exported element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx" name="Progress_ctx"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.event#internal_evt11" name="INITIALISATION"/>
+                <exported element="/Progress/Progress.bum|org.eventb.core.machineFile#Progress|org.eventb.core.variable#internal_var2" name="sales"/>
+            </export>
+            <export file="/Progress/Progress_ctx.buc">
+                <exported element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx|org.eventb.core.carrierSet#internal_set1" name="NAMES"/>
+                <exported element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx" name="Progress_ctx"/>
+            </export>
+            <export file="/Progress/ProgressR_ctx.buc">
+                <exported element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst2" name="selling"/>
+                <exported element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.carrierSet#internal_set1" name="STATUS"/>
+                <exported element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx|org.eventb.core.carrierSet#internal_set1" name="NAMES"/>
+                <exported element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst3" name="managing"/>
+                <exported element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx|org.eventb.core.constant#internal_cst1" name="training"/>
+                <exported element="/Progress/Progress_ctx.buc|org.eventb.core.contextFile#Progress_ctx" name="Progress_ctx"/>
+                <exported element="/Progress/ProgressR_ctx.buc|org.eventb.core.contextFile#ProgressR_ctx" name="ProgressR_ctx"/>
+            </export>
+        </export_table>
+        <graph is_sorted="true">
+            <node label="/Progress/Progress_ctx.buc" mark="false" order_pos="0"/>
+            <node label="/Progress/Progress.bum" mark="false" order_pos="1">
+                <predecessor label="/Progress/Progress_ctx.buc"/>
+            </node>
+            <node label="/Progress/ProgressR_ctx.buc" mark="false" order_pos="2">
+                <predecessor label="/Progress/Progress_ctx.buc"/>
+            </node>
+            <node label="/Progress/ProgressR.bum" mark="false" order_pos="3">
+                <predecessor label="/Progress/Progress.bum"/>
+                <predecessor label="/Progress/ProgressR_ctx.buc"/>
+            </node>
+        </graph>
+        <unprocessed file="/Progress/ProgreeeR.bpr"/>
+        <unprocessed file="/Progress/Progress.bcm"/>
+        <unprocessed file="/Progress/Progress.bpo"/>
+        <unprocessed file="/Progress/Progress.bpr"/>
+        <unprocessed file="/Progress/Progress.bps"/>
+        <unprocessed file="/Progress/ProgressR.bcm"/>
+        <unprocessed file="/Progress/ProgressR.bpo"/>
+        <unprocessed file="/Progress/ProgressR.bpr"/>
+        <unprocessed file="/Progress/ProgressR.bps"/>
+        <unprocessed file="/Progress/ProgressR_ctx.bcc"/>
+        <unprocessed file="/Progress/ProgressR_ctx.bpo"/>
+        <unprocessed file="/Progress/ProgressR_ctx.bpr"/>
+        <unprocessed file="/Progress/ProgressR_ctx.bps"/>
+        <unprocessed file="/Progress/Progress_ctx.bcc"/>
+        <unprocessed file="/Progress/Progress_ctx.bpo"/>
+        <unprocessed file="/Progress/Progress_ctx.bpr"/>
+        <unprocessed file="/Progress/Progress_ctx.bps"/>
+        <unprocessed file="/Progress/ProgressR.bcm_tmp"/>
+        <unprocessed file="/Progress/ProgressR.bpo_tmp"/>
+    </pim>
+    <delta_list/>
+    <indexer_registry>
+        <registry_entry element_type="org.eventb.core.machineFile">
+            <indexer id="machineIndexer"/>
+        </registry_entry>
+        <registry_entry element_type="org.eventb.core.contextFile">
+            <indexer id="contextIndexer"/>
+        </registry_entry>
+    </indexer_registry>
+</index_root>

@@ -1,0 +1,460 @@
+!SESSION 2026-04-06 16:30:52.405 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.2.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -keyring /Users/akpmohan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -data /Users/akpmohan/Workspace/my-masters/formal_programming/frd_test/har -keyring /Users/akpmohan/.eclipse_keyring
+
+!ENTRY de.prob.core 1 0 2026-04-06 16:31:13.883
+!MESSAGE Starting ProB CLI for macosx ... Path is /Applications/rodin.app/Contents/Eclipse/plugins/de.prob.core_9.6.1.202508121324/prob/macos/probcli.sh
+
+!ENTRY org.eclipse.ui 4 0 2026-04-06 16:31:14.454
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:811)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:597)
+	at org.eclipse.swt.widgets.Control.getShell(Control.java:1965)
+	at org.eclipse.swt.widgets.Control.sendMouseEvent(Control.java:3479)
+	at org.eclipse.swt.widgets.Control.mouseEvent(Control.java:2629)
+	at org.eclipse.swt.widgets.Composite.mouseEvent(Composite.java:932)
+	at org.eclipse.swt.widgets.Control.mouseDown(Control.java:2638)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6320)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:236)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2264)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2510)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6444)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5691)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5831)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:117)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3985)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY de.prob.core 1 0 2026-04-06 16:31:21.890
+!MESSAGE probcli startup output: Starting Socket Server
+
+!ENTRY de.prob.core 1 0 2026-04-06 16:31:21.897
+!MESSAGE probcli startup output: Application Path: /Applications/rodin.app/Contents/Eclipse/plugins/de.prob.core_9.6.1.202508121324/prob/macos
+
+!ENTRY de.prob.core 1 0 2026-04-06 16:31:21.900
+!MESSAGE probcli startup output: Port: 63285
+
+!ENTRY de.prob.core 1 0 2026-04-06 16:31:21.903
+!MESSAGE probcli startup output: probcli revision: e10c98eafba5a91367f8b51c96f659e2d3727226
+
+!ENTRY de.prob.core 1 0 2026-04-06 16:31:21.904
+!MESSAGE probcli startup output: user interrupt reference id: 87064
+
+!ENTRY de.prob.core 1 0 2026-04-06 16:31:22.564
+!MESSAGE Disprover: Result: No Counter-Example exists: Proof.
+
+!ENTRY org.eventb.core.seqprover 4 0 2026-04-06 16:31:24.254
+!MESSAGE Some tactic failed to prove.
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:31:24.255
+!MESSAGE NewPP unrestricted (Discharge): OK
+!SUBENTRY 1 org.eventb.core.seqprover 4 0 2026-04-06 16:31:24.255
+!MESSAGE Atelier B ML (Discharge): Timeout
+!SUBENTRY 1 org.eventb.core.seqprover 4 0 2026-04-06 16:31:24.255
+!MESSAGE Atelier B P1 (Discharge): Timeout
+!SUBENTRY 1 org.eventb.core.seqprover 4 0 2026-04-06 16:31:24.255
+!MESSAGE Atelier B P0 (Discharge): Timeout
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:31:24.255
+!MESSAGE ProB (Dis)Prover: OK
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:31:24.255
+!MESSAGE NewPP restricted (Discharge): OK
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:31:24.255
+!MESSAGE NewPP after lasoo (Discharge): OK
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:31:24.255
+!MESSAGE Atelier B PP (Discharge): OK
+!SESSION 2026-04-06 16:43:18.883 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.2.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -keyring /Users/akpmohan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -data /Users/akpmohan/Workspace/my-masters/formal_programming/frd_test/har -keyring /Users/akpmohan/.eclipse_keyring
+
+!ENTRY org.eventb.core.seqprover 4 0 2026-04-06 16:43:38.005
+!MESSAGE Some tactic failed to prove.
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:43:38.005
+!MESSAGE NewPP unrestricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 4 0 2026-04-06 16:43:38.005
+!MESSAGE Atelier B ML (Discharge): Timeout
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:43:38.005
+!MESSAGE Atelier B P1 (Discharge): OK
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:43:38.005
+!MESSAGE Atelier B P0 (Discharge): OK
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:43:38.005
+!MESSAGE ProB (Dis)Prover: OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:43:38.005
+!MESSAGE NewPP restricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:43:38.005
+!MESSAGE NewPP after lasoo (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-06 16:43:38.005
+!MESSAGE Atelier B PP (Discharge): OK (cached)
+
+!ENTRY org.eclipse.ui 4 0 2026-04-06 16:45:00.828
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eventb.internal.ui.proofcontrol.IProofControlPage.getInput()" because the return value of "org.eventb.internal.ui.prover.ProverUI.getProofControl()" is null
+	at org.eventb.internal.ui.prover.PredicateRow.apply(PredicateRow.java:198)
+	at org.eventb.internal.ui.prover.PredicateApplicationMaker$2.widgetSelected(PredicateApplicationMaker.java:138)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4645)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1524)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1547)
+	at org.eclipse.swt.widgets.Widget.sendSelectionEvent(Widget.java:1597)
+	at org.eclipse.swt.widgets.Link.textView_clickOnLink_atIndex(Link.java:806)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6858)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:236)
+	at org.eclipse.swt.widgets.Widget.mouseDownSuper(Widget.java:1147)
+	at org.eclipse.swt.widgets.Widget.mouseDown(Widget.java:1139)
+	at org.eclipse.swt.widgets.Control.mouseDown(Control.java:2642)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6320)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:236)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2264)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2510)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6444)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5691)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5831)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:117)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3985)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY org.eclipse.ui 4 0 2026-04-06 16:45:01.515
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eventb.internal.ui.proofcontrol.IProofControlPage.getInput()" because the return value of "org.eventb.internal.ui.prover.ProverUI.getProofControl()" is null
+	at org.eventb.internal.ui.prover.PredicateRow.apply(PredicateRow.java:198)
+	at org.eventb.internal.ui.prover.PredicateApplicationMaker$2.widgetSelected(PredicateApplicationMaker.java:138)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4645)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1524)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1547)
+	at org.eclipse.swt.widgets.Widget.sendSelectionEvent(Widget.java:1597)
+	at org.eclipse.swt.widgets.Link.textView_clickOnLink_atIndex(Link.java:806)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6858)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:236)
+	at org.eclipse.swt.widgets.Widget.mouseDownSuper(Widget.java:1147)
+	at org.eclipse.swt.widgets.Widget.mouseDown(Widget.java:1139)
+	at org.eclipse.swt.widgets.Control.mouseDown(Control.java:2642)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6320)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:236)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2264)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2510)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6444)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5691)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5831)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:117)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3985)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY org.eclipse.ui 4 0 2026-04-06 16:45:02.629
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eventb.internal.ui.proofcontrol.IProofControlPage.getInput()" because the return value of "org.eventb.internal.ui.prover.ProverUI.getProofControl()" is null
+	at org.eventb.internal.ui.prover.PredicateRow.apply(PredicateRow.java:198)
+	at org.eventb.internal.ui.prover.PredicateApplicationMaker$2.widgetSelected(PredicateApplicationMaker.java:138)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4645)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1524)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1547)
+	at org.eclipse.swt.widgets.Widget.sendSelectionEvent(Widget.java:1597)
+	at org.eclipse.swt.widgets.Link.textView_clickOnLink_atIndex(Link.java:806)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6858)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:236)
+	at org.eclipse.swt.widgets.Widget.mouseDownSuper(Widget.java:1147)
+	at org.eclipse.swt.widgets.Widget.mouseDown(Widget.java:1139)
+	at org.eclipse.swt.widgets.Control.mouseDown(Control.java:2642)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6320)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:236)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2264)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2510)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6444)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5691)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5831)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:117)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3985)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+
+!ENTRY org.eclipse.ui 4 0 2026-04-06 16:45:10.382
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eventb.internal.ui.proofcontrol.IProofControlPage.getInput()" because the return value of "org.eventb.internal.ui.prover.ProverUI.getProofControl()" is null
+	at org.eventb.internal.ui.prover.PredicateRow.apply(PredicateRow.java:198)
+	at org.eventb.internal.ui.prover.PredicateApplicationMaker$2.widgetSelected(PredicateApplicationMaker.java:138)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4645)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1524)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1547)
+	at org.eclipse.swt.widgets.Widget.sendSelectionEvent(Widget.java:1597)
+	at org.eclipse.swt.widgets.Link.textView_clickOnLink_atIndex(Link.java:806)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6858)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:236)
+	at org.eclipse.swt.widgets.Widget.mouseDownSuper(Widget.java:1147)
+	at org.eclipse.swt.widgets.Widget.mouseDown(Widget.java:1139)
+	at org.eclipse.swt.widgets.Control.mouseDown(Control.java:2642)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6320)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:236)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2264)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2510)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6444)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:5691)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5831)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:117)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3985)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+!SESSION 2026-04-07 14:18:27.546 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.2.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -keyring /Users/akpmohan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/akpmohan/.eclipse_keyring
+
+!ENTRY org.eventb.core.seqprover 4 0 2026-04-07 14:19:04.874
+!MESSAGE Some tactic failed to prove.
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 14:19:04.874
+!MESSAGE NewPP unrestricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 4 0 2026-04-07 14:19:04.874
+!MESSAGE Atelier B ML (Discharge): Timeout
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 14:19:04.874
+!MESSAGE Atelier B P1 (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 14:19:04.874
+!MESSAGE Atelier B P0 (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 14:19:04.875
+!MESSAGE ProB (Dis)Prover: OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 14:19:04.875
+!MESSAGE NewPP restricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 14:19:04.875
+!MESSAGE NewPP after lasoo (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 14:19:04.875
+!MESSAGE Atelier B PP (Discharge): OK (cached)
+!SESSION 2026-04-07 15:56:06.199 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.2.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -keyring /Users/akpmohan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -data /Users/akpmohan/Workspace/my-masters/formal_programming/frd_test/har -keyring /Users/akpmohan/.eclipse_keyring
+
+!ENTRY org.eventb.core.seqprover 4 0 2026-04-07 15:56:24.440
+!MESSAGE Some tactic failed to prove.
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 15:56:24.440
+!MESSAGE NewPP unrestricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 4 0 2026-04-07 15:56:24.440
+!MESSAGE Atelier B ML (Discharge): Timeout
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 15:56:24.440
+!MESSAGE Atelier B P1 (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 15:56:24.440
+!MESSAGE Atelier B P0 (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 15:56:24.440
+!MESSAGE ProB (Dis)Prover: OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 15:56:24.440
+!MESSAGE NewPP restricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 15:56:24.440
+!MESSAGE NewPP after lasoo (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 15:56:24.440
+!MESSAGE Atelier B PP (Discharge): OK (cached)
+!SESSION 2026-04-07 17:23:37.012 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.2.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -keyring /Users/akpmohan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -data /Users/akpmohan/Workspace/my-masters/formal_programming/frd_test/har -keyring /Users/akpmohan/.eclipse_keyring
+
+!ENTRY org.eventb.core.seqprover 4 0 2026-04-07 17:23:55.717
+!MESSAGE Some tactic failed to prove.
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 17:23:55.717
+!MESSAGE NewPP unrestricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 4 0 2026-04-07 17:23:55.717
+!MESSAGE Atelier B ML (Discharge): Timeout
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 17:23:55.717
+!MESSAGE Atelier B P1 (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 17:23:55.717
+!MESSAGE Atelier B P0 (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 17:23:55.717
+!MESSAGE ProB (Dis)Prover: OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 17:23:55.717
+!MESSAGE NewPP restricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 17:23:55.717
+!MESSAGE NewPP after lasoo (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-07 17:23:55.718
+!MESSAGE Atelier B PP (Discharge): OK (cached)
+
+!ENTRY org.eclipse.ui 4 0 2026-04-07 17:24:57.429
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" because "this.fActions" is null
+	at org.eclipse.ui.texteditor.AbstractTextEditor.getAction(AbstractTextEditor.java:5285)
+	at fr.systerel.editor.internal.editors.RodinEditor.updateAction(RodinEditor.java:456)
+	at fr.systerel.editor.internal.editors.HistoryActionUpdater.updateUndoRedoActions(HistoryActionUpdater.java:40)
+	at fr.systerel.editor.internal.editors.HistoryActionUpdater.updateActionsAndHandlers(HistoryActionUpdater.java:68)
+	at fr.systerel.editor.internal.editors.HistoryActionUpdater.lambda$0(HistoryActionUpdater.java:61)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4367)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3990)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+!SESSION 2026-04-08 15:24:43.276 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.2.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -keyring /Users/akpmohan/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -data /Users/akpmohan/Workspace/my-masters/formal_programming/frd_test/har -keyring /Users/akpmohan/.eclipse_keyring
+
+!ENTRY org.eventb.core.seqprover 4 0 2026-04-08 15:25:01.454
+!MESSAGE Some tactic failed to prove.
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-08 15:25:01.454
+!MESSAGE NewPP unrestricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 4 0 2026-04-08 15:25:01.454
+!MESSAGE Atelier B ML (Discharge): Timeout
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-08 15:25:01.454
+!MESSAGE Atelier B P1 (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-08 15:25:01.454
+!MESSAGE Atelier B P0 (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-08 15:25:01.455
+!MESSAGE ProB (Dis)Prover: OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-08 15:25:01.455
+!MESSAGE NewPP restricted (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-08 15:25:01.455
+!MESSAGE NewPP after lasoo (Discharge): OK (cached)
+!SUBENTRY 1 org.eventb.core.seqprover 0 0 2026-04-08 15:25:01.455
+!MESSAGE Atelier B PP (Discharge): OK (cached)
