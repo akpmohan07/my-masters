@@ -1,0 +1,42 @@
+
+MATRIX MULTIPLICATION BENCHMARK RESULTS
++---------------------+------------+--------+---------+------------+---------+-----------+----------------+
+| Algorithm           | Type       | Size   | Threads | Time (ms)  | Speedup | Correct?  | Tasks Created  |
++---------------------+------------+--------+---------+------------+---------+-----------+----------------+
+| NAIVE               | SEQUENTIAL | 256    | 1       | 22         | 1.00    | YES       | 1              |
+| BLOCKED             | PARALLEL   | 256    | 2       | 30         | 0.73    | YES       | 16             |
+| CELL                | PARALLEL   | 256    | 2       | 42         | 0.52    | YES       | 65536          |
+| BLOCKED             | PARALLEL   | 256    | 4       | 5          | 4.40    | YES       | 16             |
+| CELL                | PARALLEL   | 256    | 4       | 16         | 1.38    | YES       | 65536          |
+| BLOCKED             | PARALLEL   | 256    | 6       | 3          | 7.33    | YES       | 16             |
+| CELL                | PARALLEL   | 256    | 6       | 13         | 1.69    | YES       | 65536          |
+| BLOCKED             | PARALLEL   | 256    | 8       | 4          | 5.50    | YES       | 16             |
+| CELL                | PARALLEL   | 256    | 8       | 13         | 1.69    | YES       | 65536          |
+| NAIVE               | SEQUENTIAL | 512    | 1       | 156        | 1.00    | YES       | 1              |
+| BLOCKED             | PARALLEL   | 512    | 2       | 45         | 3.47    | YES       | 64             |
+| CELL                | PARALLEL   | 512    | 2       | 86         | 1.81    | YES       | 262144         |
+| BLOCKED             | PARALLEL   | 512    | 4       | 30         | 5.20    | YES       | 64             |
+| CELL                | PARALLEL   | 512    | 4       | 53         | 2.94    | YES       | 262144         |
+| BLOCKED             | PARALLEL   | 512    | 6       | 43         | 3.63    | YES       | 64             |
+| CELL                | PARALLEL   | 512    | 6       | 64         | 2.44    | YES       | 262144         |
+| BLOCKED             | PARALLEL   | 512    | 8       | 19         | 8.21    | YES       | 64             |
+| CELL                | PARALLEL   | 512    | 8       | 68         | 2.29    | YES       | 262144         |
+| NAIVE               | SEQUENTIAL | 1024   | 1       | 1771       | 1.00    | YES       | 1              |
+| BLOCKED             | PARALLEL   | 1024   | 2       | 404        | 4.38    | YES       | 256            |
+| CELL                | PARALLEL   | 1024   | 2       | 931        | 1.90    | YES       | 1048576        |
+| BLOCKED             | PARALLEL   | 1024   | 4       | 251        | 7.06    | YES       | 256            |
+| CELL                | PARALLEL   | 1024   | 4       | 806        | 2.20    | YES       | 1048576        |
+| BLOCKED             | PARALLEL   | 1024   | 6       | 198        | 8.94    | YES       | 256            |
+| CELL                | PARALLEL   | 1024   | 6       | 634        | 2.79    | YES       | 1048576        |
+| BLOCKED             | PARALLEL   | 1024   | 8       | 176        | 10.06   | YES       | 256            |
+| CELL                | PARALLEL   | 1024   | 8       | 763        | 2.32    | YES       | 1048576        |
+| NAIVE               | SEQUENTIAL | 2048   | 1       | 20933      | 1.00    | YES       | 1              |
+| BLOCKED             | PARALLEL   | 2048   | 2       | 3673       | 5.70    | YES       | 1024           |
+| CELL                | PARALLEL   | 2048   | 2       | 10490      | 2.00    | YES       | 4194304        |
+| BLOCKED             | PARALLEL   | 2048   | 4       | 2194       | 9.54    | YES       | 1024           |
+| CELL                | PARALLEL   | 2048   | 4       | 8011       | 2.61    | YES       | 4194304        |
+| BLOCKED             | PARALLEL   | 2048   | 6       | 1773       | 11.81   | YES       | 1024           |
+| CELL                | PARALLEL   | 2048   | 6       | 7959       | 2.63    | YES       | 4194304        |
+| BLOCKED             | PARALLEL   | 2048   | 8       | 1902       | 11.01   | YES       | 1024           |
+| CELL                | PARALLEL   | 2048   | 8       | 9218       | 2.27    | YES       | 4194304        |
++---------------------+------------+--------+---------+------------+---------+-----------+----------------+
