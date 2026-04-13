@@ -33,6 +33,7 @@ public class BlockedParallelMultiplier extends MatrixMultiplier {
         }
 
         log.info("Created {} tasks for blocked multiplication", tasks.size());
+        runContext.metrics().setNoOfTasksCreated(tasks.size());
 
         try (ForkJoinPool pool = new ForkJoinPool(runContext.coreConfig().getCoreCount())) {
             log.info("Invoking tasks in ForkJoinPool");

@@ -11,13 +11,13 @@ import java.util.List;
 public class ReportPrinter {
 
     private static final String SEPARATOR =
-            "+---------------------+------------+--------+---------+------------+---------+-----------+";
+            "+---------------------+------------+--------+---------+------------+---------+-----------+----------------+";
     private static final String HEADER = String.format(
-            "| %-19s | %-10s | %-6s | %-7s | %-10s | %-7s | %-9s |",
-            "Algorithm", "Type", "Size", "Threads", "Time (ms)", "Speedup", "Correct?"
+            "| %-19s | %-10s | %-6s | %-7s | %-10s | %-7s | %-9s | %-14s |",
+            "Algorithm", "Type", "Size", "Threads", "Time (ms)", "Speedup", "Correct?", "Tasks Created"
     );
 
-    public static  void printReport(List<MatrixResult> results) {
+    public static void printReport(List<MatrixResult> results) {
         log.info("");
         log.info("MATRIX MULTIPLICATION BENCHMARK RESULTS");
         log.info("{}", SEPARATOR);
@@ -27,21 +27,21 @@ public class ReportPrinter {
             printRow(result);
         }
         log.info("{}", SEPARATOR);
-//        printSummary(results);
     }
 
     private static void printRow(MatrixResult result) {
         MatrixMetrics metrics = result.getRunContext().metrics();
         RunContext runContext = result.getRunContext();
         log.info("{}", String.format(
-                "| %-19s | %-10s | %-6d | %-7d | %-10d | %-7.2f | %-9s |",
+                "| %-19s | %-10s | %-6d | %-7d | %-10d | %-7.2f | %-9s | %-14d |",
                 runContext.algorithmType(),
                 runContext.executionType(),
                 runContext.matrixSize(),
                 runContext.coreConfig().getCoreCount(),
                 metrics.getExecutionTimeMillis(),
                 metrics.getSpeedup(),
-                metrics.isVerified() ? "YES" : "NO"
+                metrics.isVerified() ? "YES" : "NO",
+                metrics.getNoOfTasksCreated()
         ));
     }
 

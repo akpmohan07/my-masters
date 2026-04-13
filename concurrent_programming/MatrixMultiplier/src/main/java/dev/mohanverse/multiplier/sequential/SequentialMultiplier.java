@@ -9,6 +9,7 @@ public class SequentialMultiplier extends MatrixMultiplier {
 
     @Override
     public double[][] doMultiply(double[][] A, double[][] B, RunContext runContext) {
+        runContext.metrics().setNoOfTasksCreated(1);
         int n = runContext.matrixSize();
 
         double[][] C = new double[n][n];

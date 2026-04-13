@@ -33,6 +33,7 @@ public class CellParallelMultiplier extends MatrixMultiplier {
         }
 
         log.info("Created {} tasks for cell multiplication", tasks.size());
+        runContext.metrics().setNoOfTasksCreated(tasks.size());
 
         try (ForkJoinPool pool = new ForkJoinPool(runContext.coreConfig().getCoreCount())) {
             log.info("Invoking tasks in ForkJoinPool");

@@ -18,7 +18,7 @@ public class MatrixUtils {
             double[][] matrix = new double[rows][cols];
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {
-                    matrix[i][j] = Math.random();
+                    matrix[i][j] = ((i * cols + j) % 10000) / 100.0;
                 }
             }
             return matrix;
@@ -44,7 +44,13 @@ public class MatrixUtils {
         for (int i = 0; i < result.length; i++) {
             for (int j = 0; j < result[0].length; j++) {
                 if (Math.abs(result[i][j] - expected[i][j]) > 1e-6) { // Allowing a small tolerance for floating-point comparisons
-                    log.error("Mismatch at position ({}, {}): result={}, expected={}", i, j, result[i][j], expected[i][j]);
+                    // 1e-6 is scientific notation for, which equals 0.000001 or one-millionth
+//                if (result[i][j] != expected[i][j]) {
+                    log.error("Mismatch at position ({}, {}): result={}, expected={}, diff={}",
+                            i, j,
+                            String.format("%.17f", result[i][j]),
+                            String.format("%.17f", expected[i][j]),
+                            String.format("%.20e", Math.abs(result[i][j] - expected[i][j])));
                     return false;
                 }
             }

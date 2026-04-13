@@ -13,6 +13,9 @@ public class MatrixMetrics {
     @Setter
     private double speedup;
 
+    @Setter
+    private long noOfTasksCreated;
+
     public void startTimer() {
         startTimeMillis = System.currentTimeMillis();
     }
