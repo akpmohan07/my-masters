@@ -1,0 +1,59 @@
++----------------------------------------+
+|       Counting Semaphore Demo           |
++----------------------------------------+
+| Threads         : 8                    |
+| Max concurrent  : 3                    |
+| Work time       : 1-3 seconds/thread   |
++----------------------------------------+
+
+Thread     Status       Count    Message
+---------- ------------ -------- --------------------
+[Thread 0][WAITING  ] Trying to acquire semaphore
+[Thread 7][WAITING  ] Trying to acquire semaphore
+[Thread 3][WAITING  ] Trying to acquire semaphore
+[Thread 4][WAITING  ] Trying to acquire semaphore
+[Thread 2][WAITING  ] Trying to acquire semaphore
+[Thread 5][WAITING  ] Trying to acquire semaphore
+[Thread 0][ACQUIRED ] Count=2   No wait needed
+[Thread 6][WAITING  ] Trying to acquire semaphore
+[Thread 0][WORKING  ] Doing work for 1 second(s)
+[Thread 1][WAITING  ] Trying to acquire semaphore
+[Thread 7][ACQUIRED ] Count=1   No wait needed
+[Thread 7][WORKING  ] Doing work for 2 second(s)
+[Thread 3][ACQUIRED ] Count=0   No wait needed
+[Thread 3][WORKING  ] Doing work for 1 second(s)
+[Thread 4][BLOCKED  ] Count=-1  Waiting for resource...
+[Thread 2][BLOCKED  ] Count=-2  Waiting for resource...
+[Thread 5][BLOCKED  ] Count=-3  Waiting for resource...
+[Thread 6][BLOCKED  ] Count=-4  Waiting for resource...
+[Thread 1][BLOCKED  ] Count=-5  Waiting for resource...
+[Thread 0][RELEASED ] Count=-4  Waking blocked thread
+[Thread 0][DONE     ] Finished
+[Thread 4][UNBLOCKED] Count=-4  Resource acquired
+[Thread 4][WORKING  ] Doing work for 2 second(s)
+[Thread 3][RELEASED ] Count=-3  Waking blocked thread
+[Thread 3][DONE     ] Finished
+[Thread 2][UNBLOCKED] Count=-3  Resource acquired
+[Thread 2][WORKING  ] Doing work for 3 second(s)
+[Thread 7][RELEASED ] Count=-2  Waking blocked thread
+[Thread 7][DONE     ] Finished
+[Thread 5][UNBLOCKED] Count=-2  Resource acquired
+[Thread 5][WORKING  ] Doing work for 3 second(s)
+[Thread 4][RELEASED ] Count=-1  Waking blocked thread
+[Thread 4][DONE     ] Finished
+[Thread 6][UNBLOCKED] Count=-1  Resource acquired
+[Thread 6][WORKING  ] Doing work for 1 second(s)
+[Thread 6][RELEASED ] Count=0   Waking blocked thread
+[Thread 6][DONE     ] Finished
+[Thread 1][UNBLOCKED] Count=1   Resource acquired
+[Thread 1][WORKING  ] Doing work for 2 second(s)
+[Thread 2][RELEASED ] Count=1   No threads to wake
+[Thread 2][DONE     ] Finished
+[Thread 5][RELEASED ] Count=2   No threads to wake
+[Thread 5][DONE     ] Finished
+[Thread 1][RELEASED ] Count=3   No threads to wake
+[Thread 1][DONE     ] Finished
+
++----------------------------------------+
+|          All threads completed          |
++----------------------------------------+
