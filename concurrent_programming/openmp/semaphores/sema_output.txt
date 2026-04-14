@@ -1,0 +1,48 @@
+ gcc -Xpreprocessor -fopenmp \                                                                                  INT ✘  13:20:29
+  -I/opt/homebrew/opt/libomp/include \
+  -L/opt/homebrew/opt/libomp/lib \
+  -lomp -O3 -ffast-math -mcpu=apple-m1 -flto \
+  -o sema sema.c
+
+./sema                                                                                         ✔  13:20:31
+Starting — MAX slots = 5, Threads = 10
+
+Thread 0 trying to acquire...
+Thread 9 trying to acquire...
+Thread 1 trying to acquire...
+Thread 7 trying to acquire...
+Thread 6 trying to acquire...
+Thread 8 trying to acquire...
+Thread 4 trying to acquire...
+Thread 2 trying to acquire...
+Thread 0 acquired — count now = 4
+Thread 5 trying to acquire...
+Thread 3 trying to acquire...
+Thread 9 acquired — count now = 3
+Thread 1 acquired — count now = 2
+Thread 7 acquired — count now = 1
+Thread 6 acquired — count now = 0
+Thread 8 waiting — count = 0
+Thread 4 waiting — count = 0
+Thread 2 waiting — count = 0
+Thread 5 waiting — count = 0
+Thread 3 waiting — count = 0
+Thread 0 releasing — waking a waiter
+Thread 0 released — count now = 1
+Thread 8 acquired — count now = 0
+Thread 9 releasing — waking a waiter
+Thread 9 released — count now = 1
+Thread 4 acquired — count now = 0
+Thread 7 releasing — waking a waiter
+Thread 7 released — count now = 1
+Thread 2 acquired — count now = 0
+Thread 1 releasing — waking a waiter
+Thread 1 released — count now = 1
+Thread 5 acquired — count now = 0
+Thread 6 releasing — waking a waiter
+Thread 6 released — count now = 1
+Thread 3 acquired — count now = 0
+Thread 8 releasing — waking a waiter
+Thread 8 released — count now = 1
+Thread 4 releasing — waking a waiter
+[1]    25183 segmentation fault  ./sema
