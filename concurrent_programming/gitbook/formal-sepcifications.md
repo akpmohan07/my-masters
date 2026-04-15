@@ -2,7 +2,7 @@
 
 #### [https://claude.ai/chat/7cf514c3-4720-4b2c-836a-ddacee85914f](https://claude.ai/chat/7cf514c3-4720-4b2c-836a-ddacee85914f)
 
-#### Core CSP Concepts
+#### Core CSP Concepts.&#x20;
 
 | Concept             | Notation                 | Meaning                                    |
 | ------------------- | ------------------------ | ------------------------------------------ |
