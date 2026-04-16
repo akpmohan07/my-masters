@@ -4,5 +4,6 @@
 * [Formal Sepcifications](formal-sepcifications.md)
 * [JSCP](jscp.md)
 * [Exam](exam.md)
+* [Java Thread](java-thread.md)
 * [OpenMP](openmp/README.md)
   * [OpenMP Complete Study Guide](openmp/openmp-complete-study-guide.md)
