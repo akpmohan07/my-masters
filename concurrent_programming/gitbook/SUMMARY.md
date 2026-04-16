@@ -5,6 +5,6 @@
 * [JSCP](jscp.md)
 * [Exam](exam.md)
 * [Java Thread](java-thread/README.md)
-  * [Page 1](java-thread/page-1.md)
+  * [Java Thread Revision](java-thread/java-thread-revision.md)
 * [OpenMP](openmp/README.md)
   * [OpenMP Complete Study Guide](openmp/openmp-complete-study-guide.md)
