@@ -402,6 +402,10 @@ Chain — can't skip a link. Sequential.
 
 ### 7. Removing Flow Dependencies **\[EXAM EVERY YEAR]**
 
+#### Red Skew Part Fission Refcator ALgo
+
+RSPFRA
+
 #### Case 1 — Reduction and Induction Variable
 
 ```c

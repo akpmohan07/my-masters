@@ -1,6 +1,11 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Analytical Problems](README.md)
+  * [1. Dependency Detection](analytical-problems/1.-dependency-detection.md)
+  * [2. ISDG](analytical-problems/2.-isdg.md)
+  * [3. Trapezoidal](analytical-problems/3.-trapezoidal.md)
+  * [4. Dining Philoshoper](analytical-problems/4.-dining-philoshoper.md)
+* [Introduction](<README (2).md>)
 * [OpenCL](<README (1).md>)
 * [Formal Sepcifications](formal-sepcifications.md)
 * [JSCP](jscp.md)
