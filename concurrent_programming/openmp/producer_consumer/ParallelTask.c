@@ -10,6 +10,13 @@ gcc -Xpreprocessor -fopenmp \
 Result: 333.333330
 
 
+Without using the Producer-Consumer model, write an OpenMP program that uses
+tasks to processes all of the elements of a list concurrently. Clearly discribe the behaviour
+of your code. Outline an alternative solution that uses the Producer-Consumer
+model, indicating how you would ensure an orderly termination of all Producers and
+Consumers.
+[
+
 */
 
 
@@ -43,28 +50,31 @@ int main() {
     double low = 0;
     double high = 10;
     int slices = 5;
-    int divisions = 1000;
+
 
     double width = (high - low) / slices;
 
+    int divisions = 1000;
+    Slice slices_array[slices];
+    for (int i = 0; i < slices; i++) {
+        slices_array[i].start     = low + i * width;
+        slices_array[i].end       = slices_array[i].start + width;
+        slices_array[i].divisions = divisions;
+    }
+
     double total = 0.0;
 
-    #pragma omp parallel default(none) shared(total,low,high,width,slices,divisions)
+    // Default -> Paralall
+    #pragma omp parallel default(none) shared(total,low,high,width,slices,divisions,slices_array)
     {
-        #pragma omp single
-        {
-            for(int i=0; i<slices;i++){
-                #pragma omp task firstprivate(i) shared(total,width,low,divisions)
-                {
-                    Slice s;
-                    s.start = low + i * width;
-                    s.end = s.start + width;
-                    s.divisions = divisions;
-                    double local = calculate(s);
-                    
-                    #pragma omp critical
-                    total += local;
-                }
+        // Single -> Main thread single exection
+        for (int i = 0; i < slices; i++) {
+            #pragma omp task shared(total, slices_array) firstprivate(i)
+            {
+                double local = calculate(slices_array[i]);
+
+                #pragma omp critical
+                total += local;
             }
         }
     }
