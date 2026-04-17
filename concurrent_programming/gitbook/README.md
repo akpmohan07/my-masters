@@ -1,576 +1,391 @@
-# OpenCL
+# Introduction
 
-{% embed url="https://chatgpt.com/g/g-p-696f5c8a24948191a90f2355411ee6a7-concurrent-programming/c/69a6bd4b-c958-8389-be28-a974ea875d01" %}
+## CSC1141 — Introduction: Revision Notes v2
 
-Here is a **clean “future revision” summary of the entire OpenCL document** you shared.\
-It is designed so that you can **quickly revise it before exams or interviews**.
-
-Source: 📄 _CSC1141 – Concurrent Programming: OpenCL_
+**Date:** 17 April 2026\
+**Review:** 20 Apr (recall) | 24 Apr (exam Qs) | 1 May (weak spots)
 
 ***
 
-## OpenCL — Complete Revision Summary
+### 1. Concurrent Program
+
+**Definition:** Interleaving of sets of sequential atomic instructions
+
+**Atomic instruction:** Once started → completes without interruption (e.g. `MOV A, B`)
+
+**Key facts:**
+
+* Multiple processes execute at same time on same/different processors
+* At any instant → each processor executes exactly ONE instruction
+* `i++` = 3 atomics: Read → Add → Write → race condition risk
 
 ***
 
-## 1. What OpenCL Is
+### 2. Correctness
 
-**OpenCL (Open Computing Language)** is an **open standard for parallel programming on heterogeneous systems**.
+**Variables:** `a` = inputs | `b` = outputs | `P(a)` = pre-condition | `Q(a,b)` = post-condition
 
-It allows programs to run on:
+|             | Formula                              | Meaning                              | Terminates? |
+| ----------- | ------------------------------------ | ------------------------------------ | ----------- |
+| **Partial** | `(P(a) ∧ terminates(Prog)) ⟹ Q(a,b)` | IF it terminates, output is correct  | Maybe       |
+| **Total**   | `P(a) ⟹ (terminates(Prog) ∧ Q(a,b))` | WILL terminate AND output is correct | Always      |
 
-* GPUs (NVIDIA RTX, AMD Radeon)
-* CPUs (Intel Core, AMD Ryzen)
-* Accelerators (DSPs, FPGAs)
-
-It was developed by the **Khronos Group**.
-
-#### Main purpose
-
-Use **massive parallel hardware** for general computation.
-
-Example uses:
-
-* Machine learning
-* Image processing
-* Physics simulation
-* Scientific computing
+**Rule:** Totally correct programs always terminate. Deadlock = partial OK, total FAIL.
 
 ***
 
-## 2. Core Idea of OpenCL
+### 3. Safety & Liveness
 
-OpenCL separates the program into:
+| Property     | Rule                    | Sub-properties                        |
+| ------------ | ----------------------- | ------------------------------------- |
+| **Safety**   | Must ALWAYS be true     | Mutual exclusion, Absence of deadlock |
+| **Liveness** | Must EVENTUALLY be true | Absence of starvation, Fairness       |
 
-#### Host
+**Safety:**
 
-The **CPU program** that controls execution.
+* **Mutual exclusion** — no two processes interleave on shared resource simultaneously
+* **Absence of deadlock** — non-terminating system that cannot respond to any signal
 
-#### Device
+**Liveness:**
 
-The **hardware that performs parallel computation**.
+* **Absence of starvation** — every process eventually gets resources
+* **Fairness** — any contention must eventually be resolved
 
-Example:
+**4 Fairness levels (weak → strong):**
 
-Host → Intel Core i7\
-Device → NVIDIA RTX 4090
+| Level              | Definition                                              |
+| ------------------ | ------------------------------------------------------- |
+| **Weak**           | Continuously requesting → eventually granted            |
+| **Strong**         | Requesting infinitely often → eventually granted        |
+| **Linear waiting** | Granted before any other process gets it more than once |
+| **FIFO**           | First request in → first granted                        |
 
-***
-
-## 3. Three Components of OpenCL
-
-OpenCL has **three major components**.
-
-#### 1. Language Specification
-
-OpenCL kernels are written in **OpenCL C**.
-
-Based on **C99** but with restrictions:
-
-Not allowed:
-
-* recursion
-* function pointers
-* bit-fields
-* variable length arrays
-
-Added features:
-
-* vector types
-* memory qualifiers
-* built-in parallel functions
+**Memory anchor:** **W**hy **S**o **L**ong **F**riend
 
 ***
 
-#### 2. Platform API
+### 4. Flynn's Taxonomy (1966)
 
-Used by host programs to:
+|                   | Single Instruction | Multiple Instructions |
+| ----------------- | ------------------ | --------------------- |
+| **Single Data**   | **SISD**           | **MISD**              |
+| **Multiple Data** | **SIMD**           | **MIMD**              |
 
-* detect OpenCL devices
-* send data to devices
-* launch kernels
+| Type     | Description                          | Example                               |
+| -------- | ------------------------------------ | ------------------------------------- |
+| **SISD** | 1 instruction, 1 data stream         | Single CPU core                       |
+| **SIMD** | 1 instruction, many data streams     | GPU, vector machines → OpenCL         |
+| **MISD** | Many instructions, 1 data stream     | Fault-tolerant systems (rare)         |
+| **MIMD** | Many instructions, many data streams | Multicore CPUs → Java Threads, OpenMP |
 
-***
+**MIMD variants:**
 
-#### 3. Runtime API
-
-Used to manage:
-
-* command queues
-* memory objects
-* kernel execution
-
-***
-
-## 4. OpenCL Architecture
-
-OpenCL uses **three models**.
+* **Shared memory** — processors share memory (fast, contention risk)
+* **Distributed memory** — own local memory, communicate by messages
 
 ***
 
-## 4.1 Platform Model
+### 5. Past & Today
 
-Describes hardware organisation.
+**Past architectures:**
 
-```
-Host (CPU)
-   |
-Device (GPU / CPU)
-   |
-Compute Units
-   |
-Processing Elements
-```
+|         | Shared Memory       | Distributed Memory     |
+| ------- | ------------------- | ---------------------- |
+| Speed   | Memory speed (fast) | Network speed (slower) |
+| Problem | Contention          | Communication overhead |
 
-#### Real example
+→ Both expensive. **Cluster computing** = first affordable (standard PCs + Ethernet)
 
-| OpenCL term        | Real hardware            |
-| ------------------ | ------------------------ |
-| Host               | Intel CPU                |
-| Device             | NVIDIA GPU               |
-| Compute Unit       | Streaming Multiprocessor |
-| Processing Element | CUDA core                |
+**Today — HSA core types:**
+
+|                   | LCU                  | TCU                     |
+| ----------------- | -------------------- | ----------------------- |
+| Stands for        | Latency Compute Unit | Throughput Compute Unit |
+| Generalisation of | CPU                  | GPU                     |
+| Maps to           | Task parallelism     | Data parallelism        |
+| Module tool       | Java Threads, OpenMP | OpenCL                  |
 
 ***
 
-## 4.2 Execution Model
+### 6. Speedup & Efficiency
 
-Defines how computation runs.
+**Variables:** `t_seq` = sequential time | `t_par` = parallel time | `N` = processors
 
-Two components:
+| Metric         | Formula         | Meaning                       |
+| -------------- | --------------- | ----------------------------- |
+| **Speedup**    | t\_seq / t\_par | How many times faster?        |
+| **Efficiency** | speedup / N     | How useful is each processor? |
 
-#### Host program
+**Measurement rules:**
 
-Controls execution.
-
-#### Kernels
-
-Functions executed in parallel on the device.
-
-***
-
-### Work-items
-
-A **work-item** is a single execution instance of a kernel.
-
-Example:\
-Each element of an array may be processed by one work-item.
+* Same hardware, same load for both programs
+* Sequential = fastest known solution
+* Measure whole execution, multiple runs, report averages
+* Threads must not exceed hardware cores
 
 ***
 
-### Work-groups
+### 7. Amdahl's Law
 
-Work-items are grouped into **work-groups**.
+**Variables:** T = sequential time | α = parallelisable fraction | 1-α = sequential fraction | N = processors
 
-Properties:
+**Assumptions:** Fixed problem size | Even division | No communication overhead
 
-* Work-items inside a group can synchronise
-* They share **local memory**
-* Work-groups execute independently
+**Derivation:**
 
-***
+| Step               | Formula                               |
+| ------------------ | ------------------------------------- |
+| Parallel time      | (1-α)T + αT/N                         |
+| Speedup            | T / ((1-α)T + αT/N)                   |
+| Speedup (final)    | **1 / ((1-α) + α/N)**                 |
+| Max speedup (N→∞)  | **1 / (1-α)**                         |
+| Efficiency         | speedup / N = T / (N×((1-α)T + αT/N)) |
+| Efficiency (final) | **1 / (N(1-α) + α)**                  |
 
-### NDRange
+**Efficiency derivation steps:**
 
-OpenCL executes kernels over an **N-dimensional index space**.
+1. efficiency = speedup / N
+2. \= T / (N × ((1-α)T + αT/N))
+3. Expand: N(1-α)T + αT
+4. Cancel T: **1 / (N(1-α) + α)**
 
-Possible dimensions:
-
-* 1D
-* 2D
-* 3D
-
-Example:
-
-```
-Image processing → 2D
-Volume data → 3D
-Vector operations → 1D
-```
+**Implication:** Sequential remainder (1-α) = permanent ceiling. More cores → efficiency → 0.
 
 ***
 
-## 4.3 Memory Model
+### 8. Gustafson-Barsis Law
 
-OpenCL memory is hierarchical.
+**Variables:** T = parallel time | α = parallel fraction | 1-α = sequential fraction | N = machines
 
-#### 1 Global Memory
+**Assumption:** Problem size grows with N (unlike Amdahl's fixed size)
 
-* Accessible by all work-items
-* Large but slow
-* Example: GPU VRAM
+**Derivation:**
 
-***
+| Step                  | Formula            |
+| --------------------- | ------------------ |
+| Sequential equivalent | (1-α)T + NαT       |
+| Speedup               | ((1-α)T + NαT) / T |
+| Speedup (final)       | **(1-α) + Nα**     |
+| Efficiency            | speedup / N        |
+| Efficiency (final)    | **(1-α)/N + α**    |
 
-#### 2 Constant Memory
+**Efficiency derivation steps:**
 
-* Read-only for work-items
-* Written by host
+1. efficiency = ((1-α) + Nα) / N
+2. Split: (1-α)/N + Nα/N
+3. Cancel N: **(1-α)/N + α**
 
-***
-
-#### 3 Local Memory
-
-* Shared inside a work-group
-* Faster than global memory
-
-Example: GPU shared memory
+**Why correct:** Amdahl = fixed problem (unrealistic). Gustafson = more cores → bigger problem in same time (realistic). No ceiling.
 
 ***
 
-#### 4 Private Memory
+### 9. Amdahl vs Gustafson
 
-* Exclusive to a work-item
-* Typically registers
-
-***
-
-## 5. Kernel Programming
-
-A **kernel** is the function executed on the device.
-
-Example:
-
-Sequential C:
-
-```
-for(i=0;i<n;i++)
-    r[i] = s[i]*s[i];
-```
-
-OpenCL kernel:
-
-```
-kernel void square(global float *s, global float *r)
-{
-    int id = get_global_id(0);
-    r[id] = s[id] * s[id];
-}
-```
-
-Each work-item processes one element.
+|                       | **Amdahl**               | **Gustafson**            |
+| --------------------- | ------------------------ | ------------------------ |
+| Year                  | 1967                     | 1988                     |
+| Perspective           | Sequential program       | Parallel program         |
+| Problem size          | Fixed                    | Grows with N             |
+| Starting time         | t\_seq = T               | t\_par = T               |
+| Parallel time         | (1-α)T + αT/N            | T                        |
+| Sequential equivalent | T                        | (1-α)T + NαT             |
+| Speedup (final)       | 1/((1-α)+α/N)            | (1-α)+Nα                 |
+| Efficiency (final)    | 1/(N(1-α)+α)             | (1-α)/N+α                |
+| Ceiling?              | Yes — 1/(1-α)            | No                       |
+| As N→∞                | Efficiency → 0           | Efficiency stays healthy |
+| Verdict               | Pessimistic, unrealistic | Optimistic, realistic    |
 
 ***
 
-## 6. Types of Kernels
+### 10. Scaling Metrics
 
-#### OpenCL kernels
+| Metric             | Formula               | Meaning                        | Connected to |
+| ------------------ | --------------------- | ------------------------------ | ------------ |
+| **Strong Scaling** | t\_seq / (t\_par × N) | Fixed problem, more processors | Amdahl       |
+| **Weak Scaling**   | t\_seq / t'\_par      | Problem grows with N           | Gustafson    |
 
-* Written in OpenCL C
-* Compiled at runtime
-
-#### Native kernels
-
-* Written for specific devices
-* Less portable
+`t'_par` = time to solve problem **N times larger** on N processors. Ideal = 1.0
 
 ***
 
-## 7. Steps in an OpenCL Program
+### 11. Guidelines
 
-Typical workflow:
+**Developing:**
 
-1️⃣ Query available platforms\
-2️⃣ Query devices\
-3️⃣ Create context\
-4️⃣ Create command queue\
-5️⃣ Create program from source\
-6️⃣ Compile program\
-7️⃣ Create kernel\
-8️⃣ Create memory buffers\
-9️⃣ Transfer data to device\
-🔟 Set kernel arguments\
-11️⃣ Execute kernel\
-12️⃣ Read results\
-13️⃣ Release resources
+1. Sequential variant first (most naturally parallelisable algorithm)
+2. Profile → find time-consuming parts
+3. Estimate benefit (Amdahl's Law)
+
+**Measuring:**
+
+1. Whole execution duration
+2. Multiple runs → averages (+ std deviations)
+3. Exclude outliers (with valid explanation only)
+4. Report for various input sizes
+5. Threads ≤ hardware cores
 
 ***
 
-## 8. Important OpenCL API Functions
-
-#### Platform & device detection
-
-```
-clGetPlatformIDs()
-clGetDeviceIDs()
-```
+Here's the exam Q\&A section rewritten — showing how to approach and write each answer:
 
 ***
 
-#### Context creation
+### 📝 Exam Q1 — Full Answers
 
-```
-clCreateContext()
-```
+#### Q1(a) — Amdahl's Law \[6 marks]
 
-Context manages:
+> _"Derive Amdahl's Law for speedup and from that derive efficiency. What is the implication?"_
 
-* devices
-* memory objects
-* kernels
+**How to approach:** Build from first principles. State assumptions → build parallel time → derive speedup → derive efficiency → state implication.
 
 ***
 
-#### Command queue
+Assume a sequential program takes time **T**. Let **α** be the fraction that can be parallelised across **N** processors. The remaining fraction **(1-α)** must stay sequential.
 
-```
-clCreateCommandQueue()
-```
+The parallel execution time is:
 
-Queues commands for device execution.
+> t\_par = (1-α)T + αT/N
 
-***
+Speedup is defined as t\_seq / t\_par:
 
-#### Program creation
+> speedup = T / ((1-α)T + αT/N)
 
-```
-clCreateProgramWithSource()
-```
+Cancelling T:
 
-Creates program from OpenCL source code.
+> **speedup = 1 / ((1-α) + α/N)**
 
-***
+As N → ∞, α/N → 0, giving the upper bound:
 
-#### Program compilation
+> **max speedup = 1 / (1-α)**
 
-```
-clBuildProgram()
-```
+Efficiency = speedup / N:
 
-Compiles kernel code at runtime.
+> efficiency = T / (N × ((1-α)T + αT/N)) = T / (N(1-α)T + αT)
 
-***
+Cancelling T:
 
-#### Kernel creation
+> **efficiency = 1 / (N(1-α) + α)**
 
-```
-clCreateKernel()
-```
-
-Extracts kernel from compiled program.
+**Implication:** The sequential fraction (1-α) permanently limits speedup regardless of how many processors are added. As N increases, efficiency approaches zero — additional processors contribute diminishing returns.
 
 ***
 
-#### Kernel arguments
+#### Q1(b) — Gustafson-Barsis Law \[8 marks]
 
-```
-clSetKernelArg()
-```
+> _"Derive Gustafson-Barsis' Law for speedup and from that derive efficiency. Why is it the correct interpretation?"_
 
-Assigns memory buffers and parameters.
+**How to approach:** Flip the perspective — start from parallel time, work out what the sequential equivalent would be → derive speedup → derive efficiency → explain why Amdahl is wrong.
 
 ***
 
-#### Kernel execution
+Assume the parallel program runs in time **T**. The fraction **(1-α)** runs sequentially, taking **(1-α)T**. The fraction **α** runs across all N machines, taking **αT**. If this same work were done on one machine sequentially, it would take **NαT**.
 
-```
-clEnqueueNDRangeKernel()
-```
+The sequential equivalent time is therefore:
 
-Runs the kernel across work-items.
+> t\_seq = (1-α)T + NαT
 
-***
+Speedup = t\_seq / t\_par:
 
-#### Memory management
+> speedup = ((1-α)T + NαT) / T
 
-```
-clCreateBuffer()
-clEnqueueWriteBuffer()
-clEnqueueReadBuffer()
-```
+Cancelling T:
 
-Transfers data between host and device.
+> **speedup = (1-α) + Nα**
 
-***
+Efficiency = speedup / N:
 
-## 9. Memory Objects
+> efficiency = ((1-α) + Nα) / N = (1-α)/N + Nα/N
 
-Two types exist.
+Cancelling N in the second term:
 
-#### Buffer objects
+> **efficiency = (1-α)/N + α**
 
-Used for:
+**Why Gustafson-Barsis is the correct interpretation:**
 
-* arrays
-* vectors
-* numerical data
+Amdahl's Law assumes a fixed problem size — as more processors are added, the same amount of work is divided among them. This is unrealistic. In practice, when more processors are available, parallel programs use that extra power to solve proportionally larger problems in the same time.
 
-Created with:
-
-```
-clCreateBuffer()
-```
+Gustafson-Barsis measures from the parallel program's perspective, allowing problem size to grow with N. This gives linear speedup growth with no hard ceiling, which matches real-world experience — supercomputers with millions of processors continue to deliver useful speedup on large-scale problems.
 
 ***
 
-#### Image objects
+#### Q1(c) — Calculation \[6 marks]
 
-Used for:
+> _"Using Amdahl's Law, efficiency on 4 cores = 0.8. What would Gustafson-Barsis give for the same program on 4 cores?"_
 
-* 2D images
-* 3D textures
-
-Created with:
-
-```
-clCreateImage2D()
-clCreateImage3D()
-```
+**How to approach:** Two steps. First use Amdahl's efficiency formula to find α. Then plug α into Gustafson's efficiency formula.
 
 ***
 
-## 10. Synchronisation
+**Step 1 — Find α using Amdahl's efficiency:**
 
-OpenCL synchronisation mechanisms include:
+efficiency = 1 / (N(1-α) + α) = 0.8, N = 4
 
-#### Barrier
+> 1 / (4(1-α) + α) = 0.8
 
-Ensures all work-items reach the same point.
+Rearrange:
 
-```
-barrier(CLK_LOCAL_MEM_FENCE)
-```
+> 4(1-α) + α = 1/0.8 = 1.25 4 - 4α + α = 1.25 4 - 3α = 1.25 3α = 2.75 **α = 0.917**
 
-***
+**Step 2 — Apply Gustafson-Barsis efficiency:**
 
-#### Memory fence
+> efficiency = (1-α)/N + α = (1 - 0.917)/4 + 0.917 = 0.083/4 + 0.917 = 0.021 + 0.917 **= 0.938**
 
-Ensures memory operations are visible.
-
-```
-mem_fence()
-```
+Gustafson-Barsis gives a higher efficiency (0.938 vs 0.8) because it assumes the problem grows with the number of processors, giving a more optimistic and realistic measure of parallel performance.
 
 ***
 
-#### Event synchronisation
+Want me to update v2 with this exam section replaced?
 
-Used to coordinate kernel execution.
+###
 
-Example:
+### 📝 Exam Q1 — Skeleton Answers
 
-```
-clWaitForEvents()
-```
+#### Q1(a) — Amdahl derivation + implication \[6 marks]
 
-***
+1. State parallel time: **(1-α)T + αT/N**
+2. speedup = T / ((1-α)T + αT/N) = **1/((1-α)+α/N)**
+3. efficiency = speedup/N → expand → cancel T → **1/(N(1-α)+α)**
+4. As N→∞ → ceiling = **1/(1-α)**
+5. Implication: sequential remainder permanently limits speedup. Efficiency → 0 as N grows.
 
-## 11. OpenCL Data Types
+#### Q1(b) — Gustafson derivation + why correct \[8 marks]
 
-OpenCL supports vector types.
+1. State sequential equivalent: **(1-α)T + NαT**
+2. speedup = ((1-α)T + NαT)/T = **(1-α)+Nα**
+3. efficiency = speedup/N → split → cancel N → **(1-α)/N+α**
+4. Why correct: Amdahl assumes fixed problem size (unrealistic). Real programs tackle bigger problems with more cores. Gustafson grows problem with N → no ceiling → linear speedup growth.
 
-Examples:
+#### Q1(c) — Calculation \[6 marks]
 
-```
-float2
-float4
-int8
-```
+**Given:** Amdahl efficiency = 0.8, N = 4. Find Gustafson efficiency.
 
-Vector operations execute on multiple values simultaneously.
+**Step 1 — Find α:**
 
-Example:
+* 1/(4-3α) = 0.8
+* 4-3α = 1.25
+* 3α = 2.75
+* **α = 0.917**
 
-```
-float4 a,b,c;
-c = a + b;
-```
+**Step 2 — Gustafson efficiency:**
 
-***
-
-## 12. Performance Considerations
-
-Performance depends heavily on memory usage.
-
-Major optimisation strategies:
-
-#### Reduce global memory access
-
-Global memory is slow.
+* (1-0.917)/4 + 0.917
+* \= 0.021 + 0.917
+* **= 0.938**
 
 ***
 
-#### Use local memory
+### ❓ Weak Spots
 
-Shared inside work-groups.
-
-***
-
-#### Use private memory
-
-Registers are fastest.
+* Efficiency derivation — remember: expand N×(...), then cancel T
+* Part (c) — find α first from Amdahl, then plug into Gustafson
+* Fairness levels — remember order: Weak → Strong → Linear → FIFO
 
 ***
 
-## 13. OpenCL vs CUDA
+### 📅 Spaced Repetition
 
-| Feature          | OpenCL       | CUDA         |
-| ---------------- | ------------ | ------------ |
-| Hardware support | Many vendors | NVIDIA only  |
-| Compilation      | Runtime      | Compile-time |
-| Portability      | High         | Low          |
-| Tools            | Fewer        | Mature       |
-
-***
-
-## 14. Example Performance Comparison
-
-Matrix multiplication results:
-
-| Implementation | Performance |
-| -------------- | ----------- |
-| Sequential CPU | 167 Mflops  |
-| Naive GPU      | 511 Mflops  |
-| Optimised GPU  | 2472 Mflops |
-
-Speed improvement achieved by:
-
-* reducing global memory access
-* using private memory
-* using local shared memory
-
-***
-
-## 15. Key Concepts to Remember
-
-#### Hardware hierarchy
-
-```
-Host
-Device
-Compute Units
-Processing Elements
-```
-
-***
-
-#### Execution hierarchy
-
-```
-NDRange
-Work-groups
-Work-items
-```
-
-***
-
-#### Memory hierarchy
-
-```
-Global memory
-Local memory
-Private memory
-Constant memory
-```
-
-***
-
-## Final One-Line Concept
-
-OpenCL works by:
-
-**splitting a problem into thousands of small tasks and executing them simultaneously on parallel hardware like GPUs.**
-
-***
-
-If you want, I can also give you a **super-short 1-page “exam cheat sheet” version** that contains **only the 15 most important points to memorise.**
+| Review | Date        | Focus                                    |
+| ------ | ----------- | ---------------------------------------- |
+| Day 3  | 20 Apr 2026 | Derive both laws from scratch — no notes |
+| Day 7  | 24 Apr 2026 | Full Q1 timed — 30 mins                  |
+| Day 14 | 1 May 2026  | Weak spots drill                         |

@@ -1,6 +1,7 @@
 # Table of contents
 
-* [OpenCL](README.md)
+* [Introduction](README.md)
+* [OpenCL](<README (1).md>)
 * [Formal Sepcifications](formal-sepcifications.md)
 * [JSCP](jscp.md)
 * [Exam](exam.md)
