@@ -2,7 +2,6 @@
 
 * [Network Layer Model](README.md)
   * [Quiz 1](network-layer-model/quiz-1.md)
-  * [Exam](network-layer-model/exam.md)
 * [Data Link layer](data-link-layer/README.md)
   * [Ethernet, MAC Tables, ARP, and Multicast Mapping](data-link-layer/ethernet-mac-tables-arp-and-multicast-mapping.md)
 * [Network Layer](network-layer.md)
@@ -14,3 +13,5 @@
 * [VLAN](vlan.md)
 * [Week 10 — Securing Network Devices](week-10-securing-network-devices.md)
 * [Week 11 — Access Control Lists (ACLs)](week-11-access-control-lists-acls.md)
+* [Exam](exam/README.md)
+  * [QP Analysis](exam/qp-analysis.md)
