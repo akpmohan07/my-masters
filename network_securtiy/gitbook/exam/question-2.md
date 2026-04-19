@@ -31,7 +31,31 @@
 
 ***
 
-### Part (a) — ARP cache poisoning — model answer \[10 marks]
+### Part (a) — ARP cache poisoning \[10 marks]
+
+**Exact question — 2025 \[Q2]\[A], 2024 \[Q2]\[A], 2025R \[Q2]\[A]:**
+
+> ⚠️ Image in question — refer to 2025 \[Q2] topology diagram (Attacker/Victim/Router/DHCP server)
+>
+> Consider the network depicted above. Explain how the Attacker might implement an ARP cache poisoning attack to intercept all traffic between the Victim and the Internet. Provide example malicious traffic and mention any relevant tools in your explanation.
+
+**2023 \[Q2]\[A] variant — uses Q1 topology:**
+
+> Consider the network depicted in Question 1. Explain how an attacker at PC-B might implement an ARP cache poisoning attack to intercept all traffic between PC-A and PC-C.
+
+#### How to approach — step by step:
+
+**Step 1** — Show BEFORE state: normal ARP caches for Victim and Router
+
+**Step 2** — Describe the 2 unsolicited fake ARP replies attacker sends
+
+**Step 3** — Show exact example malicious traffic (Sender IP, Sender MAC)
+
+**Step 4** — Show AFTER state: poisoned ARP caches
+
+**Step 5** — Explain result: MITM — all traffic flows through attacker
+
+**Step 6** — Name the tool: arpspoof / Ettercap
 
 **Topology:** Attacker (136.206.10.11), Victim (136.206.10.12), Router (136.206.10.254)
 
@@ -91,7 +115,25 @@ Or: **Ettercap** (GUI-based MITM tool)
 
 ***
 
-### Part (b) — DHCP DORA steps — model answer \[4 marks]
+### Part (b) — DHCP DORA steps \[4–6 marks]
+
+**Exact question — 2025R \[Q2]\[B] and 2024 \[Q2]\[B]:**
+
+> ⚠️ Image in question — refer to 2025R \[Q2] topology diagram
+>
+> Consider the network depicted above. With reference to the DHCP protocol, briefly describe the steps involved in the Victim acquiring its configuration from the DHCP server.
+
+#### How to approach — step by step:
+
+**Step 1** — Name the 4 steps: Discover, Offer, Request, Acknowledge
+
+**Step 2** — For each step: who sends it, what it says, broadcast or unicast
+
+**Step 3** — Note all 4 are broadcast — explain why (Victim has no IP until final ACK)
+
+**Step 4** — Mention transaction ID (XID) — how devices ignore messages not for them
+
+#### Model answer:
 
 | Step            | Who sends   | What it says                     | How       |
 | --------------- | ----------- | -------------------------------- | --------- |
@@ -104,7 +146,27 @@ Or: **Ettercap** (GUI-based MITM tool)
 
 ***
 
-### Part (b/c) — DAI defence — model answer \[6 marks]
+### Part (b/c) — DAI defence \[6 marks]
+
+**Exact question — 2025 \[Q2]\[B]:**
+
+> ⚠️ Image in question — refer to 2025 \[Q2] topology diagram
+>
+> Consider the network depicted above. Describe the steps you would follow to mitigate the threat of the ARP cache poisoning attack described in part (a). Include any relevant Cisco IOS commands.
+
+#### How to approach — step by step:
+
+**Step 1** — Enable DHCP snooping first (DAI depends on it)
+
+**Step 2** — Mark router port as trusted, untrusted all others
+
+**Step 3** — Enable DAI on the VLAN
+
+**Step 4** — Mark router port as trusted for ARP inspection
+
+**Step 5** — Explain how DAI works (checks ARP against snooping table)
+
+#### Model answer:
 
 #### Step 1 — Enable DHCP snooping first (DAI depends on this)
 
@@ -147,7 +209,29 @@ Mismatch → DROP ❌ (attacker's fake ARP blocked)
 
 ***
 
-### Part (b/c) — DHCP spoofing defence — model answer \[4–6 marks]
+### Part (b/c) — DHCP spoofing defence \[4–6 marks]
+
+**Exact question — 2024 \[Q2]\[C] and 2025R \[Q2]\[C]:**
+
+> ⚠️ Image in question — refer to 2024 \[Q2] topology diagram
+>
+> Consider the network depicted above. Describe the steps you would follow to mitigate the threat of a DHCP spoofing attack carried out by the Attacker against Victim. Include any relevant IOS commands.
+
+#### How to approach — step by step:
+
+**Step 1** — Briefly explain how DHCP spoofing works (attacker replies faster)
+
+**Step 2** — Enable DHCP snooping globally
+
+**Step 3** — Enable on the VLAN
+
+**Step 4** — Mark router port as trusted
+
+**Step 5** — Rate limit untrusted ports
+
+**Step 6** — Explain: trusted ports can send DHCP replies, untrusted cannot
+
+#### Model answer:
 
 #### How the attack works
 
@@ -180,7 +264,23 @@ exit
 
 ***
 
-### Part (c) — MAC overflow attack — model answer \[4 marks]
+### Part (c) — MAC overflow attack \[4 marks]
+
+**Exact question — 2025 \[Q2]\[C] and 2023 \[Q2]\[C]:**
+
+> Describe how a MAC address table overflow attack works, the implications of a successful attack and how a switch can be defended against such attacks. Include any relevant Cisco IOS commands.
+
+#### How to approach — step by step:
+
+**Step 1** — Explain the attack: macof sends random source MACs → table fills
+
+**Step 2** — Explain the implication: switch reverts to hub → attacker sees all traffic
+
+**Step 3** — Give the defence: port security
+
+**Step 4** — Write port security commands
+
+#### Model answer:
 
 #### How the attack works
 
