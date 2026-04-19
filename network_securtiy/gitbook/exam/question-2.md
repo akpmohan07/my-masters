@@ -171,13 +171,16 @@ Or: **Ettercap** (GUI-based MITM tool)
 #### Step 1 — Enable DHCP snooping first (DAI depends on this)
 
 ```
+! Step 1 — Enable DHCP snooping globally
 ip dhcp snooping
 ip dhcp snooping vlan 1
 
+! Step 2 — Trust router port (real DHCP traffic comes from here)
 interface gig0/1
- ip dhcp snooping trust        ! router port
+ ip dhcp snooping trust
 exit
 
+! Step 3 — Rate limit untrusted ports
 interface range fa0/1-3
  ip dhcp snooping limit rate 5
 exit
@@ -186,11 +189,13 @@ exit
 #### Step 2 — Enable DAI
 
 ```
+! Step 4 — Enable DAI on VLAN (uses snooping binding table)
 ip arp inspection vlan 1
 ip arp inspection validate src-mac dst-mac ip
 
+! Step 5 — Trust ARP from router (router has static IP — not in snooping table)
 interface gig0/1
- ip arp inspection trust        ! trust ARP from router
+ ip arp inspection trust
 exit
 ```
 
@@ -248,15 +253,20 @@ Victim accepts → all traffic routed via attacker → MITM
 #### Defence — DHCP snooping
 
 ```
+! Step 1 — Enable DHCP snooping globally
 ip dhcp snooping
+
+! Step 2 — Enable on the VLAN
 ip dhcp snooping vlan 1
 
+! Step 3 — Trust router port (real DHCP server traffic comes from here)
 interface gig0/1
- ip dhcp snooping trust        ! real DHCP server/router
+ ip dhcp snooping trust
 exit
 
+! Step 4 — Rate limit untrusted ports (blocks rogue offers + starvation)
 interface range fa0/1-3
- ip dhcp snooping limit rate 5 ! rate limit + blocks rogue offers
+ ip dhcp snooping limit rate 5
 exit
 ```
 
@@ -299,10 +309,19 @@ Attacker runs macof
 #### Defence — port security
 
 ```
+! Step 1 — Enter access ports (not trunk or router ports)
 interface range fa0/1-3
+
+! Step 2 — Enable port security on the interface
  switchport port-security
+
+! Step 3 — Limit to 1 MAC address per port
  switchport port-security maximum 1
+
+! Step 4 — Sticky learning — remember first MAC seen
  switchport port-security mac-address sticky
+
+! Step 5 — Shutdown port if violation occurs
  switchport port-security violation shutdown
 exit
 ```
@@ -322,34 +341,35 @@ exit
 #### Port security
 
 ```
+! Enter access ports
 interface range fa0/1-3
- switchport port-security
- switchport port-security maximum 1
- switchport port-security mac-address sticky
- switchport port-security violation shutdown
+ switchport port-security                           ! enable port security
+ switchport port-security maximum 1                 ! max 1 MAC per port
+ switchport port-security mac-address sticky        ! remember first MAC seen
+ switchport port-security violation shutdown        ! shutdown port on violation
 exit
 ```
 
 #### DHCP snooping
 
 ```
-ip dhcp snooping
-ip dhcp snooping vlan 1
+ip dhcp snooping                                    ! enable globally
+ip dhcp snooping vlan 1                             ! enable on VLAN 1
 interface gig0/1
- ip dhcp snooping trust
+ ip dhcp snooping trust                             ! router port — trust DHCP
 exit
 interface range fa0/1-3
- ip dhcp snooping limit rate 5
+ ip dhcp snooping limit rate 5                      ! rate limit untrusted ports
 exit
 ```
 
 #### DAI
 
 ```
-ip arp inspection vlan 1
-ip arp inspection validate src-mac dst-mac ip
+ip arp inspection vlan 1                            ! enable DAI on VLAN
+ip arp inspection validate src-mac dst-mac ip       ! full validation
 interface gig0/1
- ip arp inspection trust
+ ip arp inspection trust                            ! trust ARP from router
 exit
 ```
 
