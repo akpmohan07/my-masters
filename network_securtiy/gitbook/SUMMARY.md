@@ -15,3 +15,5 @@
 * [Test Revision](test-revision.md)
 * [Exam](exam/README.md)
   * [QP Analysis](exam/qp-analysis.md)
+  * [Question 1](exam/question-1.md)
+  * [Question 2](exam/question-2.md)
