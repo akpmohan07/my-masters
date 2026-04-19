@@ -232,15 +232,41 @@ Step 3: 192.168.20.0 ≠ 192.168.10.0 → DIFFERENT network → send to default 
 #### Model answer — HTTP (2025 \[Q1]\[B]):
 
 ```
-Layer           PDU         Addressing
-Application     HTTP GET    /index.html
-Transport       Segment     Src: ephemeral   Dst: 80 (TCP)
-Network         Packet      Src: 192.168.20.4   Dst: 192.168.10.1
-Data Link       Frame       Src MAC: FFFF    Dst MAC: FAFA (router — diff subnet)
-Physical        Bits        010101...
+Layer           PDU            Addressing
+─────────────────────────────────────────────────────
+Application     HTTP GET       /index.html
+                               (no addressing — just data)
+─────────────────────────────────────────────────────
+Transport       Segment        Src port: ephemeral (random)
+                               Dst port: 80 (TCP — HTTP)
+─────────────────────────────────────────────────────
+Network         Packet         Src IP: 192.168.20.4 (PC-F)
+                               Dst IP: 192.168.10.1 (web server)
+─────────────────────────────────────────────────────
+Data Link       Frame          Src MAC: FFFF (PC-F)
+                               Dst MAC: FAFA (R1 — different subnet!)
+─────────────────────────────────────────────────────
+Physical        Bits           010101... (no addressing)
 ```
 
-> Destination MAC = FAFA (router), NOT the web server's MAC — because PC-F and web server are on different subnets.
+#### Model answer — DNS dig (2025R \[Q1]\[B]):
+
+```
+Layer           PDU            Addressing
+─────────────────────────────────────────────────────
+Application     DNS query      www.cisco.com
+─────────────────────────────────────────────────────
+Transport       Segment        Src port: ephemeral (random)
+                               Dst port: 53 (UDP — DNS)
+─────────────────────────────────────────────────────
+Network         Packet         Src IP: 192.168.10.2 (PC-B)
+                               Dst IP: 192.168.20.1 (DNS server)
+─────────────────────────────────────────────────────
+Data Link       Frame          Src MAC: BBBB (PC-B)
+                               Dst MAC: FBFB (R1 — different subnet!)
+─────────────────────────────────────────────────────
+Physical        Bits           010101... (no addressing)
+```
 
 ***
 
