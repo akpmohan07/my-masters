@@ -4,6 +4,8 @@
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
+
+
 ## Q1 — Ethernet, ARP, MAC Tables, Switches
 
 **CSC1134 — Exam Revision** **Date:** 19 April 2026 **Exam:** Tuesday 21 April 2026 — 9:00 AM
@@ -133,15 +135,67 @@ Step 3: 192.168.20.0 ≠ 192.168.10.0 → DIFFERENT network → send to default 
 
 ***
 
-### Part (a) — MAC table trace — model approach
+### Part (a) — MAC table trace \[10 marks]
 
-**Step 1:** Identify if ping is same subnet or different subnet **Step 2:** Trace ARP request (broadcast — all switches flood and learn) **Step 3:** Trace ARP reply (unicast — switches learn and forward) **Step 4:** Trace ICMP request (switches now know MACs — forward directly) **Step 5:** Trace ICMP reply (same path, reverse direction) **Step 6:** Fill tables — only record what each switch actually saw
+**Exact question — 2023 \[Q1]\[A]:**
+
+> ⚠️ Image in question — refer to 2023 \[Q1] topology diagram
+>
+> Assume all MAC address tables and ARP caches are empty. PC-A successfully pings PC-C. Next, PC-A successfully pings PC-D. Provide the resulting updated MAC address table contents for switches S1, S2 and S3. Document any assumptions. Note: A successful ping is one that receives a reply.
+
+**Other years — same format, different pings:**
+
+* 2024 \[Q1]\[A]: PC-B pings 192.168.10.255, then PC-B pings PC-F, then PC-D pings PC-A
+* 2025 \[Q1]\[A]: PC-E pings 192.168.20.255, then PC-F pings PC-D, then R1 pings PC-F
+* 2025R \[Q1]\[A]: PC-D pings PC-A, then PC-E pings PC-A
+
+#### How to approach — step by step:
+
+**Step 1** — Read topology, note which PC is on which subnet and port
+
+**Step 2** — For each ping: same subnet or different subnet?
+
+* Same subnet → ARP within subnet, no router
+* Different subnet → ARP to router gateway first
+
+**Step 3** — Trace ARP request (broadcast → all switches on path learn source MAC)
+
+**Step 4** — Trace ARP reply (unicast → switches learn reply source MAC)
+
+**Step 5** — Trace ICMP request + reply (same path)
+
+**Step 6** — Fill S1, S2, S3 tables — only record what each switch saw
+
+**Step 7** — Document assumptions:
+
+* All ARP caches and MAC tables start empty
+* Proxy ARP disabled on R1
+* Successful ping = request + reply (both directions)
 
 ***
 
-### Part (b) — Switch reaction — model answer
+### Part (b) — Switch reaction \[4–5 marks]
 
-> S3 table has Fa0/3→DDDD, Fa0/4→EEEE. Frame arrives from PC-C (src=CCCC, dst=BBBB).
+**Exact question — 2023 \[Q1]\[B]:**
+
+> ⚠️ Image in question — partial MAC table given in question
+>
+> Given above are the contents of S3's MAC address table when a ping arrives at S3 from PC-C:
+>
+> * Source MAC: CCCC, Destination MAC: BBBB
+> * Source IP: 192.168.20.2, Destination IP: 192.168.20.1
+>
+> How does S3 react? Explain your reasoning.
+
+#### How to approach — step by step:
+
+**Step 1** — Learn: record source MAC → incoming port in table
+
+**Step 2** — Look up destination MAC in table
+
+**Step 3** — Known? → forward to that port. Unknown? → flood all except incoming port
+
+#### Model answer:
 
 **Step 1 — Learn:** S3 records CCCC → Fa0/2 (source MAC → incoming port)
 
@@ -149,9 +203,33 @@ Step 3: 192.168.20.0 ≠ 192.168.10.0 → DIFFERENT network → send to default 
 
 ***
 
-### Part (b) — Encapsulation diagram — model answer
+### Part (b) — Encapsulation diagram \[6 marks]
 
-> PC-F (192.168.20.4) requests http://192.168.10.1/index.html
+**Exact question — 2025 \[Q1]\[B]:**
+
+> Assume a user logged into PC-F, through their web browser, issues a successful request for: http://192.168.10.1/index.html With reference to TCP/IP model, provide:
+>
+> * A diagram depicting how the request has been encapsulated when it reaches the physical layer on PC-F
+> * The addressing information (if any) added at each layer
+
+**2025R \[Q1]\[B] variant — dig command:**
+
+> Assume a user logged into PC-B, runs the following command in their terminal: dig @192.168.20.1 www.cisco.com With reference to TCP/IP model, provide:
+>
+> * A diagram depicting how the request has been encapsulated at the physical layer
+> * The addressing information (if any) added at each layer
+
+#### How to approach — step by step:
+
+**Step 1** — Identify protocol: HTTP → TCP port 80. DNS (dig) → UDP port 53
+
+**Step 2** — Identify src/dst IPs from the topology
+
+**Step 3** — Identify dst MAC: same subnet? → dst MAC = destination host. Different subnet? → dst MAC = router (FAFA)
+
+**Step 4** — Draw 5 layers with addressing at each
+
+#### Model answer — HTTP (2025 \[Q1]\[B]):
 
 ```
 Layer           PDU         Addressing
@@ -166,9 +244,28 @@ Physical        Bits        010101...
 
 ***
 
-### Part (c) — Src/dst MAC across hops — model answer
+### Part (c) — Src/dst MAC across hops \[4–5 marks]
 
-> PC-D (DDDD/192.168.20.3) pings PC-A (AAAA/192.168.10.1)
+**Exact question — 2023 \[Q1]\[C]:**
+
+> PC-D sends an ICMP echo (ping) request to PC-A. Provide the packet's source MAC, destination MAC, source IP, destination IP as it travels: i. Along the link from S3 to S2 ii. Along the link from S1 to PC-A
+
+**2024 \[Q1]\[C] and 2025R \[Q1]\[C] variant:**
+
+> PC-A sends an ICMP echo (ping) request to PC-F. Provide the packet's source MAC, destination MAC, source IP, destination IP as it travels: i. Along the link from S1 to R1 ii. Along the link from S3 to PC-F
+
+#### How to approach — step by step:
+
+**Step 1** — Identify sender and receiver — who is src IP, who is dst IP? They never change.
+
+**Step 2** — For each link, ask: has traffic crossed a router yet?
+
+* Before router → src MAC = sender's MAC, dst MAC = router's MAC (FAFA or FBFB)
+* After router → src MAC = router's outgoing interface MAC, dst MAC = final destination MAC
+
+**Step 3** — Fill in the 4 values for each link
+
+#### Model answer — PC-D pings PC-A (2023 \[Q1]\[C]):
 
 | Link      | Src MAC | Dst MAC | Src IP       | Dst IP       |
 | --------- | ------- | ------- | ------------ | ------------ |
@@ -177,9 +274,23 @@ Physical        Bits        010101...
 
 ***
 
-### Part (c) — Subnet detection — model answer
+### Part (c) — Subnet detection \[4 marks]
 
-> PC-E (192.168.20.3) pings 192.168.20.1
+**Exact question — 2025 \[Q1]\[C]:**
+
+> Assume a user logged into PC-E pings address 192.168.20.1. Describe the steps followed by PC-E in determining whether the target host resides on the same LAN as PC-E or on a different network.
+
+#### How to approach — step by step:
+
+**Step 1** — State that PC-E applies its own subnet mask to both IPs using bitwise AND
+
+**Step 2** — Show the AND calculation for own IP
+
+**Step 3** — Show the AND calculation for destination IP
+
+**Step 4** — Compare results → same = direct ARP, different = send to gateway
+
+#### Model answer:
 
 PC-E applies its subnet mask (255.255.255.0) to both IPs using a bitwise AND:
 
@@ -191,9 +302,23 @@ Results match → same network → PC-E ARPs for 192.168.20.1 directly
 
 ***
 
-### Part (c) — Jimmy's MAC routing — model answer
+### Part (c) — Jimmy's MAC routing \[5 marks]
 
-**No — not practical. Reasons:**
+**Exact question — 2023R \[Q1]\[C]:**
+
+> Jimmy has an idea. Since MAC addresses are unique, he proposes abandoning IP addresses and routing Internet traffic solely based on MAC addresses. Is Jimmy's idea practical? Provide evidence to support your opinion.
+
+#### How to approach — step by step:
+
+**Step 1** — State your answer clearly: No, not practical
+
+**Step 2** — Give the core reason: MAC addresses are flat and non-hierarchical
+
+**Step 3** — Explain implications: routing table explosion, no aggregation possible
+
+**Step 4** — Add supporting points (2–3 more reasons)
+
+#### Model answer:
 
 1. **MAC addresses are flat** — no hierarchical structure, cannot be summarised or aggregated
 2. **Routing table explosion** — every router would need an entry for every device on the Internet (billions of entries)
@@ -212,6 +337,4 @@ Results match → same network → PC-E ARPs for 192.168.20.1 directly
 3. Swapped src/dst IP in the MAC-across-hops question (PC-D was sender, not PC-A)
 4. Used port 80 for DNS — DNS uses **UDP port 53**
 5. Forgot to mention proxy ARP disabled as an assumption
-
-
 
