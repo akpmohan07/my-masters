@@ -10,13 +10,12 @@ ROOT — Technical Debt
         |
         ├──────────────────────┐
         ↓                      ↓
-BRANCH — XP                BRANCH — Scrum + Kanban
-(How do we write             (How do we organise
+       XP                 Scrum + Kanban
+(How do we write         (How do we organise
 better code?)                the team?)
         |                      |
    ┌────┴────┐           ┌─────┴──────┐
    ↓         ↓           ↓            ↓
-LEAF      LEAF        LEAF          LEAF
 Simple    Pair       Scrum         Kanban
 Design +  Programming ceremonies   + WIP
 Refactor              Daily        Limits
@@ -24,7 +23,7 @@ Refactor              Daily        Limits
                       Retrospective
                               |
                               ↓
-                        LEAF — Scrum vs Kanban
+                         Scrum vs Kanban
                         (comparison only makes
                         sense after both are known)
 ```
