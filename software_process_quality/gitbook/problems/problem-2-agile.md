@@ -101,6 +101,8 @@ XP is an Agile framework that takes the best software engineering practices to t
 
 Originally designed for small to medium teams facing short timelines, rapidly changing requirements, and high expectations.
 
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 #### Why "Extreme"?
 
 | Good practice             | XP takes it to the extreme                           |
