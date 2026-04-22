@@ -76,7 +76,7 @@ Iterative ——→ Problem: can't deliver large known system fast
 
 ***
 
-#### Model 1 — Waterfall
+### Model 1 — Waterfall
 
 **What problem does it solve?**
 
