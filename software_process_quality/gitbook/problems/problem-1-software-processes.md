@@ -8,15 +8,36 @@
 
 ***
 
-### The Big Picture
+### 1. Big Picture
 
 Before software processes existed, development was chaotic — no structure, no phases, no checkpoints. Process models were invented to bring discipline to how software is built.
 
 > Each model was invented because the previous one had a flaw. Understanding that chain is more important than memorising any single model.
 
+#### The chain of invention
+
+```mermaid
+graph TD
+    A[Chaos - no structure] --> B[Waterfall]
+    B --> C[Problem: requirements frozen too early]
+    C --> D[Throwaway Prototyping]
+    D --> E[Problem: prototype work gets thrown away]
+    E --> F[Evolutionary Prototyping]
+    F --> G[Problem: poor prototype architecture in production]
+    G --> H[Spiral]
+    H --> I[Problem: no explicit risk management]
+    I --> J[Iterative Development]
+    J --> K[Problem: cant deliver large known system fast]
+    style B fill:#99ccff
+    style D fill:#ffcc99
+    style F fill:#99ff99
+    style H fill:#ff99cc
+    style J fill:#cc99ff
+```
+
 ***
 
-### Topic 1 — The 3 QA Principles
+### 2. The 3 QA Principles
 
 #### What problem does it solve?
 
@@ -24,196 +45,180 @@ Quality doesn't happen by accident. Without explicit principles, teams build the
 
 #### The 3 Principles
 
-| Principle                                   | Plain English                                    | How you achieve it                                                    |
-| ------------------------------------------- | ------------------------------------------------ | --------------------------------------------------------------------- |
-| **P1 — Know what you are doing**            | Understand what you're building right now        | Regular meetings, test runs, process milestones, management structure |
-| **P2 — Know what you should be doing**      | Have explicit, continuously updated requirements | Use cases, acceptance tests, user feedback, explicit prototypes       |
-| **P3 — Know how to measure the difference** | Compare actual vs expected continuously          | Testing + metrics                                                     |
+| Principle                                   | Plain English                                    | How you achieve it                                              |
+| ------------------------------------------- | ------------------------------------------------ | --------------------------------------------------------------- |
+| **P1 — Know what you are doing**            | Understand what you're building right now        | Regular meetings, test runs, milestones, management structure   |
+| **P2 — Know what you should be doing**      | Have explicit, continuously updated requirements | Use cases, acceptance tests, user feedback, explicit prototypes |
+| **P3 — Know how to measure the difference** | Compare actual vs expected continuously          | Testing + metrics                                               |
 
-#### The analogy
+#### The chef analogy
 
-Think of it like a chef:
+```mermaid
+graph LR
+    A[P1 - Know what you are doing] --> B[Know what dish you are currently cooking]
+    C[P2 - Know what you should be doing] --> D[Know what the customer actually ordered]
+    E[P3 - Know how to measure the difference] --> F[Taste it and compare]
+    style A fill:#99ccff
+    style C fill:#ffcc99
+    style E fill:#99ff99
+```
 
-* P1 = know what dish you're currently cooking
-* P2 = know what the customer actually ordered
-* P3 = taste it and compare
+#### MediTrack — Patient Intake Module
 
-#### MediTrack Application — Patient Intake Module
+```mermaid
+graph TD
+    A[Patient Intake Module] --> B[P1 - Not violated]
+    A --> C[P2 - Most severely violated]
+    A --> D[P3 - Also violated]
+    B --> E[Team knew what they were building and delivered it]
+    C --> F[Requirements gathered from written spec\nnever validated with actual reception staff]
+    D --> G[Tested against wrong specification\nmeasuring stick itself was wrong]
+    C --> H[ROOT CAUSE]
+    D --> I[Downstream consequence of P2]
+    style B fill:#99ff99
+    style C fill:#ff9999
+    style D fill:#ffcc99
+    style H fill:#ff6666
+```
 
-| Principle | Was it violated?         | Why                                                                                                          |
-| --------- | ------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| P1        | ✅ Not violated           | Team knew what they were building and delivered it on time                                                   |
-| P2        | ❌ Most severely violated | Requirements were gathered from written spec, never validated with actual reception staff workflow           |
-| P3        | ❌ Also violated          | Testing measured against written spec — not against real user workflow. The measuring stick itself was wrong |
-
-> **Key exam insight:** P3 failed _as a consequence_ of P2 failing. If requirements had been correct, tests would have measured the right thing. P2 is the root cause — always identify it as most severely violated.
+> **Key exam insight:** P3 failed _as a consequence_ of P2 failing. P2 is always the root cause — identify it as most severely violated. P3 is the downstream effect.
 
 #### Failure mode
 
 When P2 is violated, teams build to the wrong target. The system passes all tests but fails in real use — exactly what happened with the Patient Intake Module.
 
-#### Exam answer template
-
-> The most severely violated principle was Principle 2 — Know what you should be doing. The Patient Intake Module met its written specifications but was rejected by hospital reception staff because those specifications never captured the rapid patient-flow workflow reality. Requirements were gathered in meetings, not validated through real use. Principle 3 was also violated as a downstream consequence — the team measured against the wrong specification, so testing passed while real-world use failed.
-
 ***
 
-### Topic 2 — Process Models
+### 3. Process Models
 
-#### The chain of invention
+#### Model 1 — Waterfall
 
-```
-Waterfall ——→ Problem: requirements frozen too early
-    ↓ fix
-Throwaway Prototyping ——→ Problem: prototype work gets thrown away
-    ↓ fix
-Evolutionary Prototyping ——→ Problem: poor prototype architecture in production
-    ↓ different problem
-Spiral ——→ Problem: no explicit risk management
-    ↓ different problem
-Iterative ——→ Problem: can't deliver large known system fast
-```
+**What it is**
 
-***
-
-### Model 1 — Waterfall
-
-**What problem does it solve?**
-
-Chaotic, unstructured development before it existed. Waterfall brought engineering discipline — phases, checkpoints, sign-offs.
+The first explicit process model — borrowed from engineering. Phases carried out in strict order, each signed off before proceeding to the next.
 
 **How it works**
 
-6 phases carried out in strict order. Each phase must be signed off before proceeding to the next:
-
-1. Requirements Analysis and Definition
-2. System and Software Design
-3. Implementation and Unit Testing
-4. Integration and System Testing
-5. Operation and Maintenance
-6. Retirement and Decommissioning
+```mermaid
+graph TD
+    A[1 Requirements Analysis] --> B[2 System and Software Design]
+    B --> C[3 Implementation and Unit Testing]
+    C --> D[4 Integration and System Testing]
+    D --> E[5 Operation and Maintenance]
+    E --> F[6 Retirement]
+    style A fill:#99ccff
+    style F fill:#cccccc
+```
 
 **Why the name?**
 
 The diagram shows phases cascading downward like water falling over steps. Water only flows one way — down. Going back up is unnatural and expensive. The name captures both the structure and the flaw.
 
-**When to use**
+**Strengths and when to use**
 
-* Requirements are fully known and stable upfront
-* Safety-critical system needing extensive documentation
-* Large team needing clear phase boundaries
-* Hardware constraints are fixed and well understood
+**Clear structure and trackable progress** _(advantage)_ — every phase has a defined start and end, making it easy to manage large teams and report status _**(when to use: large teams needing clear phase boundaries, government projects with strict reporting requirements)**_.
 
-**When NOT to use**
+**Strong documentation at every phase** _(advantage)_ — quality control built into each phase through inspections and reviews _**(when to use: safety-critical systems requiring extensive documentation — NASA Space Shuttle achieved zero in-flight failures across 135 missions)**_.
 
-* Requirements are unclear or likely to change
-* Users need to see something before giving feedback
-* Fast delivery is needed
+**Works when requirements are fully known** _(advantage)_ — when nothing will change, the rigid structure is a feature not a bug _**(when to use: stable well-understood requirements — physics-based systems, hardware-constrained projects)**_.
 
-**Advantages**
+**Weaknesses and when not to use**
 
-* Clear structure — everyone knows what phase they're in
-* Easy to manage and track progress
-* Strong documentation at every phase
-* Works well with large teams
+**Requirements frozen too early** _(disadvantage)_ — users see the product for the first time at the end, by which point changes are catastrophically expensive _**(when not to use: requirements unclear or likely to change — Healthcare.gov 2013: $1.7B spent, only 6 enrolled on day one)**_.
 
-**Disadvantages**
-
-* Requirements frozen too early
-* Users see product for the first time at the end
-* Going back is expensive
-* Delivered system sometimes doesn't meet real user needs
+**Inflexible partitioning** _(disadvantage)_ — rigid phase walls mean design problems discovered during implementation get worked around with messy code rather than properly fixed _**(when not to use: fast-moving environments where delivery speed matters)**_.
 
 **Real world examples**
 
-* ✅ **Success:** NASA Space Shuttle — stable physics-based requirements, zero in-flight failures across 135 missions, 420,000 lines of code
-* ❌ **Failure:** Healthcare.gov 2013 — requirements frozen without user validation, $1.7B spent, only 6 people enrolled on day one
+* ✅ **NASA Space Shuttle** — stable physics-based requirements, 420,000 lines of code, zero in-flight failures across 135 missions
+* ❌ **Healthcare.gov 2013** — requirements frozen without user validation, $1.7B spent, only 6 people enrolled on day one
 
 **Failure mode**
 
-When requirements change after freezing, the team either works around design problems with implementation tricks (messy code) or delivers a system that meets the spec but not real user needs.
+When requirements change after freezing, teams either work around design problems with implementation tricks — creating messy fragile code — or deliver a system that meets the spec but not real user needs.
 
 **Exam signal words**
 
-Stable requirements · safety-critical · large team · government project · well-defined constraints · documentation heavy
+**Stable requirements · safety-critical · large team · government project · well-defined constraints · documentation heavy**
+
+**One line summary:**
+
+> Waterfall brings engineering discipline to software — but only works when requirements are stable, because going back up the waterfall is unnatural and expensive.
 
 ***
 
 #### Model 2 — Throwaway Prototyping
 
-**What problem does it solve?**
+**What it is**
 
-Waterfall freezes requirements too early. Users often don't know what they want until they see something. Prototyping lets requirements emerge from real use rather than written guesses.
+An extended requirements phase — build a rough prototype, show it to users, get feedback, refine requirements, then discard the prototype and build the real product from scratch.
 
 **How it works**
 
-1. Requirements gathering — loose, not strict
-2. Quick design — rough sketch only
-3. Build prototype — fast, approximate, shows external features only
-4. Customer evaluation — user tries it, gives feedback
-5. Design refinement — update based on feedback
-6. Full scale development — build the real product from scratch
-
-Steps 3, 4, 5 repeat until requirements are clear. Then the prototype is **discarded** and real development begins.
+```mermaid
+graph LR
+    A[Requirements - loose] --> B[Quick Design]
+    B --> C[Build Prototype]
+    C --> D[Customer Evaluation]
+    D --> E{Requirements clear?}
+    E -->|No| B
+    E -->|Yes| F[Discard Prototype]
+    F --> G[Full Scale Development]
+    style C fill:#ffcc99
+    style F fill:#ff9999
+    style G fill:#99ff99
+```
 
 **The analogy**
 
-Custom suit fitting — tailor makes a rough fitting first, you try it on, give feedback, adjust, try again — _then_ the real suit is made. The fitting is thrown away.
+Custom suit fitting — tailor makes a rough fitting first, you try it on, give feedback, adjust, try again — _then_ the real suit is made from scratch. The fitting is thrown away.
 
-**When to use**
+**Strengths and when to use**
 
-* Requirements genuinely unclear
-* Users can't articulate needs without seeing something
-* High risk of building the wrong thing
+**Requirements emerge from real use** _(advantage)_ — users interact with something tangible rather than describing needs abstractly _**(when to use: requirements genuinely unclear, users can't articulate needs without seeing something)**_.
 
-**When NOT to use**
+**Reduces risk of building wrong product** _(advantage)_ — validated requirements before committing to full development _**(when to use: high risk of misunderstanding — Patient Intake Module type scenarios where workflow matters)**_.
 
-* Requirements already clear — adds unnecessary time
-* Small team that can't afford to throw work away
-* Tight deadline
+**Weaknesses and when not to use**
 
-**Advantages**
+**Prototype gets thrown away — wasted work** _(disadvantage)_ — all effort building the prototype produces nothing for the final product _**(when not to use: small teams that can't afford waste, tight deadlines)**_.
 
-* Requirements emerge from real user feedback
-* Reduces risk of building wrong product
-* Users feel involved early
-
-**Disadvantages**
-
-* Prototype gets thrown away — wasted work
-* Risk of creeping excellence — never finishing
-* Prototype quality is poor — shortcuts everywhere
-* Full prototypes of complex systems are hard to build quickly
+**Creeping excellence** _(disadvantage)_ — users keep requesting refinements, team never moves to real development _**(when not to use: undisciplined teams without clear prototyping exit criteria)**_.
 
 **Failure mode**
 
-Teams either waste significant effort on a prototype that gets discarded, or fall into creeping excellence — endlessly refining the prototype without ever building the real product.
+Teams either waste significant effort on a prototype that gets discarded, or fall into creeping excellence — endlessly refining without ever building the real product.
 
 **Exam signal words**
 
-Unclear requirements · user feedback needed · requirements keep changing · users don't know what they want
+**Unclear requirements · user feedback needed · requirements keep changing · users don't know what they want**
+
+**One line summary:**
+
+> Throwaway Prototyping fixes the requirements problem by showing users something real — but wastes all the prototype work by discarding it afterwards.
 
 ***
 
 #### Model 3 — Evolutionary Prototyping
 
-**What problem does it solve?**
+**What it is**
 
-Throwaway Prototyping wastes the prototype. Evolutionary Prototyping fixes this — the prototype is never discarded. It is continuously evolved until it becomes the final product.
+Same as Throwaway Prototyping — but the prototype is never discarded. It is continuously evolved until it becomes the final production system.
 
 **How it works**
 
-1. Build initial prototype — rough but functional
-2. Show user — get feedback
-3. Evolve the same prototype based on feedback
-4. Repeat steps 2 and 3
-5. Prototype gradually becomes the production system
-
-No throwaway. No rebuild from scratch. The work is never wasted.
-
-**The analogy**
-
-Sculpture — start with rough clay, client says "make the nose smaller", refine it, "now the eyes", refine it — keep going until the clay _becomes_ the final piece.
+```mermaid
+graph LR
+    A[Build Initial Prototype] --> B[Show User]
+    B --> C[Get Feedback]
+    C --> D[Evolve the Same Prototype]
+    D --> E{Good enough?}
+    E -->|No| B
+    E -->|Yes| F[Prototype IS the Product]
+    style A fill:#ffcc99
+    style D fill:#99ccff
+    style F fill:#99ff99
+```
 
 **Key distinction from Throwaway**
 
@@ -223,111 +228,84 @@ Sculpture — start with rough clay, client says "make the nose smaller", refine
 | Work wasted?   | Yes                                   | No                              |
 | Risk           | Wasted effort                         | Poor architecture in production |
 
-**When to use**
+**The analogy**
 
-* Requirements unclear and likely to change
-* Can't afford to throw away prototype work
-* System can be built incrementally — each version is usable
-* Continuous user involvement is possible
+Sculpture — start with rough clay, client says "make the nose smaller", refine it, keep going until the clay _becomes_ the final piece. Nothing is discarded.
 
-**When NOT to use**
+**Strengths and when to use**
 
-* Safety-critical system — evolved prototypes carry accumulated shortcuts
-* Large team — hard to coordinate continuous evolution at scale
-* Prototype architecture too weak to evolve into production system
+**No wasted work** _(advantage)_ — prototype becomes the product, every iteration adds value _**(when to use: requirements unclear, continuous user involvement possible, team can't afford prototype waste)**_.
 
-**Advantages**
+**Requirements emerge from real use** _(advantage)_ — fixes the Patient Intake Module type failure — users shape the system through use rather than written guesses _**(when to use: systems requiring continuous user validation throughout development)**_.
 
-* No wasted work — prototype becomes the product
-* Requirements emerge naturally from use
-* Users stay involved throughout
-* Fixes both the Waterfall requirements problem and the Throwaway waste problem
+**Weaknesses and when not to use**
 
-**Disadvantages**
+**Poor architecture in production** _(disadvantage)_ — prototype shortcuts get baked into the production system, accumulating Technical Debt _**(when not to use: safety-critical systems — accumulated shortcuts are dangerous, Drug Interaction Engine)**_.
 
-* Risk of inheriting poor prototype architecture into production
-* Hard to know when you're done — creeping excellence still a risk
-* Documentation often neglected
+**Hard to know when done** _(disadvantage)_ — creeping excellence still a risk _**(when not to use: large teams — hard to coordinate continuous evolution at scale)**_.
 
-**MediTrack Application — Patient Intake Module**
+**MediTrack — Patient Intake Module**
 
-Instead of gathering requirements in a meeting room, build a rough version of the intake interface and let reception staff use it in their actual rapid patient-flow workflow. Requirements emerge from real use. Each iteration brings the interface closer to what staff actually need.
+Instead of gathering requirements in a meeting room, build a rough version of the intake interface and let reception staff use it in their actual rapid patient-flow workflow. Requirements emerge from real use. Each iteration brings the interface closer to what staff actually need — not just the original written spec.
 
 **Failure mode**
 
-Prototype shortcuts get baked into the production system — accumulating technical debt and making the system fragile as it grows.
+Prototype shortcuts get baked into production — accumulating Technical Debt and making the system fragile as it grows.
 
 **Exam signal words**
 
-Requirements unclear · continuous user feedback · can't afford waste · evolving system · user involvement throughout
+**Requirements unclear · continuous user feedback · can't afford waste · evolving system · user involvement throughout**
+
+**One line summary:**
+
+> Evolutionary Prototyping fixes both the requirements problem AND the wasted work problem — but risks carrying poor prototype architecture into production.
 
 ***
 
 #### Model 4 — Spiral Model
 
-**What problem does it solve?**
+**What it is**
 
-Neither Waterfall nor Prototyping explicitly manages **risk**. The Spiral model puts risk assessment and mitigation at the centre of every single phase. For safety-critical systems, this is not optional.
+A refinement of Waterfall built around continuous risk assessment and mitigation. Every layer of development goes through the same four-step risk cycle before proceeding.
 
-**How it works**
+**How it works — the 4-step cycle repeated every layer**
 
-The spiral moves outward in layers — each loop bigger than the last. Every single layer goes through the same **4-step cycle**:
-
-1. **Determine Objectives** — what are we achieving in this layer? What are the constraints?
-2. **Assess and Reduce Risks** — what could go wrong? How likely? How do we reduce it?
-3. **Develop and Validate** — choose a development approach, build, test
-4. **Review and Plan** — review what was done, plan the next layer
+```mermaid
+graph LR
+    A[1 Determine Objectives\nWhat are we achieving?\nWhat are the constraints?] --> B[2 Assess and Reduce Risks\nWhat could go wrong?\nHow do we reduce it?]
+    B --> C[3 Develop and Validate\nChoose approach\nBuild and test]
+    C --> D[4 Review and Plan\nReview what was done\nPlan next layer]
+    D --> A
+    style B fill:#ff9999
+```
 
 > Risk assessment is not an add-on. It is the core of every cycle.
 
-**The analogy**
+**The mountaineering analogy**
 
-Mountaineering expedition — before every stage of the climb, stop and ask: what could kill us here? Avalanche? Weather? Equipment failure? Assess each risk, reduce it, then proceed. Repeat at every camp on the way up.
+Before every stage of the climb, stop and ask: what could kill us here? Avalanche? Weather? Equipment failure? Assess each risk, reduce it, then proceed. Repeat at every camp on the way up.
 
-**The doctor analogy for the 4 steps**
+**Strengths and when to use**
 
-1. Determine objectives — what are we operating on?
-2. Assess risks — allergies? Heart condition? Blood type?
-3. Perform surgery
-4. Review — debrief, plan follow-up
+**Risk explicitly identified and reduced at every stage** _(advantage)_ — potential catastrophic failures caught before they happen, not after _**(when to use: safety-critical systems where failure is catastrophic — Drug Interaction Engine where decimal errors cause patient death)**_.
 
-**When to use**
+**Combines best of Waterfall and Prototyping** _(advantage)_ — structured phases with iterative risk validation _**(when to use: large complex long-term projects, government and defence projects, requirements partially known but risks are high)**_.
 
-* Large, complex, long-term projects
-* Safety-critical systems where failure is catastrophic
-* Government or defence projects
-* Requirements partially known but risks are high
-* Experienced team available
+**Strong documentation and audit trail** _(advantage)_ — every risk decision is recorded _**(when to use: regulated industries requiring compliance documentation — medical software like MediTrack)**_.
 
-**When NOT to use**
+**Weaknesses and when not to use**
 
-* Small projects — overhead too heavy
-* Simple well-understood requirements
-* Inexperienced team — risk analysis requires expertise
-* Tight budget — lots of documentation and meetings at every layer
+**Heavyweight process** _(disadvantage)_ — every layer requires extensive documentation and meetings, slowing progress significantly _**(when not to use: small projects, tight budgets, fast delivery needed)**_.
 
-**Advantages**
+**Depends on quality of risk analysis** _(disadvantage)_ — bad risk analysis produces false confidence and bad outcomes _**(when not to use: inexperienced teams without risk analysis expertise)**_.
 
-* Risk explicitly identified and reduced at every stage
-* Combines best of Waterfall and Prototyping
-* Early identification of problems before they become catastrophic
-* Strong documentation — good audit trail
+**MediTrack — Drug Interaction Engine**
 
-**Disadvantages**
-
-* Heavyweight process — lots of meetings, documentation, overhead
-* Slow — not suitable for fast delivery
-* Depends heavily on quality of risk analysis — bad analysis = bad outcome
-* Meta-model — describes _how to manage_ phases, not _how to build_
-* Requires experienced team — not for novices
-
-**MediTrack Application — Drug Interaction Engine**
-
-The Drug Interaction Engine is safety-critical — a decimal error in dosage calculation could cause patient harm or fatal overdose. Spiral forces the team to stop at every layer and ask: what could go wrong with this dosage calculation? Wrong renal function input? Edge cases for paediatric patients? Formula errors? These risks are identified and reduced before the feature ships — not discovered after a patient is harmed.
+The Drug Interaction Engine is safety-critical — a decimal error in dosage calculation based on Serum Creatinine levels could cause patient harm or fatal overdose. Spiral forces the team to stop at every layer and ask: what could go wrong? Wrong renal function input? Edge cases for paediatric patients? Formula errors at boundary values? These risks are identified and reduced before the feature ships — not discovered after a patient is harmed.
 
 **Why Spiral is superior to Iterative for Drug Interaction Engine**
 
-Pure Iterative Development has no mechanism to stop and ask "what could kill a patient here?" It would simply continue adding features. Spiral's four-step cycle ensures safety is never compromised for delivery speed.
+Pure Iterative Development has no mechanism to stop and ask "what could kill a patient here?" It simply continues adding features. Spiral's four-step cycle ensures safety is never compromised for delivery speed.
 
 **Failure mode**
 
@@ -335,30 +313,35 @@ Without risk analysis at each layer, critical failure modes are discovered only 
 
 **Exam signal words**
 
-Safety-critical · risk management · large government project · experienced team · catastrophic failure possible · long timeline
+**Safety-critical · risk management · large government project · experienced team · catastrophic failure possible · long timeline**
+
+**One line summary:**
+
+> Spiral wraps every development phase in a risk assessment — the only model that explicitly prevents catastrophic failures before they happen.
 
 ***
 
 #### Model 5 — Iterative Development
 
-**What problem does it solve?**
+**What it is**
 
-When requirements are known but the system is massive — how do you deliver value to users without making them wait years for the whole thing?
+Deliver a massive system in working production-quality chunks. Start with the most critical subset of features, ship it, add more features each cycle, repeat until the system is complete.
 
 **How it works**
 
-1. Design overall architecture upfront — this never changes
-2. Identify most critical subset of features
-3. Build and deliver that subset — it is a real, working product
-4. Get feedback, identify next most critical features
-5. Build and deliver next version
-6. Repeat — each version bigger than the last
+```mermaid
+graph LR
+    A[Design Architecture\nupfront - fixed] --> B[Identify most\ncritical subset]
+    B --> C[Build and deliver\nworking product]
+    C --> D[Get feedback\nidentify next features]
+    D --> E[Build and deliver\nnext version]
+    E --> D
+    E --> F[System grows\nwhile users use it]
+    style A fill:#99ccff
+    style F fill:#99ff99
+```
 
-> Every version is production-quality. Nothing is thrown away. You are not building prototypes — you are building real software in prioritised chunks.
-
-**The analogy**
-
-Railway network — open Line 1 first, people start using it, open Line 2, add more stations, keep expanding. The system grows while people are already using it.
+> Every version is production-quality. Nothing is thrown away. These are not prototypes — they are real software delivered in prioritised chunks.
 
 **Key distinction from Prototyping**
 
@@ -368,38 +351,25 @@ Railway network — open Line 1 first, people start using it, open Line 2, add m
 | Requirements | Unclear — emerging    | Known upfront                      |
 | Purpose      | Discover requirements | Deliver large system incrementally |
 
-**When to use**
+**The railway analogy**
 
-* Requirements are known but system is large
-* Need to deliver value to users quickly
-* Small to medium team
-* Architecture can be defined clearly upfront
-* Features can be prioritised and delivered independently
+Open Line 1 first, people start using it, open Line 2, add more stations, keep expanding. The system grows while people are already using it.
 
-**When NOT to use**
+**Strengths and when to use**
 
-* Requirements are unclear — use prototyping first
-* Architecture can't be defined early
-* Large team needing parallel development
-* Safety-critical — no explicit risk management
+**Users get working software early** _(advantage)_ — value delivered from day one rather than after years of development _**(when to use: large known systems where early delivery matters — Legacy Data Migration Module delivering critical patient records first)**_.
 
-**Advantages**
+**Most critical features built first** _(advantage)_ — risk reduced by prioritising highest-value work _**(when to use: requirements known but system is large, small to medium team, architecture definable upfront)**_.
 
-* Users get working software early
-* Feedback from real use improves each iteration
-* Risk reduced — most critical features built first
-* Works well with small focused teams
+**Weaknesses and when not to use**
 
-**Disadvantages**
+**Needs early architecture** _(disadvantage)_ — architecture set at the start and difficult to change later _**(when not to use: requirements unclear — prototyping needed first, large teams needing parallel development)**_.
 
-* Needs early architecture — hard to change later
-* Doesn't scale to large parallel teams
-* No explicit risk management unlike Spiral
-* Requirements must be reasonably clear upfront
+**No explicit risk management** _(disadvantage)_ — unlike Spiral, no formal mechanism to identify and reduce catastrophic failure risks _**(when not to use: safety-critical systems — Drug Interaction Engine needs Spiral's risk cycle)**_.
 
 **Real world example**
 
-Gmail 2004 — started with 3 developers, basic email only for 10 Google employees. Each iteration added most critical missing feature. Architecture (web-based email) set early and never changed. Now 1.8 billion active users.
+Gmail 2004 — 3 developers, basic email only for 10 Google employees. Each iteration added the most critical missing feature. Architecture set early and never changed. Now 1.8 billion active users.
 
 **Failure mode**
 
@@ -407,23 +377,47 @@ If architecture is wrong at the start, every subsequent iteration builds on a fl
 
 **Exam signal words**
 
-Large known system · early delivery needed · small team · clear architecture · feature prioritisation · working software fast
+**Large known system · early delivery needed · small team · clear architecture · feature prioritisation · working software fast**
+
+**One line summary:**
+
+> Iterative Development delivers a massive known system in working production-quality chunks — users get value immediately while the product grows around them.
 
 ***
 
-### Complete Model Comparison Table
+### 4. Decision Guide — Which Model to Use?
 
-| Model                        | Core problem solved             | Use when                                          | Don't use when                     | Key weakness                    | Exam signal words                          |
-| ---------------------------- | ------------------------------- | ------------------------------------------------- | ---------------------------------- | ------------------------------- | ------------------------------------------ |
-| **Waterfall**                | No structure                    | Stable requirements, large team, safety-critical  | Requirements unclear               | Frozen requirements             | Stable · documented · government           |
-| **Throwaway Prototyping**    | Wrong requirements              | Requirements unclear                              | Requirements known, tight deadline | Work thrown away                | Unclear requirements · user feedback       |
-| **Evolutionary Prototyping** | Wasted prototype work           | Requirements unclear, continuous user involvement | Safety-critical, large team        | Poor architecture in production | Evolving · continuous feedback · no waste  |
-| **Spiral**                   | No risk management              | Safety-critical, large complex projects           | Small projects, inexperienced team | Heavy, slow, needs experts      | Safety-critical · risk · experienced team  |
-| **Iterative**                | Can't deliver large system fast | Large known system, need early delivery           | Requirements unclear, large team   | Needs early architecture        | Large system · early delivery · small team |
+```mermaid
+graph TD
+    A[What is your situation?] --> B{Requirements clear?}
+    B -->|Yes - stable| C{System large?}
+    B -->|No - unclear| D{Can afford waste?}
+    C -->|No| E[WATERFALL]
+    C -->|Yes| F{Safety-critical risks?}
+    F -->|Yes| G[SPIRAL]
+    F -->|No| H[ITERATIVE]
+    D -->|No| I[EVOLUTIONARY\nPROTOTYPING]
+    D -->|Yes| J[THROWAWAY\nPROTOTYPING]
+    style E fill:#99ccff
+    style G fill:#ff99cc
+    style H fill:#cc99ff
+    style I fill:#99ff99
+    style J fill:#ffcc99
+```
+
+### 5. Complete Model Comparison Table
+
+| Model                        | Core problem solved             | **When to use**                                       | **When not to use**                    | Key weakness                    |
+| ---------------------------- | ------------------------------- | ----------------------------------------------------- | -------------------------------------- | ------------------------------- |
+| **Waterfall**                | No structure                    | **Stable requirements, large team, safety-critical**  | **Requirements unclear**               | Frozen requirements             |
+| **Throwaway Prototyping**    | Wrong requirements              | **Requirements unclear, user feedback needed**        | **Requirements known, tight deadline** | Work thrown away                |
+| **Evolutionary Prototyping** | Wasted prototype work           | **Requirements unclear, continuous user involvement** | **Safety-critical, large team**        | Poor architecture in production |
+| **Spiral**                   | No risk management              | **Safety-critical, large complex projects**           | **Small projects, inexperienced team** | Heavy, slow, needs experts      |
+| **Iterative**                | Can't deliver large system fast | **Large known system, need early delivery**           | **Requirements unclear, large team**   | Needs early architecture        |
 
 ***
 
-### Q1 Model Exam Answers
+### 6. Exam Answers
 
 #### Q1a — 10 marks
 
@@ -432,6 +426,8 @@ _Evaluate the Requirements Gap in the Patient Intake Module using the 3 QA Princ
 > The most severely violated principle was Principle 2 — Know what you should be doing. MediTrack's Patient Intake Module met its written specifications but was rejected by hospital reception staff because the specifications failed to capture their rapid patient-flow workflow. Requirements were gathered through documentation rather than validated with actual users. Principle 3 was also violated as a downstream consequence — the team measured the system against the wrong specification, so testing passed while real-world use failed. Principle 1 was not violated — the team knew what they were building and delivered it.
 >
 > Evolutionary Prototyping corrects this by replacing the requirements-gathering meeting with a working prototype deployed directly to reception staff. Instead of writing specifications and hoping they are correct, requirements emerge from real use. Each iteration exposes what the written spec missed — for example, that emergency admissions cannot support lengthy mandatory intake forms. The prototype is never discarded; it is continuously evolved until it matches the actual rapid patient-flow workflow, not just the original written guess.
+
+***
 
 #### Q1b — 10 marks
 
