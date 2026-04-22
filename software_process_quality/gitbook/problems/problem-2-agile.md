@@ -434,7 +434,161 @@ The module has fragile, poorly documented data schemas that nobody fully underst
 
 ***
 
-### 7. Scrum
+### 7. Test Driven Development (TDD)
+
+#### What it is
+
+TDD flips the normal order of development — instead of writing code then testing it, you write the test first, then write the minimum code needed to pass it.
+
+> Tests written after code tend to test what the code _does_, not what it _should_ do. Bugs hide in the gap between the two. TDD eliminates that gap.
+
+#### The Red Green Refactor cycle
+
+```mermaid
+graph LR
+    A[RED\nWrite a failing test] --> B[GREEN\nWrite minimum code\nto pass the test]
+    B --> C[REFACTOR\nClean up without\nbreaking the test]
+    C --> A
+    style A fill:#ff9999
+    style B fill:#99ff99
+    style C fill:#99ccff
+```
+
+**Red** — write a test for the feature before any code exists. It fails immediately. That's expected — the feature doesn't exist yet.
+
+**Green** — write the _minimum_ code needed to make that test pass. Nothing more. No extra logic, no future-proofing.
+
+**Refactor** — clean up using Simple Design principles. The test ensures behaviour hasn't changed.
+
+Repeat for every feature.
+
+#### The analogy
+
+Building to a blueprint vs drawing the blueprint after building.
+
+Traditional = build the wall, then check if it's straight. TDD = define "straight" first, then build to that definition. The test _is_ the specification.
+
+#### Connection to other XP practices
+
+```mermaid
+graph LR
+    A[TDD] --> B[Forces Simple Design]
+    A --> C[Creates test suite automatically]
+    C --> D[Enables safe Refactoring]
+    C --> E[Enables Continuous Integration]
+    D --> F[Prevents Technical Debt]
+    style A fill:#ff99cc
+    style F fill:#99ff99
+```
+
+**Strengths and when to use:**
+
+**Tests become the specification** _(advantage)_ — writing tests first forces developers to define correct behaviour before writing code, eliminating ambiguity _**(when to use: complex business logic requiring precision — Drug Interaction Engine dosage calculations where a decimal error causes patient harm)**_.
+
+**Enables safe Refactoring** _(advantage)_ — every feature has a test, so restructuring code is safe — the test suite immediately catches any behaviour change _**(when to use: codebases requiring frequent refactoring — Clinical Decision Support Module)**_.
+
+**Catches bugs at zero cost** _(advantage)_ — bugs are caught the moment they're introduced, not days later _**(when to use: safety-critical systems where late bug discovery is expensive or dangerous)**_.
+
+**Weaknesses and when not to use:**
+
+**Slower initially** _(disadvantage)_ — writing tests before code takes more upfront time and feels counterintuitive _**(when not to use: throwaway prototypes or exploratory code where requirements are completely unknown)**_.
+
+**Requires discipline** _(disadvantage)_ — teams under pressure skip writing tests first and revert to code-then-test _**(when not to use: teams without TDD coaching — discipline collapses under deadline pressure)**_.
+
+#### MediTrack — Drug Interaction Engine
+
+TDD would define the expected output for every dosage calculation _before_ writing the calculation logic — making it impossible to ship code that hasn't been verified against a precise specification. Every edge case — paediatric dosing, renal function thresholds, boundary values at 0.6 and 4.0 mg/dL — would be a test before it was ever a line of code.
+
+**One line summary:**
+
+> TDD writes tests before code — forcing developers to define correct behaviour upfront, catching bugs at zero cost, and enabling safe refactoring throughout the lifecycle.
+
+***
+
+### 8. Continuous Integration (CI)
+
+#### What it is
+
+Every developer commits code to a shared repository multiple times per day. Every commit triggers an automated build and full test suite. If anything breaks, the team knows immediately — while the code is fresh in the developer's mind.
+
+> The longer teams wait to integrate, the more painful integration becomes. CI makes integration a non-event by doing it constantly.
+
+#### How it works
+
+```mermaid
+graph LR
+    A[Developer writes code] --> B[Commits to shared repo]
+    B --> C[Automated build triggered]
+    C --> D[All tests run automatically]
+    D --> E{Tests pass?}
+    E -->|Yes| F[Code integrated successfully]
+    E -->|No| G[Build fails immediately]
+    G --> H[Developer fixes within minutes]
+    H --> B
+    style F fill:#99ff99
+    style G fill:#ff9999
+```
+
+**The XP ten-minute build rule** — the entire system should build and all tests run in under 10 minutes. Short build = fast feedback = problems fixed while context is fresh.
+
+#### Connection to other XP practices
+
+```mermaid
+graph LR
+    A[Pair Programming] --> B[Code reviewed as written]
+    C[TDD] --> D[Tests exist for everything]
+    B --> E[Continuous Integration]
+    D --> E
+    E --> F[Every commit tested immediately]
+    F --> G[Integration failures surface within hours]
+    G --> H[Technical Debt prevented]
+    style H fill:#99ff99
+```
+
+CI is the safety net that makes everything else work. Pair Programming catches problems in code. TDD defines correct behaviour. CI verifies the whole system still works every time anyone changes anything.
+
+**Strengths and when to use:**
+
+**Integration failures surface within hours not weeks** _(advantage)_ — because code is integrated multiple times daily, conflicts are small and cheap to fix _**(when to use: teams where multiple developers work on the same codebase simultaneously — MediTrack prescription engine and pharmacy system)**_.
+
+**Complements TDD perfectly** _(advantage)_ — TDD creates the test suite, CI runs it automatically on every commit _**(when to use: any team practising TDD — the two practices are designed to work together)**_.
+
+**Weaknesses and when not to use:**
+
+**Requires investment in automation infrastructure** _(disadvantage)_ — CI pipelines need setup, maintenance, and fast test suites _**(when not to use: very small projects or short-lived prototypes where infrastructure cost outweighs benefit)**_.
+
+**Useless without good test coverage** _(disadvantage)_ — CI runs whatever tests exist — poor coverage gives false confidence _**(when not to use: codebases without TDD or comprehensive test suites — CI without tests is meaningless)**_.
+
+#### MediTrack — Prescription Engine + Pharmacy System
+
+The integration failures between the prescription engine and legacy pharmacy system would have been caught within hours if CI was in place. Every commit to either system would trigger integration tests, surfacing schema mismatches the same day they were introduced — not during a Sprint Review weeks later.
+
+**One line summary:**
+
+> Continuous Integration merges and tests code multiple times daily — surfacing integration failures immediately while they're cheap to fix, rather than discovering them late when they're expensive.
+
+***
+
+### 9. XP Practices — Complete Picture
+
+```mermaid
+graph TD
+    A[Technical Debt] --> B[XP Weapons]
+    B --> C[Simple Design\nPrevent debt in new code]
+    B --> D[Refactoring\nPay back existing debt]
+    B --> E[Pair Programming\nCatch bad decisions before code]
+    B --> F[TDD\nDefine correct behaviour upfront]
+    B --> G[Continuous Integration\nVerify system after every change]
+    style C fill:#99ff99
+    style D fill:#99ccff
+    style E fill:#ffcc99
+    style F fill:#ff99cc
+    style G fill:#cc99ff
+```
+
+***
+
+### 10. Scrum
 
 #### What it is
 
@@ -550,7 +704,7 @@ Output must be a **concrete improvement plan** — not just discussion. Improvem
 
 ***
 
-### 8. Kanban + WIP Limits
+### 11. Kanban + WIP Limits
 
 #### What it is
 
@@ -648,7 +802,7 @@ Emergency alerts arrive unpredictably — a drug interaction failure doesn't wai
 
 ***
 
-### 9. Scrum vs Kanban — Full Comparison
+### 12. Scrum vs Kanban — Full Comparison
 
 ```mermaid
 graph TD
@@ -686,7 +840,7 @@ graph TD
 
 ***
 
-### 10. Exam Answers
+### 13. Exam Answers
 
 #### Q2a — Simple Design + Refactoring \[10 marks]
 
