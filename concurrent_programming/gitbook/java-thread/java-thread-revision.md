@@ -627,40 +627,82 @@ executor.awaitTermination(10, TimeUnit.SECONDS);  // wait for all users to finis
 #### Key code — Fork/Join MaxFinder
 
 ```java
-public static class MaxFinder extends RecursiveTask<Integer> {  // static — no outer ref
-    private static final int THRESHOLD = 5;
-    private final int[] data;
-    private final int start, end;
+/*
+ * PSEUDOCODE — ForkJoin Max Finder
+ *
+ * SEQUENTIAL:
+ *   1. if single element → return it
+ *   2. split into left and right halves
+ *   3. recurse into left half
+ *   4. recurse into right half
+ *   5. return max of both results
+ *
+ * PARALLEL:
+ *   1. if single element → return it
+ *   2. split into left and right halves
+ *   3. fork left half → runs asynchronously in pool
+ *   4. compute right half on this thread
+ *   5. join left → wait for result
+ *   6. return max of both results
+ *
+ * MAIN:
+ *   1. run sequential → print result
+ *   2. create ForkJoinPool
+ *   3. submit root task via pool.invoke() → blocks until done
+ *   4. print result
+ */
 
-    public MaxFinder(int[] data, int start, int end) {
-        this.data = data; this.start = start; this.end = end;
+package com.mohanverse.dev.threads;
+
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.RecursiveTask;
+
+public class ForkJoinMax {
+
+    int[] array = {3, 1, 9, 1, 5, 2};
+
+    int findMaxSeq(int[] arr, int start, int end) {
+        if (start == end) return arr[start];          // 1. base case — single element
+        int mid = (start + end) / 2;                  // 2. find midpoint
+        int leftMax  = findMaxSeq(arr, start, mid);   // 3. recurse left half
+        int rightMax = findMaxSeq(arr, mid + 1, end); // 4. recurse right half
+        return Math.max(leftMax, rightMax);            // 5. return larger of both
     }
 
-    @Override
-    protected Integer compute() {
-        if (end - start < THRESHOLD)
-            return computeDirectly();       // small enough — do sequentially
+    public class MaxFinder extends RecursiveTask<Integer> {
+        private final int[] arr;
+        private final int start;
+        private final int end;
 
-        int mid = (start + end) / 2;
-        MaxFinder left  = new MaxFinder(data, start, mid);
-        MaxFinder right = new MaxFinder(data, mid + 1, end);
+        public MaxFinder(int[] arr, int start, int end) {
+            this.arr   = arr;
+            this.start = start;
+            this.end   = end;
+        }
 
-        left.fork();                        // left runs on another thread
-        return Math.max(right.compute(),    // right runs on THIS thread — no waste
-                        left.join());       // wait for left result
+        @Override
+        protected Integer compute() {
+            if (start == end) { return arr[start]; }               // 1. base case — single element
+            int mid = (start + end) / 2;                           // 2. find midpoint
+            MaxFinder leftTask  = new MaxFinder(arr, start, mid);  // 3. create left task
+            MaxFinder rightTask = new MaxFinder(arr, mid + 1, end);// 4. create right task
+            leftTask.fork();                                        // 5. fork left — runs async in pool
+            int rightResult = rightTask.compute();                  // 6. compute right on this thread
+            int leftResult  = leftTask.join();                      // 7. join left — wait for result
+            return Math.max(leftResult, rightResult);               // 8. return max of both
+        }
     }
 
-    private Integer computeDirectly() {
-        int max = Integer.MIN_VALUE;
-        for (int i = start; i <= end; i++)
-            if (data[i] > max) max = data[i];
-        return max;
+    public static void main(String[] args) {
+        ForkJoinMax forkJoinMax = new ForkJoinMax();
+        int max = forkJoinMax.findMaxSeq(forkJoinMax.array, 0, forkJoinMax.array.length - 1); // 1. sequential run
+        System.out.println("Maximum value found: " + max);                                     // 2. print result
+        ForkJoinPool pool   = new ForkJoinPool();                                               // 3. create pool
+        MaxFinder maxFinder = forkJoinMax.new MaxFinder(forkJoinMax.array, 0, forkJoinMax.array.length - 1); // 4. create root task
+        int parallelMax     = pool.invoke(maxFinder);                                           // 5. invoke — blocks until done
+        System.out.println("Maximum value found using ForkJoin: " + parallelMax);              // 6. print result
     }
 }
-
-// usage
-ForkJoinPool pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors());
-int max = pool.invoke(new MaxFinder(data, 0, data.length - 1));
 ```
 
 #### Why fork left, compute right — not fork both?
