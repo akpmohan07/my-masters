@@ -9,6 +9,7 @@
 * [OpenCL](opencl/README.md)
   * [OpenCL Past Exam Questions (2019–2025)](opencl/opencl-past-exam-questions-2019-2025.md)
 * [Formal Sepcifications](formal-sepcifications.md)
+* [Data Parallel Primitive](data-parallel-primitive.md)
 * [JSCP](jscp.md)
 * [Exam](exam.md)
 * [Java Thread](java-thread/README.md)
