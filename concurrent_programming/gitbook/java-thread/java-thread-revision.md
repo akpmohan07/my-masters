@@ -1,4 +1,4 @@
-# Page 1
+# Java Thread Revision
 
 ## CSC1141 — Concurrent Programming
 
@@ -137,6 +137,24 @@ while (t.isAlive()) {
         t.join();
     }
 }
+```
+
+**Pseudo Code:**
+
+```java
+start thread t
+
+record start_time
+
+LOOP while t is alive:
+    wait for t max 1 second
+    
+    IF total wait > 5 seconds AND t still alive:
+        signal t to stop        ← interrupt()
+        wait for t to finish    ← join() with no timeout
+        EXIT loop
+
+END LOOP
 ```
 
 #### Exam angle
