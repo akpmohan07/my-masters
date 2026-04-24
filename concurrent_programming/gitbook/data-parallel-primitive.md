@@ -295,6 +295,28 @@ ex scan:  [0, 1, 1, 2, 3, 3, 3, 4]   ← output position for each element
 output: [6, 9, 8, 7]
 ```
 
+#### Pseudo-code
+
+```
+input:  large vector + predicate
+
+step 1 (transform):
+    for each element:
+        if predicate(element) → flag = 1
+        else                  → flag = 0
+
+step 2 (exclusive scan):
+    for each flag:
+        position[i] = sum of all flags before i
+
+step 3 (scatter):
+    for each element:
+        if flag[i] == 1:
+            output[position[i]] = input[i]
+
+return output  ← compact dense vector
+```
+
 #### Key rule
 
 > Why exclusive scan and NOT inclusive scan: Exclusive gives "how many surviving elements came BEFORE me" = my 0-based output index. Inclusive would be off by one — every element would land one position too far right.
@@ -348,6 +370,21 @@ Sorting a deck of cards by sorting one property at a time. Each pass splits into
 | 7    | output         | scatter input using `d`         | `[010,011,001,000,100,111,110,101]` |
 
 Repeat for bit 1 and bit 0. After 3 passes → `[0,1,2,3,4,5,6,7]` ✅
+
+#### Pseudo-code
+
+```
+input: vector of integers, splitting on current bit
+
+step 1: for each element → e[i] = 1 if bit=0, else 0
+step 2: f = exclusive_scan(e)
+step 3: total_false = e[n-1] + f[n-1]
+step 4: for each element → t[i] = i - f[i] + total_false
+step 5: for each element → d[i] = t[i] if bit=1, else f[i]
+step 6: scatter input using d → output
+
+repeat for all bits MSB → LSB
+```
 
 #### Key rules
 
@@ -405,6 +442,29 @@ Quarter circle in first quadrant: `x² + y² ≤ 1`, x: 0→1, y: 0→1
 | 2    | `transform` | Each thread runs MonteCarlo on its segment in parallel |
 | 3    | `reduce`    | Sum all inside counts                                  |
 | 4    | arithmetic  | `4 × total / N` → π estimate                           |
+
+#### Pseudo-code
+
+```
+input: N total points, points_per_thread
+
+step 1 (sequence):
+    generate thread indices [0, 1, 2, ..., N/points_per_thread]
+
+step 2 (transform — per thread):
+    set same seed
+    skip segment * 2 * points_per_thread random numbers
+    for each point in points_per_thread:
+        x = random(), y = random()
+        if x*x + y*y <= 1.0 → inside++
+    return inside
+
+step 3 (reduce):
+    total = sum of all inside counts
+
+step 4 (arithmetic):
+    return 4 * total / N
+```
 
 #### The random number problem
 
@@ -501,6 +561,18 @@ A C++ library providing a high-level DPP interface to OpenCL for CPU and GPU com
 * Provides iterators: `transform_iterator`, `permutation_iterator`
 * Provides lambda expressions and asynchronous memory transfers
 * Pattern: get device → create context → create queue → copy to device → compute → copy back
+
+#### Pseudo-code
+
+```
+input: vector of 100 floats
+
+step 1: copy host vector → device vector
+step 2: transform device vector → apply sqrt to each element
+step 3: reduce device vector → sum all sqrt values
+step 4: mean = sum / 100
+step 5: copy device vector → host vector
+```
 
 #### Key code — mean square root of 100 floats
 
