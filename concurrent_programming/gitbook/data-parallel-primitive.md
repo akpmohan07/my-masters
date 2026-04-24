@@ -856,65 +856,6 @@ Monte Carlo integration approximates a definite integral by randomly sampling N 
 
 The implementation below uses solution 2.
 
-**Pseudo-code:**
-
-```cpp
-struct MonteCarlo
-{
-    int seed;
-    int points_per_thread;
-
-    MonteCarlo(int s, int p) : seed(s), points_per_thread(p) {}
-
-    // called by transform for each thread segment index
-    long operator()(int segment)
-    {
-        float x, y, distance;
-        long inside = 0;
-
-        urnq.set_seed(seed);  // same seed for all threads
-
-        // discard previous threads' random numbers
-        // multiply by 2 because each point needs x AND y
-        for (int i = 0; i < segment * 2 * points_per_thread; i++)
-        {
-            x = urnq.get();  // throw away
-        }
-
-        // generate this thread's points
-        for (int i = 0; i < points_per_thread; i++)
-        {
-            x = urnq.get();
-            y = urnq.get();
-            distance = x*x + y*y;
-            if (distance <= 1.0)  // inside unit circle?
-                inside++;
-        }
-
-        return inside;
-    }
-};
-
-float integrate(int points, int points_per_thread)
-{
-    int N = points;
-
-    // sequence: generate thread indices [0, 1, 2, ...]
-    vector v[N / points_per_thread];
-    v.sequence(v.begin(), v.end(), 0, 1);
-
-    // transform: each thread runs MonteCarlo on its own segment
-    transform(v.begin(), v.end(), v.begin(),
-              MonteCarlo(0, points_per_thread));
-
-    // reduce: sum all inside counts
-    long result = reduce(v.begin(), v.end(), 0, plus());
-
-    // π ≈ 4 × (inside quarter circle) / total points
-    return 4 * (float)result / N;
-}
-```
-
 **Why this is parallelisable:** Each thread operates on its own independent segment of random numbers — no shared state, no locks, no sequential dependencies. Transform runs all threads simultaneously. ✅
 
 ***
