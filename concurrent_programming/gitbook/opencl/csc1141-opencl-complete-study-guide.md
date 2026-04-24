@@ -53,6 +53,8 @@ A factory manager (host) running specialist machines (devices). The manager neve
 
 #### The Hierarchy
 
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 ```mermaid
 graph TD
     H[HOST\nStandard OS computer]
@@ -115,6 +117,8 @@ OpenCL:      "Define a space of 1000 work-items — each one IS an element,
 ```
 
 #### Two components
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ```mermaid
 graph LR
@@ -197,6 +201,8 @@ Private  = personal notepad        — you only, fastest
 ```
 
 #### Diagram
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ```mermaid
 graph TD

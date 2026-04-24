@@ -20,7 +20,7 @@ The foundational idea: **every concurrent actor is a `CSProcess`**. It is just a
 
 Channels are the _only_ way processes communicate. There is no shared mutable state. A channel has two ends — a write end and a read end — and **both sides must be ready simultaneously** for a transfer to happen. If the writer arrives first, it blocks waiting for a reader. If the reader arrives first, it blocks waiting for a writer. This is the CSP synchronous rendezvous.The object channel race hazard deserves a callout. When you call `out.write(myObject)`, you've handed a reference over the channel — but Java doesn't clone it. Both your process and the receiver now hold a pointer to the same object in memory. If you then mutate it on your side while the receiver reads it, that's a race condition. The discipline is: **`myObject = null` immediately after `write()`**.
 
-<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -89,7 +89,7 @@ One thing to notice: `ReadEvenIntsProcess` loops forever, but the `SendEvenIntsP
 
 This is the most powerful feature. `Alternative` lets a process wait on _multiple guards at once_ and proceed with whichever one becomes ready first. It's the JCSP implementation of CSP's choice operators.The real-time sampler from the lecture is a perfect worked example of alternation. It juggles three guards — a `reset` channel, a `CSTimer`, and an `in` channel — in a single loop:
 
-<figure><img src=".gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```java
 class Sample implements CSProcess {
