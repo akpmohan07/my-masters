@@ -581,47 +581,85 @@ class BoundedBuffer {
 #### Key code — ExecutorService banking program
 
 ```java
-public class BankAccount {
-    private int[] accounts = new int[10];
-    private Object[] locks  = new Object[10];
+/*
+ * PSEUDOCODE — BankAccount with ExecutorService
+ *
+ * SETUP:
+ *   1. create 10 accounts each with balance 1
+ *   2. create thread pool with 1000 threads
+ *
+ * MAIN:
+ *   1. for each account (0..9):
+ *   2.   for each user (0..999):
+ *   3.     submit task → deposit 100, withdraw 50, query balance
+ *   4. shutdown pool — no new tasks
+ *   5. wait up to 10 seconds for all tasks to finish
+ *   6. print final balance of each account
+ *
+ * TASK (per thread):
+ *   1. deposit 100 → synchronized — only one thread at a time
+ *   2. withdraw 50 → synchronized — only one thread at a time
+ *   3. query balance → not synchronized — read only
+ */
 
-    public BankAccount() {
-        for (int i = 0; i < 10; i++) {
-            accounts[i] = 100;
-            locks[i] = new Object();  // one lock per account — no unnecessary blocking
+package com.mohanverse.dev.threads;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+import static java.lang.Thread.sleep;
+
+public class BankAccountExecutorService {
+    public static final int USER_COUNT    = 1000;
+    public static final int ACCOUNT_COUNT = 10;
+
+    int accounts[];
+    ExecutorService executor = Executors.newFixedThreadPool(USER_COUNT); // 1. pool with 1000 worker threads
+
+    public BankAccountExecutorService() {
+        accounts = new int[ACCOUNT_COUNT];                    // 1. create 10 accounts
+        for (int i = 0; i < ACCOUNT_COUNT; i++) {
+            accounts[i] = 1;                                  // 2. set initial balance to 1
         }
     }
 
-    public void deposit(int amount, int acc) {
-        synchronized(locks[acc]) { accounts[acc] += amount; }
+    public synchronized void deposit(int amount, int account) {
+        accounts[account] += amount;                          // 1. add amount — synchronized, one thread at a time
+        System.out.println("Thread " + Thread.currentThread().getName() + " deposited " + amount + " to account " + account + ". New balance: " + accounts[account]); // 2. log
     }
-    public void withdraw(int acc, int amount) {
-        synchronized(locks[acc]) { accounts[acc] -= amount; }
+
+    public synchronized void withdraw(int account, int amount) {
+        accounts[account] -= amount;                          // 1. subtract amount — synchronized, one thread at a time
+        System.out.println("Thread " + Thread.currentThread().getName() + " withdrew " + amount + " from account " + account + ". New balance: " + accounts[account]); // 2. log
     }
-    public void query(int acc) {
-        synchronized(locks[acc]) {
-            System.out.println("Account " + acc + ": " + accounts[acc]);
+
+    public void query(int account) {
+        System.out.println("Thread " + Thread.currentThread().getName() + " queried account " + account + ". Balance: " + accounts[account]); // 1. read only — no sync needed
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        BankAccountExecutorService bankAccountExecutorService = new BankAccountExecutorService(); // 1. create bank
+
+        for (int i = 0; i < ACCOUNT_COUNT; i++) {            // 2. loop over each account
+            int account = i;
+            for (int j = 0; j < USER_COUNT; j++) {           // 3. loop over each user
+                bankAccountExecutorService.executor.execute(() -> {  // 4. submit task to pool
+                    bankAccountExecutorService.deposit(100, account);  // 5. deposit 100
+                    bankAccountExecutorService.withdraw(account, 50);  // 6. withdraw 50
+                    bankAccountExecutorService.query(account);         // 7. query balance
+                });
+            }
+        }
+
+        bankAccountExecutorService.executor.shutdown();                           // 8. stop accepting new tasks
+        bankAccountExecutorService.executor.awaitTermination(10, TimeUnit.SECONDS); // 9. wait for all tasks to finish
+
+        for (int i = 0; i < ACCOUNT_COUNT; i++) {
+            System.out.println("Final balance of account " + i + ": " + bankAccountExecutorService.accounts[i]); // 10. print final balances
         }
     }
 }
-
-// main
-BankAccount bank = new BankAccount();
-ExecutorService executor = Executors.newFixedThreadPool(3);  // 3 users
-
-for (int user = 0; user < 3; user++) {
-    executor.execute(() -> {
-        for (int i = 0; i < 20; i++) {
-            int acc = (int)(Math.random() * 10);
-            int op  = (int)(Math.random() * 3);
-            if (op == 0)      bank.deposit(100, acc);
-            else if (op == 1) bank.withdraw(acc, 50);
-            else              bank.query(acc);
-        }
-    });
-}
-executor.shutdown();
-executor.awaitTermination(10, TimeUnit.SECONDS);  // wait for all users to finish
 ```
 
 #### Key code — Fork/Join MaxFinder
