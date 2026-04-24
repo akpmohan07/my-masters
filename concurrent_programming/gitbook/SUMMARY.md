@@ -8,6 +8,7 @@
 * [Introduction](<README (2).md>)
 * [OpenCL](opencl/README.md)
   * [OpenCL Past Exam Questions (2019–2025)](opencl/opencl-past-exam-questions-2019-2025.md)
+  * [CSC1141 — OpenCL Complete Study Guide](opencl/csc1141-opencl-complete-study-guide.md)
 * [Formal Sepcifications](formal-sepcifications.md)
 * [Data Parallel Primitive](data-parallel-primitive.md)
 * [JSCP](jscp.md)
