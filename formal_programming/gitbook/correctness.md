@@ -1,6 +1,6 @@
-# Correctness - Test
+# Correctness
 
-Analyzing these patterns is key to mastering Hoare Logic and formal verification for your MSc at DCU. By looking at these examples, we can categorize them into three main "intuition patterns" to find the invariant ($$ $I$ $$) every time.
+Analyzing these patterns is key to mastering Hoare Logic and formal verification for your MSc at DCU. By looking at these examples, we can categorize them into three main "intuition patterns" to find the invariant ($$ $I$ $$) every time. test
 
 ***
 
