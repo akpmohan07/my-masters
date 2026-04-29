@@ -13,4 +13,4 @@ What do you want to tackle first? I'd suggest starting with Q1/Q2 since they're 
 
 
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
