@@ -8,7 +8,7 @@ Analyzing these patterns is key to mastering Hoare Logic and formal verification
 
 Applied to: `image_966979.png` (Square), `image_966997.png` (Sum), `image_9669b9.png` (Cubic sum)
 
-In these, a counter (like $$Z$$, $$ $J$ $$, or $$ $Y$ $$) starts at $$ $0$ $$ and moves toward $$ $N$ $$.
+In these, a counter (like $Z$, $J$, or $Y$) starts at $0$ and moves toward $N$.
 
 * Logic: The invariant is simply the Post-condition where you replace the final goal ($$ $N$ $$) with the current counter.
 * Intuition: "The variable holds the correct result for the steps I have finished so far."
