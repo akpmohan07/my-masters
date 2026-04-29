@@ -13,7 +13,7 @@ In these, a counter (like $Z$, $J$, or $Y$) starts at $0$ and moves toward $N$.
 * Logic: The invariant is simply the Post-condition where you replace the final goal ($$ $N$ $$) with the current counter.
 * Intuition: "The variable holds the correct result for the steps I have finished so far."
 * Examples:
-  * Square (`image_966979.png`): Goal is $$ $X = N^2$ $$. Counter is $$ $Z$ $$.
+  * Square (`image_966979.png`): Goal is $$ X = N^2 $$. Counter is $$ $Z$ $$.
     * Invariant: $$ $X = Z^2 \wedge Z \leq N$ $$.
   * Sum (`image_966997.png`): Goal is $$ $SUM = N(N+1)$ $$. Counter is $$ $J$ $$.
     * Invariant: $$ $SUM = J(J+1) \wedge J \leq N$ $$.
