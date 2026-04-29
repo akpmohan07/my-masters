@@ -4,6 +4,10 @@ Analyzing these patterns is key to mastering Hoare Logic and formal verification
 
 ***
 
+<figure><img src=".gitbook/assets/IMG_6039.jpeg" alt=""><figcaption></figcaption></figure>
+
+
+
 #### Pattern 1: The Accumulator (Counting Up)
 
 Applied to: `image_966979.png` (Square), `image_966997.png` (Sum), `image_9669b9.png` (Cubic sum)
@@ -28,9 +32,9 @@ Applied to: `image_9669da.png` (Square), `image_9669d4.png` (Power)
 
 In these, a variable starts at $$N$$ and moves toward $$0$$.
 
-* Logic: Use $$(N - 	ext{current\_counter})$$ to represent "steps completed."
+* Logic: Use $$(N - ext{current\_counter})$$ to represent "steps completed."
 * Intuition: "I have finished $$(N-X)$$ work, so my variable equals the goal function applied to $$(N-X)$$."
-* Example (Square `image_9669da.png`): \* Goal is $$Y = N^2$$. Counter $$X$$ goes from $$N 	o 0$$.
+* Example (Square `image_9669da.png`): \* Goal is $$Y = N^2$$. Counter $$X$$ goes from $$N o 0$$.
   * Steps finished = $$(N - X)$$.
   * Invariant: $$Y = (N - X)^2 \wedge X \geq 0$$.
   * _Alternative (The Balance View):_ $$Y + X^2 = N^2$$.
@@ -53,15 +57,15 @@ Sometimes two variables change together, and you must find the link between them
 
 #### Cheat Sheet for Your Exam
 
-| **If the loop...**                | **Then use this mental model:** | **Invariant Structure**                           |
-| --------------------------------- | ------------------------------- | ------------------------------------------------- |
-| Increments ($$i: 0 	o N$$)   | "Work already done."            | $$Var = f(i)$$                                |
-| Decrements ($$X: N 	o 0$$)   | "Steps completed so far."       | $$Var = f(N - X)$$                            |
-| Multiplies ($$P: 1 	o Y^N$$) | "Balance what's left."          | $$P 	imes Y^X = Y^N$$ or $$P = Y^{N-X}$$ |
+| **If the loop...**          | **Then use this mental model:** | **Invariant Structure**                 |
+| --------------------------- | ------------------------------- | --------------------------------------- |
+| Increments ($$i: 0 o N$$)   | "Work already done."            | $$Var = f(i)$$                          |
+| Decrements ($$X: N o 0$$)   | "Steps completed so far."       | $$Var = f(N - X)$$                      |
+| Multiplies ($$P: 1 o Y^N$$) | "Balance what's left."          | $$P imes Y^X = Y^N$$ or $$P = Y^{N-X}$$ |
 
 #### Summary of finding any Invariant:
 
-1. Identify the counter and its direction ($$0 	o N$$ or $$N 	o 0$$).
+1. Identify the counter and its direction ($$0 o N$$ or $$N o 0$$).
 2. Write the "Steps Completed" expression ($$i$$ or $$N-X$$).
 3. Plug that expression into the Post-condition formula.
 4. Add the boundary check (e.g., $$Z \leq N$$ or $$X \geq 0$$).
