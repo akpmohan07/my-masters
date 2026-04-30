@@ -1,10 +1,74 @@
 # Event-B Complete Guide — Q4 and Q5
 
-### Sum:
+
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
+<details>
+
+<summary>Find the sum</summary>
+
+
+
 <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+To write the `sum` function effectively in an exam, you should follow this structured logical flow to ensure you meet all formal requirements.
+
+***
+
+### 1. Identify the Pattern
+
+Before writing, determine if the question asks for a Generalized Set (any group of elements) or a Sequential Array (ordered $$ $1..n$ $$).
+
+* Generalized Set: Best for "Candidates," "Students," or "Partial Functions".
+* Sequential Array: Best for "Array $$ $a : 1..n$ $$" questions, as it focuses on the index count.
+
+***
+
+### 2. The Context (The "Math Engine")
+
+You must include these three specific axioms to define the function:
+
+#### A. The Type Definition (axm1)
+
+* Goal: Define what goes in and what comes out.
+* Formula (Array): $$ $sum \in \mathbb{N} \rightarrow \mathbb{N}$ $$ (Takes an index, returns a total).
+* Formula (Set): $$ $sum \in (CANDIDATES \mapsto \mathbb{N}) \rightarrow \mathbb{N}$ $$ (Takes a map, returns a total).
+
+#### B. The Base Case (axm2)
+
+* Goal: Define the "Zero Point" or breaking condition to prevent infinite loops.
+* Formula (Array): $$ $(0 \mapsto 0) \in sum$ $$ (The sum of elements up to index 0 is 0).
+* Formula (Set): $$ $(\emptyset \mapsto 0) \in sum$ $$ (The sum of an empty set is 0).
+
+#### C. The Recursive Step (axm3)
+
+* Goal: Define the "Addition Rule" for how the total grows.
+* Formula (Array): $$ $\forall n, s \cdot n \mapsto s \in sum \Rightarrow (n+1 \mapsto s + a(n+1)) \in sum$ $$.
+* Formula (Set): $$ $\forall f, s, a, n \cdot (f \mapsto s \in sum \dots) \Rightarrow ((f \cup \{a \mapsto n\}) \mapsto s + n) \in sum$ $$.
+
+***
+
+### 3. The Machine (The "Program")
+
+Once the math is defined in the Context, you use it in the Machine events:
+
+* Invariants: Ensure your `result` variable is typed correctly (e.g., $$ $result \in \mathbb{N}$ $$).
+* Initialisation: Set your starting value (e.g., $$ $result := 0$ $$).
+* The Main Event: Use your constant function to assign the final truth (e.g., $$ $result := sum(n)$ $$).
+
+***
+
+### Final Exam Tips
+
+* Use $$ $\in$ $$ for Axioms: Remember that `sum` is a set of rules (maplets), so you use the membership symbol ($$ $\in$ $$) to "add" rules to it.
+* The $$ $\forall$ $$ Symbol: Always use "For All" in the recursive step to show the rule applies to any size of data.
+* The Maplet $$ $\mapsto$ $$: Use this specifically to link an input (like an index or set) to its calculated output (the total).
+* Postcondition: When asked for a postcondition, simply set your variable equal to the function call: $$ $result = sum(a)$ $$.
+
+</details>
+
+###
 
 ### STEP 1 — Read and Extract
 
