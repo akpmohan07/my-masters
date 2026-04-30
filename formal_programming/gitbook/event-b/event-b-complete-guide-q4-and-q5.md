@@ -1,9 +1,5 @@
 # Event-B Complete Guide — Q4 and Q5
 
-## Event-B Complete Guide — Q4 and Q5
-
-***
-
 ### STEP 1 — Read and Extract
 
 Read the problem once slowly. Extract:
