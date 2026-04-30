@@ -1,5 +1,9 @@
 # Event-B Complete Guide — Q4 and Q5
 
+### Sum:
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
 ### STEP 1 — Read and Extract
 
 Read the problem once slowly. Extract:
