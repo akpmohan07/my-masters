@@ -51,4 +51,4 @@ A documented terminal session demonstrating DNS resolution hierarchy:
 
 ---
 
-*Related: [Root CLAUDE.md](../CLAUDE.md)*
+*Related: [Root Readme.md](../Readme.md)*

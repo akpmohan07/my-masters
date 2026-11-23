@@ -100,4 +100,4 @@ Static vs dynamic linking. Function hooking via `LD_PRELOAD` to intercept librar
 
 ---
 
-*Related: [Root CLAUDE.md](../CLAUDE.md)*
+*Related: [Root Readme.md](../Readme.md)*
