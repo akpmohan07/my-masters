@@ -1,0 +1,146 @@
+blockchain/materials/README.md
+  s_9094bea643eb89::t_41e534fb6e44eb 1-11
+secure_software/materials/README.md
+  s_9094bea643eb89::t_41e534fb6e44eb 1-11
+Practicum/materials/README.md
+  s_9094bea643eb89::t_41e534fb6e44eb 1-11
+formal_programming/materials/README.md
+  s_9094bea643eb89::t_41e534fb6e44eb 1-11
+cryptography/materials/README.md
+  s_9094bea643eb89::t_41e534fb6e44eb 1-11
+concurrent_programming/materials/README.md
+  s_9094bea643eb89::t_41e534fb6e44eb 1-11
+professional_research/materials/README.md
+  s_9094bea643eb89::t_41e534fb6e44eb 1-11
+software_process_quality/materials/README.md
+  s_9094bea643eb89::t_41e534fb6e44eb 1-11
+network_securtiy/materials/README.md
+  s_9094bea643eb89::t_41e534fb6e44eb 1-11
+README.md
+  s_9094bea643eb89::t_39501739e2dd07 1-41,48-61
+  s_9094bea643eb89::t_ff694171e0581e 42-47
+"Practicum/materials/Literature Review/Lit Review Submission/Drafting_Final.tex"
+  s_9094bea643eb89::t_941e2ee1ac80ee 1-273
+"blockchain/materials/CA/FInal Submission/Systematic Review of Core Vulnerabilities in Smart Contracts.tex"
+  s_9094bea643eb89::t_0302dd888462fd 1-186
+"blockchain/materials/[Week 8] Blockchain Security 2/contracts/Forwarder.sol"
+  s_9094bea643eb89::t_4a6b2ad283f518 1-9
+"blockchain/materials/[Week 8] Blockchain Security 2/contracts/LotteryV1.sol"
+  s_9094bea643eb89::t_58be44c8f3f9f1 1-19
+"blockchain/materials/[Week 8] Blockchain Security 2/contracts/TokenManager.sol"
+  s_9094bea643eb89::t_417cebbd8262b1 1-13
+"blockchain/materials/[Week 8] Blockchain Security 2/contracts/TokenV1.sol"
+  s_9094bea643eb89::t_5a959f20819435 1-10
+"blockchain/materials/[Week 8] Blockchain Security 2/contracts/VulnerableBank.sol"
+  s_9094bea643eb89::t_1a18bd03847583 1-18
+"cryptography/materials/books/Applied cryptanalysis Book.pdf"
+  s_9094bea643eb89::t_81a2446f4e9705 1-79681
+"network_securtiy/materials/books/[Week 2] [Data Link] (6.3_Multiple_Access_Links_and_Protocols).pdf"
+  s_9094bea643eb89::t_36875996ef24c6 1-32084
+"network_securtiy/materials/books/[Week 2] [Data Link] (6.4_Switched_Local_Area_Networks).pdf"
+  s_9094bea643eb89::t_617080d6ad8399 1-35467
+"network_securtiy/materials/books/[Week 3] [Network Layer] (4.3_The_Internet_Protocol_(IP)_IPv4_Addressing_IPv6_and_More).pdf"
+  s_9094bea643eb89::t_357a4ab3c3fa02 1-36099
+"network_securtiy/materials/books/[Week 6] [DNS] (2.4_DNS—The_Internet’s_Directory_Service).pdf"
+  s_9094bea643eb89::t_9d0ff853d042ed 1-35509
+"professional_research/materials/Answers Bank/Answer_Bank_1_35_Pages.pdf"
+  s_9094bea643eb89::t_feb732ad89899b 1-12769
+scripts/batch_subtitle.py
+  s_9094bea643eb89::t_e3a9660f38c989 1-165
+"secure_software/materials/[Week 1] Process Address Space/lab01/fork.c"
+  s_9094bea643eb89::t_0c13b1aa29e5ae 1-23
+"secure_software/materials/[Week 1] Process Address Space/lab01/getpid.c"
+  s_9094bea643eb89::t_805a19ee7f4a90 1-19
+"secure_software/materials/[Week 1] Process Address Space/lab01/race1.c"
+  s_9094bea643eb89::t_576bc0c5376f88 1-49
+"secure_software/materials/[Week 1] Process Address Space/lab01/race2.c"
+  s_9094bea643eb89::t_a426092e15e83c 1-37
+"secure_software/materials/[Week 1] Process Address Space/lab01/race4.c"
+  s_9094bea643eb89::t_586700dac56602 1-44
+"secure_software/materials/[Week 2] Stack/lab02/lab02_e.txt"
+  s_9094bea643eb89::t_7c018e09a20346 1-54
+"secure_software/materials/[Week 2] Stack/lab02/mystery.txt"
+  s_9094bea643eb89::t_0d20653c1a58f9 1-29
+"secure_software/materials/[Week 2] Stack/lab02/mysterysol.txt"
+  s_9094bea643eb89::t_e5282d6169956d 1-65
+"secure_software/materials/[Week 2] Stack/lab02/program.c"
+  s_9094bea643eb89::t_1cdd73e0f7eb0a 1-95
+"secure_software/materials/[Week 2] Stack/lab02/session.txt"
+  s_9094bea643eb89::t_497f4e2868b8e9 1-151
+"secure_software/materials/[Week 3] C Declarations/lab03/fptr.c"
+  s_9094bea643eb89::t_da685cca4ef1b8 1-37
+"secure_software/materials/[Week 3] C Declarations/lab03/pointers.c"
+  s_9094bea643eb89::t_196181634df923 1-62
+"secure_software/materials/[Week 3] C Declarations/lab03/sizes.c"
+  s_9094bea643eb89::t_1ca25d44700c35 1-61
+"secure_software/materials/[Week 4] Strings/lab04/bar.c"
+  s_9094bea643eb89::t_cd1aa978541a92 1-9
+"secure_software/materials/[Week 4] Strings/lab04/conc.c"
+  s_9094bea643eb89::t_5be66699bd9cbf 1-21
+"secure_software/materials/[Week 4] Strings/lab04/concsol.c"
+  s_9094bea643eb89::t_742393d743f02f 1-78
+"secure_software/materials/[Week 4] Strings/lab04/copy.c"
+  s_9094bea643eb89::t_73fec78f029de7 1-21
+"secure_software/materials/[Week 4] Strings/lab04/copysol.c"
+  s_9094bea643eb89::t_212aee9e96623b 1-61
+"secure_software/materials/[Week 4] Strings/lab04/foo.c"
+  s_9094bea643eb89::t_2a2efce56da4d0 1-24
+"secure_software/materials/[Week 4] Strings/lab04/hook.c"
+  s_9094bea643eb89::t_a1bc3fae463b42 1-21
+"secure_software/materials/[Week 4] Strings/lab04/hooked.c"
+  s_9094bea643eb89::t_90b22a02c84a45 1-12
+"secure_software/materials/[Week 5] C Vulnerability/lab05/fsa.c"
+  s_9094bea643eb89::t_07a7a6ad19db75 1-24
+"secure_software/materials/[Week 5] C Vulnerability/lab05/funcptr.c"
+  s_9094bea643eb89::t_50a33946447ef4 1-44
+"secure_software/materials/[Week 5] C Vulnerability/lab05/obo.c"
+  s_9094bea643eb89::t_a9f4bb05526c04 1-32
+"secure_software/materials/[Week 5] C Vulnerability/lab05/stack.c"
+  s_9094bea643eb89::t_5534976656b31d 1-30
+"secure_software/materials/[Week 7] File Permisioins/lab07/lab system backup/fred.txt"
+  s_9094bea643eb89::t_ace6e1332f003e 1
+"secure_software/materials/[Week 7] File Permisioins/lab07/lab system backup/fred_rr.txt"
+  s_9094bea643eb89::t_d6faae69afc1da 1
+"secure_software/materials/[Week 7] File Permisioins/lab07/lab system backup/link.txt"
+  s_9094bea643eb89::t_25a2cda8760bfe 1
+"secure_software/materials/[Week 7] File Permisioins/lab07/lab system backup/p/fred.txt"
+  s_9094bea643eb89::t_e3d24fffce545e 1
+"secure_software/materials/[Week 7] File Permisioins/lab07/lab system backup/suidroot.c"
+  s_9094bea643eb89::t_a5dcfff23f1353 1-39
+"secure_software/materials/[Week 7] File Permisioins/lab07/suidroot.c"
+  s_9094bea643eb89::t_7d5987e274c82e 1-39
+"software_process_quality/materials/Project/Design Documents/Project Safeflight"
+  s_9094bea643eb89::t_9a22a186f9bed9 1-551
+"software_process_quality/materials/Project/Submissions/Phase 1/Epics_List.pdf"
+  s_9094bea643eb89::t_f0fff474c81d5a 1-3166
+"software_process_quality/materials/Project/Submissions/Phase 1/User_Story.pdf"
+  s_9094bea643eb89::t_61ddc2493e503c 1-9981
+"software_process_quality/materials/Project/Submissions/Phase 2/Final Submisison Phase 2 - 12_03_2026, 23_07.pdf"
+  s_9094bea643eb89::t_78404f72f39805 1-21827
+"software_process_quality/materials/Project/Submissions/Phase 3/Jira.csv"
+  s_9094bea643eb89::t_27ad4a452c3509 1-204
+"software_process_quality/materials/Project/Submissions/Phase 4/Submission Shared (Don_t Modify)/Owsap Dependency Check/Dependency Check Report.html"
+  s_9094bea643eb89::t_5a8dcf2b1e783d 1-17946
+"software_process_quality/materials/Project/Submissions/Phase 4/Submission Shared (Don_t Modify)/SPQ - Group 4 Phase 4 Project Submission.pdf"
+  s_9094bea643eb89::t_7c3c62faa5b179 1-40779
+"software_process_quality/materials/Project/Submissions/Phase 4/Submission Shared (Don_t Modify)/Spotbug Static Code Analysis/Spotbug Static Code Analysis Report.html"
+  s_9094bea643eb89::t_80f27d7834048a 1-1067
+"software_process_quality/materials/Project/Submissions/Phase 4/Submission Shared (Don_t Modify)/Zap Security Scan/ZAP Scanning Report Safeflight.html"
+  s_9094bea643eb89::t_2c6130e66e3e63 1-3244
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "13d2354050417eeea12ef0cfea1fbbc7881e4cf6",
+  "prompts": {},
+  "sessions": {
+    "s_9094bea643eb89": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b78e0e08-fe07-424f-bee2-b4f55318c1d8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Mohankumar Muthusamy <akpmohan07@gmail.com>"
+    }
+  }
+}
