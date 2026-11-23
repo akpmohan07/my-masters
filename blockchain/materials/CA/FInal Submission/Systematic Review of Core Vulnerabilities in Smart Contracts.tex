@@ -1,0 +1,186 @@
+% IEEE conference template integration (clean rebuild)
+% Sections integrated: Abstract + Introduction + Background (3.1, 3.2) + 4.1–4.4
+
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage[none]{hyphenat}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+\begin{document}
+
+\title{Systematic Review of Core Vulnerabilities in Smart Contracts\\}
+
+\author{\IEEEauthorblockN{Deepak Rajamanickkam}
+\IEEEauthorblockA{\textit{School Of Computing} \\
+\textit{DCU}\\
+Dublin, Ireland \\
+deepak.rajamanickkam2@mail.dcu.ie}
+
+\and
+\IEEEauthorblockN{Mohankumar Muthusamy}
+\IEEEauthorblockA{\textit{School Of Computing} \\
+\textit{DCU}\\
+Dublin, Ireland \\
+mohankumar.muthusamy2@mail.dcu.ie}}
+
+\maketitle
+
+\begin{abstract}
+Smart contracts are the building blocks of decentralised applications. They remove the middleman by enforcing agreements through the code, no human oversight is needed. Smart contracts are immutable, which makes them strong and weak at the same time. Once deployed, an error cannot be patched easily, and history shows how a single vulnerability can break the entire ecosystem. This review examines the six most prevalent vulnerabilities, that are reentrancy, arithmetic overflow, broken access control, time dependence, insufficient input validation, and price oracle manipulation. The review uses insights from established research and real-world incidents, tracing how security analysis has evolved from static tools to machine learning and automated repair frameworks. The aim is to show how the entire security process, from finding bugs to preventing and recovering from them, has become continuous and life cycle-based in the smart-contract development.
+\end{abstract}
+\vspace{1em} % <-- adds space between abstract and keywords
+
+\renewcommand\IEEEkeywordsname{Keywords}
+\begin{IEEEkeywords}
+Smart Contracts, Blockchain Security, Reentrancy, Integer Overflow, Access Control, Input Validation, Time Dependence, Price Oracle Manipulation, DeFi Exploits, Vulnerability Detection, Formal Verification.
+\end{IEEEkeywords}
+
+
+\section{Introduction}
+Traditionally, people or institutions enforced agreements (like contracts) manually with a middleman. Blockchain has changed that, it will automatically enforce the rules through code, which is called programmable trust. The core idea can be defined as smart contracts, moving funds and enforcing terms automatically. Smart contracts are immutable once deployed, which also makes them fragile because a few simple lines of buggy code can cause a major issue, and we cannot update the contract code like regular software. The DAO collapse in 2016 showed how a few buggy lines could wipe out millions and expose deeper design weaknesses.
+
+Most smart-contract failures are from simple coding errors. Missing validation checks, wrong access controls, or arithmetic errors. Tools such as static analysers, fuzzers, and formal verification systems were created to test contracts before deployment. They improved detection rates at the same time, increasing the difficulty for the developers. 
+
+With decentralised finance, smart contracts control the large financial systems, which paves way for risks to move beyond code into economics. Oracles(feeding external data like prices), flash loans, and linked protocols can cause massive chain reactions across the network. Smart-contract security is no longer one time check before the deployment, it must cover every stage, including design, deployment, and operation, combining technical care with long-term resilience.
+
+\section{Background: Smart Contract Security Landscape}
+
+\subsection{Smart Contract Execution Environment}
+Smart Contracts act as independent pieces of code that run within the Ethereum Virtual Machine (EVM), a predictable execution environment responsible for maintaining a shared global state across the network nodes [1]. Every operation performed in this environment requires gas, a fee that serves both as a shield against excessive computation in the shared resource pool and as a transparent cost indicator for users. This mechanism effectively detects denial of service attacks and also decides the incentives for the developers, often forcing them to balance performance against security. Poor estimations of gas usage or misunderstanding of opcode (low-level Ethereum instructions) costs can open the doors for denial of service vulnerabilities caused by out of gas exception [7].
+
+The Ethereum Virtual Machine (EVM) itself uses a stack based architecture to interpret and execute bytecode compiled from high level programming language such as solidity. Contracts interact through messages that are passed and function calls between addresses. Whenever a contract performs an external call, the execution flow is handed over to another contract which will cause sometimes unexpected reentrancy if the order of state updates is mishandled, an issue that early Ethereum research brought to light [1]. Adding to the complexity is the immutable nature of the blockchain environment and once a contract is deployed, it cannot be altered without redeployment. Therefore, even minor flaws can become permanent records within the distributed ledger [14].
+
+Ethereum’s determinism makes sure that all nodes produce same output for the same input. Non-deterministic factors, like timestamps or block numbers, can be influenced by miners which makes them unsafe for randomness or time-sensitive logic [5]. Though the EVM’s persistent storage enhances composability, it also increases the risk of dart exposure and unauthorised changes. Misuse of visibility specifiers has led to recurring access control flaws [7]. Thus, Ethereum’s transparency and immutability show both its reliability and its most persistent security challenges.
+
+\subsection{Evolution of Security Research and Tools} 
+Early investigations in smart contract security has primarily focused on execution frameworks, which systematically explores possible execution paths within Ethereum bytecode [1]. These frameworks aims to map the potential state transitions and expose unsafe behaviors such as recursive call vulnerabilities or incorrect sequencing of external calls. Although this approach was innovative at that time, it faced major challenges relating to path explosion and scalability, especially when analyzing contracts that contains complex interdependencies. 
+
+Later, a static analysis framework filtered these methods by translating Solidity code into intermediate representation which are suitable for examining known vulnerability patterns [3],[6]. By tracking how data and control move through the system, they were able to detect issues like arithmetic overflows, function reentry flaws and access control misconfiguration before deployment. These tools made this faster and more compatible with existing development workflows. However, their dependence on predefined vulnerability signatures resulted in new or composite flaws often undetected and highlighting the enduring trade off between precision and coverage. 
+
+To overcome these challenges, dynamic testing and fuzzing based techniques were introduced [4]. These techniques works by running compiled bytecode under randomized  or guided input conditions and also these methods observed real runtime behavior and reveals the vulnearibilities like out of gas exceptions or unexpected state transitions where static approaches could not fully predict. At the same period, formal verification frameworks were also introduced where mathematical proofs are provided to  guarantee contract safety in relation to clearly defined specifications [10].
+
+Most recent developments have pushed this field towards automation and data driven assurance. Repository mining frameworks collects vulnerability fix pairs which will create labelled datasets used for machine learning based analysis [9], [13]. These data sets will help the models to recognise previous unseen invisible flaws and also suggest automated patches. In addition, systematic reviews had made clear that vulnerability detection alone is insufficient and continuous verification, self repair mechanisms are needed throughout the entire contract lifecycle[11], [12], [14]. As a result, discipline has thus shifted from static bug finding to adaptive security, where analysis tools evolve alongside the smart-contract ecosystem.
+
+\section{Review and Analysis of Key Vulnerabilities}
+
+\subsection{Reentrancy}
+Reentrancy is one of the earliest and most damaging classes 
+of smart-contract flaws. A clear example of how control-flow 
+errors can weaken blockchain security. In Ethereum’s execution
+model, an external call hands over control to another contract 
+before the caller finishes updating its own state. If the callee 
+returns to the original contract, the original balance or variable 
+checks may still have stale values, allowing multiple withdrawals 
+or actions in a single transaction [1]. The issue is not complex in 
+code, but it can be devastating in effect. The DAO Hack of 2016 
+clearly demonstrated this issue, when an attacker exploited a 
+vulnerable withdrawal function that transferred Ether before 
+updating the user’s balance, ultimately draining roughly 60 million dollars in funds.
+
+Later static analyses formalised this vulnerability’s 
+mechanics, categorising it as a state-inconsistency pattern [3], [6].
+Symbolic-execution tools simulated call stacks to detect possible
+reentrant paths. However, they frequently produced false positives when 
+encountering legitimate callback designs. Fuzzing frameworks [4] 
+added runtime oracles to identify recursive invocation patterns 
+under realistic gas limits, exposing cases that static reasoning alone 
+couldn’t identify. Subsequent datasets created by automated 
+mining frameworks [13] showed that reentrancy still occurs
+in live deployments, despite the introduction of language features 
+like nonReentrant.
+
+From a defensive point of view, researchers suggest that the 
+Checks-Effects-Interactions paradigm initially updates internal state, 
+and then transfers the external value to eliminate unsafe sequences [7]. 
+Reentrancy guards, mutex-like variables, and enforced call-ordering 
+have become established best practices integrated in the mainstream 
+Libraries. Yet the continued presence of variants such as cross-function 
+or delegated reentrancy suggests that awareness alone cannot fully 
+solve the problem [14]. Reentrancy highlights a key paradox of 
+decentralised execution: contracts must interact to remain functional, 
+yet each interaction opens the door to self-referential attack. It shows 
+that isolation and composability are difficult to coexist in immutable code.
+.
+
+\subsection{Integer Overflow and Underflow}
+Arithmetic overflow and underflow vulnerabilities occur when smart-contract computations exceed the limits of the 256-bit integers defined by the Ethereum Virtual Machine (EVM). Before Solidity 0.8, arithmetic instructions like ADD and MUL would silently wrap on overflow, producing results that looked valid, but they were mathematically incorrect [2]. As this behaviour was often overlooked by developers, it paved the way for attackers to manipulate balances or counters without causing any errors.
+
+The 2018 BatchOverflow incident revealed the severity of this flaw in practical terms. In the affected batch transfer function, the product of the number of recipients (cnt) and the transfer value was meant to calculate the total amount of tokens to send. By supplying an extremely large value, the attacker made the product to wrap around to zero, turning a valid arithmetic result into one that bypassed all sanity checks. The subsequent requiree (balances[msg.sender] \textgreater{}= amount) comparison passed negligibly because amount evaluated to zero. The following loop distributed the original, enormous value to multiple addresses without reducing anything from the sender’s balance, creating new tokens out of nothing. Over a dozen ERC-20 tokens were found to be exploitable through the same logic pattern.
+
+Static analysis was rapidly updated to detect these kinds of errors automatically [3],[6]. Later, dynamic fuzzing tools [4] confirmed that many old contracts still suffer from unbounded arithmetic operations, especially which is created before the compiler added built in safety checks. Data driven studies [9],[13] also show that arithmetic errors made up a large portion of vulnerabilities which are found automatically, even after developers started using SafeMath libraries. With Solidity 0.8, built in overflow checking was finally introduced, where the transactions are now reverted when a calculation goes above the allotted numerical range. However, old contracts that were deployed before these updates still remain at risk.
+
+Today, the researchers[14] see arithmetic safety as a part of a larger issue, like input validation. In other words, the programs should check the limits of their calculation carefully, like their logical conditions. The BatchOverflow incident is a clear example because it shows how an unchecked multiplication could break an entire token system, which turns a small arithmetic mistake into a large scale inflation problem.
+
+\subsection{Access Control Flaws}
+Access Control issues in smart contracts look like a small issue, but when they occur in production, it is a huge issue. Typical issues like misconfigured ownership access, higher privilege initialisation, privileges not cleared after finishing the work [3], [6], [7]. Developers assume that some roles or permissions are used during the deployments and upgrades of a chain, which leads to an access control breach [14]. 
+
+The parity multi-signature attack shows that a small initialisation issue can cause the entire system to fail. In that incident, the contract initialisation was not set to any authorised owner, so the attacker gained owner access to it and triggered the self-destruction event. As the deleted bytoecode is a shared core library, all the dependent wallets on this code have been permanently frozen, which led to the loss of millions of dollars. Apart from the direct loss, this incident shows that entire contract lifecycle and wallets is also vulnerable to the access control flaws.
+
+Software tooling performs the static analysis of the contract code. It can flag the ownership checks, dangerous delegatecall patterns, and unguarded administrative functions; however, these tools are not helpful when it comes to the deployment cycle, proxy-contarct, and cross-contracts, where the contract imports the functionality of other contracts, which do not have a single source of file[3], [6]. Dynamic testing can test these scenarios, but cannot simulate the exact fault scenario as on production it may happen [4]. Formal methods help where policies can be enforced: ownership must be established exactly once in the contract lifecycle; only authorised roles can destroy or upgrade code; no function should be reachable via delegation, which may obtain unauthorised privilege escalation [10]. Data-driven studies state that access control issues are scattered across the contract codebase, which is mainly due to the improper initialisation and upgrading logics, which are not perfectly tested [13].
+
+Mitigations are not a complex solution; it is a simple condition check, but the developers are in a rush in deployment, they tend to miss these checks: explicit initialisers that run once, constructor-based ownership assignment, two-step role transfer, circuit breakers for administrative actions, and least-privilege design for libraries and proxies [7], [14]. The lesson is plain: access control is not a single, onlyOwner check; it is a contract lifecycle discipline.
+
+\subsection{Time Dependence}
+Time-dependent vulnerabilities are a misuse of block.timestamp value in security-sensitive logic. Contract developers depend on this variable to enforce the deadlines, trigger the lock and unlock or to calculate the data which are time-dependent, like Interest rate over a period of time. However, it is not like a real-world clock, which has an absolute value; it can be controlled by a miner who produces that block. Ethereum protocol  allows the block’s timestamp can deviate roughly up to fifteen minutes of real time, and even a few seconds of manipulation of time can completely change the outcome, which is based on time-based computations[1], [5].
+
+In real-world research, observations show that such flexibility makes a contract vulnerable to timestamp manipulation. The time-based chains, like action or lotteries, that the miner can observe the last transaction in the mempool and advance the block.timestamp until to make an isAuctionEnded() check evaluate as true. The time-manipulated block will be processed first and making the network so that the deadline is met. So the attacker block wins the auction before competing with a real block that has a lower bid than the attacker block. These manipulations can also be used to alter the stock vetting schedules or other data that depends on the time, with the benefit to the miners favour [7], [14].
+
+Static-analysis framework tools regularly check and flag the direct usage of block.timestamp in a contract's conditional logic [3]. But flagging alone does not resolve the design flaw. Developers need to understand that time is a consensus approximation in the blockchain. It is categorised as a system design level flaw. It appears in well-audited contracts that are in production[5].
+
+Mitigation approaches strongly suggest performing a structural redesign rather than patching the issues continuously. Another potential alternative is to use a block.number to predict the elapsed time, which is not controlled by the miner. For time-based applications like auctions, vesting contracts, and time-locked vaults that need a precise time can use the external reliable oracles, which provide the same absolute time to all the miners. This solution ensures the miner cannot manipulate over the timestamp.
+
+\subsection{Lack of Input Validation}
+Input-validation flaws are a simple issue, but remain a major cause of smart-contract failures. They occur when the contract blindly trusts the external parameters without enforcing the type or range limits. Static tools flag the unchecked inputs, tainted data reaching privileged calls, and unbounded loops [3], [6]. Dynamic testing exposes ABI paths accepting adversarial data [4]. Studies show that these issues often occur in the authorisation or arithmetic operations[13]. Validation must be considered as a core requirement throughout the design and development[14].
+
+A recent case shows this risk very clearly: a gas-payment module executed user-controlled calldata without validating the user data, which enabled the attacker to steal about 9 million dollars. The issue here is that valid, trusted code executed the untrusted input.
+
+Mitigation of this issue is to have proper validation and testing. Never run user-provided data as calls. Restrict allowed targets and selectors. Use typed schemas, range checks, and invariant assertions. Limit broad approvals and favor pull-based transfers. Extend analysis to trace user-tainted calldata into delegate call, enhance fuzzing with property oracles, and include approval-scope tests in CI [3], [4], [6], [9]. Above all, treat input validation as a full-lifecycle security discipline [14].
+
+\subsection{Price Oracle Manipulation and DeFi Exploits}
+DeFi protocols introduce various layers of security risk, where the economic logic is embedded in on-chain lending, swapping and collateralization systems. Among these risks, oracle and price manipulation attacks are the most common, as they compromise the value on which all protocol decisions depend [7][14]. When the price or exchange rate inside a contract can be influenced internally before external actors respond, the total capital can be simulated in seconds by a normal, valid transaction.
+
+The Sonne Finance exploit of May 2024 demonstrates this attack with utmost precision [15]. The VELO lending protocol was forked from the Compound V2 codebase, which already had an existing long-known vulnerability called “donation-attack”. When Sonne introduced the new lending market to the VELO network, the attacker exploited the collateral-exchange-rate formula to manipulate the value of a total asset. After waiting for two days of governance timelock, the attacker coordinatedly donated a large quantity of VELO token directly into the network usiing the flash-loan. As this direct transfer inflated the pool’s cash balance without any receipt tokens being minted. This triggered the spike in the internal exchange rate. Now the attacker deposited the small deposit, which now looks like an abnormally high value against the collateral value, which enabled them to borrow around 20 million dollars in assets (WETH, USDC, and others). 
+
+Within minutes, the optimism deployment was drained almost. The sonne team halted all VELO markets to contain the attack. Meanwhile, the responders managed to stabilise the network by injecting liquidity and recovered about 6.5 million dollars of frozen value before transferring to another network. The technical root cause is not a new issue or a complex one.It is a simple design flaw where the system blindly believes the internally calculated price value to make the transaction. The static analysers very rarely detect such economic flaws, because these are logical flaws, not a code issue [3], [4].
+
+Researchers [14] argue that protecting oracle-dependent systems requires multi-layered validation: time-weighted price feeds, minimum-liquidity thresholds, and external oracle crosschecks to prevent instant exchange-rate swings.
+
+\section{Detection and Mitigation Tools}
+Researchers have developed different types of detection and defence mechanisms against smart contract vulnerabilities. Those mechanisms include static, dynamic, and formal methods. Static analysis tools like Slither and SmartCheck scan the patterns in the code (without running it) to find common security problems such as missing permission checks or unsafe operations [3], [6]. These tools are fast and automated, which makes them essential during development, though they rely on pattern and rule-based detection, which often misses deeper context or cross-contract logic [7].  
+  
+
+Dynamic and fuzzing frameworks go beyond static code scanning. They test smart contracts as they run to analyse the runtime behaviour. ContractFuzzer runs compiled smart contracts code multiple times with random or smartly chosen inputs to discover the hidden problems which static analysers fail to do [4]. Fuzzing can find real bugs but that does not mean the program is completely bug-free, because it only tests a sample of possible situations.  
+
+Formal-verification tools like ZEUS and VeriSolid use math-based checks to guarantee certain properties of contracts, for example, that balances never go negative or that only authorised roles can trigger upgrades [10], [14]. Even though they give accurate results, it require a lot of manual work, like writing detailed mathematical specifications and also do not scale well when applied to interdependent DeFi protocols.  
+
+Researchers have started using new data-driven approaches to improve smart-contract security. Instead of only relying on fixed and static rules, they now use the real-world data of past code vulnerabilities, patterns, patches, etc., together with automated techniques using ML algorithms, which enables the tools to learn from experience [9], [12], [13]. Still, researchers emphasise that no single technique is sufficient. The best approach would be combining multiple techniques like static linting, fuzzing, formal proofs, and runtime monitoring within an integrated lifecycle. Instead of performing one-time audits, the industry is moving towards ongoing, intelligent verification that keeps adapting to new risks and making blockchain systems safer in the long run.
+
+\section{Discussion and Future Directions}
+Recent studies have revealed that blockchain vulnerabilities are changing from technical code bugs to bigger risks coming from economic design and how different protocols interact(composability risks) [7], [14]. Recent developments in compiler safeguards techniques and improved developer practices have resulted in a reduced overflow and reentrancy attacks. But exploits like time-dependent, oracle manipulation, and unchecked external integrations has raised. These newer threats expose the limitations of static tools that focus only on syntax or control flow [3], [6].  
+
+Developers started to accept that security practices must be included across the entire contract development lifecycle. Combining multi-layered defence methodologies like static analysis, runtime monitoring, and automatic repair is emerging as a good solution for smart contract vulnerabilities [9], [12]. Even with these advanced methodologies, the problems still exist. For instance, Formal methods struggle with multi-contract dependencies, and AI-based detection still faces challenges in interpretability and false positive results.  
+
+The future research and development must focus on developing strong security at the protocol level, which includes decentralised oracles, verified upgrades, and adaptable audits that evolve with protocol updates [14], [15]. There is also a need for Adaptive systems that can learn from actual exploits and include defence feedback loops straight into development environments to ensure security as blockchain systems become more interconnected.  
+
+\section{Conclusion}
+Smart-contract security has shifted from fixing code bugs to code analysis, economic modelling, and system design. This review detailed six major smart contract vulnerabilities, from reentrancy to oracle manipulation, including real-world incidents and how research and security tools are evolving and defending against them. Even though tools and developers have improved, attacks are still happening. Security will depend less on fixing isolated bugs and more on incorporating continuous verification and adaptive defence into every layer of blockchain development lifecycle.
+
+\section*{References}
+\noindent [1] L. Luu, D.-H. Chu, H. Olickel, P. Saxena, and A. Hobor, ``Making Smart Contracts Smarter,'' in \textit{Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security (CCS '16)}, 2016, pp. 254--269. doi: 10.1145/2976749.2978309. \\[4pt]
+\noindent [2] C. F. Torres, J. Schütte, and R. State, ``Osiris: Hunting for Integer Bugs in Ethereum Smart Contracts,'' in \textit{Proceedings of the 34th Annual Computer Security Applications Conference (ACSAC '18)}, 2018, pp. 664--676. doi: 10.1145/3274694.3274737. \\[4pt]
+\noindent [3] J. Feist, G. Grieco, and A. Groce, ``Slither: A Static Analysis Framework for Smart Contracts,'' in \textit{2019 IEEE/ACM 2nd International Workshop on Emerging Trends in Software Engineering for Blockchain (WETSEB)}, May 2019, pp. 8--15. doi: 10.1109/WETSEB.2019.00008. \\[4pt]
+\noindent [4] B. Jiang, Y. Liu, and W. K. Chan, ``ContractFuzzer: fuzzing smart contracts for vulnerability detection,'' in \textit{Proceedings of the 33rd ACM/IEEE International Conference on Automated Software Engineering (ASE '18)}, 2018, pp. 259--269. doi: 10.1145/3238147.3238177. \\[4pt]
+\noindent [5] S. S. Kushwaha, S. Joshi, D. Singh, M. Kaur, and H.-N. Lee, ``Ethereum Smart Contract Analysis Tools: A Systematic Review,'' \textit{IEEE Access}, vol. 10, pp. 57037--57062, 2022. doi: 10.1109/ACCESS.2022.3169902. \\[4pt]
+\noindent [6] S. Tikhomirov, E. Voskresenskaya, I. Ivanitskiy, R. Takhaviev, E. Marchenko, and Y. Alexandrov, ``SmartCheck: static analysis of ethereum smart contracts,'' in \textit{Proceedings of the 1st International Workshop on Emerging Trends in Software Engineering for Blockchain (WETSEB '18)}, 2018, pp. 9--16. doi: 10.1145/3194113.3194115. \\[4pt]
+\noindent [7] Z. Wan, X. Xia, D. Lo, J. Chen, X. Luo, and X. Yang, ``Smart Contract Security: a Practitioners' Perspective,'' in \textit{Proceedings of the 43rd International Conference on Software Engineering (ICSE '21)}, 2021, pp. 1410--1422. doi: 10.1109/ICSE43902.2021.00127. \\[4pt]
+\noindent [8] B. Mueller, ``Smashing Ethereum Smart Contracts for Fun and Real Profit,'' presented at HITB SECCONF Amsterdam, 2018. \\[4pt]
+\noindent [9] Z. Huang and A. Aumpansub, \textit{Vulnerability Detection with Deep Learning}, 2024. doi: 10.48550/arXiv.2405.12384. \\[4pt]
+\noindent [10] S. Kalra, S. Goel, M. Dhawan, and S. Sharma, ``ZEUS: Analyzing Safety of Smart Contracts,'' in \textit{Network and Distributed System Security Symposium}, 2018. [Online]. Available: https://api.semanticscholar.org/CorpusID:3481056 \\[4pt]
+\noindent [11] H. Chu, P. Zhang, H. Dong, Y. Xiao, S. Ji, and W. Li, ``A survey on smart contract vulnerabilities: Data sources, detection and repair,'' \textit{Information and Software Technology}, vol. 159, p. 107221, 2023. doi: 10.1016/j.infsof.2023.107221. \\[4pt]
+\noindent [12] R. Kiani and V. S. Sheng, ``Automated Repair of Smart Contract Vulnerabilities: A Systematic Literature Review,'' \textit{Electronics}, vol. 13, no. 19, 2024. doi: 10.3390/electronics13193942. \\[4pt]
+\noindent [13] D. Liu, J. Zhang, Y. Wang, H. Shen, Z. Zhang, and T. Ye, ``Blockchain Smart Contract Security: Threats and Mitigation Strategies in a Lifecycle Perspective,'' \textit{ACM Computing Surveys}, vol. 58, no. 4, Oct. 2025. doi: 10.1145/3769013. \\[4pt]
+\noindent [14] M. Soud, I. Qasse, G. Liebel, and M. Hamdaqa, ``AutoMESC: Automatic Framework for Mining and Classifying Ethereum Smart Contract Vulnerabilities and Their Fixes,'' \textit{arXiv preprint} arXiv:2212.10660, 2022. doi: 10.48550/arXiv.2212.10660. \\[4pt]
+\noindent [15] K. Qin, L. Zhou, B. Livshits, and A. Gervais, ``Attacking the DeFi ecosystem with flash loans for fun and profit,'' \textit{arXiv preprint} arXiv:2003.03810, 2020. doi: 10.48550/arXiv.2003.03810.
+
+\end{document}

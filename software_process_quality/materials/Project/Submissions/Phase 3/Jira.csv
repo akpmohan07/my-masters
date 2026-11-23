@@ -1,0 +1,204 @@
+﻿Issue Type,Issue key,Issue id,Summary,Description,Parent,Parent key,Parent summary
+Story,SF-58,10312,9.2 – Manage flight schedules,"*As an airline admin*
+I want to add/update/delete flight schedules
+So that search results stay accurate
+
+*Acceptance Criteria*
+
+* CRUD operations work
+* Deleted schedules not shown in search",10286,SF-45,EPIC 9: Admin Management
+Story,SF-57,10310,9.1 – Assign airline admin,"*As a super admin*
+I want to map users to airlines
+So that they can manage flights
+
+*Acceptance Criteria*
+
+* airline_user mapping created",10286,SF-45,EPIC 9: Admin Management
+Story,SF-56,10308,8.1 – Cancel booking,"*As a user*
+I want to cancel my booking
+So that I can change plans
+
+*Acceptance Criteria*
+
+* Only owner can cancel
+* Status becomes {{CANCELLED}}",10285,SF-44,EPIC 8: Booking Changes
+Story,SF-55,10306,8.2 – Reschedule booking,"*As a user*
+I want to reschedule my booking
+So that I can travel on another date
+
+*Acceptance Criteria*
+
+* New valid schedule selected
+* Booking updated successfully",10285,SF-44,EPIC 8: Booking Changes
+Story,SF-54,10304,7.3 – Email ticket,"*As a user*
+I want my ticket emailed
+So that I can access it anytime
+
+*Acceptance Criteria*
+
+* Email sending simulated
+* Success message shown",10284,SF-43,EPIC 7: Ticket Generation & Delivery
+Story,SF-53,10302,7.2 – Download / print ticket,"*As a user*
+I want to download or print my ticket
+So that I can keep a copy
+
+*Acceptance Criteria*
+
+* Printable or downloadable format available",10284,SF-43,EPIC 7: Ticket Generation & Delivery
+Story,SF-52,10300,7.1 – Generate ticket,"*As a user*
+I want my ticket generated
+So that I can use it for travel
+
+*Acceptance Criteria*
+
+* Ticket includes booking ref, passengers, seats, flight details",10284,SF-43,EPIC 7: Ticket Generation & Delivery
+Story,SF-51,10298,6.2 – View payment status,"*As a user*
+I want to see payment status
+So that I know my booking state
+
+*Acceptance Criteria*
+
+* Payment status visible in booking view",10283,SF-42,EPIC 6: Payment (Mocked)
+Story,SF-50,10296,6.1 – Make payment,"*As a user*
+I want to pay using card
+So that my booking is confirmed
+
+*Acceptance Criteria*
+
+* Credit / Debit card supported
+* Payment status SUCCESS / FAILED (mock)
+* Booking status updated accordingly",10283,SF-42,EPIC 6: Payment (Mocked)
+Story,SF-49,10294,5.4 – Add baggage quantity,"*As a user*
+I want to add baggage quantity
+So that extra baggage cost can be calculated
+
+*Acceptance Criteria*
+
+* Baggage quantity ≥ 0
+* Stored per passenger",10282,SF-41,"EPIC 5: Passengers, Seats & Baggage"
+Story,SF-48,10292,5.3 – Assign seat to passenger,"*As a user*
+I want to assign seats
+So that each passenger has a seat
+
+*Acceptance Criteria*
+
+* Same seat cannot be assigned twice in one booking
+* Seat saved with passenger",10282,SF-41,"EPIC 5: Passengers, Seats & Baggage"
+Story,SF-47,10290,5.2 – View seat map,"*As a user*
+I want to view seat availability
+So that I can choose seats
+
+*Acceptance Criteria*
+
+* Seat map loaded from flight model
+* Selected seats shown as unavailable",10282,SF-41,"EPIC 5: Passengers, Seats & Baggage"
+Story,SF-46,10288,5.1 – Add passengers,"*As a user*
+I want to add passenger details
+So that the booking has traveler information
+
+*Acceptance Criteria*
+
+* Required passenger fields validated
+* Passenger linked to booking",10282,SF-41,"EPIC 5: Passengers, Seats & Baggage"
+Story,SF-40,10281,4.3 – List my bookings,"*As a user*
+I want to see all my bookings
+So that I can manage them
+
+*Acceptance Criteria*
+
+* Only user’s bookings shown
+* Sorted by booking time or travel date",10275,SF-37,EPIC 4: Booking Core
+Story,SF-39,10279,4.2 – View booking details,"*As a user*
+I want to view my booking
+So that I can confirm travel details
+
+*Acceptance Criteria*
+
+* Only booking owner can view
+* Shows flight, route, date, status",10275,SF-37,EPIC 4: Booking Core
+Story,SF-38,10277,4.1 – Create booking,"*As a logged-in user*
+I want to create a booking
+So that I can reserve a selected flight
+
+*Acceptance Criteria*
+
+* User must be logged in
+* Booking created with status {{PENDING}}
+* Booking reference generated",10275,SF-37,EPIC 4: Booking Core
+Story,SF-36,10274,3.3 – View flight schedule details,"*As a user*
+I want to view flight details
+So that I can decide before booking
+
+*Acceptance Criteria*
+
+* Shows airline, route, date, time, model
+* Data matches selected schedule",10270,SF-33,EPIC 3: Flight Search (Multi-Airline)
+Story,SF-35,10273,3.2 – Search return flights,"*As a user*
+I want to search return flights
+So that I can plan a round trip
+
+*Acceptance Criteria*
+
+* Return date ≥ departure date
+* Outbound and return flights displayed",10270,SF-33,EPIC 3: Flight Search (Multi-Airline)
+Story,SF-34,10272,3.1 – Search one-way flights,"*As a user*
+I want to search one-way flights
+So that I can see available flights across airlines
+
+*Acceptance Criteria*
+
+* From, to, date are mandatory
+* Results include airline, flight code, time
+* Message shown if no flights available",10270,SF-33,EPIC 3: Flight Search (Multi-Airline)
+Story,SF-32,10269,2.4 – Update profile,"*As a user*
+I want to update my profile
+So that my details stay current
+
+*Acceptance Criteria*
+
+* Profile fields updated successfully
+* Changes persist after reload",10261,SF-28,EPIC 2: User & Authentication
+Story,SF-31,10267,2.3 – User logout,"*As a user*
+I want to log out
+So that my session is secure
+
+*Acceptance Criteria*
+
+* Session / token invalidated
+* User redirected to login",10261,SF-28,EPIC 2: User & Authentication
+Story,SF-30,10265,2.2 – User login,"*As a user*
+I want to log in
+So that I can access booking features
+
+*Acceptance Criteria*
+
+* Valid credentials allow login
+* Invalid credentials show error
+* Session / token created",10261,SF-28,EPIC 2: User & Authentication
+Story,SF-29,10263,2.1 – User registration,"*As a user*
+I want to create an account
+So that I can book flights
+
+*Acceptance Criteria*
+
+* Email is unique
+* Required fields validated
+* User account created successfully",10261,SF-28,EPIC 2: User & Authentication
+Story,SF-27,10260,1.2 - Seed master data,"*As a developer*
+I want to prepopulate master data
+So that search and booking can be tested immediately
+
+*Acceptance Criteria*
+
+* Airlines, destinations, routes created
+* Flight models with seat mapping added
+* Flights and flight schedules seeded
+* Data visible via DB queries / APIs",10135,SF-8,"Epic 0: Project Setup, Research & Agile Planning"
+Story,SF-26,10258,1.1 - Database schema & migrations,"*As a developer*
+I want database migrations
+So that the schema can be created consistently across environments
+
+*Acceptance Criteria*
+
+* All tables are created successfully
+* One command sets up the schema from scratch",10135,SF-8,"Epic 0: Project Setup, Research & Agile Planning"

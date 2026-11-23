@@ -1,0 +1,273 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Adaptive Adversarial Attacks versus External Chain-of-Thought Monitoring in Large Language Models: A Comparative Analysis\\}
+
+
+\author{\IEEEauthorblockN{Deepak Rajamanickkam}
+\IEEEauthorblockA{\textit{School Of Computing} \\
+\textit{DCU}\\
+Dublin, Ireland \\
+deepak.rajamanickkam2@mail.dcu.ie}
+
+\and
+\IEEEauthorblockN{Mohankumar Muthusamy}
+\IEEEauthorblockA{\textit{School Of Computing} \\
+\textit{DCU}\\
+Dublin, Ireland \\
+mohankumar.muthusamy2@mail.dcu.ie}}
+
+\maketitle
+
+\begin{abstract}
+Large Language Models (LLMs) are increasingly integrated in high-impact applications like customer support, coding, document processing, finance and tool-using AI agents so their security has become a real engineering problem rather than a theoretical one. The security landscape has moved from single-shot jailbreak prompts to adaptive, multi-turn adversarial strategies that led an attacking system to learn its failures, and iteratively refine prompts with respect to past conversation, often bypassing static guardrails such as keyword filters, templated refusals, and sanitisation approaches. This literature review synthesizes two connected strands: (i) adaptive adversarial attacks, including automated approaches that optimize over interactions using reinforcement learning and search-based procedures, and (ii) external (black-box) defense mechanisms, with a specific focus on Chain-of-Thought (CoT) monitoring, motivated by the observation that harmful behavior frequently originates within the reasoning process before it appears in the final output. While recent work proposes monitors that flag risky reasoning traces without having access to models' internal activations, gradients, or weights. Implementing realistic API-based constraints for Consumer applications. Hence, the evidence base remains uneven: attackers are becoming more adaptive and optimisation-driven, yet defences are often static, evaluated on fixed benchmark suites, or limited to output-only judgments that miss the reasoning pathway attackers are using. Even when monitoring is used, evaluations rarely stress-test it against an adversary that actively optimises to evade the monitor, leaving uncertainty about robustness under feedback. The review therefore, identifies a central gap: the field lacks rigorous end-to-end evaluation of external CoT monitors against adaptive, learning-driven attackers, particularly Q-learning-style strategies combined with semantic mutation (e.g., cosine-similarity preserving rewrites) in realistic multi-turn settings, and it motivates a research framework that treats attack and defence as a coupled feedback loop with a strong reasoning model as judge to measure success consistently.
+
+\end{abstract}
+
+\vspace{1em} % <-- adds space between abstract and keywords
+
+\renewcommand\IEEEkeywordsname{Keywords}
+\begin{IEEEkeywords}
+Large Language Models, Prompt Injection, Adaptive Adversarial Attacks, Reinforcement Learning, Chain-of-Thought Monitoring, Black-Box Defense, Multi-Turn Interaction, Reasoning-Based Evaluation.\end{IEEEkeywords}
+
+\section{Introduction}
+
+Large Language Models (LLMs) have moved from standalone software to foundational infrastructure. Various companies now plug them into their systems like customer support, internal knowledge search, code generation, document processing, and tool-using agents that can browse, call APIs, and execute actions autonomously. That shift expands capability, but it also expands the vulnerability. Once an LLM is integrated into a workflow that touches proprietary data, financial decisions, or automated actions, the model becomes a critical security boundary. Recent surveys and technical analyses converge on the same warning: prompt injection now ranks among the most common and damaging LLM-specific vulnerabilities, and it appears as a first-class risk in emerging industry guidance, including the OWASP Top 10 for LLM applications \cite{b1,b3}. Attackers do not need exploits in the conventional sense; they often only need the right sequence of instructions to exploit the model's goal, override policies, or exfiltrate secrets through  outputs \cite{b1,b3}.
+
+Early defenses responded like traditional content moderation systems like filter the input, filter the output, and block suspicious strings. That strategy fails against adversaries who do not reuse exact matching strings. Prompt injection rarely depends on a single keyword; it depends on semantics, context, and instruction priority. Modern attackers paraphrase, role-play, nest instructions in long contexts, or distribute malicious intent across multiple turns so that any one message looks harmless. Even practical, widely adopted guardrails such as input-output classifiers designed to label unsafe content, inherit this limitation because they learn decision boundaries from datasets and heuristics that attackers can probe and route around \cite{b17}. Llama Guard is a black-box safeguard, but an attacker can still iterate: they can test prompts, observe refusal response, and mutate the wording until the model or the guard misclassifies the intent and gives the inappropriate response \cite{b17}. This dynamic creates the core gap that motivates this review.
+
+Adaptive attacks treat the target system as an environment that returns feedback. The adversary does not guess once; the adversary searches. Some attack lines optimize prompts via iterative feedback procedures like discrete optimization, where the attacker repeatedly edits a prompt to increase jailbreak success while keeping malicious intent intact. Others go further and frame the attack as a sequential decision problem: the attacker chooses actions across turns, collects rewards when the system yields restricted behaviour, and updates its strategy over time. Recent work on RL-driven and semantic-driven multi-turn attacks illustrates how quickly an attacker can turn dialogue into an optimization loop, especially when the target system includes external tools or long-term memory \cite{b14,b15,b16}. This work shows that defenders can’t rely on static assumptions anymore they have to expect attackers to adjust and evolve.
+
+Chain-of-Thought (CoT) reasoning plays a vital role here. Many modern LLM workflows encourage models to “think step by step” because CoT improves performance on complex tasks by breaking down the reasoning. That reasoning trace, however, also exposes a potential detection surface. Korbak et al.\ argue that CoT can make model behaviour more monitorable because intermediate reasoning can reveal intent, constraint violations, or goal misalignment before it is filtered in the final answer \cite{b6}. This insight motivates different defensive ways: rather than only filtering the final output, a system can monitor the reasoning process itself. Once an adversary optimises against monitoring, they may learn to obfuscate reasoning or shift harmful intent into indirect form\cite{b6,b7}. CoT has both opportunity and risk.
+
+This review focuses on that contrast. It  research on adaptive adversarial attacks spanning optimization-driven prompt search, reinforcement learning agents, and multi-turn semantic manipulation and contrasts those threats with defenses that rely on external monitoring, especially CoT-based oversight \cite{b6,b14,b15,b16}. The central question asks how the system behaves when both sides adapt. By framing prompt injection as an interactive, feedback-driven security problem, this review sets up the need for evaluation methods that stress-test CoT monitors under adaptive pressure rather than usual static benchmark suites \cite{b1,b3,b17}.
+
+\section{Background and Technical Overview}
+\subsection{Threat Model and Taxonomy of Adversarial Attacks}
+
+A  discussion of LLM security requires an explicit threat model. This review assumes a black-box deployment setting, where the defender and attacker interact with the model only through an API. Neither party has access to internal weights, gradients, hidden states, or training data. The only observable data are textual inputs and outputs, and optionally probability scores if exposed and COT. This environment reflects real-world enterprise deployments and sharply distinguishes the feasible defensive space from white-box methods that rely on internal model configurations.
+
+Within this black-box setting, adversarial behaviour in LLMs falls into two main categories: prompt injection and jailbreaking. Prompt injection manipulates the model within a bounded  context by inserting malicious instructions that override or conflict with system-level directives \cite{b2,b4}. The objective is typically to exfiltrate sensitive data, alter tool execution behaviour, or redirect the model's reasoning path without modifying any model configuration. In contrast, jailbreaking aims to bypass the model's safety alignment entirely, eliciting disallowed content regardless of context \cite{b2}. Jailbreak prompts frequently exploit instruction hierarchy confusion, role-play framing, or complex multi-turn instructions.
+
+Both categories share a common mechanism: adversarial prompting, defined as the deliberate construction or optimisation of input sequences to get a specific target output distribution \cite{b10}. Unlike traditional adversarial machine learning, which has continuous feature spaces, adversarial prompting operates in a discrete token space. Optimisation-based attacks iteratively modify token sequences to maximise attack success rate while maintaining fluency and semantic meaning \cite{b10}. Crucially, these attacks require no modification of model parameters; they exploit the model's learned instruction-following behaviour.
+
+The difference between static and adaptive attacks becomes critical. Static attacks depend on fixed templates or handcrafted patterns. Adaptive attacks treat the target system as an interactive environment, adjusting strategy based on observed responses. Recent work shows that adaptive adversaries can probe defences, detect decision boundaries, and iteratively refine prompts across multiple turns to increase success probability \cite{b16}. In agentic settings, where LLMs control tools or accumulate context, this sequential interaction amplifies risk.
+
+This taxonomy clarifies two foundational constraints for the remainder of this review: (i) the attacker operates in a black-box, query-based environment, and (ii) the threat model includes multi-turn interaction. Under these conditions, effective defence cannot depend on internal gradient signals or weight inspection. It must instead operate on observable behaviour either at the output level or within intermediate reasoning traces.
+
+\subsection{Reinforcement Learning as Adversarial Optimization}
+
+Adaptive LLM attacks can be formalised as a sequential decision-making problem. Reinforcement learning (RL) provides the mathematical foundation for this problem. In a standard Markov Decision Process (MDP), an agent interacts with an environment defined by a state space $\mathcal{S}$, action space $\mathcal{A}$, transition dynamics $T$, and reward function $R$. The goal is to learn a policy $\pi(a\mid s)$ that maximises expected cumulative reward over time \cite{b5}. In Q-learning, the agent estimates an action-value function $Q(s,a)$ and iteratively updates it based on reward received, discount factor, and the maximum estimated future action value of the next state \cite{b5}.
+
+In the context of LLM attacks, this mapping becomes concrete. The state corresponds to the prompt history and model responses received so far. The action represents an attack strategy like paraphrasing, semantic modification or role playing. The reward is given when the attack success, bypassing the model guard rail. The transition function reflects how the model's response changes to the modified prompt. This setup enables an attacker to perform adaptive multi-turns rather than depending on fixed templates.
+
+Recent work demonstrates that attackers can implement this feedback loop in practice. RL-driven LLM agents iteratively generate, evaluate, and refine prompts based on feedback signals, effectively treating the target victim model as a black-box environment \cite{b14}. Similarly, adaptive multi-turn attacks explicitly model dialogue as a sequential process in which each response decides the next adversarial move \cite{b15,b16}. Unlike static optimization-based methods \cite{b10}, RL-style approaches can learn defense-aware strategies, increasing robustness against simple filtering mechanisms.
+
+\subsection{Semantic Mutation and Cosine Similarity}
+
+Adaptive attacks rarely rely on direct keywords. Instead, they preserve malicious intent while modifying the input. This process can be described as \emph{semantic mutation}: generating different phrasings that remain close in meaning to the same objective but differ lexically enough to bypass pattern-based defences. In embedding space, semantic similarity can be measured using cosine similarity, which measures the angular distance between vector representations of two phrases \cite{b14}.
+
+If an attacker can generate paraphrases that maintain intent while shifting words, the decision boundary of such defenses becomes easy to find. Transfer-based adversarial methods illustrate this phenomenon: by optimizing prompts against a surrogate model or using reasoning traces to plan mutation, attackers can craft inputs that generalize across models while preserving attack semantics \cite{b11}. Optimisation-based jailbreak methods similarly depend on iterative token edits to maximise attack success while maintaining fluency \cite{b10}.
+
+From an architectural standpoint, semantic mutation transforms the attack into a search problem to find a proper prompt with the same meaning. The attacker seeks inputs that satisfy two objectives simultaneously: (i) remain semantically matched with the malicious goal, and (ii) avoid triggering defensive classifiers. Cosine similarity provides a practical constraint mechanism ensuring that mutations stay close to the original intent while exploring new phrases. This dual-objective framing directly supports the integration of Q-learning and embedding-based mutation strategies, where the reward balances semantic and attack success.
+
+\subsection{Chain-of-Thought Reasoning and External Monitorability}
+
+Chain-of-Thought (CoT) reasoning refers to the explicit generation of model’s intermediate reasoning steps before producing a final output. The model produces a structured sequence of logical steps that decompose the problem into sub-tasks \cite{b24,b25}. Evidence shows that If model does not give out its CoT, we can prompt models to give the reason step-by-step which improves performance on arithmetic, planning, and multi-hop reasoning tasks, particularly in zero-shot and few-shot settings \cite{b25}. As a result, CoT has become common in agentic flow and tool-augmented systems where structured reasoning improves reliability.
+
+From a security point of view, CoT introduces a second observable signal beyond the final output. If the model externalizes its reasoning in natural language, that reasoning trace becomes available for inspection in black-box settings where the model’s internal weights are unknown. This property creates a new way for monitoring harmful intent, policy violations, or instruction hierarchy manipulation may appear in the reasoning trace before they fully perform in the final answer \cite{b6}. For an instance, a model might internally reason about retrieving restricted information even if the final answer is partially sanitized. Monitoring the reasoning pathway, therefore offers earlier detection of the model’s harmful intent compared to output-only filtering.
+
+However, monitoring CoT for detecting the model’s harmful behaviour is not foolproof. Once monitoring becomes part of the system, the model may attempt to hide or make reasoning look safe in the visible trace, though still behaving in a harmful way \cite{b6,b7}. If an attacker optimizes prompts against a monitor, the reasoning itself may become strategically minimal or misleading. 
+
+In a strictly black-box deployment, CoT monitoring remains a good viable option because it does not require access to gradients or internal activations. It operates entirely on observable text. Therefore, whether external monitors continue to be effective in the face of adaptive, optimization-driven attackers is the primary technical question, not whether CoT can reveal risk \cite{b7}.
+
+\subsection{The Evaluation Oracle: LLM-as-a-Judge}
+
+Evaluating adversarial success in LLM systems is very important. Previous techniques relied on keyword matching or simple refusal detection to measure the outcome of the jailbreak attack. But these metrics fail when responses are semantically compliant yet lexically subtle. A model can produce harmful content without triggering obvious harmful strings, and conversely, a benign output may contain surface-level tokens that resemble policy violations. As attacks become semantic and multi-turn, evaluation must move beyond regex-style heuristics.
+
+Recent literature adopts the \emph{LLM-as-a-Judge} paradigm, where a stronger reasoning model is used to evaluate the outputs of a target system against structured criteria \cite{b9}. Instead of relying only on fixed patterns, the LLM-based judge would be able to assess semantic alignment, policy adherence, and task compliance. This method supports nuanced assessments like implicit bias or contextual violations of policy and scales evaluation across extensive benchmark suites \cite{b9}. It also aligns naturally with black-box deployments, since both attacker and evaluator interact with the target model via text where internal details are unknown.
+
+However, using LLM as a Judge introduces a second layer of complexity. A judge must have sufficient reasoning depth and be able to detect subtle violations, especially in long Chain-of-Thought traces. Methods that explicitly contrast valid and invalid reasoning paths generated from model outputs are motivated by the fact that CoT traces are not always reliable and that reasoning can change and accumulate errors over steps \cite{b26}. Evidence shows that models vary significantly in their ability to critique reasoning or identify logical errors within extended CoT outputs \cite{b8}. Evaluation becomes unstable if the judge has a poor reasoning capacity, and some attacks may succeed undetected. This instability directly affects the validity of attack-defense comparisons.
+
+Therefore, evaluation itself becomes part of the system architecture. An effective LLM judge must identify semantic violations beyond surface patterns and reason over intermediate traces when necessary. The move towards strong reasoning models as evaluators reflects this need. In an adaptive environment, where attacks optimize and evolve against defenses and potentially against evaluation signals, the robustness of the judge becomes foundational to credible measurement.
+
+\section{Offensive Approaches: The Evolution of LLM Attacks}
+
+The offensive environment surrounding Large Language Models has changed from manually engineered prompt scripts to automated optimisation and to adaptive learning agents. Across existing surveys, prompt injection and jailbreaking emerge as the most dominant attack vectors in deployed systems \cite{b1,b2,b3,b4}. What sets the recent work apart is not just improved success rates, but the transformation of attacks into structured search and learning problems. This section outlines that escalation.
+
+\begin{table*}[!t]
+\caption{Comparative Summary of LLM Attack Literature}
+\label{tab:offensive-literature}
+\centering
+{\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{|L{3.8cm}|L{3.6cm}|L{2.6cm}|L{6.3cm}|}
+\hline
+\textbf{Paper (Year)} & \textbf{Attack Method} & \textbf{Access Level} & \textbf{Key Limitation} \\
+\hline
+\cite{b10} Universal \& Transferable Adversarial Attacks on Aligned LMs (2023) & Optimization-based adversarial suffix / universal prompt & Mixed (optimization + transfer, not purely API-native) & High search/compute for suffix discovery, focuses on output bypass more than monitor evasion and limited multi-turn modeling \\
+\hline
+\cite{b11} CTTA (CoT Transfer Adversarial Attacks) (2025) & CoT-guided transfer + perturbation that includes CosSim quality checking & Black-box (transfer-based) & Transfer depends on substitute--target similarity. Attack framed around task performance degradation, not defenses like CoT monitors \\
+\hline
+\cite{b12} Contextual Backdoor Attacks on LLM-Driven Embodied Agents (2025) & Contextual trigger / backdoor-style attack (includes dataset poisoning language) & Strong access assumptions (poisoning / backdoor setup implied) & Often assumes supply-chain / training-time leverage, less representative of pure black-box API attackers \\
+\hline
+\cite{b13} Red Teaming Language Model Detectors with Language Models (2024) & Iterative mutation / detector evasion (genetic-style red-teaming) & Black-box (query-based) & Query/sample intensive. Targets detectors, not end-to-end LLM agent pipelines or CoT-monitor layers \\
+\hline
+\cite{b14} RL-Driven LLM Agent for Automated Attacks (2024) & RL-style automated attacker agent (prompt generation/refinement loop) & Mixed (covers different scenarios) & Still feedback/query heavy, RL agent $\neq$ explicit Q-learning. Evaluation mainly against output/behavioral success, not CoT-monitor robustness \\
+\hline
+\cite{b15} Chain of Attack (Semantic-Driven Contextual Multi-Turn Attacker) (2024) & Semantic multi-turn attack strategy & Black-box & Multi-turn raises state/query cost, optimization focuses on eliciting unsafe outputs rather than defeating reasoning monitors \\
+\hline
+\cite{b16} Adaptive Attacks Break Defenses Against Indirect Prompt Injection on Agents (2025) & Adaptive attacker against agent defenses (defense-aware) & Black-box & Strongly benchmark/defense-dependent, evaluates breaking defenses but not designed around CoT-monitor evasion specifically \\
+\hline
+\end{tabular}
+}
+\end{table*}
+
+\subsection{Static and Contextual Template Attacks}
+
+Initial jailbreak techniques focused on manually engineered prompts that exploit instruction hierarchy confusion, role-play framing, or override directives \cite{b2,b3}. These attacks manipulate the model's thinking without modifying model parameters. Because alignment layers prioritize recent user instructions, carefully constructed prompts can redirect model behavior despite safety policies.
+
+Contextual injection attacks build on this paradigm. Instead of using explicit override phrases, adversaries embed malicious intent within seemingly benign task relevant input. Within agentic settings, contextual triggers can reshape downstream tool usage and decision-making processes, leading to cascading behavioral compromise \cite{b12}. These attacks show that the input channel by itself is sufficient to subvert aligned behaviour, especially in multi-step environments \cite{b1,b4}.
+
+However, both static and contextual template attacks share a structural limitation: brittleness. Once a trigger pattern is identified, thedevelopers can mitigate it through rule based filtering, classifier updates, or prompt restructuring \cite{b2,b17}.In the absence of attacker adaptation, success relies on unpatched surface patterns. As defensive classifiers evolve, fixed templates lose effectiveness quickly. Overall, these methods align more with static exploits than with strategic adversaries.
+
+The limitations of template based attacks led to the development of systematic prompt optimization strategies.
+
+\subsection{Optimization and Transfer Attacks: Structured Search in Prompt Space}
+
+In optimization based attacks, jailbreak discovery is treated as a search problem over discrete token sequences. Rather than manually crafting prompts, attackers iteratively adjust tokens to maximise a policy violation objective. These universal adversarial suffixes demonstrate that well-optimised token sequences are capable of bypassing alignment mechanisms across multiple models \cite{b10}. In doing so, these methods approximate gradient based reasoning in discrete space using coordinate wise search.
+
+Transferability significantly expands the attack surface. Adversarial prompts optimized on surrogate systems can generalize to unseen models by exploiting structural similarities in alignment behavior \cite{b11}. By using reasoning traces or proxy objectives, attackers reduce reliance on direct gradient access while maintaining effectiveness \cite{b11}.
+
+Despite their empirical success, optimization based methods introduce practical feasibility constraints. First, many approaches assume gradient access or depend on surrogate gradients during the search process \cite{b10}. Even in black-box settings, these methods typically require thousands of queries to explore the combinatorial token space \cite{b2}. This high query complexity limits their practicality under rate-limited API conditions.
+Second, optimization based jailbreaks largely operate in a single-shot paradigm. Wherein, a crafted suffix is attached to a prompt and evaluated independently of dialogue history. As a result, these attacks do not capture sequential interaction or dynamic feedback loops \cite{b3,b4}. With LLM deployments increasingly involving multi-turn agents and tool execution, single-shot optimization does not reflect realistic threat models.
+
+Finally, evaluation in this era primarily targets output-level alignment bypass, not reasoning-level monitoring. Success is measured by the presence of restricted content, rather than by manipulation of intermediate reasoning traces. As defensive strategies move toward inference monitoring, this evaluation gap becomes significant.
+
+When gradient access is restricted and query budgets are constrained, attackers require mechanisms that learn efficiently from observable feedback alone.
+
+\subsection{Adaptive and Reinforcement Learning--Based Attacks}
+
+The most recent phase of adversarial research treats the target LLM as an interactive environment. Rather than optimizing a static suffix, adaptive attackers iteratively probe, observe responses, and refine strategy across turns.
+
+The most recent phase of adversarial research treats the target LLM as a interactive environment rather than optimizing a static suffix, adaptive attackers iteratively probe, observe responses and refine strategy across turns.
+
+Reinforcement learning driven frameworks automate the prompt discovery by updating strategies according to the reward signals derived from jailbreak success \cite{b14}. This framing transforms the prompt injection into a sequential decision making problem, which aligns with broader classifications of automated adversarial exploration \cite{b2}. By incorporating feedback, the attacker approximates decision boundaries without gradient access.
+
+Multi turn semantic attacks further expand in this paradigm. Sequential contextual manipulation increases the success probability by leveraging dialogue history and accumulated state \cite{b15}. In agentic environments, where context influences the downstream actions, multi turn adaptation becomes particularly potent \cite{b3,b4}. Empirical studies show that adaptive agents can systematically bypass the deployed defenses by refining prompts in response to rejection signals \cite{b16}.
+
+Evolutionary approaches intensify the arms race dynamic. Iterative mutation and fitness based selection enable attackers to evade detection systems without gradient access \cite{b13}. However, such genetic strategies often incur high sample complexity. Exploration heavy mutation requires extensive querying before converging on successful variants, making them costly in rate limited settings.
+
+
+Although adaptive methods represent a clear advancement over static scripts and gradient heavy optimization, limitations remain. Many approaches rely on heuristic or genetic search rather than structured value based learning, which leads to inefficient exploration. Reinforcement learning frameworks exist \cite{b14}, yet few formalize sample efficient q learning strategies tailored for discrete semantic mutation under strict black box constraints. Furthermore, evaluation primarily targets output level filters \cite{b17,b18}, rather than the reasoning level monitors.
+
+The progression from static templates to optimization based suffixes and finally to adaptive agents reveals a consistent escalation toward feedback driven adversaries. However, existing work rarely examines how such adaptive attackers interact with external Chain of Thought monitoring mechanisms \cite{b6,b23}. Most studies optimize against output classifiers or alignment layers, not inference  level oversight. This omission leaves an open question about how resilient are reason based monitors when confronted with learning driven adversaries? The next section examines defensive approaches in light of this escalation.
+\section{Defensive Approaches: From Output Filtering to Reasoning Monitoring}
+
+As offensive methods have evolved from static templates to adaptive agents, defensive strategies have undergone a parallel but uneven evolution. Early defenses treat LLM as a strict black box and focused on filtering inputs or outputs. In recent approaches, architectural complexity were introduced, including multi agent verification pipelines and unified detection frameworks. The latest line of work shifts draws attention to inference time reasoning, arguing that monitoring the intermediate Chain of Thought (CoT) traces may expose harmful intent to the final answers before they appear. This section examines the progression and evaluates its limitations under adaptive pressure critically.
+
+\subsection{Output-Level Guardrails and Static Filtering}
+
+The most widely deployed defensive mechanisms operate at the input or output boundary. Systems like Llama Guard employ a dedicated classification model to label user inputs and model responds as safe or unsafe and functioning as an external safeguard in conversational pipelines \cite{b17}. Because such systems operate entirely as the textual interface, they are compatible with black box API deployments which can be integrated without modifying model internals.
+
+Inference time perturbation strategies extend this paradigm. SMOOTHLLM introduces stochastic smoothing by perturbing prompts multiple times and aggregating responses to reduce jailbreak success rates \cite{b18}. The intuition resembles randomized smoothing in adversarial robustness: even if a small input variations produce inconsistent unsafe outputs, the defense can reject unstable prompts \cite{b18}.
+
+These methods share key characteristics like they treat the target model as opaque, rely on classification or aggregation heuristics, and primarily inspect the final output rather than  reasoning process. This design makes them deployable but structurally reactive. They also detect harmful outputs after they materialize rather than intercepting malicious intent during formation.
+
+The limitations become apparent under adaptive attacks. Reinforcement learning driven adversaries can probe classification boundaries and refine prompts until they evade static filters \cite{b14,b16}. Evolutionary strategies further demonstrate that the mutation based search can bypass detection systems given sufficient queries \cite{b13}. Because output level guardrails do not learn online in response to specific adversaries, so they operate with fixed decision boundaries. Adaptive attackers exploit this rigidity.
+
+Consequently, while output filtering remains necessary in production systems, it does not address the escalating sophistication of black box adaptive adversaries described in Section 3.
+
+\subsection{System-Level and Multi-Agent Defenses}
+
+Recognizing the limitations of simple filtering, subsequent research introduces system level architectures that distribute defensive responsibility across multiple components. AutoDefense proposes a multi agent defense pipeline in which a specialized agents analyze and verify outputs before final release \cite{b19}. By decomposing defense into stages generation, critique and refinement, the system attempts to reduce reliance on a single classifier \cite{b19}.
+
+Similarly, UniGuardian unifies detection of prompt injection, backdoor triggers, and adversarial prompts within a consolidated framework \cite{b21}. This approach emphasizes coverage across threat types rather than reliance on isolated heuristics. Continual defense frameworks further attempt to address evolving jailbreak strategies by incorporating ongoing updates and gating mechanisms within mixture of experts architectures \cite{b22}. The Expert integration approach route outputs through domain specific evaluators to reduce harmful responses \cite{b20}.
+
+These architectures increase robustness through redundancy and structural diversity. However, they introduce new challenges such as, integration complexity grows substantially. Multi agent pipelines require orchestration, latency overhead, and additional computational resources \cite{b19,b22}.  Another challenge is facing many frameworks assume deeper integration with the generation stack or periodic retraining, complicating deployment in strictly API based environments \cite{b21,b22}.
+
+More critically, adaptation remains limited. While continual defense frameworks attempt to address evolving jailbreaks \cite{b22}, most system level defenses still evaluate outputs rather than reasoning trajectories. Adaptive attackers that refine prompts across turns can gradually approximate the system's defensive logic \cite{b15,b16}. If the defense does not adapt in real time to the specific adversary, iterative probing can eventually uncover bypass strategies.
+
+Thus, system level defenses improve architectural robustness but do not fundamentally alter the information source being monitored. The primary signal always remains as final output.
+
+\begin{table*}[!t]
+\caption{Comparative Summary of LLM Defense Literature}
+\label{tab:defensive-literature}
+\centering
+{\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{|L{3.8cm}|L{3.3cm}|L{2.2cm}|L{6.3cm}|}
+\hline
+\textbf{Paper (Year)} & \textbf{Defense Method} & \textbf{Scope} & \textbf{Key Limitation} \\
+\hline
+\cite{b17} Llama Guard (2023) & LLM-based safety classification (input/output safeguard) & Input + Output & Boundary filtering is bypassable via semantic mutation and adaptive probing; does not inspect reasoning traces \\
+\hline
+\cite{b18} SMOOTHLLM (2024) & Randomized smoothing / perturb-and-aggregate defense & Input (perturbation) + Output decision & Multiple queries per decision (latency/cost), adaptive attackers can still search around the smoothed boundary \\
+\hline
+\cite{b19} AutoDefense (2024) & Multi-agent defense pipeline (generate/critique/refine) & System-level & Heavy orchestration + cost, still primarily judges final outputs, not the internal reasoning trajectory \\
+\hline
+\cite{b20} Expert Model Integration (2025) & External expert model routing / domain-aware safeguarding & System-level & Customization/integration overhead, generality unclear, not evaluated as adaptive defense vs adaptive attackers \\
+\hline
+\cite{b21} UniGuardian (2025) & Unified detection (prompt injection + backdoor + adversarial) with multiple signals & Mixed (input/output + scoring signals) & Some components rely on model-scoring style signals (e.g., loss/PPL behavior); may be less feasible for strict APIs, adaptation to evolving attackers remains limited \\
+\hline
+\cite{b22} Continual Defense (Linear-Gating MoE) (2025) & Continual/CL defense across evolving jailbreak task sequences & System-level & Training + orchestration heavy; relies on generated labels (GPT-4o mentioned), still unclear robustness against defense-aware adaptive agents at inference time \\
+\hline
+\cite{b23} Meticulous Thought Defender (2025) & Fine-grained CoT-based prompt injection detection & Reasoning (CoT) & Assumes CoT is available and informative, vulnerable to obfuscation pressure and not yet shown robust against adaptive RL attackers \\
+\hline
+\cite{b6} CoT Monitorability (2025) & Conceptual + empirical framing: reasoning traces can expose intent & Reasoning (CoT) & Shows opportunity but stresses fragility: monitoring can change model behavior and reduce visibility of intent \\
+\hline
+\cite{b7} Monitoring Reasoning Models (Misbehavior + Obfuscation Risk) (2025) & Monitor reasoning for misbehavior, analyzes obfuscation incentives & Reasoning (CoT) & Strong warning: monitors can incentivize hidden reasoning and makes reasoning visibility a moving target \\
+\hline
+\end{tabular}
+}
+\end{table*}
+
+\subsection{Chain-of-Thought and Inference-Time Reasoning Monitoring}
+
+The most recent defensive shift reframes the problem: instead of monitoring outcomes, monitor the reasoning process. Chain of Thought prompting externalizes intermediate reasoning steps prior to answer generation \cite{b24,b25}. When models expose structured reasoning traces, the traces become observable artifacts in black box settings.
+
+Monitorability research argues that harmful intent may be visible within these reasoning steps before it manifests in the final output \cite{b6}. For example, a model might reason about accessing restricted information even if the final answer appears partially sanitized. Monitoring intermediate reasoning therefore offers earlier detection and richer semantic context than output only filtering \cite{b6}.
+
+Meticulous Thought Defender operationalizes this idea by analyzing fine grained CoT tracks to detect prompt injection attempts \cite{b23}. By inspecting reasoning level signals rather than final text alone, such approaches attempt to identify manipulation patterns that static classifiers miss. This aligns naturally with black box constraints: reasoning traces are textual and do not require gradient access or hidden state inspection.
+
+However, monitorability introduces its own fragility. Research on reasoning model oversight highlights that once monitoring becomes part of the system, optimization pressure may incentivize obfuscation or suppression of harmful intermediate steps \cite{b7}. An adaptive attacker could attempt to minimize visible reasoning or distribute malicious intent across turns to evade trace level detection. Thus, CoT monitoring improves observability but does not eliminate adversarial adaptation.
+
+Compared to output filtering, inference time reasoning monitoring offers a deeper semantic lens. It shifts defense from surface tokens to structured cognitive traces. Yet current evaluations rarely examine how such monitors perform against learning driven adversaries that explicitly optimize against them \cite{b14,b16}. Most CoT based defenses assume static attack distributions rather than adaptive policy learning attackers.
+
+This asymmetry defines the present state of defensive research. Attackers increasingly incorporate feedback loops and sequential optimization \cite{b14,b15,b16}, while defenses whether output level \cite{b17,b18}, system level \cite{b19,b21,b22}, or reasoning level \cite{b23} remain largely static in their interaction with specific adversaries. The transition from monitoring outputs to monitoring reasoning marks a significant conceptual advance \cite{b6}, but it has not yet been rigorously evaluated under adaptive, black box reinforcement learning pressure.
+
+The next section synthesizes these offensive and defensive strands to examine this unresolved interaction.
+
+\section{Research Gaps}
+
+The literature demonstrates a continuous adaptation of attacks and defence failing against them. Offensive work has moved from fixed naive jailbreak scripts to systems that iteratively probe, update, and refine prompts across turns, including RL-driven attacker agents and semantic multi-turn attack strategies \cite{b14,b15}. Defence aware attacks show that once an adversary can observe refusals, harm patterns and partial compliance, it can systematically learn overcome strategies against deployed safety mechanisms \cite{b16}, while iterative mutation-based red-teaming demonstrates the same feedback advantage against detectors, even without having access to internal gradients \cite{b13}. In contrast, widely used defences remain largely static at inference time \cite{b17}, Smoothing-based defenses improve robustness via randomized input perturbation and aggregation; however, they remain static and do not adapt to an attacker’s evolving strategies \cite{b18}, and multi-agent pipelines increase redundancy yet typically do not adapt online to the specific adversary in the loop \cite{b19}. Even continous defenses primarily focus offline updating across distributions rather than real-time adaptation during an interaction \cite{b22}. This gap marks the point where the problem arises, we have adaptive attackers and mostly non-adaptive defenses, but we lack a rigorous study of their interaction as a coupled feedback system. 
+
+A second gap is deployment practicality under black-box constraints. Real systems increasingly rely on closed-weight, API-hosted models, making defenses that require privileged internal access less useful in practice. Surveys and technical analyses repeatedly emphasize that prompt injection and jailbreak risk persists even when defenders cannot inspect gradients or activations \cite{b1,b2,b3,b4}. Many defenses are black-box which includes input/output guardrails \cite{b17}, smoothing \cite{b18}, and system-level orchestration \cite{b19,b20} but they mainly monitor outcomes rather than the pathway by which an attacker shapes intent. CoT monitoring offers a deployment-realistic alternative because reasoning traces can be observed as text and may reveal harmful intent before it appears in final outputs \cite{b6}. Monitoring model’s CoT is fragile because optimization pressure can incentivise obfuscation or hide visible reasoning, weakening the very signal the defence depends on \cite{b7}. The literature has not settled whether external, black-box CoT monitoring remains robust when the attacker explicitly adapts to evade it. That unanswered question defines a concrete engineering gap for research in monitoring CoT based defences.
+
+A third gap concerns evaluation reliability. As attacks become semantic and multi-turn, simple heuristics such as keyword or regex checks fail to measure success accuracy. The field increasingly uses LLM-as-a-judge protocols to scale semantic evaluation and standardise scoring across large benchmark suites \cite{b9}. However, judges are not completely reliable. Evidence shows that models vary in their critical thinking and reasoning ability to critique or verify long reasoning traces, which creates instability in safety assessment, especially when monitoring Chain-of-Thought \cite{b8}. In addition, work on monitoring warns that systems may become less transparent under oversight, which is a problem for both monitoring and judging \cite{b7}. Together, these results imply that evaluation itself becomes a weak link
+
+
+\section{Conclusion}
+
+This review paved a clear trajectory in LLM security research: static jailbreak prompts and contextual triggers gave way to optimisation-driven prompt search and transferable adversarial prompting, and more recently to adaptive agents that learn from interaction and feedback \cite{b10,b12,b13,b14,b15,b16}. Offensive capability now works through a multi-turn state, iterative refinement, and feedback-loop system, enabling systematic bypass of defences that are designed against fixed prompt sets \cite{b13,b14,b15,b16}. Defensive work has also progressed from deployable input/output guardrails and smoothing-based robustness techniques to more complex system-level pipelines and inference-time monitoring of reasoning traces \cite{b17,b18,b19,b23}. Still, the central finding is that defences are still largely not adaptive: many remain static at reasoning time, focus on final outputs rather than intent of the prompt, and are rarely  evaluated against adaptive adversaries that optimise to bypass them \cite{b17,b18,b19,b23}. Research on CoT monitorability establishes why monitoring the reasoning process can reveal harmful intent earlier than output filtering, while also warning that monitoring can be fragile under optimization pressure and may induce unclear output \cite{b6,b7}. Finally, evaluation remains a structural dependency: LLM-as-a-judge protocols scale measurement, but judges are not reliable when reasoning traces become long or adversarially shaped \cite{b8,b9}. Taken together, the literature justifies the need for a research framework: an end-to-end evaluation of adaptive Q-learning attackers with semantic mutation against external Chain-of-Thought monitors with multi-turn settings, using a reasoning-capable judge to score success consistently.
+
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{Final-Biblio}
+\end{document}
