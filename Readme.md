@@ -1,4 +1,4 @@
-# CLAUDE.md
+# Readme.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -8,18 +8,18 @@ Master's degree (MSc Computing, Dublin City University) coursework for Mohankuma
 
 ## Subject Index
 
-Each subject folder has a `CLAUDE.md` with deep context. Read it before working in that area.
+Each subject folder has a `Readme.md` with deep context. Read it before working in that area.
 
 | Subject | Context | Key Project |
 |---|---|---|
-| [Blockchain](blockchain/CLAUDE.md) | Solidity, consensus, security vulnerabilities, exam prep | Smart contracts (Remix IDE) |
-| [Concurrent Programming](concurrent_programming/CLAUDE.md) | Java concurrency patterns, benchmarking | [ParallelPrimeFinder](concurrent_programming/ParallelPrimeFinder/CLAUDE.md) |
-| [Cryptography](cryptography/CLAUDE.md) | Block ciphers, hash functions, cryptanalysis | [FEAL-4 Linear Attack](cryptography/assignment_cryptanalysis/FEAL4LinearAttack/CLAUDE.md) |
-| [Formal Programming](formal_programming/CLAUDE.md) | Event-B, Rodin, refinement proofs | 8 Rodin specifications |
-| [Network Security](network_securtiy/CLAUDE.md) | Cisco Packet Tracer labs, DNS | `.pkt` simulation files |
-| [Professional Research](professional_research/CLAUDE.md) | Ethics, GDPR, AI regulation, exam prep | Essay-based assessment |
-| [Secure Software](secure_software/CLAUDE.md) | Buffer overflows, format strings, GDB, x86 stack | C labs + timed exam |
-| [Practicum](Practicum/CLAUDE.md) | LLM security research, Zotero library (81 papers) | Literature review |
+| [Blockchain](blockchain/Readme.md) | Solidity, consensus, security vulnerabilities, exam prep | Smart contracts (Remix IDE) |
+| [Concurrent Programming](concurrent_programming/Readme.md) | Java concurrency patterns, benchmarking | [ParallelPrimeFinder](concurrent_programming/ParallelPrimeFinder/Readme.md) |
+| [Cryptography](cryptography/Readme.md) | Block ciphers, hash functions, cryptanalysis | [FEAL-4 Linear Attack](cryptography/assignment_cryptanalysis/FEAL4LinearAttack/Readme.md) |
+| [Formal Programming](formal_programming/Readme.md) | Event-B, Rodin, refinement proofs | 8 Rodin specifications |
+| [Network Security](network_securtiy/Readme.md) | Cisco Packet Tracer labs, DNS | `.pkt` simulation files |
+| [Professional Research](professional_research/Readme.md) | Ethics, GDPR, AI regulation, exam prep | Essay-based assessment |
+| [Secure Software](secure_software/Readme.md) | Buffer overflows, format strings, GDB, x86 stack | C labs + timed exam |
+| [Practicum](Practicum/Readme.md) | LLM security research, Zotero library (81 papers) | Literature review |
 
 ## Cross-Subject Connections
 

@@ -82,4 +82,4 @@ Layer 2: Rollups (optimistic, ZK), payment channels, Lightning Network. Sharding
 
 ---
 
-*Related: [Root CLAUDE.md](../CLAUDE.md) | [Practicum](../Practicum/CLAUDE.md)*
+*Related: [Root Readme.md](../Readme.md) | [Practicum](../Practicum/Readme.md)*

@@ -66,10 +66,10 @@ Practicum/
 ## Connection to Other Modules
 
 The Practicum's LLM security focus connects directly to:
-- **[Blockchain](../blockchain/CLAUDE.md)** — The paper "Defense Mechanisms for LLM Security Vulnerabilities" by Mohankumar is stored in the blockchain folder
-- **[Cryptography](../cryptography/CLAUDE.md)** — Adversarial attack principles relate to cryptanalysis concepts
-- **[Secure Software](../secure_software/CLAUDE.md)** — Vulnerability exploitation patterns (injection, overflow) have parallels in LLM prompt injection
+- **[Blockchain](../blockchain/Readme.md)** — The paper "Defense Mechanisms for LLM Security Vulnerabilities" by Mohankumar is stored in the blockchain folder
+- **[Cryptography](../cryptography/Readme.md)** — Adversarial attack principles relate to cryptanalysis concepts
+- **[Secure Software](../secure_software/Readme.md)** — Vulnerability exploitation patterns (injection, overflow) have parallels in LLM prompt injection
 
 ---
 
-*Related: [Root CLAUDE.md](../CLAUDE.md) | [Blockchain](../blockchain/CLAUDE.md)*
+*Related: [Root Readme.md](../Readme.md) | [Blockchain](../blockchain/Readme.md)*

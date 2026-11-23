@@ -89,4 +89,4 @@ Requires Java 21. Dependencies: JUnit 5, SLF4J/Logback, Lombok.
 
 ---
 
-*Related: [Concurrent Programming](../CLAUDE.md) | [Root CLAUDE.md](../../CLAUDE.md)*
+*Related: [Concurrent Programming](../Readme.md) | [Root Readme.md](../../Readme.md)*

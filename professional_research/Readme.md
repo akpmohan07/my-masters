@@ -58,4 +58,4 @@ professional_research/
 
 ---
 
-*Related: [Root CLAUDE.md](../CLAUDE.md)*
+*Related: [Root Readme.md](../Readme.md)*
