@@ -1,0 +1,65 @@
+
+Template:
+
+int
+foo(   int x,   int y,   int z)
+    0x8(ebp) 0xc(ebp) 0x10(ebp)
+{
+ int a;
+}
+
+(gdb) disass foo
+Dump of assembler code for function foo:
+   0x08048412 <foo+0>:	push   %ebp             | prolog
+   0x08048413 <foo+1>:	mov    %esp,%ebp        | prolog
+   0x08048415 <foo+3>:	mov    0x8(%ebp),%edx   | copy parameter x in edx
+   0x08048418 <foo+6>:	mov    %edx,%eax        | copy parameter x in eax
+   0x0804841a <foo+8>:	shl    $0x2,%eax        | shift x left by 2 (* 4)
+   0x0804841d <foo+11>:	add    %edx,%eax        | add back x (giving x * 5)
+   0x0804841f <foo+13>:	pop    %ebp             | epilog
+   0x08048420 <foo+14>:	ret                     | epilog
+End of assembler dump.
+
+int
+foo (int x) {
+ return (x * 5);
+}
+
+Template:
+
+int
+foo(   int x,   int y,   int z)
+    0x8(ebp) 0xc(ebp) 0x10(ebp)
+{
+ int a;
+}
+
+(gdb) disass bar
+Dump of assembler code for function bar:
+   0x08048421 <bar+0>:	push   %ebp                     | prolog
+   0x08048422 <bar+1>:	mov    %esp,%ebp                | prolog
+   0x08048424 <bar+3>:	sub    $0x18,%esp               | make space on stack
+   0x08048427 <bar+6>:	cmpl   $0x0,0x8(%ebp)           | compare parameter x with 0
+                                                        | i.e. compute x - 0
+							| i.e. compute x
+   0x0804842b <bar+10>:	jg     0x8048434 <bar+19>       | if x greater than 0 goto A
+   0x0804842d <bar+12>:	mov    $0x1,%eax                | otherwise put 1 in eax
+   0x08048432 <bar+17>:	jmp    0x8048446 <bar+37>       | goto B (i.e. return 1)
+   0x08048434 <bar+19>:	mov    0x8(%ebp),%eax           | A) copy x in eax
+   0x08048437 <bar+22>:	sub    $0x1,%eax                | subtract 1 from x
+   0x0804843a <bar+25>:	mov    %eax,(%esp)              | put x-1 on stack
+   0x0804843d <bar+28>:	call   0x8048421 <bar>          | Call bar(x-1)
+   0x08048442 <bar+33>:	imul   0x8(%ebp),%eax           | return (x * bar(x-1))
+   0x08048446 <bar+37>:	leave                           | B)
+   0x08048447 <bar+38>:	ret                             | epilog
+End of assembler dump.
+
+int
+bar(int x)
+{
+ /* Calculate factorial x */
+ if (x <= 0) {
+   return (1);
+ }
+ return (x * bar(x - 1));
+}
